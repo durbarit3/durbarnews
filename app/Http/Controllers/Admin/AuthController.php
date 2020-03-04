@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class AuthController extends Controller
 {
     public function __construct()
@@ -92,6 +93,15 @@ class AuthController extends Controller
        ]);
        return redirect('/admin/login');
        
+    }
+
+
+    // admin logout area start
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/admin/login');
     }
 
 }

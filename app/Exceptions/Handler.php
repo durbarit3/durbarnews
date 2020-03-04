@@ -50,7 +50,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        // return parent::render($request, $exception);
+        
 
         $class = get_class($exception);
         switch ($class) {
@@ -70,7 +70,7 @@ class Handler extends ExceptionHandler
                 return redirect()->route($login);
                 break; 
         }
-        //return parent::render($request, $exception);
+        
         return parent::render($request, $exception);
     }
 }
