@@ -31,7 +31,7 @@
 		<!-- preloader -->
 		<div class="preloader">
 		<img src="{{asset('public/admin/images/preloader.gif')}}" alt="">
-	</div>public/
+		</div>
 		<!-- wrapper -->
 		<div class="wrapper">
             
@@ -59,8 +59,11 @@
 		<script src="{{asset('public/admins/js/bootstrap.min.js')}}"></script>
 		<!-- Fontawesome-->
 		<script src="{{asset('public/admins/js/all.min.js')}}"></script>
+		   <!-- custom js -->
+		<script src="{{asset('public/admins/js/custom.js')}}"></script>
         <!-- metis menu -->
-        <script src="https://unpkg.com/metismenu"></script>
+		<script src="https://unpkg.com/metismenu"></script>
+		
 
 		<script src="{{asset('public/admins/plugins/metismenu-3.0.4/assets/js/metismenu.js')}}"></script>
         <script src="{{asset('public/admins/plugins/metismenu-3.0.4/assets/js/mm-vertical-hover.js')}}"></script>
@@ -85,6 +88,52 @@
 		<!-- donut-chart -->
 		<script  src="{{asset('public/admins/plugins/donut-chart/dist/script.js')}}"></script>
 		<script  src="{{asset('public/admins/ajaxjs.js')}}"></script>
+		
+
+		@stack('scripts')
+		<script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+
+    <script>
+        $(document).on("click", "#delete", function (e) {
+            e.preventDefault();
+            var link = $(this).attr("href");
+            swal({
+                title: "Are you sure to delete?",
+                text: "Once Delete, This will be Permanently Delete!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location.href = link;
+                    } else {
+                        swal("Safe Data!");
+                    }
+                });
+        });
+    </script>
+    <script>
+        $(document).on("submit", "#multiple_delete", function (e) {
+            e.preventDefault();
+            var link = $(this).attr("href");
+            swal({
+                title: "Are you sure to delete all?",
+                text: "Once Delete, This will be Permanently Delete!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        document.getElementById('multiple_delete').submit();
+                    } else {
+                        swal("Safe Data!");
+                    }
+                });
+        });
+    </script>
+		
 		
 
 		
@@ -118,6 +167,8 @@
 				}
 				@endif
 		</script>
+
+
 
 
 

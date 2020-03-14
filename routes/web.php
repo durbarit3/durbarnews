@@ -44,10 +44,20 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
 // Menu area start
 
 Route::namespace('Admin')->prefix('admin')->group(function(){
-
     Route::get('/menu','AdminController@menuSetting')->name('admin.menu.setting');
     Route::get('/url/setting','AdminController@urlSetting')->name('admin.url.setting');
     Route::get('/get/url/name/{id}','AdminController@getUrlName');
+});
+
+Route::namespace('Admin')->prefix('admin/page')->group(function(){
+    Route::get(md5('/list'),'PageController@index')->name('admin.page.list');
+    Route::get(md5('/create'),'PageController@create')->name('admin.page.create');
+    Route::post(md5('/store'),'PageController@store')->name('admin.page.store');
+    Route::get('/show/{id}','PageController@show')->name('admin.page.show');
+    Route::get('/edit/{id}','PageController@edit')->name('admin.page.edit');
+    Route::post('/update/{id}','PageController@update')->name('admin.page.update');
+    Route::get('/delete/{id}','PageController@destroy')->name('admin.page.delete');
+    Route::post('/multi/delete','PageController@multiDelete')->name('admin.page.multi.delete');
 });
 
 Auth::routes();

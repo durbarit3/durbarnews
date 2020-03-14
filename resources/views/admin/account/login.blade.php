@@ -19,7 +19,7 @@
 <body id="page-top">
     <!-- preloader -->
     <div class="preloader">
-        <img src="assets/images/preloader.gif" alt="">public/
+        <img src="assets/images/preloader.gif" alt="">
     </div>
     <!-- wrapper -->
     <div class="wrapper without_header_sidebar">

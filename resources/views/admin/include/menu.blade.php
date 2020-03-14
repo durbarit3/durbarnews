@@ -21,7 +21,18 @@
 	                      </a>
 	                        <ul class="dashboard-menu">
 	                          <li><a href="{{route('admin.menu.setting')}}">Menu Setting</a></li>
-	                          <li><a href="{{route('admin.url.setting')}}">Developer Setting</a></li>
+	                          
+	                        </ul>
+					  </li>
+					  
+					  <li class="single-nav-wrapper">
+	                      <a class="has-arrow menu-item" href="#" aria-expanded="false">
+	                        <span class="left-icon"><i class="fas fa-table"></i></span>
+	                          <span class="menu-text">Pages</span>
+	                      </a>
+	                        <ul class="dashboard-menu">
+							<li><a href="{{route('admin.page.list')}}">Page List</a></li>
+							<li><a href="{{route('admin.page.create')}}">Add Page</a></li>
 	                        </ul>
 	                  </li>
 	                
