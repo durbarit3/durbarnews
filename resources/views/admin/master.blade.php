@@ -56,9 +56,10 @@
 
 
 		
-		<!-- jquery -->
-		<script src="{{asset('public/admins/js/jquery.min.js')}}"></script>
+		<!-- jquery
+		
 		<!-- popper Min Js -->
+		<script src="{{asset('public/admins/js/jquery.min.js')}}"></script>
 		<script src="{{asset('public/admins/js/popper.min.js')}}"></script>
 		<!-- Bootstrap Min Js -->
 		<script src="{{asset('public/admins/js/bootstrap.min.js')}}"></script>
@@ -93,6 +94,7 @@
 		<!-- donut-chart -->
 		<script  src="{{asset('public/admins/plugins/donut-chart/dist/script.js')}}"></script>
 		<script  src="{{asset('public/admins/ajaxjs.js')}}"></script>
+
 				<!-- DataTable Js -->
         <script src="{{asset('public/admins/plugins/datatables/dataTables.min.js')}}"></script>
         <script src="{{asset('public/admins')}}/plugins/datatables/dataTables-active.js"></script>
@@ -150,6 +152,12 @@
 
 		
 		<script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+
+
+		
+
+		@stack('scripts')
+
 
     <script>
         $(document).on("click", "#delete", function (e) {

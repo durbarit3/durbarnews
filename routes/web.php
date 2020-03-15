@@ -23,11 +23,13 @@ use Harimayco\Menu\Models\Menus;
 use Harimayco\Menu\Models\MenuItems;
 use Harimayco\Menu\Facades\Menu;
 
+
 Route::get('/',function(){
     $footer_menu = Menu::getByName('Footer');
     $public_menu = Menu::getByName('Public');
     return view('welcome',compact('public_menu','footer_menu'));
 });
+
 
 
 Route::namespace('Admin')->prefix('admin')->group(function () {
@@ -59,6 +61,7 @@ Route::namespace('Admin')->prefix('admin/page')->group(function(){
     Route::get('/delete/{id}','PageController@destroy')->name('admin.page.delete');
     Route::post('/multi/delete','PageController@multiDelete')->name('admin.page.multi.delete');
 });
+
 
 Route::namespace('Admin')->prefix('admin/category')->group(function(){
     Route::get(md5('/all'),'CategoryController@index')->name('admin.category.all');
@@ -107,4 +110,30 @@ Route::namespace('Admin')->prefix('admin/news')->group(function(){
 });
 
 Route::get('/{link}','Admin\SubCategoryController@categorypage');
+
+Route::namespace('Admin')->prefix('admin')->group(function(){
+
+    Route::get(md5('/contact/information'),'FooterController@contactInformation')->name('admin.contact.info');
+    Route::post(md5('/contact/information/update'),'FooterController@contactInformationupdate')->name('admin.contact.info.update');
+    Route::get(md5('/seo/setting'),'FooterController@seoSetting')->name('admin.seo.setting');
+    Route::post(md5('/seo/setting/update'),'FooterController@seoSettingUpdate')->name('admin.seo.update');
+    Route::get(md5('/social/setting'),'FooterController@socialSetting')->name('admin.social.setting');
+    Route::post(md5('/social/setting/update'),'FooterController@socialSettingUpdate')->name('admin.social.update');
+});
+
+Route::namespace('Admin')->prefix('admin/notice')->group(function(){
+    Route::get(md5('/'),'NoticeController@noticeIndex')->name('admin.notice.index');
+    Route::post(md5('/store'),'NoticeController@noticeStore')->name('admin.notice.store');
+    Route::get('/edit/{id}','NoticeController@noticeEdit');
+    Route::post(md5('/update'),'NoticeController@noticeUpdate')->name('admin.notice.update');
+    Route::post(md5('/multi/delete'),'NoticeController@noticeMultiDelete')->name('admin.notice.multi.delete');
+    Route::get('/update/status/{id}','NoticeController@noticeStatusUpdate')->name('admin.notice.status.update');
+    Route::get('/delete/{id}','NoticeController@noticeDelete')->name('admin.notice.delete');
+});
+
+
+
+
+
+
 Auth::routes();
