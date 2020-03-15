@@ -101,7 +101,7 @@
                     <ul class="navbar-nav">
                     @foreach($public_menu as $menu)
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="{{ url($menu['link'] )}}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="{{ url($menu['link'])}}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ $menu['label'] }}
                             </a>
                             @if( $menu['child'] )

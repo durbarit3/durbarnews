@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -95,6 +96,13 @@
 
     <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
 
+
+
+		
+
+		@stack('scripts')
+
+
     <script>
         $(document).on("click", "#delete", function (e) {
             e.preventDefault();
@@ -137,6 +145,7 @@
         });
     </script>
 
+
     <!-- Main js -->
     <script src="{{asset('public/admins/js/main.js')}}"></script>
     <script type="text/javascript"
@@ -162,7 +171,10 @@
         @endif
     </script>
 
-    @stack('scripts')
+	   @stack('scripts')
+
+
+
 
 </body>
 
