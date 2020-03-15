@@ -90,7 +90,7 @@
                 Laravel
             </div>
 
-            
+
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#">Navbar</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,10 +99,6 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 @if($public_menu)
                     <ul class="navbar-nav">
-                
-
-                    
-                        
                     @foreach($public_menu as $menu)
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="{{ url($menu['link'])}}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -117,15 +113,13 @@
                             @endif
                         </li>
                     @endforeach
-
-
                     </ul>
                 @endif
 
-                
+
                 </div>
 
-               
+
             </nav>
 
 
@@ -145,14 +139,14 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 @if($footer_menu)
                     <ul class="navbar-nav">
-                
 
-                    
-                        
+
+
+
                     @foreach($footer_menu as $menu)
-                    
-                   
-                    
+
+
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="{{ url($menu['link'] )}}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ $menu['label'] }}
@@ -171,10 +165,10 @@
                     </ul>
                 @endif
 
-                
+
                 </div>
 
-               
+
             </nav>
         </div>
     </div>
