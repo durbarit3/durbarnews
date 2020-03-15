@@ -21,10 +21,24 @@
 	                      </a>
 	                        <ul class="dashboard-menu">
 	                          <li><a href="{{route('admin.menu.setting')}}">Menu Setting</a></li>
-	                          
+	                        </ul>
+	                        <ul class="dashboard-menu">
+	                          <li><a href="{{route('admin.theme.color.index')}}">Theme Color</a></li>
+	                        </ul>
+                      </li>
+
+	                  <li class="single-nav-wrapper">
+	                      <a class="has-arrow menu-item" href="#" aria-expanded="false">
+	                        <span class="left-icon"><i class="fas fa-table"></i></span>
+	                          <span class="menu-text">Division</span>
+	                      </a>
+	                        <ul class="dashboard-menu">
+                              <li><a href="{{ route('admin.division.index') }}">All Division</a></li>
+                            <li><a href="{{ route('admin.division.district') }}">All Distirct</a></li>
+                            <li><a href="{{ route('admin.division.sub_district.index') }}">Sub Distirct</a></li>
 	                        </ul>
 					  </li>
-					  
+
 					  <li class="single-nav-wrapper">
 	                      <a class="has-arrow menu-item" href="#" aria-expanded="false">
 	                        <span class="left-icon"><i class="fas fa-table"></i></span>
@@ -35,7 +49,7 @@
 							<li><a href="{{route('admin.page.create')}}">Add Page</a></li>
 	                        </ul>
 	                  </li>
-	                
+
 	                </ul>
               </nav>
             </aside><!-- /sidebar Area-->
