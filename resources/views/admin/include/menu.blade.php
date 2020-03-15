@@ -17,6 +17,39 @@
 	                  <li class="single-nav-wrapper">
 	                      <a class="has-arrow menu-item" href="#" aria-expanded="false">
 	                        <span class="left-icon"><i class="fas fa-table"></i></span>
+	                          <span class="menu-text">Category</span>
+	                      </a>
+	                        <ul class="dashboard-menu">
+	                          <li><a href="{{route('admin.category.all')}}">All Category</a></li>
+	                          <li><a href="{{route('admin.subcategory.all')}}">All SubCategory</a></li>
+	                          
+	                        </ul>
+					  </li>
+					   <li class="single-nav-wrapper">
+	                      <a class="has-arrow menu-item" href="#" aria-expanded="false">
+	                        <span class="left-icon"><i class="fas fa-table"></i></span>
+	                          <span class="menu-text">News</span>
+	                      </a>
+	                        <ul class="dashboard-menu">
+	                          <li><a href="{{route('admin.news.all')}}">All News</a></li>
+	                          <li><a href="{{route('admin.news.create')}}">Add News</a></li>
+	                          
+	                        </ul>
+					  </li>
+					   <li class="single-nav-wrapper">
+	                      <a class="has-arrow menu-item" href="#" aria-expanded="false">
+	                        <span class="left-icon"><i class="fas fa-table"></i></span>
+	                          <span class="menu-text">Poll</span>
+	                      </a>
+	                        <ul class="dashboard-menu">
+	                          <li><a href="{{route('admin.poll.all')}}">All Poll</a></li>
+	                          <li><a href="{{route('admin.poll.result')}}">Poll Details</a></li>
+	                          
+	                        </ul>
+					  </li>
+	                  <li class="single-nav-wrapper">
+	                      <a class="has-arrow menu-item" href="#" aria-expanded="false">
+	                        <span class="left-icon"><i class="fas fa-table"></i></span>
 	                          <span class="menu-text">Setting</span>
 	                      </a>
 	                        <ul class="dashboard-menu">

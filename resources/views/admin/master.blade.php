@@ -21,10 +21,15 @@
         <!-- <link rel="stylesheet" href="assets/plugins/chartjs-bar-chart/chart.css"> -->
 		<!-- donut-chart -->
         <link rel="stylesheet" href="{{asset('public/admins/plugins/donut-chart/dist/style.css')}}">
+
+        <link rel="stylesheet" href="{{asset('public/admins')}}/plugins/dist/css/dropify.min.css">
+
+
 		<!--Custom CSS-->
 		<link rel="stylesheet" href="{{asset('public/admins/css/style.css')}}">
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 		<link href="{{asset('public/admins/plugins/datatables/dataTables.min.css')}}" rel="stylesheet" type="text/css">
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 	</head>
 	<body id="page-top">
@@ -89,12 +94,70 @@
 		<!-- donut-chart -->
 		<script  src="{{asset('public/admins/plugins/donut-chart/dist/script.js')}}"></script>
 		<script  src="{{asset('public/admins/ajaxjs.js')}}"></script>
-		<script src="{{asset('public/admins/plugins/ckeditor/ckeditor.js')}}"></script>
-		<script src="{{asset('public/admins/plugins/ckeditor/ckeditor-active.js')}}"></script>
+
+				<!-- DataTable Js -->
+        <script src="{{asset('public/admins/plugins/datatables/dataTables.min.js')}}"></script>
+        <script src="{{asset('public/admins')}}/plugins/datatables/dataTables-active.js"></script>
+
+            <!-- drofify -->
+       <script src="{{asset('public/admins')}}/plugins/dist/js/dropify.min.js"></script>
+
+
+       	<!-- ckeditor Js -->
+        <script src="{{asset('public/admins')}}/plugins/ckeditor/ckeditor.js"></script>
+        <script src="{{asset('public/admins')}}/plugins/ckeditor/ckeditor-active.js"></script>
+       <script>
+        $(document).ready(function(){
+            // Basic
+            $('.dropify').dropify();
+
+            // Translated
+            $('.dropify-fr').dropify({
+                messages: {
+                    default: 'Glissez-déposez un fichier ici ou cliquez',
+                    replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                    remove:  'Supprimer',
+                    error:   'Désolé, le fichier trop volumineux'
+                }
+            });
+
+            // Used events
+            var drEvent = $('#input-file-events').dropify();
+
+            drEvent.on('dropify.beforeClear', function(event, element){
+                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+            });
+
+            drEvent.on('dropify.afterClear', function(event, element){
+                alert('File deleted');
+            });
+
+            drEvent.on('dropify.errors', function(event, element){
+                console.log('Has Errors');
+            });
+
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function(e){
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+        });
+    </script>
+		
+
+		
+		<script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+
+
 		
 
 		@stack('scripts')
-		<script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script> -->
+
 
     <script>
         $(document).on("click", "#delete", function (e) {
@@ -172,7 +235,7 @@
 		</script>
 
 
-
+	   @stack('scripts')
 
 
 
