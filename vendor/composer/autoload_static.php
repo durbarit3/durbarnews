@@ -452,11 +452,7 @@ class ComposerStaticInitb9e58890302a72d208883f5ca05e1a95
         'App\\Http\\Controllers\\Admin\\DistrictController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DistrictController.php',
         'App\\Http\\Controllers\\Admin\\DivisionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DivisionController.php',
         'App\\Http\\Controllers\\Admin\\FooterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FooterController.php',
-
-
         'App\\Http\\Controllers\\Admin\\GalleryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/GalleryController.php',
-
-
         'App\\Http\\Controllers\\Admin\\NewsPostController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/NewsPostController.php',
         'App\\Http\\Controllers\\Admin\\NoticeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/NoticeController.php',
         'App\\Http\\Controllers\\Admin\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PageController.php',
@@ -473,6 +469,7 @@ class ComposerStaticInitb9e58890302a72d208883f5ca05e1a95
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\TeamController' => __DIR__ . '/../..' . '/app/Http/Controllers/TeamController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -484,12 +481,9 @@ class ComposerStaticInitb9e58890302a72d208883f5ca05e1a95
         'App\\Http\\Requests\\PageRequest' => __DIR__ . '/../..' . '/app/Http/Requests/PageRequest.php',
         'App\\Logo' => __DIR__ . '/../..' . '/app/Logo.php',
         'App\\Menu' => __DIR__ . '/../..' . '/app/Menu.php',
-
-
         'App\\NewsPost' => __DIR__ . '/../..' . '/app/NewsPost.php',
-
-
         'App\\Notice' => __DIR__ . '/../..' . '/app/Notice.php',
+        'App\\OurSay' => __DIR__ . '/../..' . '/app/OurSay.php',
         'App\\Page' => __DIR__ . '/../..' . '/app/Page.php',
         'App\\PaymentGetway' => __DIR__ . '/../..' . '/app/PaymentGetway.php',
         'App\\Poll' => __DIR__ . '/../..' . '/app/Poll.php',
@@ -501,6 +495,7 @@ class ComposerStaticInitb9e58890302a72d208883f5ca05e1a95
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\SubCategory' => __DIR__ . '/../..' . '/app/SubCategory.php',
         'App\\SubDistrict' => __DIR__ . '/../..' . '/app/SubDistrict.php',
+        'App\\Team' => __DIR__ . '/../..' . '/app/Team.php',
         'App\\ThemeColor' => __DIR__ . '/../..' . '/app/ThemeColor.php',
         'App\\Unique' => __DIR__ . '/../..' . '/app/Unique.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',

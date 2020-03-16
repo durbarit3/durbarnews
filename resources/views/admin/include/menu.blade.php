@@ -108,6 +108,7 @@
 							<li><a href="{{route('admin.contact.info')}}">Contact Information</a></li>
 							<li><a href="{{route('admin.page.create')}}">Add Page</a></li>
 							<li><a href="{{route('admin.Oursay.index')}}">Our Say</a></li>
+							<li><a href="{{route('admin.team.index')}}">Team Mamber's</a></li>
 	                        </ul>
 					  </li>
 

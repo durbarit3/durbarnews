@@ -207,7 +207,7 @@ Route::namespace('Admin')->prefix('admin/logo')->group(function(){
 
 Route::namespace('Admin')->prefix('admin/our/say')->group(function(){
     Route::get('/','FooterController@ourSayIndex')->name('admin.Oursay.index');
-    Route::post('/store','FooterController@logoStore')->name('admin.logo.store');
+    Route::post('/store','FooterController@ourSayStore')->name('admin.our.say.store');
 });
 
 Route::group(['prefix' => 'admin/galleries', 'namespace' => 'Admin'], function () {
@@ -220,6 +220,17 @@ Route::group(['prefix' => 'admin/galleries', 'namespace' => 'Admin'], function (
     Route::get('delete/{galleryId}', 'GalleryController@delete')->name('admin.gallery.delete');
     Route::post('multiple/delete', 'GalleryController@multipleDelete')->name('admin.gallery.multiple.delete');
 });
+
+
+
+Route::namespace('Admin')->prefix('admin/team')->group(function(){
+    Route::get('/', 'TeamController@teamIndex')->name('admin.team.index');
+    Route::post('/store', 'TeamController@teamStore')->name('admin.team.create');
+});
+
+
+
+
 
 Auth::routes();
 

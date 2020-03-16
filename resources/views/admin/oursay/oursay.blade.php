@@ -7,21 +7,19 @@
             <div class="col-md-8 offset-md-2">
                 <div class="panel">
                     <div class="panel_header">
-                        <div class="panel_title"><span>Add Logo</span></div>
+                        <div class="panel_title"><span>Add Our Say</span></div>
                     </div>
                     <div class="panel_body">
                         <div class="col-md-10 offset-md-1">
-
                         
-
-                            <form class="py-2" action="{{route('admin.logo.store')}}" method="post" enctype="multipart/form-data">
+                        <form class="py-2" action="{{route('admin.our.say.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
+                            
                                 <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label text-right">Front Logo</label>
+                                    <label for="example-search-input" class="col-sm-2 col-form-label text-right">Title</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control dropify" name="frontlogo" type="file" value="" id="example-text-input" data-default-file="{{asset('public/admins/images/logo')}}/{{$logos->frontlogo}}">
-                                        <small style="color: red"><strong>Less than 2MB | Size 250 x 60</strong></small>
-                                        @error('frontlogo')
+                                        <input class="form-control" name="title" type="search" value="{{$oursay->title}}" id="example-search-input">
+                                        @error('title')
 
                                         <div class="alert alert-danger my-2">
                                             {{$message}}
@@ -29,13 +27,13 @@
                                         @enderror
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label text-right">Favicon</label>
+                                    <label for="example-email-input" class="col-sm-2 col-form-label text-right">Description</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control dropify" name="favicon" type="file" value="" id="example-text-input" data-default-file="{{asset('public/admins/images/logo')}}/{{$logos->favicon}}">
-                                        <small style="color: red"><strong>Less than 2MB | Size 64 x 64</strong></small>
-                                        @error('favicon')
+                                        <textarea name="description" id="editor1" class="form-control" rows="10" cols="80">
+                                        {{$oursay->description}}
+                                        </textarea>
+                                        @error('description')
 
                                         <div class="alert alert-danger my-2">
                                             {{$message}}
@@ -43,38 +41,27 @@
                                         @enderror
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label text-right">Admin Logo</label>
-                                    <div class="col-sm-9">
-                                        <input class="form-control dropify" name="adminlogo" type="file" value="" id="example-text-input" data-default-file="{{asset('public/admins/images/logo')}}/{{$logos->adminlogo}}">
-                                        <small style="color: red"><strong>Less than 2MB |  Size 220 x 40</strong></small>
-                                        @error('adminlogo')
-
-                                        <div class="alert alert-danger my-2">
-                                            {{$message}}
-                                        </div>
+                                    <label for="example-url-input" class="col-sm-2 col-form-label text-right">Image</label>
+                                    <div class="col-sm-3 my-3">
+                                        <input class="form-control" name="image" type="file" value="" id="example-url-input">
+                                        @error('meta_tag')
+                                            <div class="alert alert-danger my-2">
+                                                {{$message}}
+                                            </div>
                                         @enderror
                                     </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label text-right">Login Banner</label>
-                                    <div class="col-sm-9">
-                                        <input class="form-control dropify" name="loginbanner" type="file" value="" id="example-text-input" data-default-file="{{asset('public/admins/images/logo')}}/{{$logos->loginbanner}}">
-                                        <small style="color: red"><strong>Less than 2MB |  Size 800 x 600</strong></small>
-                                        @error('adminlogo')
-
-                                        <div class="alert alert-danger my-2">
-                                            {{$message}}
-                                        </div>
-                                        @enderror
+                                    <div class="col-sm-5">
+                                        <img src="{{asset('public/admins/images/oursay')}}/{{$oursay->image}}" alt="">
                                     </div>
+                                    
                                 </div>
-
-
+                                
                                 <button type="submit" class="btn btn-blue float-right form-control">Submit</button>
                             </form>
+                        
+
+                          
                         </div>
                         <!-- end panel -->
                     </div>

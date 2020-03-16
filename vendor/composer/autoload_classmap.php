@@ -20,12 +20,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\DistrictController' => $baseDir . '/app/Http/Controllers/Admin/DistrictController.php',
     'App\\Http\\Controllers\\Admin\\DivisionController' => $baseDir . '/app/Http/Controllers/Admin/DivisionController.php',
     'App\\Http\\Controllers\\Admin\\FooterController' => $baseDir . '/app/Http/Controllers/Admin/FooterController.php',
-
-
-
     'App\\Http\\Controllers\\Admin\\GalleryController' => $baseDir . '/app/Http/Controllers/Admin/GalleryController.php',
-
-
     'App\\Http\\Controllers\\Admin\\NewsPostController' => $baseDir . '/app/Http/Controllers/Admin/NewsPostController.php',
     'App\\Http\\Controllers\\Admin\\NoticeController' => $baseDir . '/app/Http/Controllers/Admin/NoticeController.php',
     'App\\Http\\Controllers\\Admin\\PageController' => $baseDir . '/app/Http/Controllers/Admin/PageController.php',
@@ -42,6 +37,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
+    'App\\Http\\Controllers\\TeamController' => $baseDir . '/app/Http/Controllers/TeamController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\CheckForMaintenanceMode' => $baseDir . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -53,12 +49,9 @@ return array(
     'App\\Http\\Requests\\PageRequest' => $baseDir . '/app/Http/Requests/PageRequest.php',
     'App\\Logo' => $baseDir . '/app/Logo.php',
     'App\\Menu' => $baseDir . '/app/Menu.php',
-
-
     'App\\NewsPost' => $baseDir . '/app/NewsPost.php',
-
-
     'App\\Notice' => $baseDir . '/app/Notice.php',
+    'App\\OurSay' => $baseDir . '/app/OurSay.php',
     'App\\Page' => $baseDir . '/app/Page.php',
     'App\\PaymentGetway' => $baseDir . '/app/PaymentGetway.php',
     'App\\Poll' => $baseDir . '/app/Poll.php',
@@ -70,6 +63,7 @@ return array(
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\SubCategory' => $baseDir . '/app/SubCategory.php',
     'App\\SubDistrict' => $baseDir . '/app/SubDistrict.php',
+    'App\\Team' => $baseDir . '/app/Team.php',
     'App\\ThemeColor' => $baseDir . '/app/ThemeColor.php',
     'App\\Unique' => $baseDir . '/app/Unique.php',
     'App\\User' => $baseDir . '/app/User.php',
