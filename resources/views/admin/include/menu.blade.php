@@ -33,6 +33,7 @@
 	                        <ul class="dashboard-menu">
 	                          <li><a href="{{route('admin.news.all')}}">All News</a></li>
 	                          <li><a href="{{route('admin.news.create')}}">Add News</a></li>
+	                          <li><a href="{{route('admin.news.deletedpost')}}">Deleted News</a></li>
 
 	                        </ul>
 					  </li>
