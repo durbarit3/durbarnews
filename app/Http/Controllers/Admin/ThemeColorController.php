@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class ThemeColorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+    
     public function index()
     {
        $themeColors = ThemeColor::select(['id','hover_color', 'web_color','status'])->get();

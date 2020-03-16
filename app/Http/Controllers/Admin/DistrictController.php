@@ -29,7 +29,7 @@ class DistrictController extends Controller
                 ]
             ];
         });
-         //dd($districts);
+        
         $divisions = Division::with('districts')->select('id', 'name_bn')->where('status', 1)->get();
         return view('admin.division.districts.index', compact('districts', 'divisions'));
     }
