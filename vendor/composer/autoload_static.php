@@ -432,7 +432,9 @@ class ComposerStaticInitb9e58890302a72d208883f5ca05e1a95
         'App\\Http\\Controllers\\Admin\\DistrictController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DistrictController.php',
         'App\\Http\\Controllers\\Admin\\DivisionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DivisionController.php',
         'App\\Http\\Controllers\\Admin\\FooterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FooterController.php',
+
         'App\\Http\\Controllers\\Admin\\GalleryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/GalleryController.php',
+
         'App\\Http\\Controllers\\Admin\\NewsPostController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/NewsPostController.php',
         'App\\Http\\Controllers\\Admin\\NoticeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/NoticeController.php',
         'App\\Http\\Controllers\\Admin\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PageController.php',
@@ -459,6 +461,9 @@ class ComposerStaticInitb9e58890302a72d208883f5ca05e1a95
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\PageRequest' => __DIR__ . '/../..' . '/app/Http/Requests/PageRequest.php',
         'App\\Menu' => __DIR__ . '/../..' . '/app/Menu.php',
+
+        'App\\NewsPost' => __DIR__ . '/../..' . '/app/NewsPost.php',
+
         'App\\Notice' => __DIR__ . '/../..' . '/app/Notice.php',
         'App\\Page' => __DIR__ . '/../..' . '/app/Page.php',
         'App\\PaymentGetway' => __DIR__ . '/../..' . '/app/PaymentGetway.php',
