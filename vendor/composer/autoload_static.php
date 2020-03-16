@@ -424,12 +424,17 @@ class ComposerStaticInitb9e58890302a72d208883f5ca05e1a95
         'App\\District' => __DIR__ . '/../..' . '/app/District.php',
         'App\\Division' => __DIR__ . '/../..' . '/app/Division.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Gallery' => __DIR__ . '/../..' . '/app/Gallery.php',
+        'App\\GalleryPhoto' => __DIR__ . '/../..' . '/app/GalleryPhoto.php',
         'App\\Http\\Controllers\\Admin\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminController.php',
         'App\\Http\\Controllers\\Admin\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AuthController.php',
         'App\\Http\\Controllers\\Admin\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CategoryController.php',
         'App\\Http\\Controllers\\Admin\\DistrictController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DistrictController.php',
         'App\\Http\\Controllers\\Admin\\DivisionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DivisionController.php',
         'App\\Http\\Controllers\\Admin\\FooterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FooterController.php',
+
+        'App\\Http\\Controllers\\Admin\\GalleryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/GalleryController.php',
+
         'App\\Http\\Controllers\\Admin\\NewsPostController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/NewsPostController.php',
         'App\\Http\\Controllers\\Admin\\NoticeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/NoticeController.php',
         'App\\Http\\Controllers\\Admin\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PageController.php',
@@ -456,7 +461,9 @@ class ComposerStaticInitb9e58890302a72d208883f5ca05e1a95
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\PageRequest' => __DIR__ . '/../..' . '/app/Http/Requests/PageRequest.php',
         'App\\Menu' => __DIR__ . '/../..' . '/app/Menu.php',
+
         'App\\NewsPost' => __DIR__ . '/../..' . '/app/NewsPost.php',
+
         'App\\Notice' => __DIR__ . '/../..' . '/app/Notice.php',
         'App\\Page' => __DIR__ . '/../..' . '/app/Page.php',
         'App\\PaymentGetway' => __DIR__ . '/../..' . '/app/PaymentGetway.php',

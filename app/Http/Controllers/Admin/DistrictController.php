@@ -16,7 +16,20 @@ class DistrictController extends Controller
 
     public function index()
     {
-        $districts = District::with('division')->select('id', 'name_bn', 'status', 'division_id')->get();
+        $districts = District::with('division')->select('id', 'name_bn', 'status', 'division_id')->get()
+        ->map(function($dis){
+            return [
+                'id' => $dis->id,
+                'name_bn' => $dis->name_bn,
+                'status' => $dis->status,
+                'division_id' => $dis->division_id,
+                'division' => [
+                    'id' => $dis->division->id,
+                    'name_bn' => $dis->division->name_bn,
+                ]
+            ];
+        });
+         //dd($districts);
         $divisions = Division::with('districts')->select('id', 'name_bn')->where('status', 1)->get();
         return view('admin.division.districts.index', compact('districts', 'divisions'));
     }

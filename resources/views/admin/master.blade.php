@@ -99,15 +99,13 @@
     <!-- basic-donut-chart -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
     <script src="{{asset('public/admins/plugins/basic-donut-chart/dist/script.js')}}"></script>
-
     <!-- donut-chart -->
     <script src="{{asset('public/admins/plugins/donut-chart/dist/script.js')}}"></script>
     <script src="{{asset('public/admins/ajaxjs.js')}}"></script>
-
     <script src="{{asset('public/admins/plugins/datatables/dataTables.min.js')}}"></script>
     <script src="{{asset('public/admins/plugins/datatables/dataTables-active.js')}}"></script>
-
     <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+
        <!-- drofify -->
     <script src="{{asset('public/admins')}}/plugins/dist/js/dropify.min.js"></script>
 
@@ -163,6 +161,7 @@
 		@stack('scripts')
 
 
+
     <script>
         $(document).on("click", "#delete", function (e) {
             e.preventDefault();
@@ -204,9 +203,11 @@
                 });
         });
     </script>
+
         <script src="{{asset('public/admins')}}/plugins/icheck/icheck.min.js"></script>
         <script src="{{asset('public/admins')}}/plugins/bootstrap-toggle/bootstrap-toggle.min.js"></script>
         <script src="{{asset('public/admins')}}/plugins/icheck/icheck-active.js"></script>
+
 
     <!-- Main js -->
     <script src="{{asset('public/admins/js/main.js')}}"></script>
@@ -234,10 +235,6 @@
     </script>
 
 	   @stack('scripts')
-
-
-
-
 </body>
 
 </html>

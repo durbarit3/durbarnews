@@ -44,36 +44,37 @@
                             </thead>
                             <tbody>
                                 @foreach($districts as $district)
+
                                 <tr class="text-center">
                                     <td>
                                         <label class="chech_container mb-4">
                                             <input type="checkbox" name="deleteIds[]" class="checkbox"
-                                                value="{{$district->id}}">
+                                                value="{{$district['id']}}">
                                             <span class="checkmark"></span>
                                         </label>
                                     </td>
-                                    <td>{{ $district->name_bn }}</td>
-                                   <td>{{ $district->division->name_bn ? $district->division->name_bn : 'N/A' }}</td>
-                                    @if($district->status==1)
+                                    <td>{{ $district['name_bn'] }}</td>
+                                   <td>{{ $district['division']['name_bn'] ? $district['division']['name_bn'] : 'N/A' }}</td>
+                                    @if($district['status'] == 1)
                                     <td class="center"><span class="btn btn-sm btn-success">Active</span></td>
                                     @else
                                     <td class="center"><span class="btn btn-sm btn-danger">Inactive</span></td>
                                     @endif
 
                                     <td>
-                                        @if($district->status==1)
-                                        <a href="{{ route('admin.division.district.status.update', $district->id ) }}"
+                                        @if($district['status'] == 1)
+                                        <a href="{{ route('admin.division.district.status.update', $district['id'] ) }}"
                                             class="btn btn-success btn-sm ">
                                             <i class="fas fa-thumbs-up"></i></a>
                                         @else
-                                        <a href="{{ route('admin.division.district.status.update', $district->id ) }}"
+                                        <a href="{{ route('admin.division.district.status.update', $district['id'] ) }}"
                                             class="btn btn-danger btn-sm">
                                             <i class="fas fa-thumbs-down"></i>
                                         </a>
                                         @endif
-                                    | <a href="#" data-id="{{ $district->id }}" title="edit" data-toggle="modal"
+                                    | <a href="#" data-id="{{ $district['id'] }}" title="edit" data-toggle="modal"
                                         data-target="#editModal" class="edit_district btn btn-sm btn-blue text-white"><i class="fas fa-pencil-alt"></i></a> |
-                                        <a id="delete" href="{{ route('admin.division.district.delete', $district->id ) }}"
+                                        <a id="delete" href="{{ route('admin.division.district.delete', $district['id'] ) }}"
                                             class="btn btn-danger btn-sm text-white" title="Delete">
                                             <i class="far fa-trash-alt"></i>
                                         </a>

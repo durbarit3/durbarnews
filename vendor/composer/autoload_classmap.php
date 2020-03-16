@@ -12,12 +12,18 @@ return array(
     'App\\District' => $baseDir . '/app/District.php',
     'App\\Division' => $baseDir . '/app/Division.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Gallery' => $baseDir . '/app/Gallery.php',
+    'App\\GalleryPhoto' => $baseDir . '/app/GalleryPhoto.php',
     'App\\Http\\Controllers\\Admin\\AdminController' => $baseDir . '/app/Http/Controllers/Admin/AdminController.php',
     'App\\Http\\Controllers\\Admin\\AuthController' => $baseDir . '/app/Http/Controllers/Admin/AuthController.php',
     'App\\Http\\Controllers\\Admin\\CategoryController' => $baseDir . '/app/Http/Controllers/Admin/CategoryController.php',
     'App\\Http\\Controllers\\Admin\\DistrictController' => $baseDir . '/app/Http/Controllers/Admin/DistrictController.php',
     'App\\Http\\Controllers\\Admin\\DivisionController' => $baseDir . '/app/Http/Controllers/Admin/DivisionController.php',
     'App\\Http\\Controllers\\Admin\\FooterController' => $baseDir . '/app/Http/Controllers/Admin/FooterController.php',
+
+
+    'App\\Http\\Controllers\\Admin\\GalleryController' => $baseDir . '/app/Http/Controllers/Admin/GalleryController.php',
+
     'App\\Http\\Controllers\\Admin\\NewsPostController' => $baseDir . '/app/Http/Controllers/Admin/NewsPostController.php',
     'App\\Http\\Controllers\\Admin\\NoticeController' => $baseDir . '/app/Http/Controllers/Admin/NoticeController.php',
     'App\\Http\\Controllers\\Admin\\PageController' => $baseDir . '/app/Http/Controllers/Admin/PageController.php',
@@ -44,7 +50,9 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\PageRequest' => $baseDir . '/app/Http/Requests/PageRequest.php',
     'App\\Menu' => $baseDir . '/app/Menu.php',
+
     'App\\NewsPost' => $baseDir . '/app/NewsPost.php',
+
     'App\\Notice' => $baseDir . '/app/Notice.php',
     'App\\Page' => $baseDir . '/app/Page.php',
     'App\\PaymentGetway' => $baseDir . '/app/PaymentGetway.php',
