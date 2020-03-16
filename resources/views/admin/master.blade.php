@@ -25,6 +25,7 @@
     <link href="{{asset('public/admins/plugins/datatables/dataTables.min.css')}}" rel="stylesheet" type="text/css">
     <!--Custom CSS-->
     <link rel="stylesheet" href="{{asset('public/admins/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('public/admins/css/dopyfi.css')}}">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
     <link href="{{asset('public/admins/plugins/datatables/dataTables.min.css')}}" rel="stylesheet" type="text/css">
@@ -66,6 +67,7 @@
     <script src="{{asset('public/admins/js/all.min.js')}}"></script>
     <!-- custom js -->
     <script src="{{asset('public/admins/js/custom.js')}}"></script>
+    <script src="{{asset('public/admins/js/dopyfi.js')}}"></script>
     <!-- metis menu -->
     <script src="https://unpkg.com/metismenu"></script>
 

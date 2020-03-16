@@ -178,6 +178,20 @@ Route::namespace('Admin')->prefix('admin/notice')->group(function(){
 });
 
 
+Route::namespace('Admin')->prefix('admin/logo')->group(function(){
+    Route::get('/','FooterController@logoIndex')->name('admin.logo.index');
+    Route::post('/store','FooterController@logoStore')->name('admin.logo.store');
+});
+
+
+Route::namespace('Admin')->prefix('admin/our/say')->group(function(){
+    Route::get('/','FooterController@ourSayIndex')->name('admin.Oursay.index');
+    Route::post('/store','FooterController@logoStore')->name('admin.logo.store');
+});
+
+
+
+
 
 
 

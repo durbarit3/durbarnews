@@ -54,11 +54,13 @@
 	                      </a>
 	                        <ul class="dashboard-menu">
 	                          <li><a href="{{route('admin.menu.setting')}}">Menu Setting</a></li>
+	                          <li><a href="{{route('admin.logo.index')}}">Logo Setting</a></li>
+							  <li><a href="{{route('admin.theme.color.index')}}">Theme Setting</a></li>
+							  <li><a href="{{route('admin.seo.setting')}}">SEO Setting</a></li>
+	                          <li><a href="{{route('admin.social.setting')}}">Social Setting</a></li>
 
 	                        </ul>
-	                        <ul class="dashboard-menu">
-	                          <li><a href="{{route('admin.theme.color.index')}}">Theme Color</a></li>
-	                        </ul>
+	                       
                       </li>
 
 	                  <li class="single-nav-wrapper">
@@ -71,8 +73,7 @@
                             <li><a href="{{ route('admin.division.district') }}">All Distirct</a></li>
                             <li><a href="{{ route('admin.division.sub_district.index') }}">Sub Distirct</a></li>
 
-	                          <li><a href="{{route('admin.seo.setting')}}">SEO Setting</a></li>
-	                          <li><a href="{{route('admin.social.setting')}}">Social Setting</a></li>
+	                          
 	                          
 
 	                        </ul>
@@ -98,6 +99,7 @@
 	                        <ul class="dashboard-menu">
 							<li><a href="{{route('admin.contact.info')}}">Contact Information</a></li>
 							<li><a href="{{route('admin.page.create')}}">Add Page</a></li>
+							<li><a href="{{route('admin.Oursay.index')}}">Our Say</a></li>
 	                        </ul>
 					  </li>
 					  
