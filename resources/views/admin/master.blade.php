@@ -24,11 +24,23 @@
     <link rel="stylesheet" href="{{asset('public/admins/plugins/donut-chart/dist/style.css')}}">
     <link href="{{asset('public/admins/plugins/datatables/dataTables.min.css')}}" rel="stylesheet" type="text/css">
     <!--Custom CSS-->
+    <link rel="stylesheet" href="{{asset('public/admins')}}/plugins/dist/css/dropify.min.css">
+    <link rel="stylesheet" href="{{asset('public/admins')}}/plugins/Bootstrap-4-Tag-Input-Plugin-jQuery/tagsinput.css">
+
+    <link href="{{asset('public/admins')}}/plugins/icheck/skins/all.css" rel="stylesheet">
+    <link href="{{asset('public/admins')}}/plugins/bootstrap-toggle/bootstrap-toggle.min.css" rel="stylesheet">
+
+
     <link rel="stylesheet" href="{{asset('public/admins/css/style.css')}}">
+
     <link rel="stylesheet" href="{{asset('public/admins/css/dopyfi.css')}}">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+
     <link href="{{asset('public/admins/plugins/datatables/dataTables.min.css')}}" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     @stack('css')
 </head>
 
@@ -71,6 +83,12 @@
     <!-- metis menu -->
     <script src="https://unpkg.com/metismenu"></script>
 
+    <script src="{{asset('public/admins')}}/plugins/ckeditor/ckeditor.js"></script>
+    <script src="{{asset('public/admins')}}/plugins/ckeditor/ckeditor-active.js"></script>
+    <script>
+                CKEDITOR.replace( 'editor1' );
+    </script>
+
     <script src="{{asset('public/admins/plugins/metismenu-3.0.4/assets/js/metismenu.js')}}"></script>
     <script src="{{asset('public/admins/plugins/metismenu-3.0.4/assets/js/mm-vertical-hover.js')}}"></script>
     <!-- nice scroll bar -->
@@ -88,21 +106,67 @@
     <!-- basic-donut-chart -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
     <script src="{{asset('public/admins/plugins/basic-donut-chart/dist/script.js')}}"></script>
-
     <!-- donut-chart -->
     <script src="{{asset('public/admins/plugins/donut-chart/dist/script.js')}}"></script>
     <script src="{{asset('public/admins/ajaxjs.js')}}"></script>
-
     <script src="{{asset('public/admins/plugins/datatables/dataTables.min.js')}}"></script>
     <script src="{{asset('public/admins/plugins/datatables/dataTables-active.js')}}"></script>
-
     <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+
+       <!-- drofify -->
+    <script src="{{asset('public/admins')}}/plugins/dist/js/dropify.min.js"></script>
+
+    <script src="{{asset('public/admins')}}/plugins/Bootstrap-4-Tag-Input-Plugin-jQuery/tagsinput.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Basic
+            $('.dropify').dropify();
+
+            // Translated
+            $('.dropify-fr').dropify({
+                messages: {
+                    default: 'Glissez-déposez un fichier ici ou cliquez',
+                    replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                    remove:  'Supprimer',
+                    error:   'Désolé, le fichier trop volumineux'
+                }
+            });
+
+            // Used events
+            var drEvent = $('#input-file-events').dropify();
+
+            drEvent.on('dropify.beforeClear', function(event, element){
+                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+            });
+
+            drEvent.on('dropify.afterClear', function(event, element){
+                alert('File deleted');
+            });
+
+            drEvent.on('dropify.errors', function(event, element){
+                console.log('Has Errors');
+            });
+
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function(e){
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+        });
+    </script>
+        
 
 
 
 		
 
 		@stack('scripts')
+
 
 
     <script>
@@ -147,6 +211,10 @@
         });
     </script>
 
+        <script src="{{asset('public/admins')}}/plugins/icheck/icheck.min.js"></script>
+        <script src="{{asset('public/admins')}}/plugins/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+        <script src="{{asset('public/admins')}}/plugins/icheck/icheck-active.js"></script>
+
 
     <!-- Main js -->
     <script src="{{asset('public/admins/js/main.js')}}"></script>
@@ -174,10 +242,6 @@
     </script>
 
 	   @stack('scripts')
-
-
-
-
 </body>
 
 </html>

@@ -407,20 +407,20 @@
         },
         {
             "name": "harimayco/laravel-menu",
-            "version": "1.4.3",
+            "version": "1.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harimayco/wmenu-builder.git",
-                "reference": "1751b6c4353a827c8be4fc5f999d039939ee4e7f"
+                "reference": "1e7baee3156436d59a4772020f6e6cdc0dd195e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harimayco/wmenu-builder/zipball/1751b6c4353a827c8be4fc5f999d039939ee4e7f",
-                "reference": "1751b6c4353a827c8be4fc5f999d039939ee4e7f",
+                "url": "https://api.github.com/repos/harimayco/wmenu-builder/zipball/1e7baee3156436d59a4772020f6e6cdc0dd195e3",
+                "reference": "1e7baee3156436d59a4772020f6e6cdc0dd195e3",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "5.8.* || 6.* || 7.*",
+                "illuminate/support": "5.* || 6.* || 7.*",
                 "php": ">=7.2"
             },
             "type": "library",
@@ -459,7 +459,7 @@
                 "menu",
                 "wordpress"
             ],
-            "time": "2020-03-12T05:33:49+00:00"
+            "time": "2020-03-14T14:11:39+00:00"
         },
         {
             "name": "intervention/image",

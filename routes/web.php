@@ -142,16 +142,20 @@ Route::namespace('Admin')->prefix('admin/poll')->group(function(){
     Route::get('/delete/{id}','PollController@delete');
     Route::post('/multiDelete','PollController@multiDelete')->name('admin.poll.multiDelete');
     Route::get(md5('/pollresult'),'PollController@pollresult')->name('admin.poll.result');
-  
 
 });
 // newspost
 Route::namespace('Admin')->prefix('admin/news')->group(function(){
-
     Route::get(md5('/all'),'NewsPostController@index')->name('admin.news.all');
     Route::get(md5('/add'),'NewsPostController@create')->name('admin.news.create');
 
+    Route::get('/getsubcate/{cate_id}','NewsPostController@getsubcate');
+    Route::get('/getdistrict/{division_id}','NewsPostController@getdistrict');
+    Route::get('/getsubdistrict/{district_id}','NewsPostController@getsubdistrict');
+    Route::post('/insert','NewsPostController@store')->name('admin.newspost.submit');
+
   
+
 
 });
 
@@ -178,6 +182,7 @@ Route::namespace('Admin')->prefix('admin/notice')->group(function(){
 });
 
 
+
 Route::namespace('Admin')->prefix('admin/logo')->group(function(){
     Route::get('/','FooterController@logoIndex')->name('admin.logo.index');
     Route::post('/store','FooterController@logoStore')->name('admin.logo.store');
@@ -192,6 +197,12 @@ Route::namespace('Admin')->prefix('admin/our/say')->group(function(){
 
 
 
+
+
+Route::group(['prefix' => 'admin/gallery', 'namespace' => 'Admin'], function () {
+    Route::get('create', 'GalleryController@create')->name('admin.gallery.create');
+    Route::post('store', 'GalleryController@store')->name('admin.gallery.store');
+});
 
 
 
