@@ -191,7 +191,7 @@ Route::namespace('Admin')->prefix('admin/logo')->group(function(){
 
 Route::namespace('Admin')->prefix('admin/our/say')->group(function(){
     Route::get('/','FooterController@ourSayIndex')->name('admin.Oursay.index');
-    Route::post('/store','FooterController@logoStore')->name('admin.logo.store');
+    Route::post('/store','FooterController@ourSayStore')->name('admin.our.say.store');
 });
 
 
@@ -202,6 +202,12 @@ Route::namespace('Admin')->prefix('admin/our/say')->group(function(){
 Route::group(['prefix' => 'admin/gallery', 'namespace' => 'Admin'], function () {
     Route::get('create', 'GalleryController@create')->name('admin.gallery.create');
     Route::post('store', 'GalleryController@store')->name('admin.gallery.store');
+});
+
+
+Route::namespace('Admin')->prefix('admin/team')->group(function(){
+    Route::get('/', 'TeamController@teamIndex')->name('admin.team.index');
+    Route::post('/store', 'TeamController@teamStore')->name('admin.team.create');
 });
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Logo;
+use App\OurSay;
 use App\Unique;
 use Illuminate\Http\Request;
 use Image;
@@ -214,7 +215,44 @@ class FooterController extends Controller
 
     public function ourSayIndex ()
     {
-        return view('admin.oursay.oursay');
+        $oursay = OurSay::first();
+        return view('admin.oursay.oursay',compact('oursay'));
+    }
+
+    // our store
+
+    public function ourSayStore(Request $request)
+    {
+        
+
+        $data =$request->validate([
+            'title'=>'required',
+            'description'=>'required',
+            'image'=>'file',
+        ]);
+
+        $oursay = OurSay::first();
+        $oursay->update([
+            'title'=>$request->title,
+            'description'=>$request->description,
+        ]);
+
+        if($request->hasFile('image')){
+            $link = base_path('public/admins/images/oursay/') . $oursay->image;
+            unlink($link);
+            $image = $request->file('image');
+            $imagename = time().'oursay'. '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(160, 80)->save(base_path('public/admins/images/oursay/' . $imagename), 100);
+            $oursay->image = $imagename;
+            $oursay->save();
+        }
+
+
+        $notification = array(
+            'messege' => 'Our Say Update Successfully!',
+            'alert-type' => 'success'
+        );
+        return Redirect()->back()->with($notification);
     }
 
     
