@@ -60,7 +60,7 @@
 	                          <li><a href="{{route('admin.social.setting')}}">Social Setting</a></li>
 
 	                        </ul>
-	                       
+
                       </li>
 
 	                  <li class="single-nav-wrapper">
@@ -72,12 +72,6 @@
                               <li><a href="{{ route('admin.division.index') }}">All Division</a></li>
                             <li><a href="{{ route('admin.division.district') }}">All Distirct</a></li>
                             <li><a href="{{ route('admin.division.sub_district.index') }}">Sub Distirct</a></li>
-
-
-	                          
-	                          
-
-
 	                        </ul>
 					  </li>
 
@@ -98,7 +92,7 @@
 	                          <span class="menu-text">Gallery</span>
 	                      </a>
 	                        <ul class="dashboard-menu">
-							<li><a href="">All gallery photo</a></li>
+                            <li><a href="{{ route('admin.gallery.index') }}">All gallery photo</a></li>
                             <li><a href="{{ route('admin.gallery.create') }}">Add gallery photo</a></li>
 	                        </ul>
 	                  </li>

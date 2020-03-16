@@ -19,7 +19,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         <form id="multiple_delete" action="{{ route('admin.division.sub_district.multiple.delete') }}" method="post">
                 @csrf
