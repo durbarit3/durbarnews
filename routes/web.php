@@ -150,6 +150,10 @@ Route::namespace('Admin')->prefix('admin/news')->group(function(){
 
     Route::get(md5('/all'),'NewsPostController@index')->name('admin.news.all');
     Route::get(md5('/add'),'NewsPostController@create')->name('admin.news.create');
+    Route::get('/getsubcate/{cate_id}','NewsPostController@getsubcate');
+    Route::get('/getdistrict/{division_id}','NewsPostController@getdistrict');
+    Route::get('/getsubdistrict/{district_id}','NewsPostController@getsubdistrict');
+    Route::post('/insert','NewsPostController@store')->name('admin.newspost.submit');
 
   
 

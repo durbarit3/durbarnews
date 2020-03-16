@@ -8,22 +8,24 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Admin' => $baseDir . '/app/Admin.php',
     'App\\Category' => $baseDir . '/app/Category.php',
-
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\District' => $baseDir . '/app/District.php',
+    'App\\Division' => $baseDir . '/app/Division.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Admin\\AdminController' => $baseDir . '/app/Http/Controllers/Admin/AdminController.php',
     'App\\Http\\Controllers\\Admin\\AuthController' => $baseDir . '/app/Http/Controllers/Admin/AuthController.php',
-
     'App\\Http\\Controllers\\Admin\\CategoryController' => $baseDir . '/app/Http/Controllers/Admin/CategoryController.php',
+    'App\\Http\\Controllers\\Admin\\DistrictController' => $baseDir . '/app/Http/Controllers/Admin/DistrictController.php',
+    'App\\Http\\Controllers\\Admin\\DivisionController' => $baseDir . '/app/Http/Controllers/Admin/DivisionController.php',
+    'App\\Http\\Controllers\\Admin\\FooterController' => $baseDir . '/app/Http/Controllers/Admin/FooterController.php',
+    'App\\Http\\Controllers\\Admin\\NewsPostController' => $baseDir . '/app/Http/Controllers/Admin/NewsPostController.php',
+    'App\\Http\\Controllers\\Admin\\NoticeController' => $baseDir . '/app/Http/Controllers/Admin/NoticeController.php',
     'App\\Http\\Controllers\\Admin\\PageController' => $baseDir . '/app/Http/Controllers/Admin/PageController.php',
     'App\\Http\\Controllers\\Admin\\PaymentGetwayController' => $baseDir . '/app/Http/Controllers/Admin/PaymentGetwayController.php',
     'App\\Http\\Controllers\\Admin\\PollController' => $baseDir . '/app/Http/Controllers/Admin/PollController.php',
     'App\\Http\\Controllers\\Admin\\SubCategoryController' => $baseDir . '/app/Http/Controllers/Admin/SubCategoryController.php',
-
-    'App\\Http\\Controllers\\Admin\\FooterController' => $baseDir . '/app/Http/Controllers/Admin/FooterController.php',
-    
-    
-
+    'App\\Http\\Controllers\\Admin\\SubDistrictController' => $baseDir . '/app/Http/Controllers/Admin/SubDistrictController.php',
+    'App\\Http\\Controllers\\Admin\\ThemeColorController' => $baseDir . '/app/Http/Controllers/Admin/ThemeColorController.php',
     'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
@@ -42,26 +44,21 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\PageRequest' => $baseDir . '/app/Http/Requests/PageRequest.php',
     'App\\Menu' => $baseDir . '/app/Menu.php',
-
+    'App\\NewsPost' => $baseDir . '/app/NewsPost.php',
+    'App\\Notice' => $baseDir . '/app/Notice.php',
     'App\\Page' => $baseDir . '/app/Page.php',
     'App\\PaymentGetway' => $baseDir . '/app/PaymentGetway.php',
     'App\\Poll' => $baseDir . '/app/Poll.php',
     'App\\PollResult' => $baseDir . '/app/PollResult.php',
-
-    'App\\Notice' => $baseDir . '/app/Notice.php',
-
-    'App\\PaymentGetway' => $baseDir . '/app/PaymentGetway.php',
-
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
-
     'App\\SubCategory' => $baseDir . '/app/SubCategory.php',
-
+    'App\\SubDistrict' => $baseDir . '/app/SubDistrict.php',
+    'App\\ThemeColor' => $baseDir . '/app/ThemeColor.php',
     'App\\Unique' => $baseDir . '/app/Unique.php',
-
     'App\\User' => $baseDir . '/app/User.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonImmutable' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',

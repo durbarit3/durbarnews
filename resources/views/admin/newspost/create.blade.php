@@ -20,110 +20,246 @@
 					</div>
 				</div>
 				<div class="panel_body">
-					<form class="form-horizontal" action="{{route('admin.poll.submit')}}" method="POST" enctype="multipart/form-data">
+					<form class="form-horizontal" action="{{route('admin.newspost.submit')}}" method="POST" enctype="multipart/form-data">
 
 					@csrf
 					<div class="form-group row">
 						<label for="inputEmail3" class="col-sm-3 col-form-label text-right">Title</label>
 						<div class="col-sm-7">
-							<input type="text" name="" class="form-control">
+							<input type="text" name="title" class="form-control">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="inputEmail3" class="col-sm-3 col-form-label text-right">Title Slug</label>
 						<div class="col-sm-7">
-							<input type="text" name="" class="form-control">
+							<input type="text" name="slug" class="form-control">
 							<p style="font-size: 12px">(If you leave it blank, it will be generated automatically)</p>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="inputEmail3" class="col-sm-3 col-form-label text-right">Category</label>
 						<div class="col-sm-7">
-							<select class="form-control" name="cate_id">
-								<option></option>
+							<select class="form-control" name="cate_id" id="cate_id">
+								<option disabled selected>Select</option>
+								@foreach($allcategory as $cate)
+								<option value="{{$cate->id}}">{{$cate->name}}</option>
+								@endforeach
 							</select>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="inputEmail3" class="col-sm-3 col-form-label text-right">SubCategory</label>
 						<div class="col-sm-7">
-							<select class="form-control" name="subcate_id">
-								<option></option>
+							<select class="form-control" name="subcategory_id" id="subcategory_id">
+								<option disabled selected>Select</option>
 							</select>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="inputEmail3" class="col-sm-3 col-form-label text-right">Division</label>
 						<div class="col-sm-7">
-							<select class="form-control" name="subcate_id">
-								<option></option>
+							<select class="form-control" name="division_id" id="division_id">
+								<option disabled selected>Select</option>
+								@foreach($alldivision as $division)
+								<option value="{{$division->id}}">{{$division->name_bn}}</option>
+								@endforeach
+
 							</select>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="inputEmail3" class="col-sm-3 col-form-label text-right">District</label>
 						<div class="col-sm-7">
-							<select class="form-control" name="subcate_id">
-								<option></option>
+							<select class="form-control" name="district_id" id="district_id">
+								<option value="">Select</option>
 							</select>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="inputEmail3" class="col-sm-3 col-form-label text-right">SubDistrict</label>
 						<div class="col-sm-7">
-							<select class="form-control" name="subcate_id">
-								<option></option>
+							<select class="form-control" name="subdistrict_id" id="subdistrict_id">
+								<option value="">Select</option>
 							</select>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="inputEmail3" class="col-sm-3 col-form-label text-right">Post Type</label>
 						<div class="col-sm-7">
-							<select class="form-control" name="subcate_id">
-								<option>Photo News</option>
-								<option>Video News</option>
+							<select class="form-control" name="post_type" id="post_type">
+								<option value="1">Photo News</option>
+								<option value="2">Video News</option>
 							</select>
 						</div>
 					</div>
-					<div class="form-group row">
-						<label for="inputEmail3" class="col-sm-3 col-form-label text-right">Image</label>
-						<div class="col-sm-7">
-							 <input type="file" name="father_pic" id="input-file-now" class="form-control dropify" size="20" height="10px" autocomplete="off"/>
+					<div id="videosection" style="display: none">
+						<div class="form-group row">
+							<label for="inputEmail3" class="col-sm-3 col-form-label text-right">Video Link</label>
+							<div class="col-sm-7">
+								  <textarea name="video_link" class="form-control"></textarea>
+							</div>
+						</div>
+					</div>
+					<div id="post_news">
+						<div class="form-group row">
+							<label for="inputEmail3" class="col-sm-3 col-form-label text-right">Image / Thumbnail Image</label>
+							<div class="col-sm-7">
+								 <input type="file" name="pic" id="input-file-now" class="form-control dropify" size="20" height="10px" autocomplete="off"/>
+							</div>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="inputEmail3" class="col-sm-3 col-form-label text-right">Description</label>
 						<div class="col-sm-7">
-							 <textarea name="editor1" id="editor1" rows="10" cols="80"> </textarea>
+							  <textarea name="description" id="editor1" rows="10" cols="80"> </textarea>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="inputEmail3" class="col-sm-3 col-form-label text-right">Meta Tag</label>
 						<div class="col-sm-7">
-							<input type="text" name="" class="form-control">
-							
+						  <input type="text" data-role="tagsinput" name="meta_tag">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="inputEmail3" class="col-sm-3 col-form-label text-right">Meta Description</label>
 						<div class="col-sm-7">
-							<textarea class="form-control"></textarea>
-							
+							<textarea class="form-control" name="meta_description"></textarea>
 						</div>
 					</div>
+					<div class="form-group row skin-square">
+						<label for="inputEmail3" class="col-sm-4 col-form-label text-right"></label>
+						<div class="col-sm-3">
+							<div class="i-check">
+                              <input tabindex="9" name="braking_news" type="checkbox" id="square-checkbox-1" value="1" checked>
+                              <label for="square-checkbox-1">Braking News</label>
+                            </div>
+                        
+						</div>
+						<div class="col-sm-3">
+                          <div class="i-check">
+                              <input tabindex="10" type="checkbox" id="square-checkbox-4" name="pocket_news" value="1" checked>
+                              <label for="square-checkbox-4">Pocket News</label>
+                          </div>
+						</div>
+					</div>
+
+
 					<div class="form-group row">
 						<label for="inputEmail3" class="col-sm-3 col-form-label text-right"></label>
 						<div class="col-sm-7 text-center">
 							<button type="submit" class="btn btn-success">Add News</button>
 						</div>
 					</div>
-
-
-				
 				</form>
-				</div>
+				</div>		
 			</div>
 		</section>
 	</div>
 
+
+<script type="text/javascript">
+
+ $(document).ready(function() {
+         $('select[name="cate_id"]').on('change', function(){
+             var cate_id = $(this).val();
+             //alert("success");
+             if(cate_id) {
+                 $.ajax({
+                     url: "{{  url('admin/news/getsubcate/') }}/"+cate_id,
+                     type:"GET",
+                     dataType:"json",
+                     success:function(data) {
+                            $('#subcategory_id').empty();
+                            $('#subcategory_id').append(' <option disabled selected>Select</option>');
+                            $.each(data,function(index,districtObj){
+                            $('#subcategory_id').append('<option value="' + districtObj.id + '">'+districtObj.name+'</option>');
+                          });
+                         }
+                 });
+             } else {
+                 //alert('danger');
+             }
+
+         });
+// district
+   $('select[name="division_id"]').on('change', function(){
+             var division_id = $(this).val();
+             //alert(division_id);
+             if(division_id) {
+                 $.ajax({
+                     url: "{{  url('admin/news/getdistrict/') }}/"+division_id,
+                     type:"GET",
+                     dataType:"json",
+                     success:function(data) {
+
+                            $('#district_id').empty();
+                            $('#district_id').append(' <option disabled selected>Select</option>');
+                            $.each(data,function(index,districtObj){
+                            $('#district_id').append('<option value="' + districtObj.id + '">'+districtObj.name_bn+'</option>');
+                          });
+                         }
+                 });
+             } else {
+                 alert('danger');
+             }
+
+         });
+
+// subdistrict
+
+   $('select[name="district_id"]').on('change', function(){
+             var district_id = $(this).val();
+             //alert("success");
+             if(district_id) {
+                 $.ajax({
+                     url: "{{  url('admin/news/getsubdistrict/') }}/"+district_id,
+                     type:"GET",
+                     dataType:"json",
+                     success:function(data) {
+                            $('#subdistrict_id').empty();
+                            $('#subdistrict_id').append(' <option disabled selected>Select</option>');
+                            $.each(data,function(index,districtObj){
+                            $('#subdistrict_id').append('<option value="' + districtObj.id + '">'+districtObj.name+'</option>');
+                          });
+                         }
+                 });
+             } else {
+                 //alert('danger');
+             }
+
+         });
+
+
+    // mainsection checkbox jquery
+
+        $("#mainsection").click(function() {
+
+            if ($(this).is(":checked")) {
+                $("#mainsectiondiv").show();
+
+            }
+            else {
+                $("#mainsectiondiv").hide();
+
+            }
+        });
+
+          $('select[name="post_type"]').on('change', function(){
+             var id = $(this).val();
+             
+             if(id==2){
+             	$("#videosection").show();
+             }else{
+             	$("#videosection").hide();
+             }
+           
+
+         });
+
+
+
+
+     });
+
+</script>
 @endsection
