@@ -155,6 +155,22 @@ Route::namespace('Admin')->prefix('admin/news')->group(function(){
     Route::post('/insert','NewsPostController@store')->name('admin.newspost.submit');
 
 
+    Route::get('/edit/{id}','NewsPostController@edit');
+
+    Route::post('/update/{id}','NewsPostController@update')->name('admin.news.update');
+    Route::get('/deletedpost','NewsPostController@deletedpost')->name('admin.news.deletedpost');
+
+    Route::get('/deactive/{id}','NewsPostController@deactive');
+  
+    Route::get('/active/{id}','NewsPostController@active');
+    Route::get('/softdelete/{id}','NewsPostController@softdelete');
+    Route::post('/multisoftdelete','NewsPostController@multisoftdelete')->name('admin.news.multisoftdelete');
+
+      Route::get('/delete/{id}','NewsPostController@delete');
+      Route::get('/recycle/{id}','NewsPostController@recycle');
+      Route::post('/multihearddelete','NewsPostController@multihearddelete')->name('admin.news.multihearddelete');
+  
+
 
 
 });

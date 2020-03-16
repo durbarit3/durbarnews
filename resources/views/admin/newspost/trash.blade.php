@@ -11,20 +11,17 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="panel_title">
-								<span class="panel_icon"><i class="fas fa-border-all"></i></span><span>All News</span>
+								<span class="panel_icon"><i class="fas fa-border-all"></i></span><span>All Deleted News</span>
 							</div>
 						</div>
-						<div class="col-md-6 text-right">
-							<div class="panel_title">
-								<a href="{{route('admin.news.create')}}" class="btn btn-success"><i class="fas fa-plus"></i></span> <span>Add News</span></a>
-							</div>
-						</div>
+						
 					</div>
 				</div>
-				<form action="{{route('admin.news.multisoftdelete')}}" method="post">
+				<form action="{{route('admin.news.multihearddelete')}}" method="post">
 					@csrf
-					<button type="submit" style="margin: 5px;" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete All</button>
-					<a href="{{route('admin.news.deletedpost')}}" style="margin: 5px;" class="btn btn-success btn-sm"><i class="fa fa-recycle"></i> Restore</a>
+					<button type="submit" style="margin: 5px;" class="btn btn-danger btn-sm" name="submit" value="delete"><i class="fa fa-trash"></i> Delete All</button>
+					<button type="submit" style="margin: 5px;" class="btn btn-info btn-sm" name="submit" value="restore"><i class="fas fa-recycle"></i> Restore All</button>
+					<a href="{{route('admin.news.all')}}" style="margin: 5px;" class="btn btn-success btn-sm"><i class="fas fa-backward"></i> Back</a>
 					<div class="panel_body">
 						<div class="table-responsive">
 							<table id="dataTableExample1" class="table table-bordered table-striped table-hover mb-2">
@@ -42,7 +39,6 @@
 										<th>Category</th>
 										<th>SubCategory</th>
 										<th>Image</th>
-										<th>status</th>
 										<th>manage</th>
 									</tr>
 								</thead>
@@ -67,22 +63,11 @@
 										<td>
 											<img src="{{asset('public/uploads/newspost/'.$data->image)}}" height="25px">
 										</td>
-										<td>
-											@if($data->status==1)
-											<span class="btn btn-success btn-sm">Active</span>
-											@else
-											<span class="btn btn-danger btn-sm">Deactive</span>
-											@endif
-										</td>
+									
 										
 										<td>
-											<a href="{{url('admin/news/edit/'.$data->id)}}" class="btn btn-sm btn-info"title="edit"><i class="fas fa-pencil-alt"></i></a> |
-	                                      	@if($data->status==1)
-	                                      	<a class="btn btn-sm btn-success" href="{{url('admin/news/deactive/'.$data->id)}}" id="TopbarActive"><i class="fas fa-thumbs-up"></i> </a> 
-	                                      	@else
-	                                      	<a class="btn btn-sm btn-secondary" href="{{url('admin/news/active/'.$data->id)}}" id="TopbarActive"><i class="fas fa-thumbs-down"></i> </a>
-	                                      	@endif
-	                                       | <a class="btn btn-sm btn-danger" href="{{url('admin/news/softdelete/'.$data->id)}}" id="delete"><i class="fa fa-trash"></i> </a> |
+											<a href="{{url('admin/news/recycle/'.$data->id)}}" class="btn btn-sm btn-info"title="edit"><i class="fas fa-recycle"></i></a> |
+											 <a class="btn btn-sm btn-danger" href="{{url('admin/news/delete/'.$data->id)}}" id="delete"><i class="fa fa-trash"></i> </a> |
 										</td>
 									</tr>
 									@endforeach
