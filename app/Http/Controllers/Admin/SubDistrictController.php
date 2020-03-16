@@ -13,7 +13,22 @@ class SubDistrictController extends Controller
     public function index()
     {
         $divisions = Division::where('status', 1)->select('id', 'name_bn')->get();
-        $subDistricts = SubDistrict::with(['district', 'division'])->select(['id', 'name', 'status', 'district_id', 'division_id'])->get();
+        $subDistricts = SubDistrict::with(['district', 'division'])->select(['id', 'name', 'status', 'district_id', 'division_id'])->get()
+        ->map(function($subDistrict){
+            return [
+                'id' => $subDistrict->id,
+                'name' => $subDistrict->name,
+                'status' => $subDistrict->status,
+                'district_id' => $subDistrict->district_id,
+                'division_id' => $subDistrict->division_id,
+                'district' => [
+                    'name_bn' => $subDistrict->district->name_bn,
+                ],
+                'division' => [
+                    'name_bn' => $subDistrict->division->name_bn,
+                ]
+            ];
+        });
         return view('admin.division.sub_districts.index', compact('divisions', 'subDistricts'));
     }
 

@@ -4,8 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit03d0b529b80b8088f3533ceeb37e2db0
-
+class ComposerStaticInitb9e58890302a72d208883f5ca05e1a95
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -420,22 +419,28 @@ class ComposerStaticInit03d0b529b80b8088f3533ceeb37e2db0
 
     public static $classMap = array (
         'App\\Admin' => __DIR__ . '/../..' . '/app/Admin.php',
-
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
-
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\District' => __DIR__ . '/../..' . '/app/District.php',
+        'App\\Division' => __DIR__ . '/../..' . '/app/Division.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Gallery' => __DIR__ . '/../..' . '/app/Gallery.php',
+        'App\\GalleryPhoto' => __DIR__ . '/../..' . '/app/GalleryPhoto.php',
         'App\\Http\\Controllers\\Admin\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminController.php',
         'App\\Http\\Controllers\\Admin\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AuthController.php',
-
         'App\\Http\\Controllers\\Admin\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CategoryController.php',
+        'App\\Http\\Controllers\\Admin\\DistrictController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DistrictController.php',
+        'App\\Http\\Controllers\\Admin\\DivisionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DivisionController.php',
+        'App\\Http\\Controllers\\Admin\\FooterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FooterController.php',
+        'App\\Http\\Controllers\\Admin\\GalleryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/GalleryController.php',
+        'App\\Http\\Controllers\\Admin\\NewsPostController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/NewsPostController.php',
+        'App\\Http\\Controllers\\Admin\\NoticeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/NoticeController.php',
         'App\\Http\\Controllers\\Admin\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PageController.php',
         'App\\Http\\Controllers\\Admin\\PaymentGetwayController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PaymentGetwayController.php',
         'App\\Http\\Controllers\\Admin\\PollController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PollController.php',
         'App\\Http\\Controllers\\Admin\\SubCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SubCategoryController.php',
-
-        'App\\Http\\Controllers\\Admin\\FooterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FooterController.php',
-       
+        'App\\Http\\Controllers\\Admin\\SubDistrictController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SubDistrictController.php',
+        'App\\Http\\Controllers\\Admin\\ThemeColorController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ThemeColorController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -454,24 +459,20 @@ class ComposerStaticInit03d0b529b80b8088f3533ceeb37e2db0
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\PageRequest' => __DIR__ . '/../..' . '/app/Http/Requests/PageRequest.php',
         'App\\Menu' => __DIR__ . '/../..' . '/app/Menu.php',
-
+        'App\\Notice' => __DIR__ . '/../..' . '/app/Notice.php',
         'App\\Page' => __DIR__ . '/../..' . '/app/Page.php',
         'App\\PaymentGetway' => __DIR__ . '/../..' . '/app/PaymentGetway.php',
         'App\\Poll' => __DIR__ . '/../..' . '/app/Poll.php',
         'App\\PollResult' => __DIR__ . '/../..' . '/app/PollResult.php',
-
-        'App\\Notice' => __DIR__ . '/../..' . '/app/Notice.php',
- 
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-
         'App\\SubCategory' => __DIR__ . '/../..' . '/app/SubCategory.php',
-
+        'App\\SubDistrict' => __DIR__ . '/../..' . '/app/SubDistrict.php',
+        'App\\ThemeColor' => __DIR__ . '/../..' . '/app/ThemeColor.php',
         'App\\Unique' => __DIR__ . '/../..' . '/app/Unique.php',
-
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonImmutable' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',
@@ -4513,12 +4514,10 @@ class ComposerStaticInit03d0b529b80b8088f3533ceeb37e2db0
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-
-            $loader->prefixLengthsPsr4 = ComposerStaticInit03d0b529b80b8088f3533ceeb37e2db0::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit03d0b529b80b8088f3533ceeb37e2db0::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit03d0b529b80b8088f3533ceeb37e2db0::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit03d0b529b80b8088f3533ceeb37e2db0::$classMap;
-
+            $loader->prefixLengthsPsr4 = ComposerStaticInitb9e58890302a72d208883f5ca05e1a95::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitb9e58890302a72d208883f5ca05e1a95::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitb9e58890302a72d208883f5ca05e1a95::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitb9e58890302a72d208883f5ca05e1a95::$classMap;
 
         }, null, ClassLoader::class);
     }

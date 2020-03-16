@@ -142,17 +142,12 @@ Route::namespace('Admin')->prefix('admin/poll')->group(function(){
     Route::get('/delete/{id}','PollController@delete');
     Route::post('/multiDelete','PollController@multiDelete')->name('admin.poll.multiDelete');
     Route::get(md5('/pollresult'),'PollController@pollresult')->name('admin.poll.result');
-  
 
 });
 // newspost
 Route::namespace('Admin')->prefix('admin/news')->group(function(){
-
     Route::get(md5('/all'),'NewsPostController@index')->name('admin.news.all');
     Route::get(md5('/add'),'NewsPostController@create')->name('admin.news.create');
-
-  
-
 });
 
 Route::get('/{link}','Admin\SubCategoryController@categorypage');
@@ -178,7 +173,10 @@ Route::namespace('Admin')->prefix('admin/notice')->group(function(){
 });
 
 
-
+Route::group(['prefix' => 'admin/gallery', 'namespace' => 'Admin'], function () {
+    Route::get('create', 'GalleryController@create')->name('admin.gallery.create');
+    Route::post('store', 'GalleryController@store')->name('admin.gallery.store');
+});
 
 
 
