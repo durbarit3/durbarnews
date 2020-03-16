@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Logo;
 use App\Unique;
 use Illuminate\Http\Request;
+use Image;
 
 class FooterController extends Controller
 {
@@ -125,4 +127,95 @@ class FooterController extends Controller
         }
        
     }
+
+    // logo insert area start
+
+    public function logoIndex()
+    {
+        $logos =Logo::first();
+        
+        return view('admin.logo.logo',compact('logos'));
+    }
+
+    // logo store area start
+
+    public function logoStore(Request $request)
+    {
+
+        
+
+       $request->validate([
+           'frontlogo'=>'nullable',
+           'favicon'=>'nullable',
+           'adminlogo'=>'nullable',
+           'loginbanner'=>'nullable',
+       ]);
+
+
+
+       $logos = Logo::first();
+
+      
+       
+       // intervenation image upload update
+        if ($request->hasFile('frontlogo')) {
+          
+            $link = base_path('public/admins/images/logo/') . $logos->frontlogo;
+            unlink($link);
+        
+            $frontlogo = $request->file('frontlogo');
+            $front = time().'front'. '.' . $frontlogo->getClientOriginalExtension();
+            Image::make($frontlogo)->resize(250, 60)->save(base_path('public/admins/images/logo/' . $front), 100);
+            $logos->frontlogo = $front;
+            $logos->save();
+            
+        }
+        if($request->hasFile('favicon')){
+            $link = base_path('public/admins/images/logo/') . $logos->favicon;
+            unlink($link);
+            $favicon = $request->file('favicon');
+            $fav = time() .'fav'.'.' . $favicon->getClientOriginalExtension();
+            Image::make($favicon)->resize(64, 64)->save(base_path('public/admins/images/logo/' . $fav), 100);
+            $logos->favicon = $fav;
+            $logos->save();
+            
+
+        }
+        if($request->hasFile('adminlogo')){
+            $link = base_path('public/admins/images/logo/') . $logos->adminlogo;
+            unlink($link);
+            
+            $adminlogo = $request->file('adminlogo');
+            $admin = time().'admin'. '.' . $adminlogo->getClientOriginalExtension();
+            Image::make($adminlogo)->resize(220, 40)->save(base_path('public/admins/images/logo/' . $admin), 100);
+            $logos->adminlogo = $admin;
+            $logos->save();
+
+        }
+        if($request->hasFile('loginbanner')){
+            $link = base_path('public/admins/images/logo/') . $logos->loginbanner;
+            unlink($link);
+            $loginbanner = $request->file('loginbanner');
+            $login = time().'login'. '.' . $loginbanner->getClientOriginalExtension();
+            Image::make($loginbanner)->resize(800, 600)->save(base_path('public/admins/images/logo/' . $login), 100);
+            $logos->loginbanner = $login;
+            $logos->save();
+        }
+
+        $notification = array(
+            'messege' => 'Logo Update Successfully!',
+            'alert-type' => 'success'
+        );
+        return Redirect()->back()->with($notification);
+
+    }
+
+    // our say area start
+
+    public function ourSayIndex ()
+    {
+        return view('admin.oursay.oursay');
+    }
+
+    
 }
