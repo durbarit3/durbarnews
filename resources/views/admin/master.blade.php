@@ -159,15 +159,6 @@
             })
         });
     </script>
-        
-
-
-
-		
-
-		@stack('scripts')
-
-
 
     <script>
         $(document).on("click", "#delete", function (e) {
@@ -211,11 +202,10 @@
         });
     </script>
 
-        <script src="{{asset('public/admins')}}/plugins/icheck/icheck.min.js"></script>
-        <script src="{{asset('public/admins')}}/plugins/bootstrap-toggle/bootstrap-toggle.min.js"></script>
-        <script src="{{asset('public/admins')}}/plugins/icheck/icheck-active.js"></script>
-
-
+    <script src="{{asset('public/admins')}}/plugins/icheck/icheck.min.js"></script>
+    <script src="{{asset('public/admins')}}/plugins/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+    <script src="{{asset('public/admins')}}/plugins/icheck/icheck-active.js"></script>
+    
     <!-- Main js -->
     <script src="{{asset('public/admins/js/main.js')}}"></script>
     <script type="text/javascript"
@@ -241,7 +231,7 @@
         @endif
     </script>
 
-	   @stack('scripts')
+	@stack('scripts')
 </body>
 
 </html>

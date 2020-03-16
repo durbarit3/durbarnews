@@ -154,7 +154,23 @@ Route::namespace('Admin')->prefix('admin/news')->group(function(){
     Route::get('/getsubdistrict/{district_id}','NewsPostController@getsubdistrict');
     Route::post('/insert','NewsPostController@store')->name('admin.newspost.submit');
 
+
+    Route::get('/edit/{id}','NewsPostController@edit');
+
+    Route::post('/update/{id}','NewsPostController@update')->name('admin.news.update');
+    Route::get('/deletedpost','NewsPostController@deletedpost')->name('admin.news.deletedpost');
+
+    Route::get('/deactive/{id}','NewsPostController@deactive');
   
+    Route::get('/active/{id}','NewsPostController@active');
+    Route::get('/softdelete/{id}','NewsPostController@softdelete');
+    Route::post('/multisoftdelete','NewsPostController@multisoftdelete')->name('admin.news.multisoftdelete');
+
+      Route::get('/delete/{id}','NewsPostController@delete');
+      Route::get('/recycle/{id}','NewsPostController@recycle');
+      Route::post('/multihearddelete','NewsPostController@multihearddelete')->name('admin.news.multihearddelete');
+  
+
 
 
 });
@@ -194,21 +210,24 @@ Route::namespace('Admin')->prefix('admin/our/say')->group(function(){
     Route::post('/store','FooterController@ourSayStore')->name('admin.our.say.store');
 });
 
-
-
-
-
-
-Route::group(['prefix' => 'admin/gallery', 'namespace' => 'Admin'], function () {
+Route::group(['prefix' => 'admin/galleries', 'namespace' => 'Admin'], function () {
+    Route::get('/', 'GalleryController@index')->name('admin.gallery.index');
     Route::get('create', 'GalleryController@create')->name('admin.gallery.create');
     Route::post('store', 'GalleryController@store')->name('admin.gallery.store');
+    Route::post('update/{galleryId}', 'GalleryController@update')->name('admin.gallery.update');
+    Route::get('edit/{galleryId}', 'GalleryController@edit')->name('admin.gallery.edit');
+    Route::get('change/status/{galleryId}', 'GalleryController@changeStatus')->name('admin.gallery.status.update');
+    Route::get('delete/{galleryId}', 'GalleryController@delete')->name('admin.gallery.delete');
+    Route::post('multiple/delete', 'GalleryController@multipleDelete')->name('admin.gallery.multiple.delete');
 });
+
 
 
 Route::namespace('Admin')->prefix('admin/team')->group(function(){
     Route::get('/', 'TeamController@teamIndex')->name('admin.team.index');
     Route::post('/store', 'TeamController@teamStore')->name('admin.team.create');
 });
+
 
 
 
