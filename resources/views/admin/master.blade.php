@@ -86,23 +86,12 @@
     <!-- basic-donut-chart -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
     <script src="{{asset('public/admins/plugins/basic-donut-chart/dist/script.js')}}"></script>
-
     <!-- donut-chart -->
     <script src="{{asset('public/admins/plugins/donut-chart/dist/script.js')}}"></script>
     <script src="{{asset('public/admins/ajaxjs.js')}}"></script>
-
     <script src="{{asset('public/admins/plugins/datatables/dataTables.min.js')}}"></script>
     <script src="{{asset('public/admins/plugins/datatables/dataTables-active.js')}}"></script>
-
     <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
-
-
-
-		
-
-		@stack('scripts')
-
-
     <script>
         $(document).on("click", "#delete", function (e) {
             e.preventDefault();
@@ -145,7 +134,6 @@
         });
     </script>
 
-
     <!-- Main js -->
     <script src="{{asset('public/admins/js/main.js')}}"></script>
     <script type="text/javascript"
@@ -172,10 +160,6 @@
     </script>
 
 	   @stack('scripts')
-
-
-
-
 </body>
 
 </html>
