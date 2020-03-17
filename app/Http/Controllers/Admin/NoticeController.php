@@ -71,7 +71,7 @@ class NoticeController extends Controller
             );
             return Redirect()->back()->with($notification);
         }
-        return $id;
+        
     }
 
 

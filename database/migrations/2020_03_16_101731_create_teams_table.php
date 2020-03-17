@@ -22,14 +22,15 @@ class CreateTeamsTable extends Migration
             $table->string('address');
             $table->string('description');
             $table->string('image')->default('team.jpg');
-            $table->string('facebook_logo');
-            $table->string('facebook');
-            $table->string('twitter_logo');
-            $table->string('twitter');
-            $table->string('instagram_logo');
-            $table->string('instagram');
-            $table->string('youtube_logo');
-            $table->string('youtube');
+            $table->string('facebook_logo')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter_logo')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram_logo')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('youtube_logo')->nullable();
+            $table->string('youtube')->nullable();
+            $table->integer('status')->default(1);
             
             $table->timestamps();
         });
