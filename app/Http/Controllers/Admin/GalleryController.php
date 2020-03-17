@@ -328,10 +328,6 @@ class GalleryController extends Controller
                 'alert-type' => 'success'
             );
         }
-
-
         return Redirect()->back()->with($notification);
-
     }
-
 }
