@@ -69,13 +69,31 @@
                         <form action="{{ route('admin.gallery.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
+                                <label for="inputEmail3" class="col-form-label text-right"><b>Category:</b></label>
+                                <select required  name="category" class="form-control">
+                                    <option value="">Select Category First</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-form-label text-right"><b>Sub-Category:</b></label>
+                                <select name="sub_category" class="form-control">
+                                    <option value="">Select Category First</option>
+                                    @foreach ($subCategories as $subCategory)
+                                        <option value="{{ $subCategory->id }}">{{ $subCategory->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="inputEmail3" class="col-form-label text-right"><b>Gallery Thumbnail Photo:</b>
                                 </label>
                                 <input type="file" id="input-file-now" class="form-control dropify" size="5"
                                     accept=".jpeg, .jpg, .jpe, .png, .gif" name="thumbnail_photo" required>
                             </div>
                             <div class="form-group">
-                                <label for="inputEmail3" class=" col-form-label text-right"> <b>Thumbnail Photo Caption</b>
+                                <label for="inputEmail3" class=" col-form-label text-right"> <b>Gallery Heading </b>
                                     </label>
                                 <textarea class="form-control" placeholder="Thumbnail Caption" name="thumbnail_caption"
                                     required cols="3" rows="3"></textarea>
@@ -106,7 +124,6 @@
                                     <button type="button" class="add_more_button btn btn-sm btn-primary mt-2">Add
                                         more</button>
                                 </div>
-
                             </div>
 
                             <button type="submit" class="btn btn-success btn-sm float-right">Submit</button>
