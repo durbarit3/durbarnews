@@ -256,6 +256,22 @@ Route::group(['prefix' => 'admin/galleries', 'namespace' => 'Admin'], function (
 Route::namespace('Admin')->prefix('admin/team')->group(function(){
     Route::get('/', 'TeamController@teamIndex')->name('admin.team.index');
     Route::post('/store', 'TeamController@teamStore')->name('admin.team.create');
+    Route::get('/edit/{id}', 'TeamController@teamEdit');
+    Route::get('/delete/{id}', 'TeamController@teamDelete')->name('admin.team.delete');
+    Route::patch('/update', 'TeamController@teamUpdate')->name('admin.team.update');
+    Route::get('/status/{id}', 'TeamController@teamStatus')->name('admin.team.status');
+    Route::post('/multi/delete', 'TeamController@teamMultiDelete')->name('admin.team.multi.delete');
+});
+
+Route::namespace('Admin')->prefix('admin/user')->group(function(){
+    Route::get('/', 'UserController@userIndex')->name('admin.user.index');
+    Route::get('/create', 'UserController@userCreate')->name('admin.user.create');
+    Route::post('/store', 'UserController@userStore')->name('admin.user.store');
+    Route::get('/edit/{id}', 'UserController@userEdit')->name('admin.user.edit');
+    
+    Route::post(md5('/update'), 'UserController@userUpdate')->name('admin.user.update');
+    Route::get('/delete/{id}', 'UserController@userDelete')->name('admin.user.delete');
+    Route::get('/status/update/{id}', 'UserController@userStatusUpdate')->name('admin.user.status.update');
 });
 
 
