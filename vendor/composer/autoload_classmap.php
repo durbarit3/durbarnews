@@ -7,6 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Admin' => $baseDir . '/app/Admin.php',
+    'App\\Advertisement' => $baseDir . '/app/Advertisement.php',
+    'App\\AdvertisementPosition' => $baseDir . '/app/AdvertisementPosition.php',
     'App\\Category' => $baseDir . '/app/Category.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\District' => $baseDir . '/app/District.php',
@@ -15,6 +17,7 @@ return array(
     'App\\Gallery' => $baseDir . '/app/Gallery.php',
     'App\\GalleryPhoto' => $baseDir . '/app/GalleryPhoto.php',
     'App\\Http\\Controllers\\Admin\\AdminController' => $baseDir . '/app/Http/Controllers/Admin/AdminController.php',
+    'App\\Http\\Controllers\\Admin\\AdvertisementController' => $baseDir . '/app/Http/Controllers/Admin/AdvertisementController.php',
     'App\\Http\\Controllers\\Admin\\AuthController' => $baseDir . '/app/Http/Controllers/Admin/AuthController.php',
     'App\\Http\\Controllers\\Admin\\CategoryController' => $baseDir . '/app/Http/Controllers/Admin/CategoryController.php',
     'App\\Http\\Controllers\\Admin\\DistrictController' => $baseDir . '/app/Http/Controllers/Admin/DistrictController.php',
@@ -26,6 +29,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\PageController' => $baseDir . '/app/Http/Controllers/Admin/PageController.php',
     'App\\Http\\Controllers\\Admin\\PaymentGetwayController' => $baseDir . '/app/Http/Controllers/Admin/PaymentGetwayController.php',
     'App\\Http\\Controllers\\Admin\\PollController' => $baseDir . '/app/Http/Controllers/Admin/PollController.php',
+    'App\\Http\\Controllers\\Admin\\SectionManageController' => $baseDir . '/app/Http/Controllers/Admin/SectionManageController.php',
     'App\\Http\\Controllers\\Admin\\SubCategoryController' => $baseDir . '/app/Http/Controllers/Admin/SubCategoryController.php',
     'App\\Http\\Controllers\\Admin\\SubDistrictController' => $baseDir . '/app/Http/Controllers/Admin/SubDistrictController.php',
     'App\\Http\\Controllers\\Admin\\TeamController' => $baseDir . '/app/Http/Controllers/Admin/TeamController.php',
@@ -61,6 +65,7 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+    'App\\SectionManage' => $baseDir . '/app/SectionManage.php',
     'App\\SubCategory' => $baseDir . '/app/SubCategory.php',
     'App\\SubDistrict' => $baseDir . '/app/SubDistrict.php',
     'App\\Team' => $baseDir . '/app/Team.php',

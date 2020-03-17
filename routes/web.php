@@ -140,27 +140,65 @@ Route::namespace('Admin')->prefix('admin/poll')->group(function(){
 Route::namespace('Admin')->prefix('admin/news')->group(function(){
     Route::get(md5('/all'),'NewsPostController@index')->name('admin.news.all');
     Route::get(md5('/add'),'NewsPostController@create')->name('admin.news.create');
-
     Route::get('/getsubcate/{cate_id}','NewsPostController@getsubcate');
     Route::get('/getdistrict/{division_id}','NewsPostController@getdistrict');
     Route::get('/getsubdistrict/{district_id}','NewsPostController@getsubdistrict');
     Route::post('/insert','NewsPostController@store')->name('admin.newspost.submit');
 
     Route::get('/edit/{id}','NewsPostController@edit');
-
     Route::post('/update/{id}','NewsPostController@update')->name('admin.news.update');
     Route::get('/deletedpost','NewsPostController@deletedpost')->name('admin.news.deletedpost');
-
     Route::get('/deactive/{id}','NewsPostController@deactive');
 
     Route::get('/active/{id}','NewsPostController@active');
     Route::get('/softdelete/{id}','NewsPostController@softdelete');
     Route::post('/multisoftdelete','NewsPostController@multisoftdelete')->name('admin.news.multisoftdelete');
-
-      Route::get('/delete/{id}','NewsPostController@delete');
-      Route::get('/recycle/{id}','NewsPostController@recycle');
-      Route::post('/multihearddelete','NewsPostController@multihearddelete')->name('admin.news.multihearddelete');
+    Route::get('/delete/{id}','NewsPostController@delete');
+    Route::get('/recycle/{id}','NewsPostController@recycle');
+    Route::post('/multihearddelete','NewsPostController@multihearddelete')->name('admin.news.multihearddelete');
 });
+
+// section managae
+Route::namespace('Admin')->prefix('admin/sectionmanage')->group(function(){
+    Route::get(md5('/all'),'SectionManageController@index')->name('admin.sectionmanage.all');
+    Route::get('/deactive/{id}','SectionManageController@deactive');
+    Route::get('/active/{id}','SectionManageController@active');
+
+ 
+});
+
+
+
+
+
+
+
+Route::namespace('Admin')->prefix('admin/advertisement')->group(function(){
+
+    Route::get(md5('/all'),'AdvertisementController@index')->name('admin.advertisement.all');
+    Route::get(md5('/create'),'AdvertisementController@create')->name('admin.advertisement.create');
+    Route::post(md5('/submit'),'AdvertisementController@store')->name('admin.advertisement.submit');
+    Route::get('/deactive/{id}','AdvertisementController@deactive');
+    Route::get('/active/{id}','AdvertisementController@active');
+    Route::get('/softdelete/{id}','AdvertisementController@softdelete');
+    Route::post('/multisoftdel','AdvertisementController@multisoftdel');
+    Route::get('/deletead','AdvertisementController@deletead')->name('admin.advertisement.deletead');
+    Route::get('/edit/{id}','AdvertisementController@edit');
+    Route::post('/update/{id}','AdvertisementController@update')->name('admin.advertisement.update');
+    Route::get('/restore/{id}','AdvertisementController@restore');
+    Route::get('/delete/{id}','AdvertisementController@delete');
+    Route::post('/heardmulti/delete','AdvertisementController@heardmultidelete')->name('admin.advertisement.hearddelete');
+
+    Route::get(md5('/position/all'),'AdvertisementController@addposition')->name('admin.adposition.all');
+    Route::post(md5('/position/submit'),'AdvertisementController@addpositioninsert')->name('admin.adposition.submit');
+    Route::get('/position/edit/{id}','AdvertisementController@addpositionedit');
+    Route::post('/position/update','AdvertisementController@updateposition')->name('admin.adposition.update');
+    Route::get('/position/delete/{id}','AdvertisementController@postiondelete');
+
+});
+
+
+
 
 Route::get('/{link}','Admin\SubCategoryController@categorypage');
 
@@ -218,6 +256,22 @@ Route::group(['prefix' => 'admin/galleries', 'namespace' => 'Admin'], function (
 Route::namespace('Admin')->prefix('admin/team')->group(function(){
     Route::get('/', 'TeamController@teamIndex')->name('admin.team.index');
     Route::post('/store', 'TeamController@teamStore')->name('admin.team.create');
+    Route::get('/edit/{id}', 'TeamController@teamEdit');
+    Route::get('/delete/{id}', 'TeamController@teamDelete')->name('admin.team.delete');
+    Route::patch('/update', 'TeamController@teamUpdate')->name('admin.team.update');
+    Route::get('/status/{id}', 'TeamController@teamStatus')->name('admin.team.status');
+    Route::post('/multi/delete', 'TeamController@teamMultiDelete')->name('admin.team.multi.delete');
+});
+
+Route::namespace('Admin')->prefix('admin/user')->group(function(){
+    Route::get('/', 'UserController@userIndex')->name('admin.user.index');
+    Route::get('/create', 'UserController@userCreate')->name('admin.user.create');
+    Route::post('/store', 'UserController@userStore')->name('admin.user.store');
+    Route::get('/edit/{id}', 'UserController@userEdit')->name('admin.user.edit');
+    
+    Route::post(md5('/update'), 'UserController@userUpdate')->name('admin.user.update');
+    Route::get('/delete/{id}', 'UserController@userDelete')->name('admin.user.delete');
+    Route::get('/status/update/{id}', 'UserController@userStatusUpdate')->name('admin.user.status.update');
 });
 
 Auth::routes();
