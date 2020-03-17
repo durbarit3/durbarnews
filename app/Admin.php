@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Cache;
 
 class Admin extends Authenticatable
 {
@@ -15,9 +16,7 @@ class Admin extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'adminname', 'email','phone','email_verified_at','remember_token','remember_token','verification_code','password',
-    ];
+    protected $guarded =[];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -28,12 +27,8 @@ class Admin extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function isOnline()
+    {
+        return Cache::has('online' . $this->id);
+    }
 }

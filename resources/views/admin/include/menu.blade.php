@@ -111,6 +111,19 @@
 							<li><a href="{{route('admin.team.index')}}">Team Mamber's</a></li>
 	                        </ul>
 					  </li>
+					  
+					  
+					  <li class="single-nav-wrapper">
+	                      <a class="has-arrow menu-item" href="#" aria-expanded="false">
+	                        <span class="left-icon"><i class="fas fa-table"></i></span>
+	                          <span class="menu-text">User</span>
+	                      </a>
+	                        <ul class="dashboard-menu">
+							<li><a href="{{route('admin.user.index')}}">All User</a></li>
+							<li><a href="{{route('admin.user.create')}}">Add User</a></li>
+
+	                        </ul>
+					  </li>
 
 
 					  <li class="single-nav-wrapper">

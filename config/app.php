@@ -177,6 +177,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Harimayco\Menu\MenuServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
@@ -230,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Menu' => Harimayco\Menu\Facades\Menu::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 
