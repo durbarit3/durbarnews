@@ -99,6 +99,7 @@
 	                        <ul class="dashboard-menu">
                             <li><a href="{{ route('admin.gallery.index') }}">All gallery photo</a></li>
                             <li><a href="{{ route('admin.gallery.create') }}">Add gallery photo</a></li>
+                            <li><a href="{{ route('admin.gallery.trash.all') }}">Trash</a></li>
 	                        </ul>
 	                  </li>
 

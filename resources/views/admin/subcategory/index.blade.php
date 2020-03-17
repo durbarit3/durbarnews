@@ -55,24 +55,24 @@
 										<td>{{$data->name}}</td>
 										<td>{{$data->category->name}}</td>
 										<td>
-											@if($data->status==1)
+											@if($data->status == 1)
 											<span class="btn btn-success">Active</span>
 											@else
 											<span class="btn btn-danger">DeActive</span>
 											@endif
 										</td>
-										
+
 										<td>
 											<a class="editcat btn btn-sm btn-info" data-id="{{$data->id}}" title="edit"  data-toggle="modal" data-target="#editModal"><i class="fas fa-pencil-alt"></i></a> |
 	                                      	@if($data->status==1)
-	                                      	<a class="btn btn-sm btn-success" href="{{url('admin/subcategory/deactive/'.$data->id)}}" id="TopbarActive"><i class="fas fa-thumbs-up"></i> </a> 
+	                                      	<a class="btn btn-sm btn-success" href="{{url('admin/subcategory/deactive/'.$data->id)}}" id="TopbarActive"><i class="fas fa-thumbs-up"></i> </a>
 	                                      	@else
 	                                      	<a class="btn btn-sm btn-secondary" href="{{url('admin/subcategory/active/'.$data->id)}}" id="TopbarActive"><i class="fas fa-thumbs-down"></i> </a>
 	                                      	@endif
 	                                       | <a class="btn btn-sm btn-danger" href="{{url('admin/subcategory/delete/'.$data->id)}}" id="delete"><i class="fa fa-trash"></i> </a> |
 										</td>
 									</tr>
-									@endforeach  
+									@endforeach
 								</tbody>
 							</table>
 						</div>
@@ -133,8 +133,8 @@
 							<input type="text" class="form-control" name="meta_keyword">
 						</div>
 					</div>
-			
-		
+
+
 
 					<div class="form-group text-right">
 						<button type="button" class="btn btn-default" data-dismiss="modal" aria-label=""> Close</button>
@@ -209,9 +209,9 @@
 		                <div class="col-sm-8">
 		                   <div class="skin-flat">
 		                      <div class="row">
-		                      
+
 		                          <div class="col-sm-6" id="is_top">
-		                             
+
 		                          </div>
 		                      </div>
 		                  </div>
@@ -273,7 +273,7 @@
 						$("#meta_description").val(data.meta_description);
 						$("#meta_keyword").val(data.meta_keyword);
 
-						
+
 
 					}
 				});

@@ -20,10 +20,7 @@
                     </div>
                 </div>
             </div>
-        <form id="multiple_delete" action="{{ route('admin.division.sub_district.multiple.delete') }}" method="post">
-                @csrf
-                <button type="submit" style="margin: 5px;" class="btn btn-sm btn-danger">
-                    <i class="fa fa-trash"></i> Delete all</button>
+        <form  action="" method="post">
                 <div class="panel_body">
                     <div class="table-responsive">
                         <table id="dataTableExample1" class="table table-bordered table-striped table-hover mb-2">
@@ -105,13 +102,6 @@
                 <form class="form-horizontal" action="{{ route('admin.division.sub_district.store') }}" method="POST">
                     @csrf
 
-                    {{-- <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-4 col-form-label text-right">SubCategoryName</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" name="name" required>
-                        </div>
-                        </div> --}}
-
                     <div class="form-group row">
                         <label  class="col-sm-4 col-form-label text-right">Division :</label>
                         <div class="col-sm-8">
@@ -128,7 +118,7 @@
                         <label  class="col-sm-4 col-form-label text-right">District :</label>
                         <div class="col-sm-8">
                             <select required name="district_id" id="district" class="form-control">
-                                <option value="">Select District</option>
+
                             </select>
                         </div>
                     </div>
@@ -196,7 +186,7 @@
                dataType:'json',
                success:function(data){
                     $('#district').empty();
-                    $('#district').append('<option>---Select district---</option>');
+                    $('#district').append('<option value="">---Select district---</option>');
                     $.each(data,function(key, value){
                         $('#district').append('<option value="'+value.id+'">'+ value.name_bn +'</option>');
                     })
@@ -216,7 +206,7 @@
                dataType:'json',
                success:function(data){
                     $('#edit_district').empty();
-                    $('#edit_district').append('<option>---Select district---</option>');
+                    $('#edit_district').append('<option value="">---Select district---</option>');
                     $.each(data,function(key, value){
                         $('#edit_district').append('<option value="'+value.id+'">'+ value.name_bn +'</option>');
                     })

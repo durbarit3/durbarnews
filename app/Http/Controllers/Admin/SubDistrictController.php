@@ -41,7 +41,9 @@ class SubDistrictController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|unique:sub_districts,name'
+            'name' => 'required|unique:sub_districts,name',
+            'district_id' => 'required',
+            'division_id' => 'required',
         ]);
 
         SubDistrict::insert([

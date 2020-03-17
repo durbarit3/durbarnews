@@ -34,18 +34,15 @@ Route::get('/',function(){
 
 
 Route::namespace('Admin')->prefix('admin')->group(function () {
-
     Route::get('/', 'AdminController@index')->name('admin.home');
     Route::get('/login', 'AuthController@showLoginForm')->name('admin.login');
     Route::post('/login', 'AuthController@login')->name('admin.login.submit');
     Route::get('/logout', 'AuthController@logout')->name('admin.logout');
-
     Route::get('/register', 'AuthController@showRegistationPage');
     Route::post('/register', 'AuthController@register')->name('admin.register');
 });
 
 // Menu area start
-
 Route::namespace('Admin')->prefix('admin')->group(function () {
     Route::get('/menu', 'AdminController@menuSetting')->name('admin.menu.setting');
     Route::get('/url/setting', 'AdminController@urlSetting')->name('admin.url.setting');
@@ -63,7 +60,6 @@ Route::namespace('Admin')->prefix('admin/page')->group(function () {
     Route::post('/multi/delete', 'PageController@multiDelete')->name('admin.page.multi.delete');
 });
 
-
 // Division Section All Routes
 Route::group(['prefix' => 'admin/division', 'namespace' => 'Admin'], function () {
     Route::get('/', 'DivisionController@index')->name('admin.division.index');
@@ -76,6 +72,7 @@ Route::group(['prefix' => 'admin/division', 'namespace' => 'Admin'], function ()
         Route::post('multiple/delete', 'DistrictController@multipleDelete')->name('admin.division.district.multiple.delete');
         Route::patch('update/{districtId}', 'DistrictController@update')->name('admin.division.district.update');
 
+        //Ajax Route
         Route::get('edit/{districtId}', 'DistrictController@getDistrictByAjax');
     });
 
@@ -85,12 +82,9 @@ Route::group(['prefix' => 'admin/division', 'namespace' => 'Admin'], function ()
         Route::patch('update/{subDistrictId}', 'SubDistrictController@update')->name('admin.division.sub_district.update');
         Route::get('change/status/{subDistrictId}', 'SubDistrictController@changeStatus')->name('admin.division.sub_district.status.update');
         Route::get('delete/{subDistrictId}', 'SubDistrictController@delete')->name('admin.division.sub_district.delete');
-        Route::post('multiple/delete', 'SubDistrictController@multipleDelete')->name('admin.division.sub_district.multiple.delete');
-
         // Ajax Route
         Route::get('get/district/by/division_id/{divisionId}', 'SubDistrictController@getDistrictByDivisionId');
         Route::get('edit/{divisionId}', 'SubDistrictController@getSubDistrictByAjax');
-
     });
 });
 // Division Section All Routes End
@@ -101,9 +95,7 @@ Route::group(['prefix' => 'admin/setting/theme/colors', 'namespace' => 'Admin'],
    Route::post('multiple/action', 'ThemeColorController@multipleAction')->name('admin.setting.theme.color.multiple.action');
    Route::get('change/status/{themeColorId}', 'ThemeColorController@changeStatus')->name('admin.setting.theme.color.status.update');
    Route::patch('update/{themeColorId}', 'ThemeColorController@update')->name('admin.setting.theme.color.update');
-
    Route::get('delete/{themeColorId}', 'ThemeColorController@delete')->name('admin.setting.theme.color.delete');
-
    // Ajax Route
    Route::get('edit/{themeColorId}', 'ThemeColorController@getThemeColorByAjax');
 });
@@ -152,10 +144,12 @@ Route::namespace('Admin')->prefix('admin/news')->group(function(){
     Route::get('/getdistrict/{division_id}','NewsPostController@getdistrict');
     Route::get('/getsubdistrict/{district_id}','NewsPostController@getsubdistrict');
     Route::post('/insert','NewsPostController@store')->name('admin.newspost.submit');
+
     Route::get('/edit/{id}','NewsPostController@edit');
     Route::post('/update/{id}','NewsPostController@update')->name('admin.news.update');
     Route::get('/deletedpost','NewsPostController@deletedpost')->name('admin.news.deletedpost');
     Route::get('/deactive/{id}','NewsPostController@deactive');
+
     Route::get('/active/{id}','NewsPostController@active');
     Route::get('/softdelete/{id}','NewsPostController@softdelete');
     Route::post('/multisoftdelete','NewsPostController@multisoftdelete')->name('admin.news.multisoftdelete');
@@ -172,6 +166,7 @@ Route::namespace('Admin')->prefix('admin/sectionmanage')->group(function(){
 
  
 });
+
 
 
 
@@ -227,8 +222,6 @@ Route::namespace('Admin')->prefix('admin/notice')->group(function(){
     Route::get('/delete/{id}','NoticeController@noticeDelete')->name('admin.notice.delete');
 });
 
-
-
 Route::namespace('Admin')->prefix('admin/logo')->group(function(){
     Route::get('/','FooterController@logoIndex')->name('admin.logo.index');
     Route::post('/store','FooterController@logoStore')->name('admin.logo.store');
@@ -247,11 +240,18 @@ Route::group(['prefix' => 'admin/galleries', 'namespace' => 'Admin'], function (
     Route::post('update/{galleryId}', 'GalleryController@update')->name('admin.gallery.update');
     Route::get('edit/{galleryId}', 'GalleryController@edit')->name('admin.gallery.edit');
     Route::get('change/status/{galleryId}', 'GalleryController@changeStatus')->name('admin.gallery.status.update');
-    Route::get('delete/{galleryId}', 'GalleryController@delete')->name('admin.gallery.delete');
-    Route::post('multiple/delete', 'GalleryController@multipleDelete')->name('admin.gallery.multiple.delete');
+
+    // Trash Route
+
+    Route::get('trash/all', 'GalleryController@trashAll')->name('admin.gallery.trash.all');
+    Route::get('soft/delete/{galleryId}', 'GalleryController@softDelete')->name('admin.gallery.soft.delete');
+    Route::get('hard/delete/{galleryId}', 'GalleryController@hardDelete')->name('admin.gallery.trash.hard.delete');
+    Route::get('refactor/{galleryId}', 'GalleryController@refactor')->name('admin.gallery.trash.refactor');
+    Route::post('multiple/action', 'GalleryController@multipleAction')->name('admin.gallery.trash.multiple.action');
+
+    // Ajax route
+    Route::get('gallery/photo/delete/{galleryPhotoId}', 'GalleryController@galleryPhotoDeleteByAjax');
 });
-
-
 
 Route::namespace('Admin')->prefix('admin/team')->group(function(){
     Route::get('/', 'TeamController@teamIndex')->name('admin.team.index');
@@ -273,10 +273,6 @@ Route::namespace('Admin')->prefix('admin/user')->group(function(){
     Route::get('/delete/{id}', 'UserController@userDelete')->name('admin.user.delete');
     Route::get('/status/update/{id}', 'UserController@userStatusUpdate')->name('admin.user.status.update');
 });
-
-
-
-
 
 Auth::routes();
 

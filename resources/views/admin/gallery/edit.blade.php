@@ -54,6 +54,12 @@
                             </span>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="panel_title">
+                        <a href="{{ route('admin.gallery.index') }}" class="float-right btn btn-sm btn-success">Back<span>
+                            </span></a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-8 offset-2">
@@ -68,49 +74,68 @@
                         <form action="{{ route('admin.gallery.update', $gallery->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
+                                <label for="inputEmail3" class="col-form-label text-right"><b>Category:</b></label>
+                                <select required  name="category" class="form-control">
+                                    <option value="">Select Category First</option>
+                                    @foreach ($categories as $category)
+                                        <option {{ $gallery->category_id == $category->id ? 'SELECTED' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-form-label text-right"><b>Sub-Category:</b></label>
+                                <select name="sub_category" class="form-control">
+                                    <option value="0">Select Category First</option>
+                                    @foreach ($subCategories as $subCategory)
+                                        <option {{ $gallery->sub_category_id ? $gallery->sub_category_id == $subCategory->id ? 'SELECTED' : '' : '' }} value="{{ $subCategory->id }}">{{ $subCategory->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="inputEmail3" class="col-form-label text-right"><b>Gallery Thumbnail Photo:</b>
                                 </label>
-                                <input value="sdafsadfsdf" data-default-file="{{asset('public/uploads/gallery/thumbnail/'.$gallery->thumbnail_photo)}}" type="file" id="input-file-now" class="form-control dropify" size="5"
-                                    accept=".jpeg, .jpg, .jpe, .png, .gif" name="thumbnail_photo" >
+                                <input  data-default-file="{{asset('public/uploads/gallery/thumbnail/'.$gallery->thumbnail_photo)}}" type="file" id="input-file-now" class="form-control dropify" size="5"
+                                    accept=".jpeg, .jpg, .jpe, .png, .gif" name="old_thumbnail_photo">
                             </div>
                             <div class="form-group">
                                 <label for="inputEmail3" class=" col-form-label text-right"> <b>Thumbnail Photo Caption</b>
                                     </label>
-                                <textarea class="form-control" placeholder="Thumbnail Caption" name="thumbnail_caption"
+                                <textarea class="form-control" placeholder="Thumbnail Caption" name="old_thumbnail_caption"
                                  cols="3" rows="3">{{ $gallery->thumbnail_caption }}</textarea>
                             </div>
 
                             <div class="form-group">
                                 <div class="gallery_photos_area">
-                                    <h6>Upload Gallery photos</h6>
+                                    <div class="form-group"><p><b>All previous photos</b> </p></div>
                                     @foreach ($gallery->galleryPhotos as $galleryPhoto)
-                                    <div class="gallery_photo">
+                                    <div class="previous_gallery_photo">
                                         <div class="row">
                                             <div class="col-sm-5">
                                                 <label for="inputEmail3" class=" col-form-label text-right">Gallery Photo</label>
                                                 <input data-default-file="{{asset('public/uploads/gallery/'.$galleryPhoto->photo)}}" type="file" id="input-file-now" class="form-control dropify"
                                                     size="5" accept=".jpeg, .jpg, .jpe, .png, .gif"
-                                                    name="gallery_photo[]" >
+                                                    name="old_gallery_photo[{{ $galleryPhoto->id }}]" >
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="inputEmail3" class=" col-form-label text-right">Photo Details</label>
                                                 <textarea class="form-control" placeholder="Photo Details"
-                                                name="photo_caption[]"  id="" cols="3" rows="3">{{ $galleryPhoto->caption }}</textarea>
+                                                name="old_photo_caption[{{$galleryPhoto->id}}]"  id="" cols="3" rows="3">{{ $galleryPhoto->caption }}</textarea>
                                             </div>
                                             <div class="col-sm-1">
                                                 <div class="cross_button_area">
-                                                    <button onclick="delete_row(this);" type="button" class="btn btn-sm cross_button btn-danger"><i class="fa fa-times"></i></button>
+                                                <button data-id="{{ $galleryPhoto->id }}" onclick="delete_previous_photo(this);" type="button" class="btn btn-sm cross_button btn-danger"><i class="fa fa-times"></i></button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     @endforeach
+                                    <div class="form-group mt-2"><p><b>Add more photos section</b> </p></div>
                                 </div>
                                 <div class="text-center">
                                     <button type="button" class="add_more_button btn btn-sm btn-primary mt-2">Add
                                         more</button>
                                 </div>
-
                             </div>
 
                             <button type="submit" class="btn btn-success btn-sm float-right">Submit</button>
@@ -140,11 +165,11 @@
         photo_div += '<div class="row">';
         photo_div += '<div class="col-sm-5">';
         photo_div += '<label for="inputEmail3" class=" col-form-label text-right">Gallery Photo</label>';
-        photo_div += '<input type="file" id="input-file-now" name="gallery_photo[]" class="form-control dropify" size="5" accept=".jpeg, .jpg, .jpe, .png, .gif">';
+        photo_div += '<input required type="file" id="input-file-now" name="new_gallery_photo[]" class="form-control dropify" size="5" accept=".jpeg, .jpg, .jpe, .png, .gif">';
         photo_div += '</div>';
         photo_div += '<div class="col-sm-6">';
         photo_div += '<label for="inputEmail3" class=" col-form-label text-right">Photo Details</label>';
-        photo_div += ' <textarea class="form-control"  placeholder="Photo Details"name="photo_caption[]" id="" cols="3" rows="3"></textarea>';
+        photo_div += ' <textarea required class="form-control"  placeholder="Photo Details"name="new_gallery_photo_caption[]" id="" cols="3" rows="3"></textarea>';
         photo_div += '</div>';
         photo_div += '<div class="col-sm-1">';
         photo_div += '<div class="cross_button_area">';
@@ -206,6 +231,33 @@
     @error('gallery_photo')
     toastr.error("{{ $errors->first('gallery_photo') }}");
     @enderror
+</script>
+
+<script>
+    function delete_previous_photo(row) {
+        swal({
+                title: "Are you sure to delete?",
+                text: "Once Delete, This will be Permanently Delete!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                      var gallery_photo_id = $(row).data('id');
+                      $.ajax({
+                          url:"{{url('admin/galleries/gallery/photo/delete/')}}"+"/"+gallery_photo_id,
+                          type:'get',
+                          success:function(data){
+                              console.log(data);
+                          }
+                      });
+                      $(row).closest('.previous_gallery_photo').remove();
+                    } else {
+                        swal("Safe Data!");
+                    }
+                });
+    }
 </script>
 
 {{-- data-default-file="{{asset('public/admins/images/logo')}}/{{$logos->frontlogo}}" --}}

@@ -18,7 +18,7 @@ class CategoryController extends Controller
         $this->middleware('auth:admin');
     }
     public function index(){
-    	$allCategory=Category::where('is_deleted',0)->get();
+    	$allCategory = Category::where('is_deleted',0)->get();
     	return view('admin.category.index',compact('allCategory'));
     }
     // insert
@@ -31,7 +31,7 @@ class CategoryController extends Controller
          if($cate_slug){
             $this->validate($request, [
                 'cate_name' => 'required|unique:categories,name',
-                
+
                  ]);
 
                  $insert=Category::insertGetId([
@@ -68,9 +68,9 @@ class CategoryController extends Controller
         }else{
             $this->validate($request,[
                 'cate_name' => 'required|unique:categories,name',
-                
+
                  ]);
-      
+
              $insert=Category::insertGetId([
                'name'=>$request['cate_name'],
                'slug'=>$slug,
@@ -79,7 +79,7 @@ class CategoryController extends Controller
                'is_top'=>$request['is_top'],
 
                'created_at'=>Carbon::now()->toDateTimeString(),
-        
+
              ]);
               $menustable=Menu::insert([
                  	'name'=>$request['cate_name'],
@@ -149,7 +149,7 @@ class CategoryController extends Controller
                     'alert-type'=>'error'
                      );
                  return redirect()->back()->with($notification);
-            }   
+            }
 
          }
      // delete
@@ -169,9 +169,9 @@ class CategoryController extends Controller
                     'alert-type'=>'error'
                      );
                  return redirect()->back()->with($notification);
-            } 
+            }
     }
-    // 
+    //
     public function update(Request $request){
     	 $id=$request->id;
     	 $title=$request['cate_name'];
@@ -215,7 +215,7 @@ class CategoryController extends Controller
             $this->validate($request, [
             'cate_name' => 'required|unique:categories,name,'.$id
                ]);
-      
+
              $update=Category::where('id',$id)->update([
                'name'=>$request['cate_name'],
                'slug'=>$slug,
@@ -277,7 +277,7 @@ class CategoryController extends Controller
             }
     }
 
-    // 
+    //
 
 
 }
