@@ -453,6 +453,8 @@ class ComposerStaticInitb9e58890302a72d208883f5ca05e1a95
 
     public static $classMap = array (
         'App\\Admin' => __DIR__ . '/../..' . '/app/Admin.php',
+        'App\\Advertisement' => __DIR__ . '/../..' . '/app/Advertisement.php',
+        'App\\AdvertisementPosition' => __DIR__ . '/../..' . '/app/AdvertisementPosition.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\District' => __DIR__ . '/../..' . '/app/District.php',
@@ -461,6 +463,7 @@ class ComposerStaticInitb9e58890302a72d208883f5ca05e1a95
         'App\\Gallery' => __DIR__ . '/../..' . '/app/Gallery.php',
         'App\\GalleryPhoto' => __DIR__ . '/../..' . '/app/GalleryPhoto.php',
         'App\\Http\\Controllers\\Admin\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminController.php',
+        'App\\Http\\Controllers\\Admin\\AdvertisementController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdvertisementController.php',
         'App\\Http\\Controllers\\Admin\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AuthController.php',
         'App\\Http\\Controllers\\Admin\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CategoryController.php',
         'App\\Http\\Controllers\\Admin\\DistrictController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DistrictController.php',
@@ -472,6 +475,7 @@ class ComposerStaticInitb9e58890302a72d208883f5ca05e1a95
         'App\\Http\\Controllers\\Admin\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PageController.php',
         'App\\Http\\Controllers\\Admin\\PaymentGetwayController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PaymentGetwayController.php',
         'App\\Http\\Controllers\\Admin\\PollController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PollController.php',
+        'App\\Http\\Controllers\\Admin\\SectionManageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SectionManageController.php',
         'App\\Http\\Controllers\\Admin\\SubCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SubCategoryController.php',
         'App\\Http\\Controllers\\Admin\\SubDistrictController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SubDistrictController.php',
         'App\\Http\\Controllers\\Admin\\TeamController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/TeamController.php',
@@ -507,6 +511,7 @@ class ComposerStaticInitb9e58890302a72d208883f5ca05e1a95
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\SectionManage' => __DIR__ . '/../..' . '/app/SectionManage.php',
         'App\\SubCategory' => __DIR__ . '/../..' . '/app/SubCategory.php',
         'App\\SubDistrict' => __DIR__ . '/../..' . '/app/SubDistrict.php',
         'App\\Team' => __DIR__ . '/../..' . '/app/Team.php',
