@@ -1,0 +1,37 @@
+#archive{
+    padding: 40px 0px;
+    background-color: rgb(240, 240, 240);
+}
+.news-head h4{
+  margin-bottom: 20px;
+}
+.box-white{
+    background-color: #fff;
+    padding: 15px;
+}
+.box-aches{
+    margin-top: 30px;
+}
+.archive_img_box{
+    position: relative;
+}
+.overlay_category a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+}
+.overlay_category{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background-color: rgba(0,0,0,0.7);
+    padding: 2px 15px;
+}
+.no-margin a{
+    text-decoration: none;
+    font-size: 16px;
+    color: #000;
+    position: relative;
+    top: 10px;
+
+}
