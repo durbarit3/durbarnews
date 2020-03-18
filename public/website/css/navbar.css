@@ -1,0 +1,254 @@
+
+* {
+    padding: 0px;
+    margin: 0px;
+    outline:0px;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    
+    overflow-x: hidden;
+ 
+  
+}
+.search-bar {
+    float: right;
+    color: #fff;
+    position: relative;
+    top: 20px;
+}
+.navbar_header {
+    background: #800404;
+}
+#nav_menu {
+    margin: 17px -12px 0 0;
+}
+#nav_menu ul li {
+    position: relative;
+    vertical-align: top;
+    margin: 0 20px 0 0px;
+    display: inline-block;
+}
+#nav_menu ul li a {
+    color: #fff;
+    position: relative;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 15px;
+    top: -1px;
+}
+.active_list a i {
+   
+    position: relative;
+   
+}
+
+ .drop_menu {
+    left: 0;
+    top: 230%;
+    margin: 0px;
+    opacity: 0;
+    width: 180px;
+    list-style: none;
+    text-align: left;
+    padding: 7px 0px;
+    visibility: hidden;
+    position: absolute;
+    z-index: 111;
+    background-color: #000;
+    transition: 0.7s all;
+   
+}
+.drop_menu ul li{
+    display: block !important;
+    margin: 0 0px 0 0px !important;;
+}
+.drop_menu ul li a{
+    display:block !important;
+    transition: 0.6s linear;
+    padding:5px 10px;
+}
+.drop_menu ul li a:hover{
+    background-color: #800404;
+    color: #fff;
+}
+#nav_menu > ul > li:hover .drop_menu {
+    opacity: 1;
+    visibility: visible;
+    top: 194%;
+}
+.menu_arrow i{
+    transition: 0.3s linear;
+}
+#nav_menu ul li.active>a:hover .menu_arrow i {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.bar_icon{
+    display: none;
+}
+.bar_icon i{
+    display: inline-block;
+    /* background-color: brown; */
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 30px;
+    transition: 0.6s linear;
+    cursor: pointer;
+}
+.bar_icon i:hover{
+    background-color: brown;
+    color: #fff;
+}
+
+input.serach-control {
+    position: absolute;
+    width: 95%;
+    top: 7px;
+    line-height: 42px;
+    border-style: none;
+    border-radius: 5px;
+    padding: 0px 13px;
+    z-index: 111;
+    opacity: 0;
+    visibility: hidden;
+}
+/*mega menu*/
+.mega_menu {
+    position: absolute;
+    left: -717px;
+    top: 60px;
+    z-index: 111;
+    background-color: #000;
+    width: 1112px;
+    padding: 10px 20px;
+    transition: 0.3s linear;
+    opacity: 0;
+        visibility:hidden;
+}
+.mega_list ul li{
+    display:block !important;
+   
+}
+.mega_list a{
+    display:block !important;
+    transition: 0.6s linear;
+    padding:5px 10px;
+}
+.other_list i{
+    color: #fff;
+}
+.mega_list ul li a:hover{
+background-color: #800404;
+color: #fff;
+}
+.other_list ul li{
+    display:block !important;
+}
+.other_list a{
+    display:block !important;
+    transition: 0.6s linear;
+    padding:5px 10px;
+}
+.other_list ul li a:hover{
+    background-color: #800404;
+    color: #fff;
+    }
+    #nav_menu > ul > li:hover .mega_menu {
+        opacity: 1;
+        visibility: visible;
+        top: 194%;
+    }
+    .search-input input.form-control {
+        position: absolute;
+        top: 12px;
+        z-index: 1111;
+        width: 94%;
+    }
+    .search_icon {
+        cursor: pointer;
+    }
+    /*mobile*/
+    .nav-mobile-header{
+        background-color: rgb(31, 0, 0);
+        padding: 10px 0px;
+        display: none;
+    }
+    .icon_bar {
+        float: left;
+        position: relative;
+        left: 10px;
+        cursor: pointer;
+    }
+    .icon_bar i{
+        color:#000;
+        font-size: 20px;
+        background-color:  #fff;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+    }
+    .search_icon_mb {
+        float: right;
+        position: relative;
+        top: 10px;
+        right: 15px;
+    }
+    .search_icon_mb i{
+        color:#fff;
+   
+    }
+    .mobile_mega ul li{
+        width: 33.33%;
+        float: left;
+        padding-right: 2px;
+    }
+    .mobile_mega {
+        position: absolute;
+        top: 50px;
+        background-color: #000000;
+        z-index: 111;
+        padding: 10px 20px;
+        left: 0px;
+        width: 100%;
+    }
+    .mobile_mega ul li a{
+      
+            color: #fff !important;
+            padding: 5px 10px;
+            display: block;
+            border-bottom: 1px solid rgb(107, 107, 107);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.6s linear;
+        
+    }
+    .mobile_mega ul li a:hover{
+      
+        background-color: #800404;
+        color: #fff;
+        border-bottom: 1px solid transparent;
+    
+}
+.ad_menu ul li a{
+    padding: 10px 10px;
+    border-bottom: 1px solid transparent;
+}
+.eng a{
+    font-weight: 600 !important;
+}
