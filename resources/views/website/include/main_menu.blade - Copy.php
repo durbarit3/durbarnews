@@ -1,5 +1,4 @@
 
-
     <div class="navbar_header">
         <div class="container">
 
@@ -17,50 +16,62 @@
                     <div id="nav_menu">
                         @if($public_menu)
                         <ul>
-                            <li><a href="{{url('/')}}"><i class="fas fa-home"></i></a></li>
-
-
-
-
-
-
-
-
-                            @foreach($public_menu as $menu)
-
-
-                            <li class="active"><a href="{{ url($menu['link'])}}">{{ $menu['label'] }}</a>
-                            @if( $menu['child'] )
-                            <span class="menu_arrow"><i class="fas fa-angle-down"></i></span>
+                            <li><a href="#"><i class="fas fa-home"></i></a></li>
+                            <li class="active"><a href="#">International <span class="menu_arrow"><i
+                                            class="fas fa-angle-down"></i></span></a>
                                 <div class="drop_menu">
                                     <ul>
-                                        @foreach( $menu['child'] as $child )
-                                            <li><a href="{{url($child['link'])}}">{{ $child['label'] }}</a></li>
-                                        @endforeach
+                                        <li><a href="#">Item 01</a></li>
+                                        <li><a href="#">Item 02</a></li>
+                                        <li><a href="#">Item 03</a></li>
+                                        <li><a href="#">Item 04</a></li>
+                                        <li><a href="#">Item 05</a></li>
                                     </ul>
                                 </div>
-                            @endif
                             </li>
 
-                            @endforeach
+                            <li><a href="#">Sports</a></li>
+                            <li><a href="#">Entertainment <span class="menu_arrow"><i
+                                            class="fas fa-angle-down"></i></span></a>
+
+                            </li>
+                            <li><a href="#">Education</a></li>
+                            <li><a href="#">Fetaure</a></li>
 
                             <li class="active"><a href="#">Archive <span class="menu_arrow"><i
                                             class="fas fa-angle-down"></i></span></a>
                                 <div class="mega_menu">
                                     <div class="row">
-                                        
-                                        
                                         <div class="col-sm-3">
                                             <div class="mega_list">
                                                 <ul>
-                                                    <li><a href="{{route('categores')}}">Category</a></li>
+                                                    <li><a href="#" style="display: block;">Item1</a></li>
+                                                    <li><a href="#">Item2</a></li>
+                                                    <li><a href="#">Item3</a></li>
+                                                    <li><a href="#">Item4</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="mega_list">
+                                                <ul>
+                                                    <li><a href="#">Item1</a></li>
                                                     <li><a href="#">Item1</a></li>
                                                     <li><a href="#">Item1</a></li>
                                                     <li><a href="#">Item1</a></li>
                                                 </ul>
                                             </div>
                                         </div>
-                                        
+                                        <div class="col-sm-3">
+                                            <div class="mega_list">
+                                                <ul>
+                                                    <li><a href="#">Item1</a></li>
+                                                    <li><a href="#">Item1</a></li>
+                                                    <li><a href="#">Item1</a></li>
+                                                    <li><a href="#">Item1</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                         <div class="col-sm-3">
                                             <div class="other_list">
                                                 <ul>
@@ -77,7 +88,6 @@
                                     </div>
                                 </div>
                             </li>
-
                             <li class="eng" style="background-color:rgb(0, 0, 0);padding: 3px 10px;font-weight: 700;"><a
                                     href="#">live</a>
                             </li>

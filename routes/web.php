@@ -200,7 +200,7 @@ Route::namespace('Admin')->prefix('admin/advertisement')->group(function(){
 
 
 
-Route::get('/{link}','Admin\SubCategoryController@categorypage');
+
 
 Route::namespace('Admin')->prefix('admin')->group(function(){
 
