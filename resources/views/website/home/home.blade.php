@@ -5,557 +5,176 @@
             <div class="row">
                 <div class="col-sm-8">
                     <div class="row">
+                        @if($bigthumpost)
                         <div class="col-sm-8">
                             <div class="image_box main_box">
                                 <div class="main_image">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/website/')}}/images/1.jpg" alt=""
+                                    <a @if($bigthumpost->post_type==2) href="{{url('/videodetails/'.$bigthumpost->slug.'/'.$bigthumpost->id)}}" @else href="" @endif>
+                                        <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/bigthum/'.$bigthumpost->image)}}" alt=""
                                             class="lazy img-fluid">
+                                            @if($bigthumpost->post_type==2)
+                                             <a href="{{url('/videodetails/'.$bigthumpost->slug.'/'.$bigthumpost->id)}}" class="play-button">
+                                                <i class="fas fa-play"></i>
+                                            </a>
+                                            @endif
                                     </a>
 
                                 </div>
                                 <div class="detail_box">
-                                    <h4>Lorem ipsum dolor sit amet.</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Consequuntur corporis delectus
-                                        odit cumque eius obcaecati non earum facilis voluptatem reiciendis! Molestiae ad
-                                        amet
-                                        facilis pariatur assumenda perspiciatis saepe culpa earum.</p>
+                                    <h4>{!! Str::limit($bigthumpost->title,29) !!}</h4>
+                                    <p>{!! Str::limit($bigthumpost->description,180) !!}</p>
                                 </div>
                                 <div class="meta">
                                     <span class="pull-left tags">
                                         <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
+                                        <a href="#">{{$bigthumpost->Cate->name}}</a>
                                     </span>
-                                    <a href="#" class="pull-right">lorem</a>
+                                    <a href="#" class="pull-right">বিস্তারিত</a>
                                     <div class="clear"></div>
                                 </div>
                             </div>
                         </div>
+                        @endif
+
                         <!-- small box content -->
                         <div class="col-sm-4">
-
+                            @foreach($smallpost as $smpost)
                             <div class="image_box2 main_box" style="margin-bottom: 20px;">
                                 <div class="main_image">
                                     <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/website/')}}/images/1.jpg" alt=""
+                                        <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/mediumthum/'.$smpost->image)}}" alt=""
                                             class="lazy img-fluid">
+                                            @if($smpost->post_type==2)
+                                             <a href="#" class="play-button">
+                                                <i class="fas fa-play"></i>
+                                            </a>
+                                            @endif
                                     </a>
 
                                 </div>
                                 <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet consectetur.</h4>
+                                    <h4>{{Str::limit($smpost->title,50)}}</h4>
 
                                 </div>
                                 <div class="meta">
                                     <span class="pull-left tags">
                                         <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
+                                        <a href="#">{{$smpost->Cate->name}}</a>
                                     </span>
-                                    <a href="#" class="pull-right">lorem</a>
+                                    <a href="#" class="pull-right">বিস্তারিত</a>
                                     <div class="clear"></div>
                                 </div>
                             </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="row">
+                        @foreach($smallsecondpost as $smsecondpost)
+                        <div class="col-sm-4">
                             <div class="image_box2 main_box">
                                 <div class="main_image">
                                     <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/website/')}}/images/1.jpg" alt=""
+                                        <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/mediumthum/'.$smsecondpost->image)}}" alt=""
                                             class="lazy img-fluid">
+
+                                             @if($smsecondpost->post_type==2)
+                                             <a href="#" class="play-button">
+                                                <i class="fas fa-play"></i>
+                                            </a>
+                                            @endif
                                     </a>
 
                                 </div>
                                 <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet consectetur.</h4>
+                                    <h4>{{Str::limit($smsecondpost->title,50)}}</h4>
 
                                 </div>
                                 <div class="meta">
                                     <span class="pull-left tags">
                                         <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
+                                        <a href="#">{{$smsecondpost->Cate->name}}</a>
                                     </span>
-                                    <a href="#" class="pull-right">lorem</a>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="image_box2 main_box">
-                                <div class="main_image">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/anisul-20200308143116.jpg" class="lazy_box w-100" alt="">
-                                    </a>
-
-                                </div>
-                                <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-
-                                </div>
-                                <div class="meta">
-                                    <span class="pull-left tags">
-                                        <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
-                                    </span>
-                                    <a href="#" class="pull-right">lorem</a>
+                                    <a href="#" class="pull-right">বিস্তারিত</a>
                                     <div class="clear"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="image_box2 main_box">
-                                <div class="main_image">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/kakrul-20200224092614.webp" alt="No image" class="w-100">
-                                    </a>
-
-                                </div>
-                                <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-
-                                </div>
-                                <div class="meta">
-                                    <span class="pull-left tags">
-                                        <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
-                                    </span>
-                                    <a href="#" class="pull-right">lorem</a>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="image_box2 main_box">
-                                <div class="main_image">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/pilkhana-20200225082704.webp" alt="No image" class="w-100">
-                                    </a>
-
-                                </div>
-                                <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-
-                                </div>
-                                <div class="meta">
-                                    <span class="pull-left tags">
-                                        <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
-                                    </span>
-                                    <a href="#" class="pull-right">lorem</a>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
+                      @endforeach
 
                     </div>
                     <div class="row">
+                   
+                    @foreach($smalltherdpost as $sthreepost)
                         <div class="col-sm-4">
                             <div class="image_box2 main_box">
                                 <div class="main_image">
                                     <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/papon-20200225154157.webp" alt="No image" class="w-100">
+                                        <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/mediumthum/'.$sthreepost->image)}}" alt=""
+                                            class="lazy img-fluid">
+                                            @if($sthreepost->post_type==2)
+                                             <a href="#" class="play-button">
+                                                <i class="fas fa-play"></i>
+                                            </a>
+                                            @endif
                                     </a>
 
                                 </div>
                                 <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet consectetur.</h4>
+                                    <h4>{{Str::limit($sthreepost->title,50)}}</h4>
 
                                 </div>
                                 <div class="meta">
                                     <span class="pull-left tags">
                                         <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
+                                        <a href="#">{{$sthreepost->Cate->name}}</a>
                                     </span>
-                                    <a href="#" class="pull-right">lorem</a>
+                                    <a href="#" class="pull-right">বিস্তারিত</a>
                                     <div class="clear"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4 lazy_box ">
-                            <div class="image_box2 main_box">
-                                <div class="main_image">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/anisul-20200308143116.jpg" class="w-100" alt="">
-                                    </a>
-
-                                </div>
-                                <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-
-                                </div>
-                                <div class="meta">
-                                    <span class="pull-left tags">
-                                        <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
-                                    </span>
-                                    <a href="#" class="pull-right">lorem</a>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="image_box2 main_box">
-                                <div class="main_image">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/sui-cover-20200226093202.webp" alt="No image" class="w-100">
-                                    </a>
-
-                                </div>
-                                <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-
-                                </div>
-                                <div class="meta">
-                                    <span class="pull-left tags">
-                                        <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
-                                    </span>
-                                    <a href="#" class="pull-right">lorem</a>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
+                    @endforeach
                     </div>
                     <div class="row">
+                      
+                      @foreach($smallforthpost as $smforthpost)
                         <div class="col-sm-4">
                             <div class="image_box2 main_box">
                                 <div class="main_image">
                                     <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/raihan-20200225035547.jpg" alt="No image" class="w-100">
+                                       <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/mediumthum/'.$smforthpost->image)}}" alt=""
+                                            class="lazy img-fluid">
+                                            @if($smforthpost->post_type==2)
+                                             <a href="#" class="play-button">
+                                                <i class="fas fa-play"></i>
+                                            </a>
+                                            @endif
                                     </a>
 
                                 </div>
                                 <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet consectetur.</h4>
+                                    <h4>{{Str::limit($sthreepost->title,50)}}</h4>
 
                                 </div>
                                 <div class="meta">
                                     <span class="pull-left tags">
                                         <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
+                                        <a href="#">{{$smforthpost->Cate->name}}</a>
                                     </span>
-                                    <a href="#" class="pull-right">lorem</a>
+                                    <a href="#" class="pull-right">বিস্তারিত</a>
                                     <div class="clear"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="image_box2 main_box">
-                                <div class="main_image">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/sarmkar-20200225155246.webp" alt="No image" class="w-100">
-                                    </a>
+                    @endforeach
 
-                                </div>
-                                <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-
-                                </div>
-                                <div class="meta">
-                                    <span class="pull-left tags">
-                                        <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
-                                    </span>
-                                    <a href="#" class="pull-right">lorem</a>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="image_box2 main_box">
-                                <div class="main_image">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/pri-20200226134057.webp" alt="No image" class="w-100">
-                                    </a>
-
-                                </div>
-                                <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-
-                                </div>
-                                <div class="meta">
-                                    <span class="pull-left tags">
-                                        <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
-                                    </span>
-                                    <a href="#" class="pull-right">lorem</a>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                 </div>
                 <!-- countdown -->
-                <div class="col-sm-4">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="countdown">
-                                <img src="{{asset('public/website/')}}/images/mujib-borsho-color.webp" class="w-100" alt="no image">
-                            </div>
-                        </div>
-                    </div>
+                @include('website.include.sidenews')
+           
 
-                    <!-- tabs part -->
-                    <div class="row mt-4">
-                        <div class="col-sm-12 news_list nt">
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                        aria-controls="home" aria-selected="true">Latest News</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                        aria-controls="profile" aria-selected="false">Populer News</a>
-                                </li>
-
-                            </ul>
-                            <div class="tab-content nav-detail" id="myTabContent">
-                                <div class="tab-pane fade show active" id="home" role="tabpanel"
-                                    aria-labelledby="home-tab">
-                                    <ul class="media-list">
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <span>1</span>
-                                                <a href="#">
-                                                    <img src="{{asset('public/website/')}}/images/ashraful-20200225104941.jpg" alt="no-image">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <h4 class="tab-list">
-                                                        <a href="#" style="font-size:16px;font-weight:600;color:#000">
-                                                            Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <span>2</span>
-                                                <a href="#">
-                                                    <img src="{{asset('public/website/')}}/images/samira-01-20200226132030.webp" alt="no-image">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <h4 class="tab-list">
-                                                        <a href="#" style="font-size:16px;font-weight:600;color:#000">
-                                                            Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <span>3</span>
-                                                <a href="#">
-                                                    <img src="{{asset('public/website/')}}/images/netflix-20200225162641.jpg" alt="no-image">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <h4 class="tab-list">
-                                                        <a href="#" style="font-size:16px;font-weight:600;color:#000">
-                                                            Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <span>4</span>
-                                                <a href="#">
-                                                    <img src="{{asset('public/website/')}}/images/nayeem-20200225103539.jpg" alt="no-image">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <h4 class="tab-list">
-                                                        <a href="#" style="font-size:16px;font-weight:600;color:#000">
-                                                            Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <span>5</span>
-                                                <a href="#">
-                                                    <img src="{{asset('public/website/')}}/images/iran-20200223220447.webp" alt="no-image">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <h4 class="tab-list">
-                                                        <a href="#" style="font-size:16px;font-weight:600;color:#000">
-                                                            Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <span>7</span>
-                                                <a href="#">
-                                                    <img src="{{asset('public/website/')}}/images/afridi-20200225095919.webp" alt="no-image">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <h4 class="tab-list">
-                                                        <a href="#" style="font-size:16px;font-weight:600;color:#000">
-                                                            Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-
-
-
-                                </div>
-                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
-                                    <ul class="media-list">
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <span>1</span>
-                                                <a href="#">
-                                                    <img src="{{asset('public/website/')}}/images/jubo-20200225121652.webp" alt="no-image">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <h4 class="tab-list">
-                                                        <a href="#" style="font-size:16px;font-weight:600;color:#000">
-                                                            Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <span>2</span>
-                                                <a href="#">
-                                                    <img src="{{asset('public/website/')}}/images/samira-01-20200226132030.webp" alt="no-image">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <h4 class="tab-list">
-                                                        <a href="#" style="font-size:16px;font-weight:600;color:#000">
-                                                            Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <span>3</span>
-                                                <a href="#">
-                                                    <img src="{{asset('public/website/')}}/images/netflix-20200225162641.jpg" alt="no-image">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <h4 class="tab-list">
-                                                        <a href="#" style="font-size:16px;font-weight:600;color:#000">
-                                                            Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <span>4</span>
-                                                <a href="#">
-                                                    <img src="{{asset('public/website/')}}/images/nayeem-20200225103539.jpg" alt="no-image">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <h4 class="tab-list">
-                                                        <a href="#" style="font-size:16px;font-weight:600;color:#000">
-                                                            Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <span>5</span>
-                                                <a href="#">
-                                                    <img src="{{asset('public/website/')}}/images/iran-20200223220447.webp" alt="no-image">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <h4 class="tab-list">
-                                                        <a href="#" style="font-size:16px;font-weight:600;color:#000">
-                                                            Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <span>7</span>
-                                                <a href="#">
-                                                    <img src="{{asset('public/website/')}}/images/afridi-20200225095919.webp" alt="no-image">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <h4 class="tab-list">
-                                                        <a href="#" style="font-size:16px;font-weight:600;color:#000">
-                                                            Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- today news -->
-                    <div class="row">
-                        <div class="col-sm-12 p-0 text-center">
-                            <div class="td_news">
-                                <a href="#">
-                                    Today's News
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
             </div>
         </div>
     </section>
@@ -577,33 +196,37 @@
     <section id="video_gallery">
         <div class="container">
             <div class="row pocket_news">
+                @if($videopostlatest)
                 <div class="col-sm-4">
                     <div class="live_heading">
 
                         <h4 class="catTitle">
-                            <a href="#" style="background-color: #b30f0f;text-decoration: none;">Live</a>
+                            <a href="#" style="background-color: #b30f0f;text-decoration: none;">Video</a>
                             <div class="liner"></div>
                         </h4>
                         <div class="single_video_first">
                             <div class="video-youtube mt-3">
                                 <a href="#">
-                                    <img src="{{asset('public/website/')}}/images/youtube-frame-final-recovered-recovered-20200225145050.jpg"
-                                        class="w-100" alt="">
-                                    <a href="#" class="bdr-ripple-ani-btn pink two">
-                                        <i class="fab fa-youtube"></i>
-                                    </a>
+                               
+                                    <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/mediumthum/'.$videopostlatest->image)}}" alt=""class="lazy w-100">
+
+                                    @if($videopostlatest->post_type==2)
+                                             <a href="#" class="play-button">
+                                                <i class="fas fa-play"></i>
+                                            </a>
+                                    @endif
                                 </a>
 
                             </div>
                         </div>
 
                         <div class="video_cont mt-3">
-                            <h4>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet <b>|</b> <span>25
-                                    April,2020</span></h4>
+                            <h4>{{Str::limit($videopostlatest->title,50)}} <b>|</b> <span>{{$videopostlatest->created_at}}</span></h4>
                         </div>
                     </div>
 
                 </div>
+                @endif
                 <div class="col-sm-8">
                     <div class="pocket_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -624,39 +247,22 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="video_sm_gallary owl-carousel owl-theme">
+                                            @foreach($videopostpopular as $vpostpopular)
                                             <div class="item">
                                                 <div class="item_image">
                                                     <a href="#">
-                                                        <img src="{{asset('public/website/')}}/images/jubo-20200225121652.webp" alt="">
-
+                                                        <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/mediumthum/'.$vpostpopular->image)}}" alt=""class="lazy w-100">
                                                     </a>
-                                                    <a href="#" class="icon">
-                                                        <i class="fab fa-facebook-f"></i>
-                                                    </a>
+                                                       @if($vpostpopular->post_type==2)
+                                                             <a href="#" class="play-button">
+                                                                <i class="fas fa-play"></i>
+                                                            </a>
+                                                    @endif
                                                 </div>
-                                                <h2 style="color: #fff;font-size: 14px;margin-top:10px;">Lorem ipsum
-                                                    dolor sit
-                                                    amet
-                                                    consectetur.| 24 Oct,2020</h2>
+                                                <h2 style="color: #fff;font-size: 14px;margin-top:10px;">{{Str::limit($vpostpopular->title,30)}}|{{$vpostpopular->created_at}}</h2>
 
                                             </div>
-                                            <div class="item">
-                                                <div class="item_image">
-                                                    <a href="#">
-                                                        <img src="{{asset('public/website/')}}/images/jubo-20200225121652.webp" alt="">
-
-                                                    </a>
-                                                    <a href="#" class="icon">
-                                                        <i class="fab fa-facebook-f"></i>
-                                                    </a>
-                                                </div>
-                                                <h2 style="color: #fff;font-size: 14px;margin-top:10px;">Lorem ipsum
-                                                    dolor sit
-                                                    amet
-                                                    consectetur.| 24 Oct,2020</h2>
-
-                                            </div>
-
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -665,40 +271,28 @@
                             <div class="tab-pane fade" id="profile-pocket" role="tabpanel"
                                 aria-labelledby="profile-tab">
                                 <div class="video_sm_gallary owl-carousel owl-theme">
-
+                                    @foreach($videopostla as $vpost)
                                     <div class="item">
                                         <div class="item_image">
                                             <a href="#">
-                                                <img src="{{asset('public/website/')}}/images/jubo-20200225121652.webp" alt="">
+                                                <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/mediumthum/'.$vpost->image)}}" alt=""class="lazy w-100">
+                                                 @if($vpost->post_type==2)
+                                                             <a href="#" class="play-button">
+                                                                <i class="fas fa-play"></i>
+                                                            </a>
+                                                    @endif
+
 
                                             </a>
-                                            <a href="#" class="icon">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
+                                           <a href="#" class="icon">
+                                                        <i class="fab fa-youtube"></i>
+                                                    </a>
                                         </div>
-                                        <h2 style="color: #fff;font-size: 14px;margin-top:10px;">Lorem ipsum
-                                            dolor sit
-                                            amet
-                                            consectetur.| 24 Oct,2020</h2>
+                                        <h2 style="color: #fff;font-size: 14px;margin-top:10px;">{{Str::limit($vpost->title,30)}}|{{$vpost->created_at}}</h2>
 
                                     </div>
-                                    <div class="item">
-                                        <div class="item_image">
-                                            <a href="#">
-                                                <img src="{{asset('public/website/')}}/images/jubo-20200225121652.webp" alt="">
-
-                                            </a>
-                                            <a href="#" class="icon">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                        </div>
-                                        <h2 style="color: #fff;font-size: 14px;margin-top:10px;">Lorem ipsum
-                                            dolor sit
-                                            amet
-                                            consectetur.| 24 Oct,2020</h2>
-
-                                    </div>
-
+                                    @endforeach
+                                
                                 </div>
                             </div>
                         </div>
@@ -713,6 +307,7 @@
     </section>
     <!-- pocket section end -->
     <!-- sports part start -->
+    @if($firstcate)
     <section id="sport_main">
         <div class="container">
             <div class="row">
@@ -721,397 +316,181 @@
                         <div class="col-sm-8">
                             <h4 class="left">
                                 <span class="cat_name">
-                                    <a href="#">Sports</a>
+                                    <a href="#">{{$firstcate->name}}</a>
                                 </span>
+                                @php
+                                    $id=$firstcate->id;
+                                    $subcate=App\SubCategory::where('cate_id',$id)->where('is_deleted',0)->where('status',1)->select(['name','id'])->get();
+                                @endphp
                                 <span class="cat_subname">
-                                    <a href="#">Cricket</a>
-                                    <a href="#">Football</a>
+                                    @foreach($subcate as $sub)
+                                    <a href="{{ $sub->id}}">{{ $sub->name}}</a>
+                                    @endforeach
+                                
                                 </span>
                             </h4>
 
                         </div>
                         <div class="col-sm-4 text-right">
                             <span class="news">
-                                <a href="#">All News <i class="fas fa-angle-double-right"></i></a>
-
+                                <a href="#">All News<i class="fas fa-angle-double-right"></i></a>
                             </span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row mt-4">
+                @php
+                    $catenews=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$firstcate->id)->limit(12)->get();
+                @endphp
+                @foreach($catenews as $cnews)
                 <div class="col-sm-3">
                     <div class="image_box2 main_box2">
                         <div class="main_image">
                             <a href="#">
-                                <img src="{{asset('public/website/')}}/images/samira-01-20200226132030.webp" alt="No image" class="w-100">
+                                <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/mediumthum/'.$cnews->image)}}" alt=""class="lazy w-100">
+                                @if($cnews->post_type==2)
+                                         <a href="#" class="play-button">
+                                            <i class="fas fa-play"></i>
+                                        </a>
+                                @endif
                             </a>
 
                         </div>
                         <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet consectetur.
-
-                            </h4>
+                            <h4>{{Str::limit($vpost->title,50)}}</h4>
 
                         </div>
                         <div class="meta2">
                             <span class="pull-left tags">
                                 <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
+                                <a href="#">{{$vpost->Cate->name}}</a>
                             </span>
-                            <a href="#" class="pull-right">lorem</a>
+                            <a href="#" class="pull-right">বিস্তারিত</a>
                             <div class="clear"></div>
                         </div>
                     </div>
                 </div>
-
-
-                <div class="col-sm-3">
-                    <div class="image_box2 main_box2">
-                        <div class="main_image">
-                            <a href="#">
-                                <img src="{{asset('public/website/')}}/images/pri-20200226134057.webp" alt="No image" class="w-100">
-                            </a>
-
-                        </div>
-                        <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-
-                        </div>
-                        <div class="meta2">
-                            <span class="pull-left tags">
-                                <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
-                            </span>
-                            <a href="#" class="pull-right">lorem</a>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="image_box2 main_box2">
-                        <div class="main_image">
-                            <a href="#">
-                                <img src="{{asset('public/website/')}}/images/rain-20200224164351.jpg" alt="No image" class="w-100">
-                            </a>
-
-                        </div>
-                        <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-
-                        </div>
-                        <div class="meta2">
-                            <span class="pull-left tags">
-                                <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
-                            </span>
-                            <a href="#" class="pull-right">lorem</a>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="image_box2 main_box2">
-                        <div class="main_image">
-                            <a href="#">
-                                <img src="{{asset('public/website/')}}/images/wan-azizah-20200224141532.jpg" alt="No image" class="w-100">
-                            </a>
-
-                        </div>
-                        <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-
-                        </div>
-                        <div class="meta2">
-                            <span class="pull-left tags">
-                                <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
-                            </span>
-                            <a href="#" class="pull-right">lorem</a>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-
-
+                @endforeach
+           
             </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="image_box2 main_box2">
-                        <div class="main_image">
-                            <a href="#">
-                                <img src="{{asset('public/website/')}}/images/trump-20200225164257.webp" alt="No image" class="w-100">
-                            </a>
-
-                        </div>
-                        <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-
-                        </div>
-                        <div class="meta2">
-                            <span class="pull-left tags">
-                                <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
-                            </span>
-                            <a href="#" class="pull-right">lorem</a>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="image_box2 main_box2">
-                        <div class="main_image">
-                            <a href="#">
-                                <img src="{{asset('public/website/')}}/images/netflix-20200225162641.jpg" alt="No image" class="w-100">
-                            </a>
-
-                        </div>
-                        <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-
-                        </div>
-                        <div class="meta2">
-                            <span class="pull-left tags">
-                                <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
-                            </span>
-                            <a href="#" class="pull-right">lorem</a>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="image_box2 main_box2">
-                        <div class="main_image">
-                            <a href="#">
-                                <img src="{{asset('public/website/')}}/images/nayeem-20200225103539.jpg" alt="No image" class="w-100">
-                            </a>
-
-                        </div>
-                        <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-
-                        </div>
-                        <div class="meta2">
-                            <span class="pull-left tags">
-                                <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
-                            </span>
-                            <a href="#" class="pull-right">lorem</a>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="image_box2 main_box2">
-                        <div class="main_image">
-                            <a href="#">
-                                <img src="{{asset('public/website/')}}/images/mila-20200226142802.webp" alt="No image" class="w-100">
-                            </a>
-
-                        </div>
-                        <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-
-                        </div>
-                        <div class="meta2">
-                            <span class="pull-left tags">
-                                <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
-                            </span>
-                            <a href="#" class="pull-right">lorem</a>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
+    @endif
     <!-- sports part end -->
 
     <!-- ad part end -->
     <!-- desh start -->
+    @if($secondcate)
     <section id="desh">
         <div class="container">
-
             <div class="row mt-4">
                 <div class="col-sm-8">
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="live-heading">
                                 <h4 class="catTitle">
-                                    <a href="#">Bangladesh</a>
+                                    <a href="#">{{$secondcate->name}}</a>
                                     <div class="liner"></div>
                                 </h4>
                             </div>
                         </div>
                     </div>
                     <div class="row mt-3">
+                        @php
+                            $secondcatepost=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$secondcate->id)->OrderBy('id','DESC')->first();
+                        @endphp
+                        @if($secondcatepost)
                         <div class="col-sm-6">
                             <div class="image_box2 main_box2">
                                 <div class="main_image">
                                     <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/sarmkar-20200225155246.webp" alt="No image" class="w-100">
+
+                                       <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/mediumthum/'.$secondcatepost->image)}}" alt=""class="lazy w-100">
+                                       @if($secondcatepost->post_type==2)
+                                         <a href="#" class="play-button">
+                                            <i class="fas fa-play"></i>
+                                        </a>
+                                        @endif
+
                                     </a>
 
                                 </div>
                                 <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing.
-                                    </h4>
+                                    <h4>{{Str::limit($secondcatepost->title,50)}}</h4>
                                 </div>
                                 <div class="meta2">
                                     <span class="pull-left tags">
                                         <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
+                                        <a href="#">বিস্তারিত</a>
                                     </span>
 
                                     <div class="clear"></div>
                                 </div>
                             </div>
                         </div>
+                        @endif
+
                         <div class="col-sm-6">
+
+                        @php
+                            $secondcepost=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$secondcate->id)->OrderBy('id','DESC')->skip(1)->limit(4)->get();
+                        @endphp
+                        @foreach($secondcepost as $post)
                             <div class="media md-b">
                                 <div class="media-left">
                                     <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/ashraful-20200225104941.jpg" alt="image">
+                                        <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/small/'.$secondcatepost->image)}}" alt=""class="lazy w-100">
+                                        @if($post->post_type==2)
+                                         <a href="#" class="play-button">
+                                            <i class="fas fa-play"></i>
+                                        </a>
+                                        @endif
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing.
+                                    <h4>{{Str::limit($post->title,50)}}
                                     </h4>
-                                    <span><i class="fas fa-tags"></i> lorem</span>
+                                    <span><i class="fas fa-tags"></i>বিস্তারিত</span>
                                 </div>
                             </div>
-                            <div class="media md-b">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/du-20200225000352.jpg" alt="image">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing.
-                                    </h4>
-                                    <span><i class="fas fa-tags"></i> lorem</span>
-                                </div>
-                            </div>
-                            <div class="media md-b">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/sarmkar-20200225155246.webp" alt="image">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing.
-                                    </h4>
-                                    <span><i class="fas fa-tags"></i> lorem</span>
-                                </div>
-                            </div>
-                            <div class="media md-b">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/csino-20200225080908.jpg" alt="image">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing.
-                                    </h4>
-                                    <span><i class="fas fa-tags"></i> lorem</span>
-                                </div>
-                            </div>
+                         @endforeach
+                          
                         </div>
                     </div>
                     <div class="row">
+                         @php
+                            $secondceteallpost=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$secondcate->id)->OrderBy('id','DESC')->skip(5)->limit(4)->get();
+                        @endphp
+                        @foreach($secondceteallpost as $post)
                         <div class="col-sm-3">
                             <div class="image_box2 main_box2">
                                 <div class="main_image">
                                     <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="images/1.jpg" alt=""
-                                            class="lazy img-fluid">
+                                        <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/small/'.$post->image)}}" alt=""class="lazy w-100">
+                                        @if($post->post_type==2)
+                                         <a href="#" class="play-button">
+                                            <i class="fas fa-play"></i>
+                                        </a>
+                                        @endif
                                     </a>
 
                                 </div>
                                 <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet.</h4>
+                                    <h4>{{Str::limit($post->title,25)}}</h4>
 
                                 </div>
                                 <div class="meta2">
                                     <span class="pull-left tags">
-                                        <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
+                                       
                                     </span>
-                                    <a href="#" class="pull-right">lorem</a>
+                                    <a href="#" class="pull-right">বিস্তারিত</a>
                                     <div class="clear"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-3">
-                            <div class="image_box2 main_box2">
-                                <div class="main_image">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/mila-20200226142802.webp" alt="No image" class="w-100">
-                                    </a>
+                        @endforeach
 
-                                </div>
-                                <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet.</h4>
-
-                                </div>
-                                <div class="meta2">
-                                    <span class="pull-left tags">
-                                        <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
-                                    </span>
-                                    <a href="#" class="pull-right">lorem</a>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div class="image_box2 main_box2">
-                                <div class="main_image">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/mila-20200226142802.webp" alt="No image" class="w-100">
-                                    </a>
-
-                                </div>
-                                <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet.</h4>
-
-                                </div>
-                                <div class="meta2">
-                                    <span class="pull-left tags">
-                                        <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
-                                    </span>
-                                    <a href="#" class="pull-right">lorem</a>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="image_box2 main_box2">
-                                <div class="main_image">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/mila-20200226142802.webp" alt="No image" class="w-100">
-                                    </a>
-
-                                </div>
-                                <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet.</h4>
-
-                                </div>
-                                <div class="meta2">
-                                    <span class="pull-left tags">
-                                        <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
-                                    </span>
-                                    <a href="#" class="pull-right">lorem</a>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
@@ -1120,40 +499,30 @@
                             <div class="comment_part">
                                 <h2 class="heading-link text-center">
                                     <a href="#">
-                                        <span>Comment</span>
+                                        <span>জনপ্রিয়</span>
                                     </a>
                                 </h2>
                                 <div class="comment-block">
+                                    @php
+                                        $newscatepost=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$secondcate->id)->where('popular_news',1)->limit(3)->get();
+                                    @endphp
+                                    @foreach($newscatepost as $post)
                                     <div class="media" style="padding: 10px;">
                                         <a class="pull-left" href="#">
-                                            <img src="{{asset('public/website/')}}/images/ashraful-20200225104941.jpg" alt="image" width="100px">
+                                           <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/small/'.$post->image)}}" alt=""class="lazy w-100">
+                                         @if($post->post_type==2)
+                                         <a href="#" class="play-button">
+                                            <i class="fas fa-play"></i>
+                                        </a>
+                                        @endif
                                         </a>
                                         <div class="media-body">
                                             <h4 class="comment_heading">
-                                                <a href="#">Lorem ipsum dolor sit amet.</a>
+                                                <a href="#">{{Str::limit($post->title,25)}}</a>
                                             </h4>
                                         </div>
                                     </div>
-                                    <div class="media" style="padding: 10px;">
-                                        <a class="pull-left" href="#">
-                                            <img src="{{asset('public/website/')}}/images/csino-20200225080908.jpg" alt="image" width="100px">
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="comment_heading">
-                                                <a href="#">Lorem ipsum dolor sit amet.</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div class="media" style="padding: 10px;">
-                                        <a class="pull-left" href="#">
-                                            <img src="{{asset('public/website/')}}/images/liverpool-20200225090743.webp" alt="image" width="100px">
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="comment_heading">
-                                                <a href="#">Lorem ipsum dolor sit amet.</a>
-                                            </h4>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
 
                             </div>
@@ -1161,10 +530,12 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
+                         <form action="{{url('/news/division/search')}}" method="post">
+                            @csrf
                             <div class="link_part">
                                 <h2 class="heading-link text-center">
                                     <a href="#">
-                                        <span>Click here for More News</span>
+                                        <span>সব খবর </span>
                                     </a>
                                 </h2>
                             </div>
@@ -1173,13 +544,13 @@
                                     <div class="select_option">
                                         <div class="form-group">
 
-                                            <select class="form-control" name="division" id="division">
-                                                <option>Dhaka</option>
-                                                <option>Chattogram</option>
-                                                <option>Rajshahi</option>
-                                                <option>Sylhet</option>
-
+                                            <select class="form-control" name="division_id" id="division_id">
+                                                <option>বিভাগ</option>
+                                                @foreach($division as $divi)
+                                                <option value="{{$divi->id}}">{{$divi->name_bn}}</option>
+                                                @endforeach
                                             </select>
+
                                         </div>
                                     </div>
                                 </div>
@@ -1187,13 +558,10 @@
                                     <div class="select_option">
                                         <div class="form-group">
 
-                                            <select class="form-control" name="district" id="district">
-                                                <option>Chandpur</option>
-                                                <option>Cumilla</option>
-                                                <option>Rajshahi</option>
-                                                <option>Mymansing</option>
-
+                                            <select class="form-control" name="district_id" id="district_id">
+                                                <option>জেলা</option>
                                             </select>
+
                                         </div>
                                     </div>
                                 </div>
@@ -1203,24 +571,22 @@
                                     <div class="select_option">
                                         <div class="form-group">
 
-                                            <select class="form-control" name="upazila" id="upazila">
-                                                <option>Shahrasti</option>
-                                                <option>Bagatipara</option>
-                                                <option>Motlob</option>
-                                                <option>kacua</option>
-
+                                            <select class="form-control" name="subdistrict_id" id="subdistrict_id">
+                                                <option>উপজেলা</option>
                                             </select>
+
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="submit_button">
                                         <button type="submit" class="btn btn-block"
-                                            style="background-color: brown;color: #fff;">Search Here</button>
+                                            style="background-color: brown;color: #fff;">খুজুন</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
 
@@ -1229,6 +595,7 @@
 
         <!-- </div> -->
     </section>
+    @endif
     <!-- desh end -->
     <!-- Boxnews start-->
     <section id="box_news">
@@ -1236,132 +603,50 @@
             <div class="row">
                 <div class="col-sm-8">
                     <div class="row">
+                        @if($thirdcate)
                         <div class="col-sm-4">
                             <div class="single-cat-height">
                                 <div class="live-heading">
                                     <h4 class="catTitle">
-                                        <a href="#">International</a>
+                                        <a href="#">{{$thirdcate->name}}</a>
                                         <div class="liner"></div>
                                     </h4>
                                 </div>
                                 <div class="single-block box-news-block">
+                                    @php
+                                        $newsthirdcatepost=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$thirdcate->id)->OrderBy('id','DESC')->first();
+                                    @endphp
+                                    @if($newsthirdcatepost)
                                     <div class="image_box">
                                         <a href="#">
-                                            <img src="{{asset('public/website/')}}/images/du-20200225000352.jpg" alt="image" class="w-100">
+                                            <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/mediumthum/'.$newsthirdcatepost->image)}}" alt=""class="lazy w-100">
+                                              @if($newsthirdcatepost->post_type==2)
+                                             <a href="#" class="play-button">
+                                                <i class="fas fa-play"></i>
+                                            </a>
+                                            @endif
                                         </a>
-                                        <h4 style="padding: 10px 15px 0px 15px;">Lorem ipsum dolor sit, amet consectetur
-                                            adipisicing.</h4>
+                                        <h4 style="padding: 10px 15px 0px 15px;">{{Str::limit($newsthirdcatepost->title,40)}}</h4>
 
                                     </div>
+                                    @endif
+
                                     <div class="details">
+                                    @php
+                                        $newsthirdallcatepost=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$thirdcate->id)->OrderBy('id','DESC')->skip(1)->limit(4)->get();
+                                    @endphp
+                                        @foreach($newsthirdallcatepost as $post)
                                         <div class="media">
                                             <div class="media-body" style="margin-left:0px ;">
                                                 <h4 class="media-heading">
                                                     <a href="#">
-                                                        Lorem ipsum dolor sit. Lorem ipsum dolor sit.
+                                                        {{Str::limit($post->title,30)}}
                                                     </a>
                                                 </h4>
                                             </div>
                                         </div>
-                                        <div class="media">
-                                            <div class="media-body" style="margin-left:0px ;">
-                                                <h4 class="media-heading">
-                                                    <a href="#">
-                                                        Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="media">
-                                            <div class="media-body" style="margin-left:0px ;">
-                                                <h4 class="media-heading">
-                                                    <a href="#">
-                                                        Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="media">
-                                            <div class="media-body" style="margin-left:0px ;">
-                                                <h4 class="media-heading">
-                                                    <a href="#">
-                                                        Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
-
-
-                                </div>
-                            </div>
-                            <div class="allnews">
-                                <a href="#">
-                                    All News
-                                </a>
-
-                            </div>
-
-
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="single-cat-height">
-                                <div class="live-heading">
-                                    <h4 class="catTitle">
-                                        <a href="#">Political
-                                        </a>
-                                        <div class="liner"></div>
-                                    </h4>
-                                </div>
-                                <div class="single-block box-news-block">
-                                    <div class="image_box">
-                                        <a href="#">
-                                            <img src="{{asset('public/website/')}}/images/nayeem-20200225103539.jpg" alt="image" class="w-100">
-                                        </a>
-                                        <h4 style="padding: 10px 15px 0px 15px;">Lorem ipsum dolor sit, amet consectetur
-                                            adipisicing.</h4>
-
-                                    </div>
-                                    <div class="details">
-                                        <div class="media">
-                                            <div class="media-body" style="margin-left:0px ;">
-                                                <h4 class="media-heading">
-                                                    <a href="#">
-                                                        Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="media">
-                                            <div class="media-body" style="margin-left:0px ;">
-                                                <h4 class="media-heading">
-                                                    <a href="#">
-                                                        Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="media">
-                                            <div class="media-body" style="margin-left:0px ;">
-                                                <h4 class="media-heading">
-                                                    <a href="#">
-                                                        Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="media">
-                                            <div class="media-body" style="margin-left:0px ;">
-                                                <h4 class="media-heading">
-                                                    <a href="#">
-                                                        Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
                                 </div>
                             </div>
                             <div class="allnews">
@@ -1371,65 +656,54 @@
 
                             </div>
                         </div>
+                        @endif
+                        @if($forthcate)
                         <div class="col-sm-4">
                             <div class="single-cat-height">
                                 <div class="live-heading">
                                     <h4 class="catTitle">
-                                        <a href="#">
-                                            Economics
+                                        <a href="#">{{$forthcate->name}}
                                         </a>
                                         <div class="liner"></div>
                                     </h4>
                                 </div>
                                 <div class="single-block box-news-block">
+                                    @php
+                                        $forthnews=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$forthcate->id)->OrderBy('id','DESC')->first();
+                                    @endphp
+                                  
                                     <div class="image_box">
+                                        @if($forthnews)
                                         <a href="#">
-                                            <img src="{{asset('public/website/')}}/images/taijul-20200225100641.webp" alt="image" class="w-100">
-                                        </a>
-                                        <h4 style="padding: 10px 15px 0px 15px;">Lorem ipsum dolor sit, amet consectetur
-                                            adipisicing.</h4>
+                                           <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/mediumthum/'.$forthnews->image)}}" alt=""class="lazy w-100">
 
+                                            @if($forthnews->post_type==2)
+                                             <a href="#" class="play-button">
+                                                <i class="fas fa-play"></i>
+                                            </a>
+                                            @endif
+
+                                        </a>
+                                        <h4 style="padding: 10px 15px 0px 15px;">{{Str::limit($forthnews->title,40)}}</h4>
+                                        @endif
                                     </div>
                                     <div class="details">
+                                        @php
+                                            $newspostforthcateaa=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$forthcate->id)->skip(1)->limit(4)->get();
+                                        @endphp
+                                        @foreach($newspostforthcateaa as $dpost)
                                         <div class="media">
-                                            <div class="media-body" style="margin-left:0px ;">
+                                            <div class="media-body" style="margin-left:0px;">
                                                 <h4 class="media-heading">
                                                     <a href="#">
-                                                        Lorem ipsum dolor sit. Lorem ipsum dolor sit.
+                                                        {{Str::limit($dpost->title,30)}}
                                                     </a>
                                                 </h4>
                                             </div>
                                         </div>
-                                        <div class="media">
-                                            <div class="media-body" style="margin-left:0px ;">
-                                                <h4 class="media-heading">
-                                                    <a href="#">
-                                                        Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="media">
-                                            <div class="media-body" style="margin-left:0px ;">
-                                                <h4 class="media-heading">
-                                                    <a href="#">
-                                                        Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="media">
-                                            <div class="media-body" style="margin-left:0px ;">
-                                                <h4 class="media-heading">
-                                                    <a href="#">
-                                                        Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
-
-
+                                   
                                 </div>
                             </div>
                             <div class="allnews">
@@ -1439,6 +713,62 @@
 
                             </div>
                         </div>
+                        @endif
+                        @if($fivecate)
+                        <div class="col-sm-4">
+                            <div class="single-cat-height">
+                                <div class="live-heading">
+                                    <h4 class="catTitle">
+                                        <a href="#">
+                                            {{$fivecate->name}}
+                                        </a>
+                                        <div class="liner"></div>
+                                    </h4>
+                                </div>
+                                <div class="single-block box-news-block">
+                                    <div class="image_box">
+                                        @php
+                                            $fivenews=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$fivecate->id)->OrderBy('id','DESC')->first();
+                                        @endphp
+                                        @if($fivenews)
+                                        <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/mediumthum/'.$fivenews->image)}}" alt=""class="lazy w-100">
+                                        @if($fivenews->post_type==2)
+                                             <a href="#" class="play-button">
+                                                <i class="fas fa-play"></i>
+                                            </a>
+                                            @endif
+
+                                        <h4 style="padding: 10px 15px 0px 15px;">{{Str::limit($fivenews->title,40)}}</h4>
+                                        @endif
+
+
+                                    </div>
+                                    <div class="details">
+                                        @php
+                                            $fiveallnews=App\NewsPost::where('is_deleted',0)->OrderBy('id','DESC')->where('cate_id',$fivecate->id)->limit(4)->get();
+                                        @endphp
+                                        @foreach($fiveallnews as $post)
+                                        <div class="media">
+                                            <div class="media-body" style="margin-left:0px ;">
+                                                <h4 class="media-heading">
+                                                    <a href="#">
+                                                        {{Str::limit($post->title,40)}}
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                 
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="allnews">
+                                <a href="#">All News</a>
+
+                            </div>
+                        </div>
+                        @endif
 
                     </div>
                 </div>
@@ -1462,11 +792,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8">
+                    @if($sixcate)
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="live-heading">
                                 <h4 class="catTitle">
-                                    <a href="#">National</a>
+                                    <a href="#">{{$sixcate->name}}</a>
                                     <div class="liner"></div>
                                 </h4>
 
@@ -1474,225 +805,134 @@
                         </div>
                     </div>
                     <div class="row">
+                        @php
+                            $sixcatepost=App\NewsPost::where('is_deleted',0)->where('status',1)->OrderBy('id','DESC')->where('cate_id',$sixcate->id)->limit(2)->get();
+                        @endphp
+                        @foreach($sixcatepost as $post)
                         <div class="col-sm-6">
                             <div class="image_box2 main_box2">
                                 <div class="main_image">
                                     <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/sarmkar-20200225155246.webp" alt="No image" class="w-100">
+                                         <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/bigthum/'.$post->image)}}" alt=""class="lazy w-100">
+                                         @if($post->post_type==2)
+                                             <a href="#" class="play-button">
+                                                <i class="fas fa-play"></i>
+                                            </a>
+                                        @endif
                                     </a>
-
                                 </div>
                                 <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing.
+                                    <h4>{{Str::limit($post->title,40)}}
                                     </h4>
                                 </div>
                                 <div class="meta2">
                                     <span class="pull-left tags">
                                         <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
+                                        <a href="#">বিস্তারিত</a>
                                     </span>
 
                                     <div class="clear"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="image_box2 main_box2">
-                                <div class="main_image">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/liverpool-20200225090743.webp" alt="No image" class="w-100">
-                                    </a>
-
-                                </div>
-                                <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing.
-                                    </h4>
-                                </div>
-                                <div class="meta2">
-                                    <span class="pull-left tags">
-                                        <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
-                                    </span>
-
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                      
                     </div>
                     <div class="row mt-3">
+                         @php
+                            $sixcateallpost=App\NewsPost::where('is_deleted',0)->where('status',1)->OrderBy('id','DESC')->where('cate_id',$sixcate->id)->skip(2)->limit(4)->get();
+                        @endphp
+                        @foreach($sixcateallpost as $post)
                         <div class="col-sm-3">
                             <div class="image_box2 main_box2">
                                 <div class="main_image">
                                     <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/mila-20200226142802.webp" alt="No image" class="w-100">
+                                        <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/mediumthum/'.$post->image)}}" alt=""class="lazy w-100">
+                                        @if($post->post_type==2)
+                                             <a href="#" class="play-button">
+                                                <i class="fas fa-play"></i>
+                                            </a>
+                                        @endif
                                     </a>
 
                                 </div>
                                 <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet.</h4>
+                                    <h4>{{Str::limit($post->title,25)}}</h4>
 
                                 </div>
                                 <div class="meta2">
                                     <span class="pull-left tags">
                                         <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
+                                        <a href="#">বিস্তারিত</a>
                                     </span>
-                                    <a href="#" class="pull-right">lorem</a>
+                                    <a href="#" class="pull-right"></a>
                                     <div class="clear"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-3">
-                            <div class="image_box2 main_box2">
-                                <div class="main_image">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/rain-20200224164351.jpg" alt="No image" class="w-100">
-                                    </a>
-
-                                </div>
-                                <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet.</h4>
-
-                                </div>
-                                <div class="meta2">
-                                    <span class="pull-left tags">
-                                        <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
-                                    </span>
-                                    <a href="#" class="pull-right">lorem</a>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="image_box2 main_box2">
-                                <div class="main_image">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/pilkhana-20200225082704.webp" alt="No image" class="w-100">
-                                    </a>
-
-                                </div>
-                                <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet.</h4>
-
-                                </div>
-                                <div class="meta2">
-                                    <span class="pull-left tags">
-                                        <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
-                                    </span>
-                                    <a href="#" class="pull-right">lorem</a>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="image_box2 main_box2">
-                                <div class="main_image">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/m-m-akas-01-20200225190157.webp" alt="No image" class="w-100">
-                                    </a>
-
-                                </div>
-                                <div class="detail_box2">
-                                    <h4>Lorem ipsum dolor sit amet.</h4>
-
-                                </div>
-                                <div class="meta2">
-                                    <span class="pull-left tags">
-                                        <i class="fas fa-tags"></i>
-                                        <a href="#">lorem</a>
-                                    </span>
-                                    <a href="#" class="pull-right">lorem</a>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                     
                     </div>
+                    @endif
                 </div>
                 <div class="col-sm-4 aside">
                     <div class="row">
+                        @if($sevencate)
                         <div class="col-sm-12">
                             <div class="fb-live">
                                 <h2 class="no-margin">
                                     <a href="#">
-                                        Boi Mela
+                                        {{$sevencate->name}}
                                     </a>
                                 </h2>
                                 <div class="single-block">
                                     <div class="image_box">
+                                        @php
+                                    $sevenallpost=App\NewsPost::where('is_deleted',0)->where('status',1)->OrderBy('id','DESC')->where('cate_id',$sevencate->id)->first();
+                                        @endphp
+                                        @if($sevenallpost)
                                         <a href="#">
-                                            <img src="{{asset('public/website/')}}/images/netflix-20200225162641.jpg" alt="image" class="w-100">
+                                             <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/bigthum/'.$sevenallpost->image)}}" alt=""class="lazy w-100">
+                                             @if($sevenallpost->post_type==2)
+                                             <a href="#" class="play-button">
+                                                    <i class="fas fa-play"></i>
+                                             </a>
+                                            @endif
+
                                         </a>
                                         <h4 style="padding: 10px 15px 0px 15px;font-size: 18px;">
-                                            <a href="#" style="text-decoration: none;color:rgb(109, 109, 109)">Lorem
-                                                ipsum dolor sit, amet
-                                                consectetur
-                                                adipisicing.</a>
+                                            <a href="#" style="text-decoration: none;color:rgb(109, 109, 109)">{{Str::limit($sevenallpost->title,25)}}</a>
                                         </h4>
+                                        @endif
 
                                     </div>
                                     <div class="details">
+                                        @php
+                                            $sevenallgetpost=App\NewsPost::where('is_deleted',0)->where('status',1)->OrderBy('id','DESC')->where('cate_id',$sevencate->id)->skip(1)->limit(8)->get();
+                                        @endphp
+                                        @foreach($sevenallgetpost as $post)
                                         <div class="media" style="padding: 16px 0px;">
                                             <div class="media-left">
                                                 <a href="#">
-                                                    <img src="{{asset('public/website/')}}/images/mal-01-20200224205835.webp" alt="image"
-                                                        width="100">
+                                                   <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/small/'.$post->image)}}" alt=""class="lazy w-100">
+
+                                                    @if($post->post_type==2)
+                                                     <a href="#" class="play-button">
+                                                            <i class="fas fa-play"></i>
+                                                     </a>
+                                                    @endif
                                                 </a>
                                             </div>
                                             <div class="media-body" style="margin-left:10px ;">
                                                 <h4 class="media-heading">
                                                     <a href="#">
-                                                        Lorem ipsum dolor sit. Lorem ipsum dolor sit.
+                                                       {{Str::limit($post->title,40)}}
                                                     </a>
                                                 </h4>
                                             </div>
                                         </div>
-                                        <div class="media" style="padding: 16px 0px;">
-                                            <div class="media-left">
-                                                <a href="#">
-                                                    <img src="{{asset('public/website/')}}/images/mal-01-20200224205835.webp" alt="image"
-                                                        width="100">
-                                                </a>
-                                            </div>
-                                            <div class="media-body" style="margin-left:10px ;">
-                                                <h4 class="media-heading">
-                                                    <a href="#">
-                                                        Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="media" style="padding: 16px 0px;">
-                                            <div class="media-left">
-                                                <a href="#">
-                                                    <img src="{{asset('public/website/')}}/images/mal-01-20200224205835.webp" alt="image"
-                                                        width="100">
-                                                </a>
-                                            </div>
-                                            <div class="media-body" style="margin-left:10px ;">
-                                                <h4 class="media-heading">
-                                                    <a href="#">
-                                                        Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="media" style="padding: 16px 0px;">
-                                            <div class="media-left">
-                                                <a href="#">
-                                                    <img src="{{asset('public/website/')}}/images/mal-01-20200224205835.webp" alt="image"
-                                                        width="100">
-                                                </a>
-                                            </div>
-                                            <div class="media-body" style="margin-left:10px ;">
-                                                <h4 class="media-heading">
-                                                    <a href="#">
-                                                        Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
+                                        @endforeach
+                                       
                                     </div>
 
 
@@ -1703,6 +943,7 @@
                             </div>
 
                         </div>
+                        @endif
                     </div>
                 </div>
 
@@ -1716,61 +957,45 @@
     <section id="box_news">
         <div class="container">
             <div class="row">
+                @if($eightcate)
                 <div class="col-sm-3">
                     <div class="single-cat-height">
                         <div class="live-heading">
                             <h4 class="catTitle">
-                                <a href="#">Lifestyle</a>
+                                <a href="#">{{$eightcate->name}}</a>
                                 <div class="liner"></div>
 
                             </h4>
                         </div>
                         <div class="single-block">
                             <div class="image_box">
+                                @php
+                                    $eightnewspost=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$eightcate->id)->OrderBy('id','DESC')->first();
+                                @endphp
+                                @if($eightnewspost)
                                 <a href="#">
-                                    <img src="{{asset('public/website/')}}/images/mal-01-20200224205835.webp" alt="image" class="w-100">
+                                     <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/bigthum/'.$eightnewspost->image)}}" alt=""class="lazy w-100">
                                 </a>
-                                <h4 style="padding: 10px 15px 0px 15px;">Lorem ipsum dolor sit, amet consectetur
-                                    adipisicing.</h4>
+                                <h4 style="padding: 10px 15px 0px 15px;">{{Str::limit($eightnewspost->title,40)}}</h4>
+                                @endif
 
                             </div>
                             <div class="details">
+                                @php
+                                $eightallnewspost=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$eightcate->id)->OrderBy('id','DESC')->skip(1)->limit(4)->get();
+                                @endphp
+                                @foreach($eightallnewspost as $post)
                                 <div class="media">
                                     <div class="media-body" style="margin-left:0px ;">
                                         <h4 class="media-heading">
                                             <a href="#">
-                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit.
+                                               {{ Str::limit($post->title,40)}}
                                             </a>
                                         </h4>
                                     </div>
                                 </div>
-                                <div class="media">
-                                    <div class="media-body" style="margin-left:0px ;">
-                                        <h4 class="media-heading">
-                                            <a href="#">
-                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-body" style="margin-left:0px ;">
-                                        <h4 class="media-heading">
-                                            <a href="#">
-                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-body" style="margin-left:0px ;">
-                                        <h4 class="media-heading">
-                                            <a href="#">
-                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
+                                @endforeach
+                             
                             </div>
 
 
@@ -1783,60 +1008,47 @@
 
                     </div>
                 </div>
+                @endif
+
+                @if($ninecate)
                 <div class="col-sm-3">
                     <div class="single-cat-height">
                         <div class="live-heading">
                             <h4 class="catTitle">
-                                <a href="#">Technology</a>
+                                <a href="#">{{$ninecate->name}}</a>
                                 <div class="liner"></div>
+
                             </h4>
                         </div>
                         <div class="single-block">
                             <div class="image_box">
+                                @php
+                                    $eightnewsspost=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$ninecate->id)->OrderBy('id','DESC')->first();
+                                @endphp
+                                @if($eightnewsspost)
                                 <a href="#">
-                                    <img src="{{asset('public/website/')}}/images/jubo-20200225121652.webp" alt="image" class="w-100">
+                                     <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/bigthum/'.$eightnewspost->image)}}" alt=""class="lazy w-100">
                                 </a>
-                                <h4 style="padding: 10px 15px 0px 15px;">Lorem ipsum dolor sit, amet consectetur
-                                    adipisicing.</h4>
+                                <h4 style="padding: 10px 15px 0px 15px;">{{Str::limit($eightnewsspost->title,40)}}</h4>
+                                @endif
 
                             </div>
                             <div class="details">
+                                @php
+                                $eightallnewspost=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$ninecate->id)->OrderBy('id','DESC')->skip(1)->limit(4)->get();
+                                @endphp
+                                @foreach($eightallnewspost as $post)
                                 <div class="media">
                                     <div class="media-body" style="margin-left:0px ;">
                                         <h4 class="media-heading">
                                             <a href="#">
-                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit.
+                                               {{ Str::limit($post->title,40)}}
                                             </a>
                                         </h4>
                                     </div>
                                 </div>
-                                <div class="media">
-                                    <div class="media-body" style="margin-left:0px ;">
-                                        <h4 class="media-heading">
-                                            <a href="#">
-                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-body" style="margin-left:0px ;">
-                                        <h4 class="media-heading">
-                                            <a href="#">
-                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-body" style="margin-left:0px ;">
-                                        <h4 class="media-heading">
-                                            <a href="#">
-                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
+                                @endforeach
+                             
                             </div>
 
 
@@ -1849,124 +1061,47 @@
 
                     </div>
                 </div>
+                @endif
+
+                @if($tencate)
                 <div class="col-sm-3">
                     <div class="single-cat-height">
                         <div class="live-heading">
                             <h4 class="catTitle">
-                                <a href="#">Features</a>
+                                <a href="#">{{$tencate->name}}</a>
                                 <div class="liner"></div>
+
                             </h4>
                         </div>
                         <div class="single-block">
                             <div class="image_box">
+                                @php
+                                    $tennewsspost=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$tencate->id)->OrderBy('id','DESC')->first();
+                                @endphp
+                                @if($tennewsspost)
                                 <a href="#">
-                                    <img src="{{asset('public/website/')}}/images/netflix-20200225162641.jpg" alt="image" class="w-100">
+                                     <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/bigthum/'.$eightnewspost->image)}}" alt=""class="lazy w-100">
                                 </a>
-                                <h4 style="padding: 10px 15px 0px 15px;">Lorem ipsum dolor sit, amet consectetur
-                                    adipisicing.</h4>
+                                <h4 style="padding: 10px 15px 0px 15px;">{{Str::limit($tennewsspost->title,40)}}</h4>
+                                @endif
 
                             </div>
                             <div class="details">
+                                @php
+                                $tenallnewspost=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$tencate->id)->OrderBy('id','DESC')->skip(1)->limit(4)->get();
+                                @endphp
+                                @foreach($tenallnewspost as $post)
                                 <div class="media">
                                     <div class="media-body" style="margin-left:0px ;">
                                         <h4 class="media-heading">
                                             <a href="#">
-                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit.
+                                               {{ Str::limit($post->title,40)}}
                                             </a>
                                         </h4>
                                     </div>
                                 </div>
-                                <div class="media">
-                                    <div class="media-body" style="margin-left:0px ;">
-                                        <h4 class="media-heading">
-                                            <a href="#">
-                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-body" style="margin-left:0px ;">
-                                        <h4 class="media-heading">
-                                            <a href="#">
-                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-body" style="margin-left:0px ;">
-                                        <h4 class="media-heading">
-                                            <a href="#">
-                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="allnews">
-                        <a href="#">
-                            All News
-                        </a>
-
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="single-cat-height">
-                        <div class="live-heading">
-                            <h4 class="catTitle">
-                                <a href="#">Travel</a>
-                                <div class="liner"></div>
-                            </h4>
-                        </div>
-                        <div class="single-block">
-                            <div class="image_box">
-                                <a href="#">
-                                    <img src="{{asset('public/website/')}}/images/sui-cover-20200226093202.webp" alt="image" class="w-100">
-                                </a>
-                                <h4 style="padding: 10px 15px 0px 15px;">Lorem ipsum dolor sit, amet consectetur
-                                    adipisicing.</h4>
-
-                            </div>
-                            <div class="details">
-                                <div class="media">
-                                    <div class="media-body" style="margin-left:0px ;">
-                                        <h4 class="media-heading">
-                                            <a href="#">
-                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-body" style="margin-left:0px ;">
-                                        <h4 class="media-heading">
-                                            <a href="#">
-                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-body" style="margin-left:0px ;">
-                                        <h4 class="media-heading">
-                                            <a href="#">
-                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-body" style="margin-left:0px ;">
-                                        <h4 class="media-heading">
-                                            <a href="#">
-                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit.
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
+                                @endforeach
+                             
                             </div>
 
 
@@ -1979,11 +1114,69 @@
 
                     </div>
                 </div>
+                @endif
+
+                  @if($elevencate)
+                <div class="col-sm-3">
+                    <div class="single-cat-height">
+                        <div class="live-heading">
+                            <h4 class="catTitle">
+                                <a href="#">{{$elevencate->name}}</a>
+                                <div class="liner"></div>
+
+                            </h4>
+                        </div>
+                        <div class="single-block">
+                            <div class="image_box">
+                                @php
+                                    $elevennewsspost=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$elevencate->id)->OrderBy('id','DESC')->first();
+                                @endphp
+                                @if($elevennewsspost)
+                                <a href="#">
+                                     <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/bigthum/'.$eightnewspost->image)}}" alt=""class="lazy w-100">
+                                </a>
+                                <h4 style="padding: 10px 15px 0px 15px;">{{Str::limit($elevennewsspost->title,40)}}</h4>
+                                @endif
+
+                            </div>
+                            <div class="details">
+                                @php
+                                $tenallnewspost=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$elevencate->id)->OrderBy('id','DESC')->skip(1)->limit(4)->get();
+                                @endphp
+                                @foreach($tenallnewspost as $post)
+                                <div class="media">
+                                    <div class="media-body" style="margin-left:0px ;">
+                                        <h4 class="media-heading">
+                                            <a href="#">
+                                               {{ Str::limit($post->title,40)}}
+                                            </a>
+                                        </h4>
+                                    </div>
+                                </div>
+                                @endforeach
+                             
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="allnews">
+                        <a href="#">
+                            All News
+                        </a>
+
+                    </div>
+                </div>
+                @endif
+
+               
+                
             </div>
         </div>
     </section>
     <!--boxnews part-->
     <!-- entertainment part start -->
+    @if($twelevecate)
     <section id="sport_main">
         <div class="container">
             <div class="row">
@@ -1992,11 +1185,16 @@
                         <div class="col-sm-8">
                             <h4 class="left">
                                 <span class="cat_name">
-                                    <a href="#">Entertainment</a>
+                                    <a href="#">{{$twelevecate->name}}</a>
                                 </span>
                                 <span class="cat_subname">
-                                    <a href="#">Hollywood</a>
-                                    <a href="#">Bollywood</a>
+                                    @php
+                                        $suba=App\SubCategory::where('is_deleted',0)->where('status',1)->where('cate_id',$twelevecate->id)->OrderBy('id','DESC')->get();
+                                    @endphp
+                                    @foreach($suba as $sub)
+                                    <a href="{{$sub->id}}">{{$sub->name}}</a>
+                                    @endforeach
+                                    
                                 </span>
                             </h4>
 
@@ -2010,194 +1208,48 @@
                     </div>
                 </div>
             </div>
+           
             <div class="row">
+            @php
+                $newspost=App\NewsPost::where('is_deleted',0)->where('status',1)->where('cate_id',$twelevecate->id)->OrderBy('id','DESC')->limit(8)->get();
+            @endphp
+            @foreach($newspost as $post)
                 <div class="col-sm-3">
                     <div class="image_box2 main_box2" style="background-color: #fff;">
                         <div class="main_image">
                             <a href="#">
-                                <img src="{{asset('public/website/')}}/images/trump-20200225164257.webp" alt="No image" class="w-100">
+                                <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/bigthum/'.$eightnewspost->image)}}" alt=""class="lazy w-100">
+                                @if($post->post_type==2)
+                                     <a href="#" class="play-button">
+                                            <i class="fas fa-play"></i>
+                                     </a>
+                                    @endif
                             </a>
 
                         </div>
                         <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet. dolor sit amet.</h4>
+                            <h4>{{Str::limit($post->title,45)}}</h4>
 
                         </div>
                         <div class="meta3">
                             <span class="pull-left tags">
                                 <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
+                                <a href="#">বিস্তারিত</a>
                             </span>
 
                             <div class="clear"></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
-                    <div class="image_box2 main_box2" style="background-color: #fff;">
-                        <div class="main_image">
-                            <a href="#">
-                                <img src="{{asset('public/website/')}}/images/samira-01-20200226132030.webp" alt="No image" class="w-100">
-                            </a>
+            @endforeach
 
-                        </div>
-                        <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet.dolor sit amet.</h4>
-
-                        </div>
-                        <div class="meta3">
-                            <span class="pull-left tags">
-                                <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
-                            </span>
-
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="image_box2 main_box2" style="background-color: #fff;">
-                        <div class="main_image">
-                            <a href="#">
-                                <img src="{{asset('public/website/')}}/images/pri-20200226134057.webp" alt="No image" class="w-100">
-                            </a>
-
-                        </div>
-                        <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet.dolor sit amet.</h4>
-
-                        </div>
-                        <div class="meta3">
-                            <span class="pull-left tags">
-                                <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
-                            </span>
-
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-sm-3">
-                    <div class="image_box2 main_box2" style="background-color: #fff;">
-                        <div class="main_image">
-                            <a href="#">
-                                <img src="{{asset('public/website/')}}/images/trump-20200225164257.webp" alt="No image" class="w-100">
-                            </a>
-
-                        </div>
-                        <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet.dolor sit amet.</h4>
-
-                        </div>
-                        <div class="meta3">
-                            <span class="pull-left tags">
-                                <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
-                            </span>
-
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="image_box2 main_box2" style="background-color: #fff;">
-                        <div class="main_image">
-                            <a href="#">
-                                <img src="{{asset('public/website/')}}/images/iran-20200223220447.webp" alt="No image" class="w-100">
-                            </a>
-
-                        </div>
-                        <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet. dolor sit amet.</h4>
-
-                        </div>
-                        <div class="meta3">
-                            <span class="pull-left tags">
-                                <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
-                            </span>
-
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="image_box2 main_box2" style="background-color: #fff;">
-                        <div class="main_image">
-                            <a href="#">
-                                <img src="{{asset('public/website/')}}/images/samira-01-20200226132030.webp" alt="No image" class="w-100">
-                            </a>
-
-                        </div>
-                        <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet.dolor sit amet.</h4>
-
-                        </div>
-                        <div class="meta3">
-                            <span class="pull-left tags">
-                                <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
-                            </span>
-
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="image_box2 main_box2" style="background-color: #fff;">
-                        <div class="main_image">
-                            <a href="#">
-                                <img src="{{asset('public/website/')}}/images/sui-cover-20200226093202.webp" alt="No image" class="w-100">
-                            </a>
-
-                        </div>
-                        <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet.dolor sit amet.</h4>
-
-                        </div>
-                        <div class="meta3">
-                            <span class="pull-left tags">
-                                <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
-                            </span>
-
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-sm-3">
-                    <div class="image_box2 main_box2" style="background-color: #fff;">
-                        <div class="main_image">
-                            <a href="#">
-                                <img src="{{asset('public/website/')}}/images/wan-azizah-20200224141532.jpg" alt="No image" class="w-100">
-                            </a>
-
-                        </div>
-                        <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet.dolor sit amet</h4>
-
-                        </div>
-                        <div class="meta3">
-                            <span class="pull-left tags">
-                                <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
-                            </span>
-
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
+    @endif
     <!-- entertainment part end -->
     <!-- boxnews part start -->
-    <section id="box_news">
+   <!--  <section id="box_news">
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
@@ -2466,7 +1518,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- boxnews part end-->
     <!-- important Report start -->
     <section id="report_main">
@@ -2495,101 +1547,46 @@
                 </div>
             </div>
             <div class="row mt-4">
+                @php
+                    $pocketnews=App\NewsPost::where('is_deleted',0)->where('status',1)->where('pocket_news',1)->OrderBy('id','DESC')->limit(8)->get();
+                @endphp
+                @foreach($pocketnews as $post)
                 <div class="col-sm-3">
                     <div class="image_box2 main_box2" style="background-color: #fff;">
                         <div class="main_image">
                             <a href="#">
-                                <img src="{{asset('public/website/')}}/images/wan-azizah-20200224141532.jpg" alt="No image" class="w-100">
+                                <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/bigthum/'.$post->image)}}" alt=""class="lazy w-100">
+                                @if($post->post_type==2)
+                                     <a href="#" class="play-button">
+                                            <i class="fas fa-play"></i>
+                                     </a>
+                                    @endif
                             </a>
 
                         </div>
                         <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet.dolor sit amet</h4>
-
+                            <h4>{{Str::limit($post->title,40)}}</h4>
                         </div>
                         <div class="meta3">
                             <span class="pull-left tags">
                                 <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
+                                <a href="#">বিস্তারিত</a>
                             </span>
 
                             <div class="clear"></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
-                    <div class="image_box2 main_box2" style="background-color: #fff;">
-                        <div class="main_image">
-                            <a href="#">
-                                <img src="{{asset('public/website/')}}/images/india-cover-20200226095139.webp" alt="No image" class="img-fluid">
-                            </a>
-
-                        </div>
-                        <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet.dolor sit amet</h4>
-
-                        </div>
-                        <div class="meta3">
-                            <span class="pull-left tags">
-                                <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
-                            </span>
-
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="image_box2 main_box2" style="background-color: #fff;">
-                        <div class="main_image">
-                            <a href="#">
-                                <img src="{{asset('public/website/')}}/images/m-m-akas-01-20200225190157.webp" alt="No image" class="w-100">
-                            </a>
-
-                        </div>
-                        <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet.dolor sit amet</h4>
-
-                        </div>
-                        <div class="meta3">
-                            <span class="pull-left tags">
-                                <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
-                            </span>
-
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="image_box2 main_box2" style="background-color: #fff;">
-                        <div class="main_image">
-                            <a href="#">
-                                <img src="{{asset('public/website/')}}/images/jubo-20200225121652.webp" alt="No image" class="w-100">
-                            </a>
-
-                        </div>
-                        <div class="detail_box2">
-                            <h4>Lorem ipsum dolor sit amet.dolor sit amet</h4>
-
-                        </div>
-                        <div class="meta3">
-                            <span class="pull-left tags">
-                                <i class="fas fa-tags"></i>
-                                <a href="#">lorem</a>
-                            </span>
-
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+              
+              
             </div>
         </div>
 
     </section>
     <!-- important Report end -->
     <!-- boxnews part start -->
-    <section id="box_news">
+  <!--   <section id="box_news">
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
@@ -2859,7 +1856,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- boxnews part end-->
     <!-- photo gallery start -->
     <section id="photo_gallary">
@@ -3066,5 +2063,58 @@
     <!-- photo gallery end -->
 
     <!-- ad part end -->
+
+
+<script>
+$(document).ready(function() {
+// district
+   $('select[name="division_id"]').on('change', function(){
+             var division_id = $(this).val();
+             //alert(division_id);
+             if(division_id) {
+                 $.ajax({
+                     url: "{{  url('/news/getdistrict/') }}/"+division_id,
+                     type:"GET",
+                     dataType:"json",
+                     success:function(data) {
+
+                            $('#district_id').empty();
+                            $('#district_id').append(' <option disabled selected>জেলা</option>');
+                            $.each(data,function(index,districtObj){
+                            $('#district_id').append('<option value="' + districtObj.id + '">'+districtObj.name_bn+'</option>');
+                          });
+                         }
+                 });
+             } else {
+                 //alert('danger');
+             }
+
+         });
+
+// subdistrict
+
+   $('select[name="district_id"]').on('change', function(){
+             var district_id = $(this).val();
+             //alert("success");
+             if(district_id) {
+                 $.ajax({
+                     url: "{{  url('/news/getsubdistrict/') }}/"+district_id,
+                     type:"GET",
+                     dataType:"json",
+                     success:function(data) {
+                            $('#subdistrict_id').empty();
+                            $('#subdistrict_id').append(' <option disabled selected>উপজেলা</option>');
+                            $.each(data,function(index,districtObj){
+                            $('#subdistrict_id').append('<option value="' + districtObj.id + '">'+districtObj.name+'</option>');
+                          });
+                         }
+                 });
+             } else {
+                 //alert('danger');
+             }
+
+         });
+     });
+</script>
 @endsection
     
