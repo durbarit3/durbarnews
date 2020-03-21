@@ -199,6 +199,7 @@ Route::namespace('Admin')->prefix('admin/advertisement')->group(function(){
 });
 
 
+
 Route::namespace('Admin')->prefix('admin')->group(function(){
 
     Route::get(md5('/contact/information'),'FooterController@contactInformation')->name('admin.contact.info');

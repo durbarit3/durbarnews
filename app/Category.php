@@ -11,4 +11,15 @@ class Category extends Model
     {
         return $this->hasMany(Gallery::class);
     }
+
+
+    
+    public function subcate()
+    {
+        return $this->hasMany(NewsPost::class,'cate_id','id');
+    }
+
+  
+
+   
 }

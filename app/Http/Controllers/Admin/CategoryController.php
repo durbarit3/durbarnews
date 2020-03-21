@@ -23,6 +23,7 @@ class CategoryController extends Controller
     }
     // insert
     public function store(Request $request){
+        
     	 $title=$request['cate_name'];
          $cate_slug=$request['cate_slug'];
          $inputslug=str_replace(" ", "-", $cate_slug);
@@ -51,6 +52,7 @@ class CategoryController extends Controller
                  	'updated_at'=>Carbon::now()->toDateTimeString(),
                  ]);
 
+
                  if($insert){
                       $notification=array(
                         'messege'=>' Category Insert Successfully',
@@ -65,6 +67,7 @@ class CategoryController extends Controller
                          );
                      return redirect()->back()->with($notification);
                 }
+
         }else{
             $this->validate($request,[
                 'cate_name' => 'required|unique:categories,name',

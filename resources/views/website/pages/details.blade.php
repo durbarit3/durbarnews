@@ -18,7 +18,7 @@
                                 </ol>
                                 <h3 class="no-margin">
                                    <a href="#" style="text-decoration: none;color: #000;font-size: 24px;">
-                                    জি কে শামীমের জামিন রাষ্ট্রপক্ষ জানে না, বিষয়টি তদন্ত হবে
+                                   bffgfhgfdhf
                                    </a>
                                 </h3>
                                 <div class="dividerDetails"></div>

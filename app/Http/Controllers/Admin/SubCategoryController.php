@@ -23,10 +23,15 @@ class SubCategoryController extends Controller
     }
 
     public function store(Request $request){
+        
+        $subcat =Category::findOrFail($request->cate_id)->name;
+        
+
     	 $title=$request['name'];
          $subcate_slug=$request['slug'];
 
          $inputslug=str_replace(" ", "-", $subcate_slug);
+         $inputslug =$inputslug.'/'.$subcat;
          $slug = str_replace(" ", "-", $title);
 
          if($subcate_slug){
