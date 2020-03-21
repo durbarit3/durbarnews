@@ -125,6 +125,7 @@ Route::namespace('Admin')->prefix('admin/subcategory')->group(function(){
 
 });
 
+
 Route::namespace('Admin')->prefix('admin/poll')->group(function(){
 
     Route::get(md5('/all'),'PollController@index')->name('admin.poll.all');
@@ -199,9 +200,6 @@ Route::namespace('Admin')->prefix('admin/advertisement')->group(function(){
 
 
 
-
-
-
 Route::namespace('Admin')->prefix('admin')->group(function(){
 
     Route::get(md5('/contact/information'),'FooterController@contactInformation')->name('admin.contact.info');
@@ -273,6 +271,10 @@ Route::namespace('Admin')->prefix('admin/user')->group(function(){
     Route::get('/delete/{id}', 'UserController@userDelete')->name('admin.user.delete');
     Route::get('/status/update/{id}', 'UserController@userStatusUpdate')->name('admin.user.status.update');
 });
+
+
+
+//Route::get('/archive', 'Website\FrontendController@archive');
 
 Auth::routes();
 

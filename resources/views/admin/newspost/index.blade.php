@@ -65,7 +65,7 @@
 										<td>{{$data->SubCate->name}}</td>
 										@endif
 										<td>
-											<img src="{{asset('public/uploads/newspost/'.$data->image)}}" height="25px">
+											<img src="{{asset('public/uploads/newspost/bigthum/'.$data->image)}}" height="25px">
 										</td>
 										<td>
 											@if($data->status==1)
