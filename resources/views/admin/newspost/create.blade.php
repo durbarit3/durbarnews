@@ -157,6 +157,17 @@
                           </div>
 						</div>
 					</div>
+					<div class="form-group row skin-square">
+						<label for="inputEmail3" class="col-sm-4 col-form-label text-right"></label>
+						<div class="col-sm-3">
+							<div class="i-check">
+                              <input tabindex="9" name="popular_news" type="checkbox" id="square-checkbox-1" value="1" checked>
+                              <label for="square-checkbox-1">Popular News</label>
+                            </div>
+                        
+						</div>
+				
+					</div>
 
 
 					<div class="form-group row">
