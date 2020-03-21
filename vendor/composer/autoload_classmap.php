@@ -43,7 +43,9 @@ return array(
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
+
     'App\\Http\\Controllers\\Website\\ArchiveController' => $baseDir . '/app/Http/Controllers/Website/ArchiveController.php',
+
     'App\\Http\\Controllers\\Website\\FrontendController' => $baseDir . '/app/Http/Controllers/Website/FrontendController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',

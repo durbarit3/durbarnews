@@ -125,7 +125,7 @@
 						<div class="form-group row">
 							<label for="inputEmail3" class="col-sm-3 col-form-label text-right">Image / Thumbnail Image</label>
 							<div class="col-sm-7 {{$errors->has('pic')? ' has-error':''}}">
-								 <input type="file" name="pic" id="input-file-now" class="form-control dropify" size="20" height="10px" autocomplete="off" data-default-file="{{asset('public/uploads/newspost/'.$data->image)}}"/>
+								 <input type="file" name="pic" id="input-file-now" class="form-control dropify" size="20" height="10px" autocomplete="off" data-default-file="{{asset('public/uploads/newspost/bigthum/'.$data->image)}}"/>
 
 								  @if ($errors->has('pic'))
 									<span class="invalid-feedback mb-0" role="alert" style="display: flex;">
@@ -168,6 +168,17 @@
                               <label for="square-checkbox-4">Pocket News</label>
                           </div>
 						</div>
+					</div>
+					<div class="form-group row skin-square">
+						<label for="inputEmail3" class="col-sm-4 col-form-label text-right"></label>
+						<div class="col-sm-3">
+							<div class="i-check">
+                              <input tabindex="9" name="popular_news" type="checkbox" id="square-checkbox-1" value="1"  @if($data->popular_news==1) checked @else @endif>
+                              <label for="square-checkbox-1">Popular News</label>
+                            </div>
+                        
+						</div>
+				
 					</div>
 
 

@@ -235,7 +235,7 @@ div#myTabContent {
     color: #fff;
     border-radius: 50%;
     border: 4px solid #fff;
-    top: 20px;
+    top: 9px;
     z-index: 1;
 }
 
@@ -431,12 +431,7 @@ transition: 0.6s linear;
     top: 50%;
     transform: translate(-50%,-50%) !important;
 }
-i.fab.fa-youtube {
-    width: 45px;
-    height: 45px;
-    line-height: 45px;
-    text-align: center;
-}
+
 .bdr-ripple-ani-btn.pink {
     background: #b30f0f;
     color: white;
@@ -1305,5 +1300,120 @@ td.t-col {
 
     font-weight: 600;
 }
+/*district map icon*/
+h1.map_icon {
+    text-align: left;
+    font-size: 22px;
+    color: #414141;
+    padding:10px 0px;
+}
+.content_tags {
+    background-color: #fff;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+.content_tags ul li{
+  display: inline-block;
+  margin-right: 10px;
+}
+.content_tags ul li a {
+    text-decoration: none;
+    border: 1px solid rgb(218, 218, 218);
+    color: rgb(15, 15, 15);
+    padding: 3px 8px;
+    position: relative;
+    top: 9px;
+    transition: 0.4s linear;;
+}
+.content_tags ul li a:hover{
+    border: 1px solid transparent;
+    color: rgb(102, 0, 0);
+    background-color: rgb(172, 172, 172);
+}
 
+/*error page*/
+.errorpage{
+    padding:80px 0px;
+}
+.error_cont h2{
+    font-size: 52px;
+    font-weight: 900;
+}
+.error_cont h4{
+    font-size: 24px;
+}
+ /*video_link*/
+.media-left {
+ 
+    position: relative;
+}
+.play-button-small i.fas.fa-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #000;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+}
+.play-button-small i.fas.fa-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(109, 0, 0);
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: rgb(248, 248, 248);
+    border-radius: 50%;
+    font-size: 12px;
+    transition: 0.4s linear;
+}
+.media:hover .play-button-small i.fas.fa-play{
+   color: rgb(109, 0, 0);
+   background-color: rgb(255, 255, 255);;
+}
+.main_image {
+    position: relative;
+}
+.play-button i.fas.fa-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #000;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    border-radius: 50%;
+}
 
+a.icon {
+    background: #b30f0f;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+ .ripl i.fab.fa-youtube {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+}

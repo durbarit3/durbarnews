@@ -81,6 +81,7 @@ class NewsPostController extends Controller
         		$data->district_id = $request->district_id;
         		$data->subdistrict_id = $request->subdistrict_id;
         		$data->post_type = $request->post_type;
+                $data->popular_news = $request->popular_news;
         		
         		// video link start
         		$data->video_link = $request->video_link;
@@ -93,7 +94,9 @@ class NewsPostController extends Controller
         		if($request->hasFile('pic')){
 		            $image = $request->file('pic');
 		            $ImageName = 'th' . '_' . time() . '.' . $image->getClientOriginalExtension();
-		            Image::make($image)->resize(270, 270)->save('public/uploads/newspost/' . $ImageName);
+		            Image::make($image)->resize(580, 390)->save('public/uploads/newspost/bigthum/' . $ImageName);
+                    Image::make($image)->resize(270, 180)->save('public/uploads/newspost/mediumthum/' . $ImageName);
+                    Image::make($image)->resize(125, 65)->save('public/uploads/newspost/small/' . $ImageName);
 		            $data->image = $ImageName;
 		        }
 		        if($data->save()){
@@ -258,10 +261,13 @@ class NewsPostController extends Controller
         		$data->meta_description = $request->meta_description;
         		$data->braking_news = $request->braking_news;
         		$data->pocket_news = $request->pocket_news;
+                $data->popular_news = $request->popular_news;
         		if($request->hasFile('pic')){
 		            $image = $request->file('pic');
 		            $ImageName = 'th' . '_' . time() . '.' . $image->getClientOriginalExtension();
-		            Image::make($image)->resize(270, 270)->save('public/uploads/newspost/' . $ImageName);
+		             Image::make($image)->resize(580, 390)->save('public/uploads/newspost/bigthum/' . $ImageName);
+                    Image::make($image)->resize(270, 180)->save('public/uploads/newspost/mediumthum/' . $ImageName);
+                    Image::make($image)->resize(125, 65)->save('public/uploads/newspost/small/' . $ImageName);
 		            $data->image = $ImageName;
 		        }
 		        if($data->save()){
