@@ -7,7 +7,6 @@
                 <div class="ad_main">
                     <a href="#">
                         <img src="images/15798962006367364458.gif" class="w-100" alt="">
-
                     </a>
                 </div>
             </div>

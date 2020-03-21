@@ -17,7 +17,9 @@
                     <div id="nav_menu">
                         @if($public_menu)
                         <ul>
+
                             <li><a href="{{url('/')}}"><i class="fas fa-home"></i></a></li>
+
 
 
 
@@ -42,7 +44,9 @@
                             @endif
                             </li>
 
+
                             @endforeach
+
 
                             <li class="active"><a href="#">Archive <span class="menu_arrow"><i
                                             class="fas fa-angle-down"></i></span></a>

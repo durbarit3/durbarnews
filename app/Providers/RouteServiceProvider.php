@@ -79,7 +79,7 @@ class RouteServiceProvider extends ServiceProvider
              ->group(base_path('routes/api.php'));
     }
 
-    
+
   protected function mapWebSite()
   {
       Route::middleware('web')

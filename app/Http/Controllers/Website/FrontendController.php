@@ -26,6 +26,12 @@ class FrontendController extends Controller
     public function index()
     {
 
+
+      
+
+ 
+
+
         
     		$bigthumpost=NewsPost::OrderBy('id','DESC')->where('is_deleted',0)->where('status',1)->first();
     		$smallpost=NewsPost::OrderBy('id','DESC')->where('is_deleted',0)->where('status',1)->skip(1)->limit(2)->get();
@@ -140,4 +146,5 @@ class FrontendController extends Controller
         return view('website.pages.videodetails',compact('videopost','video','braking','allnews'));
 
     }
+
 }

@@ -21,7 +21,11 @@
     <link rel="stylesheet" href="{{asset('public/website/css/example.css')}}">
     <link rel="stylesheet" href="{{asset('public/website/css/video.css')}}">
     <link rel="stylesheet" href="{{asset('public/website/css/style.css')}}">
+
+@stack('css')
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 
 </head>
 
@@ -34,7 +38,7 @@
 
     <!-- main menu area start -->
     @include('website.include.main_menu')
-    
+
     <!-- recent post section start -->
     @yield('content')
         <!-- footer part -->
@@ -50,9 +54,8 @@
     <script src="{{asset('public/website/js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('public/website/js/marquee.js')}}"></script>
     <script src="{{asset('public/website/js/lazyload.min.js')}}"></script>
-
     <script src="{{asset('public/website/js/main.js')}}"></script>
-
+        @stack('js')
 </body>
 
 </html>

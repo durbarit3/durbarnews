@@ -25,13 +25,10 @@ use Harimayco\Menu\Facades\Menu;
 
 
 Route::get('/',function(){
-
     $footer_menu = Menu::getByName('Footer');
     $public_menu = Menu::getByName('Public');
     return view('welcome', compact('public_menu', 'footer_menu'));
 });
-
-
 
 Route::namespace('Admin')->prefix('admin')->group(function () {
     Route::get('/', 'AdminController@index')->name('admin.home');
@@ -165,7 +162,7 @@ Route::namespace('Admin')->prefix('admin/sectionmanage')->group(function(){
     Route::get('/deactive/{id}','SectionManageController@deactive');
     Route::get('/active/{id}','SectionManageController@active');
 
- 
+
 });
 
 
@@ -197,6 +194,7 @@ Route::namespace('Admin')->prefix('admin/advertisement')->group(function(){
     Route::get('/position/delete/{id}','AdvertisementController@postiondelete');
 
 });
+
 
 
 
@@ -266,7 +264,6 @@ Route::namespace('Admin')->prefix('admin/user')->group(function(){
     Route::get('/create', 'UserController@userCreate')->name('admin.user.create');
     Route::post('/store', 'UserController@userStore')->name('admin.user.store');
     Route::get('/edit/{id}', 'UserController@userEdit')->name('admin.user.edit');
-    
     Route::post(md5('/update'), 'UserController@userUpdate')->name('admin.user.update');
     Route::get('/delete/{id}', 'UserController@userDelete')->name('admin.user.delete');
     Route::get('/status/update/{id}', 'UserController@userStatusUpdate')->name('admin.user.status.update');
@@ -274,7 +271,8 @@ Route::namespace('Admin')->prefix('admin/user')->group(function(){
 
 
 
-//Route::get('/archive', 'Website\FrontendController@archive');
+
+
 
 Auth::routes();
 
