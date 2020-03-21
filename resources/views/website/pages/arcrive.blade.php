@@ -1,24 +1,60 @@
 @extends('website.master')
+@push('css')
+<style>
+       .no-margin a {
+    color: black!important;
+    font-size: 17px!important;
+    text-decoration: none!important;
+}
+.box-white {
+    background-color: #eaeaea;
+    padding: 15px;
+}
+.box-aches {
+    margin-top: 30px;
+}
+.single-block {
+    background-color: #f1f1f1;
+}
+.archive_img_box {
+    position: relative;
+}
+.overlay_category a {
+    position: absolute;
+    left: 7px;
+   bottom: 6px;
+    color: #fff;
+    background-color: rgba;
+    background-color: #00000087;
+    width: 40px;
+    height: 24px;
+    line-height: 24px;
+    text-decoration: none;
+    text-align: center;
+}
+
+</style>
+<link rel="stylesheet" href="{{ asset('public/website/detatils.css') }}">
+@endpush
 @section('content')
 <!-- ad section start -->
-<section id="ad" style="padding: 10px 0px;" <div class="container">
+<section id="ad" style="padding: 10px 0px;"  class="container">
         <div class="row">
             <div class="col-sm-12 text-center">
                 <div class="ad_main">
                     <a href="#">
                         <img src="images/15798962006367364458.gif" class="w-100" alt="">
-
                     </a>
                 </div>
             </div>
         </div>
         </div>
     </section>
+
     <!-- ad section end -->
     <!-- archive main section -->
     <section id="archive">
         <div class="container">
-
             <div class="row">
                 <div class="col-sm-12">
                     <div class="row">
@@ -28,44 +64,23 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-sm-12">
-                            <form class="form-horizontal" action="" method="">
+                        <form class="form-horizontal" action="{{ route('website.archive.search') }}" method="get">
+                            @csrf
                                 <div class="box-white">
+
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <div class="input-group datetime">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text" id="btnGroupAddon">Date
-
-                                                        <span style="margin-left: 5px;"> <i
-                                                                class="fas fa-calendar-alt"></i></span>
-                                                    </div>
-                                                </div>
-                                                <input type="date" class="form-control">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text" id="btnGroupAddon">From
-
-                                                        <span style="margin-left: 5px;"> <i
-                                                                class="fas fa-calendar-alt"></i></span>
-                                                    </div>
-                                                </div>
-                                                <input type="date" class="form-control">
-                                            </div>
-
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                <option value="">--Category--</option>
-                                                <option value="1">National</option>
-                                                <option value="2">Political</option>
-                                                <option value="3">Economics</option>
-                                                <option value="4">Sports</option>
-                                                <option value="5">National</option>
-
+                                            <select class="form-control" name="category_id" id="exampleFormControlSelect1">
+                                                <option value="">--Select Category--</option>
+                                                @foreach ($categories as $category)
+                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-6">
                                             <input type="text" name="keyword" class="form-control" id="search-text"
                                                 placeholder="আপনি কী খুঁজছেন?">
                                         </div>
@@ -74,35 +89,20 @@
                                 <div class="box-aches">
                                     <div class="row">
                                         <div class="col-sm-2">
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                <option value="">--Division--</option>
-                                                <option value="1">Chottagram</option>
-                                                <option value="2">Dhaka</option>
-                                                <option value="3">Barishal</option>
-                                                <option value="4">Sylhet</option>
-                                                <option value="5">Khulna</option>
+                                            <select id="division" name="division_id"  class="form-control" id="exampleFormControlSelect1">
+                                                <option value="">--Select Division--</option>
+                                                @foreach ($divisions as $division)
+                                                <option value="{{ $division->id }}">{{ $division->name_bn }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <select id="districts" name="district_id" class="form-control" id="exampleFormControlSelect1">
 
                                             </select>
                                         </div>
                                         <div class="col-sm-3">
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                <option value="">--Zila--</option>
-                                                <option value="1">Chandpur</option>
-                                                <option value="2">Cumilla</option>
-                                                <option value="3">Feni</option>
-                                                <option value="4">Rajshahi</option>
-                                                <option value="5">Noakhali</option>
-
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                <option value="">--Upazila--</option>
-                                                <option value="1">Shahrasti</option>
-                                                <option value="2">Hazigonj</option>
-                                                <option value="3">Faridgonj</option>
-                                                <option value="4">Muradnogar</option>
-                                                <option value="5">Dediddar</option>
+                                            <select id="sub-district" name="sub_district_id" class="form-control" id="exampleFormControlSelect1">
 
                                             </select>
                                         </div>
@@ -117,359 +117,90 @@
                             </form>
                         </div>
                     </div>
+                    @if (isset($searchNews))
                     <div class="row mt-5">
-                        <div class="col-sm-6">
+                        @if ($searchNews->count() > 0)
+                        @foreach ($searchNews as $news)
+                        <div class="col-sm-6 mb-1">
                             <div class="single-block">
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="archive_img_box">
                                             <a href="#">
-                                                <img src="images/iran-20200223220447.webp" class="w-100" alt="">
-                                            </a>
-                                            <div class="overlay_category">
-                                                <a href="#">Law</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8 text-left">
-                                        <h3 class="no-margin">
-                                            <a href="#">
-                                                জি কে শামীমের জামিন বাতিল
-                                            </a>
-                                        </h3>
-                                        <small class="text-muted">০১:৪২ পিএম, ০৮ মার্চ ২০২০, রোববার</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-block">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="archive_img_box">
-                                            <a href="#">
-                                                <img src="images/iran-20200223220447.webp" class="w-100" alt="">
-                                            </a>
-                                            <div class="overlay_category">
-                                                <a href="#">Law</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8 text-left">
-                                        <h3 class="no-margin">
-                                            <a href="#">
-                                                জি কে শামীমের জামিন বাতিল
-                                            </a>
-                                        </h3>
-                                        <small class="text-muted">০১:৪২ পিএম, ০৮ মার্চ ২০২০, রোববার</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-sm-6">
-                            <div class="single-block">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="archive_img_box">
-                                            <a href="#">
-                                                <img src="images/csino-20200225080908.jpg" class="w-100" alt="">
-                                            </a>
-                                            <div class="overlay_category">
-                                                <a href="#">Law</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8 text-left">
-                                        <h3 class="no-margin">
-                                            <a href="#">
-                                                জি কে শামীমের জামিন বাতিল
-                                            </a>
-                                        </h3>
-                                        <small class="text-muted">০১:৪২ পিএম, ০৮ মার্চ ২০২০, রোববার</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-block">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="archive_img_box">
-                                            <a href="#">
-                                                <img src="images/ashraful-20200225104941.jpg" class="w-100" alt="">
-                                            </a>
-                                            <div class="overlay_category">
-                                                <a href="#">Law</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8 text-left">
-                                        <h3 class="no-margin">
-                                            <a href="#">
-                                                জি কে শামীমের জামিন বাতিল
-                                            </a>
-                                        </h3>
-                                        <small class="text-muted">০১:৪২ পিএম, ০৮ মার্চ ২০২০, রোববার</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="row mt-3">
-                        <div class="col-sm-6">
-                            <div class="single-block">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="archive_img_box">
-                                            <a href="#">
-                                                <img src="images/kakrul-20200224092614.webp" class="w-100" alt="">
+                                                <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/small/'.$news->image)}}" alt=""
+                                                class="lazy img-fluid">
                                             </a>
                                             <div class="overlay_category">
-                                                <a href="#">Law</a>
+                                            <a href="#">
+
+                                            {{ $news->Cate->name }}
+                                            </a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-8 text-left">
                                         <h3 class="no-margin">
                                             <a href="#">
-                                                জি কে শামীমের জামিন বাতিল
+                                                {{ $news->title }}
                                             </a>
                                         </h3>
-                                        <small class="text-muted">০১:৪২ পিএম, ০৮ মার্চ ২০২০, রোববার</small>
+                                        {{-- <small class="text-muted">০১:৪২ পিএম, ০৮ মার্চ ২০২০, রোববার</small> --}}
+                                    <small class="text-muted">{{ $news->created_at->toFormattedDateString() }}</small>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="single-block">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="archive_img_box">
-                                            <a href="#">
-                                                <img src="images/liverpool-20200225090743.webp" class="w-100" alt="">
-                                            </a>
-                                            <div class="overlay_category">
-                                                <a href="#">Law</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8 text-left">
-                                        <h3 class="no-margin">
-                                            <a href="#">
-                                                জি কে শামীমের জামিন বাতিল
-                                            </a>
-                                        </h3>
-                                        <small class="text-muted">০১:৪২ পিএম, ০৮ মার্চ ২০২০, রোববার</small>
-                                    </div>
-                                </div>
-                            </div>
+                        @endforeach
+                        @else
+                        <div class="col-md-12 text-center">
+                            <h4>No Result Found!</h4>
                         </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-sm-6">
-                            <div class="single-block">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="archive_img_box">
-                                            <a href="#">
-                                                <img src="images/jubo-20200225121652.webp" class="w-100" alt="">
-                                            </a>
-                                            <div class="overlay_category">
-                                                <a href="#">Law</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8 text-left">
-                                        <h3 class="no-margin">
-                                            <a href="#">
-                                                জি কে শামীমের জামিন বাতিল
-                                            </a>
-                                        </h3>
-                                        <small class="text-muted">০১:৪২ পিএম, ০৮ মার্চ ২০২০, রোববার</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-block">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="archive_img_box">
-                                            <a href="#">
-                                                <img src="images/m-m-akas-01-20200225190157.webp" class="w-100" alt="">
-                                            </a>
-                                            <div class="overlay_category">
-                                                <a href="#">Law</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8 text-left">
-                                        <h3 class="no-margin">
-                                            <a href="#">
-                                                জি কে শামীমের জামিন বাতিল
-                                            </a>
-                                        </h3>
-                                        <small class="text-muted">০১:৪২ পিএম, ০৮ মার্চ ২০২০, রোববার</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-sm-6">
-                            <div class="single-block">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="archive_img_box">
-                                            <a href="#">
-                                                <img src="images/papon-20200225154157.webp" class="w-100" alt="">
-                                            </a>
-                                            <div class="overlay_category">
-                                                <a href="#">Law</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8 text-left">
-                                        <h3 class="no-margin">
-                                            <a href="#">
-                                                জি কে শামীমের জামিন বাতিল
-                                            </a>
-                                        </h3>
-                                        <small class="text-muted">০১:৪২ পিএম, ০৮ মার্চ ২০২০, রোববার</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-block">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="archive_img_box">
-                                            <a href="#">
-                                                <img src="images/wan-azizah-20200224141532.jpg" class="w-100" alt="">
-                                            </a>
-                                            <div class="overlay_category">
-                                                <a href="#">Law</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8 text-left">
-                                        <h3 class="no-margin">
-                                            <a href="#">
-                                                জি কে শামীমের জামিন বাতিল
-                                            </a>
-                                        </h3>
-                                        <small class="text-muted">০১:৪২ পিএম, ০৮ মার্চ ২০২০, রোববার</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-sm-6">
-                            <div class="single-block">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="archive_img_box">
-                                            <a href="#">
-                                                <img src="images/raihan-20200225035547.jpg" class="w-100" alt="">
-                                            </a>
-                                            <div class="overlay_category">
-                                                <a href="#">Law</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8 text-left">
-                                        <h3 class="no-margin">
-                                            <a href="#">
-                                                জি কে শামীমের জামিন বাতিল
-                                            </a>
-                                        </h3>
-                                        <small class="text-muted">০১:৪২ পিএম, ০৮ মার্চ ২০২০, রোববার</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-block">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="archive_img_box">
-                                            <a href="#">
-                                                <img src="images/taijul-20200225100641.webp" class="w-100" alt="">
-                                            </a>
-                                            <div class="overlay_category">
-                                                <a href="#">Sports</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8 text-left">
-                                        <h3 class="no-margin">
-                                            <a href="#">
-                                                জি কে শামীমের জামিন বাতিল
-                                            </a>
-                                        </h3>
-                                        <small class="text-muted">০১:৪২ পিএম, ০৮ মার্চ ২০২০, রোববার</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-sm-6">
-                            <div class="single-block">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="archive_img_box">
-                                            <a href="#">
-                                                <img src="images/nayeem-20200225103539.jpg" class="w-100" alt="">
-                                            </a>
-                                            <div class="overlay_category">
-                                                <a href="#">Law</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8 text-left">
-                                        <h3 class="no-margin">
-                                            <a href="#">
-                                                জি কে শামীমের জামিন বাতিল
-                                            </a>
-                                        </h3>
-                                        <small class="text-muted">০১:৪২ পিএম, ০৮ মার্চ ২০২০, রোববার</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-block">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="archive_img_box">
-                                            <a href="#">
-                                                <img src="images/iran-20200223220447.webp" class="w-100" alt="">
-                                            </a>
-                                            <div class="overlay_category">
-                                                <a href="#">Law</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8 text-left">
-                                        <h3 class="no-margin">
-                                            <a href="#">
-                                                জি কে শামীমের জামিন বাতিল
-                                            </a>
-                                        </h3>
-                                        <small class="text-muted">০১:৪২ পিএম, ০৮ মার্চ ২০২০, রোববার</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
+                <div class="pagination_area mt-3 row">
+                </div>
+                    @elseif(isset($newsPosts))
+                    <div class="row mt-5">
+                        @foreach ($newsPosts as $newsPost)
+                        <div class="col-sm-6 mb-1">
+                            <div class="single-block">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="archive_img_box">
+                                            <a href="#">
 
+                                                <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/small/'.$newsPost->image)}}" alt=""
+                                                class="lazy img-fluid">
+                                            </a>
+                                            <div class="overlay_category">
+                                            <a href="#">
+
+                                            {{ $newsPost->Cate->name }}
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8 text-left">
+                                        <h3 class="no-margin">
+                                            <a href="#">
+                                                {{ $newsPost->title }}
+                                            </a>
+                                        </h3>
+                                        {{-- <small class="text-muted">০১:৪২ পিএম, ০৮ মার্চ ২০২০, রোববার</small> --}}
+                                    <small class="text-muted">{{ $newsPost->created_at->toFormattedDateString() }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="pagination_area mt-3 row">
+                    {{ $newsPosts->links() }}
+                </div>
+                @endif
             </div>
         </div>
     </section>
@@ -490,49 +221,46 @@
     </section>
     <!-- ad part end -->
 
-    <!-- footer part -->
-    <section id="news_footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3 text-left">
-                    <div class="logo_foot">
-                        <img src="images/logo.webp" class="w-100" alt="">
-                    </div>
-                </div>
-                <div class="col-sm-9 text-right">
-                    <div class="an">
-                        <span>
-                            <a href="#">
-                                <img src="images/Android-app-jagonews.png" width="100"></a>
-                        </span>
-                        <span>
-                            <a href="#">
-                                <img src="images/Android-app-jagonews.png" width="100"></a>
-                        </span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <section id="footer-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-justify">
-                    <div class="news-about">
-                        <p>Jagonews24.com is one of the popular bangla news portals. It has begun with commitment of
-                            fearless, investigative, informative and independent journalism. This online portal has
-                            started to provide real time news updates with maximum use of modern technology from 2014.
-                            Latest & breaking news of home and abroad, entertainment, lifestyle, special reports,
-                            politics, economics, culture, education, information technology, health, sports, columns and
-                            features are included in it. A genius team of Jago News has been built with a group of
-                            country's energetic young journalists. We are trying to build a bridge with Bengalis around
-                            the world and adding a new dimension to online news portal. The home of materialistic news.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     @endsection
+
+    @push('js')
+    <script>
+        $(document).ready(function () {
+           $(document).on('change', '#division', function(){
+               var division_id = $(this).val();
+               $.ajax({
+                   url:"{{ url('archive/get/districts/by/division/id/') }}" + "/" + division_id,
+                   type:'get',
+                   dataType:'json',
+                   success:function(data){
+                        $('#districts').empty();
+                        $('#districts').append('<option value="">---Select district---</option>');
+                        $.each(data,function(key, value){
+                            $('#districts').append('<option value="'+value.id+'">'+ value.name_bn +'</option>');
+                        })
+                   }
+               });
+           });
+       });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+           $(document).on('change', '#districts', function(){
+               var district_id = $(this).val();
+               $.ajax({
+                   url:"{{ url('archive/get/sub_districts/by/district/id/') }}" + "/" + district_id,
+                   type:'get',
+                   dataType:'json',
+                   success:function(data){
+                        $('#sub-district').empty();
+                        $('#sub-district').append('<option value="">---Select sub-district---</option>');
+                        $.each(data,function(key, value){
+                            $('#sub-district').append('<option value="'+value.id+'">'+ value.name +'</option>');
+                        })
+                   }
+               });
+           });
+       });
+    </script>
+    @endpush

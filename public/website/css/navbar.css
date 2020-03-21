@@ -15,10 +15,10 @@ a {
 }
 
 body {
-    
+
     overflow-x: hidden;
- 
-  
+
+
 }
 .search-bar {
     float: right;
@@ -45,12 +45,12 @@ body {
     text-transform: capitalize;
     font-weight: 500;
     font-size: 15px;
-    top: -1px;
+    top: 0px;
 }
 .active_list a i {
-   
+
     position: relative;
-   
+
 }
 
  .drop_menu {
@@ -67,7 +67,7 @@ body {
     z-index: 111;
     background-color: #000;
     transition: 0.7s all;
-   
+
 }
 .drop_menu ul li{
     display: block !important;
@@ -87,6 +87,7 @@ body {
     visibility: visible;
     top: 194%;
 }
+
 .menu_arrow i{
     transition: 0.3s linear;
 }
@@ -142,7 +143,7 @@ input.serach-control {
 }
 .mega_list ul li{
     display:block !important;
-   
+
 }
 .mega_list a{
     display:block !important;
@@ -211,7 +212,7 @@ color: #fff;
     }
     .search_icon_mb i{
         color:#fff;
-   
+
     }
     .mobile_mega ul li{
         width: 33.33%;
@@ -228,7 +229,7 @@ color: #fff;
         width: 100%;
     }
     .mobile_mega ul li a{
-      
+
             color: #fff !important;
             padding: 5px 10px;
             display: block;
@@ -236,14 +237,14 @@ color: #fff;
             text-decoration: none;
             font-weight: 600;
             transition: 0.6s linear;
-        
+
     }
     .mobile_mega ul li a:hover{
-      
+
         background-color: #800404;
         color: #fff;
         border-bottom: 1px solid transparent;
-    
+
 }
 .ad_menu ul li a{
     padding: 10px 10px;

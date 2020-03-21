@@ -60,21 +60,22 @@ class GalleryController extends Controller
         $gallery_photos = $request->file('gallery_photo');
 
         if ($request->file('thumbnail_photo')) {
-
             $thumbnailName = uniqid() . '.' . $thumbnail_photo->getClientOriginalExtension();
-            Image::make($thumbnail_photo)->resize(200, 200)->save('public/uploads/gallery/thumbnail/' . $thumbnailName);
+            Image::make($thumbnail_photo)->resize(730, 380)->save('public/uploads/gallery/thumbnail/' . $thumbnailName);
             $addGalleryPhoto = Gallery::insertGetId([
                 'thumbnail_photo' => $thumbnailName,
                 'thumbnail_caption' => $request->thumbnail_caption,
                 'category_id' => $request->category,
                 'sub_category_id' => $request->sub_category,
+                'created_at' => Carbon::new(),
+                'slug' => str_replace(" ", "-",$request->thumbnail_caption),
             ]);
             if (count($gallery_photos) > 0) {
                 $photoCaptions = $request->photo_caption;
                 $index = 0;
                 foreach ($gallery_photos as $gallery_photo) {
                     $gallery_photo_name = uniqid() . '.' . $gallery_photo->getClientOriginalExtension();
-                    Image::make($gallery_photo)->resize(200, 200)->save('public/uploads/gallery/' . $gallery_photo_name);
+                    Image::make($gallery_photo)->resize(730, 380)->save('public/uploads/gallery/' . $gallery_photo_name);
                     GalleryPhoto::insert([
                         'gallery_id' => $addGalleryPhoto,
                         'photo' => $gallery_photo_name,
@@ -175,16 +176,18 @@ class GalleryController extends Controller
             }
 
             $oldThumbnailPhotoName = uniqid() . '.' . $old_thumbnail_photo->getClientOriginalExtension();
-            image::make($old_thumbnail_photo)->resize(600, 450)->save('public/uploads/gallery/thumbnail/' . $oldThumbnailPhotoName);
+            image::make($old_thumbnail_photo)->resize(730, 380)->save('public/uploads/gallery/thumbnail/' . $oldThumbnailPhotoName);
             $gallery->thumbnail_photo = $oldThumbnailPhotoName;
             $gallery->thumbnail_caption = $request->old_thumbnail_caption;
             $gallery->category_id = $request->category;
             $gallery->sub_category_id = $request->sub_category;
+            $gallery->slug = str_replace(" ", "-", $request->old_thumbnail_caption);
             $gallery->save();
         } else {
             $gallery = Gallery::where('id', $galleryId)->first();
             $gallery->thumbnail_caption = $request->old_thumbnail_caption;
             $gallery->category_id = $request->category;
+            $gallery->slug = str_replace(" ", "-",$request->old_thumbnail_caption);
             if ($request->sub_category) {
                 $gallery->sub_category_id = $request->sub_category;
             }
@@ -200,7 +203,7 @@ class GalleryController extends Controller
                         unlink(public_path('uploads/gallery/' . $galleryPhoto->photo));
                     }
                     $oldGalleryPhotoName = uniqid() . '.' . $oldGalleryPhoto->getClientOriginalExtension();
-                    image::make($oldGalleryPhoto)->resize(600, 450)->save('public/uploads/gallery/' . $oldGalleryPhotoName);
+                    image::make($oldGalleryPhoto)->resize(730, 380)->save('public/uploads/gallery/' . $oldGalleryPhotoName);
                     $galleryPhoto->photo = $oldGalleryPhotoName;
                     $galleryPhoto->save();
                 }
@@ -222,7 +225,7 @@ class GalleryController extends Controller
                 foreach ($newGalleryPhotos as $newGalleryPhoto) {
                     $addNewPhoto = new GalleryPhoto();
                     $newGalleryPhotoName = uniqid() . '.' . $newGalleryPhoto->getClientOriginalExtension();
-                    image::make($newGalleryPhoto)->resize(600, 450)->save('public/uploads/gallery/' . $newGalleryPhotoName);
+                    image::make($newGalleryPhoto)->resize(730, 380)->save('public/uploads/gallery/' . $newGalleryPhotoName);
                     $addNewPhoto->gallery_id = $galleryId;
                     $addNewPhoto->photo = $newGalleryPhotoName;
                     $addNewPhoto->caption = $newGalleryPhotoCaption[$index];

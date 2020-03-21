@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{asset('public/website/css/marquee.css')}}">
     <link rel="stylesheet" href="{{asset('public/website/css/example.css')}}">
     <link rel="stylesheet" href="{{asset('public/website/css/style.css')}}">
-
+@stack('css')
 </head>
 
 <body>
@@ -32,7 +32,7 @@
 
     <!-- main menu area start -->
     @include('website.include.main_menu')
-    
+
     <!-- recent post section start -->
     @yield('content')
         <!-- footer part -->
@@ -48,9 +48,8 @@
     <script src="{{asset('public/website/js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('public/website/js/marquee.js')}}"></script>
     <script src="{{asset('public/website/js/lazyload.min.js')}}"></script>
-
     <script src="{{asset('public/website/js/main.js')}}"></script>
-
+        @stack('js')
 </body>
 
 </html>

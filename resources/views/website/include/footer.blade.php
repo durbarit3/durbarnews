@@ -22,7 +22,7 @@
             </div>
         </div>
     </section>
-    
+
     <section id="footer-bottom">
         <div class="container">
             <div class="row">
@@ -79,11 +79,11 @@
                             </div>
                             <div class="marquee">
                                 <ul class="marquee-content-items">
+                                    @foreach ($brakingNews as $news)
                                     <li>
-                                        <a href="#">Lorem ipsum dolor, sit amet
-                                            consectetur adipisicing elit. Hic, porro.</a>
+                                    <a href="#">{{ $news->title }}</a>
                                     </li>
-
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

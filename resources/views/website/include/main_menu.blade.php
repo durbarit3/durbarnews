@@ -16,7 +16,7 @@
                     </div>
                     <div id="nav_menu">
                         <ul>
-                            <li><a href="#"><i class="fas fa-home"></i></a></li>
+                        <li><a href="{{ url('/') }}"><i class="fas fa-home"></i></a></li>
                             <li class="active"><a href="#">National <span class="menu_arrow"><i
                                             class="fas fa-angle-down"></i></span></a>
                                 <div class="drop_menu">
@@ -52,6 +52,7 @@
                             </li>
                             <li><a href="#">Education</a></li>
                             <li><a href="#">Fetaure</a></li>
+                            <li><a href="{{ route('website.archive.index') }}">Archive</a></li>
 
                             <li class="active"><a href="#">Archive <span class="menu_arrow"><i
                                             class="fas fa-angle-down"></i></span></a>
