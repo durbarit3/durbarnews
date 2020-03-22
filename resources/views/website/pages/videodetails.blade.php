@@ -1,6 +1,13 @@
-@extends('website.master')
+@extends('website.master',['title' => $videopost->title, 'description' => $videopost->description,'keyword' => $videopost->meta_tag ])
 @section('content')
-
+<!-- ad section end -->
+ @section('meta')
+        <meta property="og:url"           content="{{URL::current()}}"/>
+        <meta property="og:type"          content="website"/>
+        <meta property="og:title"         content="{{$videopost->title}}}"/>
+        <meta property="og:description"   content="{!! $videopost->description !!}"/>
+        <meta property="og:image"         content="{{asset('public/uploads/newspost/bigthum/'.$videopost->image)}}" />
+@endsection
 
     <section id="ad" style="padding: 10px 0px;">
         <div class="container">
@@ -54,23 +61,9 @@
                                 </div>
                                 <div class="col-sm-6 text-right">
                                     <div class="social_media_share">
+                                        <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5e76fe9c2cf6370012207869&product=inline-share-buttons" async="async"></script>
                                         <ul>
-                                            <li>
-                                                <button type="button" class="facebook"><i
-                                                class="fab fa-facebook-f"></i></button>
-                                            </li>
-                                            <li>
-                                                <button type="button" class="twitter"><i
-                                                        class="fab fa-twitter"></i></button>
-                                            </li>
-                                            <li>
-                                                <button type="button" class="whatsapp"><i
-                                                        class="fab fa-whatsapp"></i></button>
-                                            </li>
-                                            <li>
-                                                <button type="button" class="print"> <i
-                                                        class="fas fa-print"></i></button>
-                                            </li>
+                                             <div class="sharethis-inline-share-buttons"></div>
 
                                         </ul>
                                     </div>

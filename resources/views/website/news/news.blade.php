@@ -1,6 +1,16 @@
-@extends('website.master')
+@extends('website.master',['title' => $news->title, 'description' => $news->description,'keyword' => $news->meta_tag ])
 @section('content')
 <!-- ad section end -->
+ @section('meta')
+        <meta property="og:url"           content="{{URL::current()}}"/>
+        <meta property="og:type"          content="website"/>
+        <meta property="og:title"         content="{{$news->title}}}"/>
+        <meta property="og:description"   content="{!! $news->description !!}"/>
+        <meta property="og:image"         content="{{asset('public/uploads/newspost/detailsthum/'.$news->image)}}" />
+@endsection
+
+
+
 <section id="national">
     <div class="container">
         <div class="row">
@@ -43,12 +53,12 @@
                             <div class="dividerDetails"></div>
                             <blockquote class="no-margin no-padding">
                                 <div class="row">
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-7">
                                         <div class="media">
-                                            <div class="media_left">
-
-                                                <img class="lazy w-100" data-src="{{asset('public/uploads/newspost/bigthum/'.$news->image)}}" src="{{asset('public/website/')}}/images/lazy_loader.png" alt="" style="width:40px;height:auto;display:inline-block;">
-                                            </div>
+                                          <div class="media_left">
+                                                    <img src="images/jagonews-sm-logo_author_20170711032510.jpg" alt=""
+                                                        style="width:40px;height:auto;display:inline-block;">
+                                                </div>
                                             <div class="media-body">
                                                 <span class="small text-muted">
                                                     <i class="fas fa-pencil-alt"></i>
@@ -62,7 +72,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4 text-right">
+                                    <div class="col-sm-5 text-right">
                                         <div class="hidden-print">
                                             <div class="social_share">
                                                 <div class="social_share_count pull-left text-center" style="font-weight: 600;font-size: 14px;">
@@ -70,20 +80,10 @@
                                                     <br>
                                                     <span class="share_word">SHARE</span>
                                                 </div>
+                                                <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5e76fe9c2cf6370012207869&product=inline-share-buttons" async="async"></script>
                                                 <div class="social_media_share">
                                                     <ul>
-                                                        <li>
-                                                            <button type="button" class="facebook"><i class="fab fa-facebook-f"></i></button>
-                                                        </li>
-                                                        <li>
-                                                            <button type="button" class="twitter"><i class="fab fa-twitter"></i></button>
-                                                        </li>
-                                                        <li>
-                                                            <button type="button" class="whatsapp"><i class="fab fa-whatsapp"></i></button>
-                                                        </li>
-                                                        <li>
-                                                            <button type="button" class="print"> <i class="fas fa-print"></i></button>
-                                                        </li>
+                                                        <div class="sharethis-inline-share-buttons"></div>
 
                                                     </ul>
                                                 </div>
@@ -94,9 +94,10 @@
                             </blockquote>
                             <div class="padding_top">
                                 <div class="featured_image">
-                                    <img src="images/anisul-20200308142835.jpg" class="w-100" alt="">
+                                   
+                                                <img class="lazy w-100" data-src="{{asset('public/uploads/newspost/detailsthum/'.$news->image)}}" src="{{asset('public/website/')}}/images/lazy_loader.png" alt="" style="width:40px;height:auto;display:inline-block;">
                                 </div>
-                                <span class="caption">file image</span>
+                                <span class="caption"></span>
                             </div>
                             <div class="content_details">
                                 <P>{!! $news->description !!}</P>
@@ -244,24 +245,20 @@
                                     </h4>
                                 </div>
                                 <div class="single-block">
-                                    <div class="details with-icon">
-
                                     @foreach($letestnews as $row)
+                                    <div class="details with-icon">
                                         <div class="media">
                                             <h4 class="media-body">
                                                 <h4 class="media_heading_box">
                                                     <a href="{{url('/details')}}/{{$row->slug}}/{{$row->id}}">
                                                         <i class="fas fa-angle-double-right"></i>
-                                                        <h4>{{Str::limit($row->title,80)}}</h4>
+                                                        <h4>{{Str::limit($row->title,30)}}</h4>
                                                     </a>
                                                 </h4>
+                                            </h4>
                                         </div>
-                                        @endforeach
-                                      
-                                        
-
-
                                     </div>
+                                    @endforeach
 
                                 </div>
                             </div>
@@ -269,27 +266,13 @@
 
                     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-             
                 @else
 
                 <div class="row text-center">
                     <div class="col-sm-12">
                         <div class="heading-national text-left">
                             <h4 class="back-title">
-                                <span class="eee">Popular News</span>
+                                <span class="eee">Latest News</span>
                             </h4>
                         </div>
                     </div>
@@ -299,7 +282,7 @@
                             <h4 class="media_heading_box">
                                 <a href="#">
 
-                                    <h4>No Popular News Found On This Category!</h4>
+                                    <h4>No Latest News Found On This Category!</h4>
                                 </a>
                             </h4>
                     </div>
@@ -395,7 +378,7 @@
                     <div class="col-sm-12">
                         <div class="heading-national text-left">
                             <h4 class="back-title">
-                                <span class="eee">Category News</span>
+                                <span class="eee">Popular News</span>
                             </h4>
                         </div>
                     </div>
@@ -405,7 +388,7 @@
                             <h4 class="media_heading_box">
                                 <a href="#">
 
-                                    <h4>No News Found On This Category!</h4>
+                                    <h4>No News Found On This Popular!</h4>
                                 </a>
                             </h4>
                     </div>

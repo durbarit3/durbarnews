@@ -1417,3 +1417,127 @@ a.icon {
     line-height: 45px;
     text-align: center;
 }
+
+/*profile_detail*/
+#profile_detail {
+    padding: 40px 0px;
+}
+
+.profile_img img {
+    border-radius: 5px;
+    -webkit-box-shadow: 3px 4px 5px -2px rgba(148, 148, 148, 1);
+    -moz-box-shadow: 3px 4px 5px -2px rgba(148, 148, 148, 1);
+    box-shadow: 3px 4px 5px -2px rgba(148, 148, 148, 1);
+
+}
+
+td.f-col {
+    width: 120px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+td.s-col {
+    width: 30px;
+    font-weight: 600;
+}
+
+td.t-col {
+
+    font-weight: 600;
+}
+
+
+.probile_tbl{
+    max-width: 500px;
+    margin: 0px auto;
+}
+.fc{
+    width: 15%;
+}
+.sc{
+    width: 5%;
+}
+.tc{
+    width: 80%;
+}
+/**mobile*/
+.probile_tbl_mb{
+    max-width: 300px;
+    margin: 0px auto;
+    font-size: 12px;
+}
+
+
+.tema_wrapper {
+    padding: 3px;
+    background: rgb(238, 238, 238);
+}
+.profile_pic{
+    position: relative;
+}
+p.more a{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: brown;
+    color: #fff;
+    text-decoration: none;
+    padding: 4px 10px;
+    text-transform: capitalize;
+    border-radius: 3px;
+    opacity: 0;
+}
+.title_name h4 {
+    font-size: 18px;
+    text-transform: capitalize;
+}
+.social_menu a{
+  
+    margin-right: 10px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.social_menu a:hover span.facebok.span1 i{
+  background-color: #fff;
+  color: #3b5999;
+    
+}
+.social_menu a:hover span.linkedin.span1 i{
+    background-color: #fff;
+    color: #0077B5;
+      
+  }
+  .social_menu a:hover span.twitter.span1 i{
+    background-color: #fff;
+    color: #55acee;;
+      
+  }
+.social_menu {
+    margin-bottom: 20px;
+}
+span.facebok.span1 i{
+    background: #3b5999;
+    width: 35px;
+    height: 35px;
+    line-height: 35px; 
+    border-radius: 2px;
+    transition: 0.6s linear;;
+}
+span.twitter.span1 i{
+    background: #55acee;
+    width: 35px;
+    transition: 0.6s linear;;
+    height: 35px;
+    line-height: 35px; 
+    border-radius: 2px;
+}
+span.linkedin.span1 i{
+    background: #0077B5;
+    width: 35px;
+    transition: 0.6s linear;;
+    height: 35px;
+    line-height: 35px; 
+    border-radius: 2px;
+}

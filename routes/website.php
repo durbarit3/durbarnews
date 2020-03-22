@@ -27,6 +27,7 @@ Route::namespace('Website')->group(function(){
     Route::get('/{slug}', 'FrontendController@category');
     Route::get('/{cat}/{subcat}', 'FrontendController@subcategory');
     Route::get('/details/{slug}/{id}', 'FrontendController@detailsNews');
+
 });
 
 View::composer(['*'],function($view){
@@ -35,15 +36,18 @@ View::composer(['*'],function($view){
 });
 
 
-    Route::get('/archive', 'FrontendController@archive');
+
+
+
+Route::namespace('Website')->group(function(){
+    
     Route::get('/news/getdistrict/{division_id}', 'FrontendController@getdistrict');
     Route::get('/news/getsubdistrict/{district_id}', 'FrontendController@getsubdistrict');
-
-    Route::get('/division', 'FrontendController@division');
-
-    Route::get('/division', 'FrontendController@division');
+    Route::get('/district/news/map', 'FrontendController@map');
+    Route::get('district/news/map/news/{id}', 'FrontendController@mapnews');
+    Route::get('subdistrict/news/map/news/{id}', 'FrontendController@subdisnews');
     Route::get('/videodetails/{slug}/{id}', 'FrontendController@videodetails');
+    Route::get('/newsportal/ourteam/team', 'FrontendController@ourteam');
+    Route::get('newsportal/ourteam/teammember/{id}', 'FrontendController@ourteamprofice');
     
 });
-
-
