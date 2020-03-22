@@ -1863,207 +1863,109 @@
     </section> -->
     <!-- boxnews part end-->
     <!-- photo gallery start -->
+    
     <section id="photo_gallary">
-        <div class="container">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="live-heading">
+                    <h4 class="catTitle">
+                        <a href="#">ফটোগ্যালেরি</a>
 
-            <div class="row">
-                <div class="col-sm-8">
-                    <div class="live-heading">
-                        <h4 class="catTitle">
-                            <a href="#">Photo Gallery</a>
+                        <div class="liner"></div>
+                    </h4>
 
-                            <div class="liner"></div>
-                        </h4>
-
-                    </div>
-                    <div class="photo_gallary owl-carousel owl-theme">
-                        <div class="item">
-                            <div class="item_image">
-                                <img src="{{asset('public/website/')}}/images/iran-20200223220447.webp" alt="">
-                            </div>
-                            <div class="item_cont">
-                                <span>Lorem ipsum dolor sit amet
-                                    consectetur.Lorem ipsum dolor sit amet
-                                    consectetur</span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="item_image">
-                                <img src="{{asset('public/website/')}}/images/pilkhana-20200225082704.webp" alt="">
-                            </div>
-                            <div class="item_cont">
-                                <span>Lorem ipsum dolor sit amet
-                                    consectetur.Lorem ipsum dolor sit amet
-                                    consectetur</span>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row mt-4">
-                        <div class="col-sm-3">
-                            <div class="single-block">
-                                <div class="img-box">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/liverpool-20200225090743.webp" class="w-100" alt="image">
-                                    </a>
-                                </div>
-                                <a href="#" class="badge-image">
-                                    Entertainment
-                                </a>
-                                <h4 style="font-size: 14px;padding:5px;">
-                                    <a href="#" style="color: #000;text-decoration: none;">Lorem ipsum dolor sit amet
-                                        consectetur.</a>
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="single-block">
-                                <div class="img-box">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/kakrul-20200224092614.webp" class="w-100" alt="image">
-                                    </a>
-                                </div>
-                                <a href="#" class="badge-image">
-                                    Fashion
-                                </a>
-                                <h4 style="font-size: 14px;padding:5px;">
-                                    <a href="#" style="color: #000;text-decoration: none;">Lorem ipsum dolor sit amet
-                                        consectetur.</a>
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="single-block">
-                                <div class="img-box">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/sarmkar-20200225155246.webp" class="w-100" alt="image">
-                                    </a>
-                                </div>
-                                <a href="#" class="badge-image">
-                                    Travel
-                                </a>
-                                <h4 style="font-size: 14px;padding:5px;">
-                                    <a href="#" style="color: #000;text-decoration: none;">Lorem ipsum dolor sit amet
-                                        consectetur.</a>
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="single-block">
-                                <div class="img-box">
-                                    <a href="#">
-                                        <img src="{{asset('public/website/')}}/images/wan-azizah-20200224141532.jpg" class="w-100" alt="image">
-                                    </a>
-                                </div>
-                                <a href="#" class="badge-image">
-                                    Sports
-                                </a>
-                                <h4 style="font-size: 14px;padding:5px;">
-                                    <a href="#" style="color: #000;text-decoration: none;">Lorem ipsum dolor sit amet
-                                        consectetur.</a>
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="live-heading">
-                                <h4 class="catTitle">
-                                    <a href="#">Latest</a>
+                <div class="photo_gallary owl-carousel owl-theme">
+                    @if ($slideGalleries)
+                    @foreach ($slideGalleries as $slideGallery)
+                    <div class="item">
+                        <div class="item_image">
+                            <a href="{{ route('website.gallery.details', $slideGallery->slug) }}">
+                                <img src="{{asset('public/uploads/gallery/thumbnail/'.$slideGallery->thumbnail_photo)}}"
+                                    alt="">
+                            </a>
+                        </div>
+                        <div class="item_cont">
+                            <span>{{ $slideGallery->thumbnail_caption }}</span>
+                        </div>
+                    </div>
+                    @endforeach
+                    @endif
+                </div>
+                <div class="row mt-4">
 
-                                    <div class="liner"></div>
+                    @if ($slideUnderGalleries)
+                    @foreach ($slideUnderGalleries as $slideUnderGallery)
+                        <div class="col-sm-3">
+                            <div class="single-block">
+                                <div class="img-box">
+                                    <a href="#">
+                                        <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/gallery/thumbnail/'.$slideUnderGallery->thumbnail_photo)}}" alt=""
+                                            class="lazy img-fluid">
+                                    </a>
+                                </div>
+                                <a href="#" class="badge-image">
+                                    {{ $slideUnderGallery->category->name }}
+                                </a>
+                                <h4 style="font-size: 14px;padding:5px;">
+                                    <a href="#" style="color: #000;text-decoration: none;">
+                                        <span>{{ $slideUnderGallery->thumbnail_caption }}</span>
+                                    </a>
                                 </h4>
-
                             </div>
                         </div>
-                    </div>
-                    <div class="row single-media">
-                        <div class="col-sm-12">
-                            <div class="media-list">
-                                <div class="media">
-                                    <div class="media-left">
-                                        <a href="#">
-                                            <img src="{{asset('public/website/')}}/images/du-20200225000352.jpg" alt="image" width="100">
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="photo">
-                                            <a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing.</a>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <a href="#">
-                                            <img src="{{asset('public/website/')}}/images/pilkhana-20200225082704.webp" alt="image" width="100">
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="photo">
-                                            <a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing.</a>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <a href="#">
-                                            <img src="{{asset('public/website/')}}/images/sarmkar-20200225155246.webp" alt="image" width="100">
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="photo">
-                                            <a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing.</a>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <a href="#">
-                                            <img src="{{asset('public/website/')}}/images/sarmkar-20200225155246.webp" alt="image" width="100">
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="photo">
-                                            <a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing.</a>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <a href="#">
-                                             <img src="{{asset('public/website/')}}/images/rain-20200224164351.jpg" alt="image" width="100">
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="photo">
-                                            <a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing.</a>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <a href="#">
-                                            <img src="{{asset('public/website/')}}/images/afridi-20200225095919.webp" alt="image" width="100">
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="photo">
-                                            <a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing.</a>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
+                    @endforeach
+                    @endif
                 </div>
             </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="live-heading">
+                            <h4 class="catTitle">
+                                <a href="#">সর্বশেষ</a>
+
+                                <div class="liner"></div>
+                            </h4>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row single-media">
+                    <div class="col-sm-12">
+                        <div class="media-list">
+                            @foreach ($latestNewsPosts as $latestNewsPost)
+                            <div class="media">
+                                <div class="media-left">
+                                    <a @if($latestNewsPost->post_type==2) href="{{url('/videodetails/'.$latestNewsPost->slug.'/'.$latestNewsPost->id)}}" @else href="{{url('details/'.$latestNewsPost->slug.'/'.$latestNewsPost->id)}}" @endif>
+                                        <img src="{{asset('public/website/')}}/images/lazy_loader.png"
+                                                data-src="{{asset('public/uploads/newspost/small/'.$latestNewsPost->image)}}"
+                                                alt="" class="lazy img-fluid">
+                                        @if($latestNewsPost->post_type == 2)
+                                        <a class="play-button-latest" @if($latestNewsPost->post_type == 2) href="{{url('/videodetails/'.$latestNewsPost->slug.'/'.$latestNewsPost->id)}}" @else href="{{url('details/'.$latestNewsPost->slug.'/'.$latestNewsPost->id)}}" @endif class="play-button">
+                                            <i class="fas fa-play"></i>
+                                        </a>
+                                        @endif
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="photo">
+                                        <a @if($latestNewsPost->post_type==2) href="{{url('/videodetails/'.$latestNewsPost->slug.'/'.$latestNewsPost->id)}}" @else href="{{url('details/'.$latestNewsPost->slug.'/'.$latestNewsPost->id)}}" @endif>{{ $latestNewsPost->title }}</a>
+                                    </h4>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
         </div>
-    </section>
+    </div>
+</section>
     <!-- photo gallery end -->
 
     <!-- ad part end -->
