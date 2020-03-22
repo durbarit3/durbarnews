@@ -12,25 +12,16 @@
 
                     </div>
                     <div class="search-input" style="display: none;">
-                        <input type="text" class="form-control" placeholder="Search Here....">
+                    <form action="{{ route('website.keyword.search') }}" method="get">
+                        @csrf
+                        <input type="text" name="keyword" class="form-control" placeholder="Search Here....">
+                    </form>
                     </div>
                     <div id="nav_menu">
                         @if($public_menu)
                         <ul>
-
                             <li><a href="{{url('/')}}"><i class="fas fa-home"></i></a></li>
-
-
-
-
-
-
-
-
-
                             @foreach($public_menu as $menu)
-
-
                             <li class="active"><a href="{{ url($menu['link'])}}">{{ $menu['label'] }}</a>
                             @if( $menu['child'] )
                             <span class="menu_arrow"><i class="fas fa-angle-down"></i></span>
@@ -43,28 +34,24 @@
                                 </div>
                             @endif
                             </li>
-
-
                             @endforeach
-
-
-                            <li class="active"><a href="#">Archive <span class="menu_arrow"><i
+                            <li class="active"><a href="#">সকল বিভাগ  <span class="menu_arrow"><i
                                             class="fas fa-angle-down"></i></span></a>
                                 <div class="mega_menu">
                                     <div class="row">
-                                        
-                                        
+
+
                                         <div class="col-sm-3">
                                             <div class="mega_list">
                                                 <ul>
                                                     <li><a href="{{route('categores')}}">Category</a></li>
-                                                    <li><a href="#">Item1</a></li>
-                                                    <li><a href="#">Item1</a></li>
+                                                    <li><a href="{{ route('website.archive.index') }}">আর্কাইভ</a></li>
+                                                    <li><a href="{{ route('website.photo.gallery.index') }}">ফটো গ্যালারি</a></li>
                                                     <li><a href="#">Item1</a></li>
                                                 </ul>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="col-sm-3">
                                             <div class="other_list">
                                                 <ul>

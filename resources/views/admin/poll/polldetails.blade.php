@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'Details Poll')
 @section('content')
 
 	<!--middle content wrapper-->
@@ -30,7 +31,7 @@
 												<span class="checkmark"></span>
 											</label>
 										</th>
-										
+
 										<th>Poll</th>
 										<th>Yes</th>
 										<th>No</th>
@@ -38,7 +39,7 @@
 									</tr>
 								</thead>
 								<tbody>
-							{{--		
+							{{--
 									@foreach($poll as $key => $data)
 									<tr>
 										<td>
@@ -55,15 +56,15 @@
 											<span class="btn btn-danger btn-sm">Deactive</span>
 											@endif
 										</td>
-										
+
 										<td>
-									
+
 		                                     | <a class="btn btn-sm btn-danger" href="{{url('admin/poll/delete/'.$data->id)}}" id="delete"><i class="fa fa-trash"></i> </a> |
 										</td>
 									</tr>
 									@endforeach
 									--}}
-									
+
 								</tbody>
 							</table>
 						</div>
@@ -160,9 +161,9 @@
 		                <div class="col-sm-8">
 		                   <div class="skin-flat">
 		                      <div class="row">
-		                      
+
 		                          <div class="col-sm-6" id="is_top">
-		                             
+
 		                          </div>
 		                      </div>
 		                  </div>
@@ -224,7 +225,7 @@
 						$("#meta_description").val(data.meta_description);
 						$("#meta_keyword").val(data.meta_keyword);
 
-						
+
 
 					}
 				});

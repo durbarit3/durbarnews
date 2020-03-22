@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'Districts')
 @section('content')
 
 <div class="middle_content_wrapper">
@@ -12,12 +13,12 @@
                             <span class="panel_icon"><i class="fas fa-border-all"></i></span><span>All Districts</span>
                         </div>
                     </div>
-                    <div class="col-md-6 text-right">
+                    {{-- <div class="col-md-6 text-right">
                         <div class="panel_title">
                             <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#myModal1"><i
                                     class="fas fa-plus"></i></span> <span>Add Districts</span></a>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
 
             </div>
@@ -70,12 +71,13 @@
                                             <i class="fas fa-thumbs-down"></i>
                                         </a>
                                         @endif
-                                    | <a href="#" data-id="{{ $district['id'] }}" title="edit" data-toggle="modal"
+
+                                    {{-- | <a href="#" data-id="{{ $district['id'] }}" title="edit" data-toggle="modal"
                                         data-target="#editModal" class="edit_district btn btn-sm btn-blue text-white"><i class="fas fa-pencil-alt"></i></a> |
                                         <a id="delete" href="{{ route('admin.division.district.delete', $district['id'] ) }}"
                                             class="btn btn-danger btn-sm text-white" title="Delete">
                                             <i class="far fa-trash-alt"></i>
-                                        </a>
+                                        </a> --}}
                                     </td>
                                 </tr>
                                 @endforeach

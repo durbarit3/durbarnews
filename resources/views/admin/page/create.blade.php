@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'Create Page')
 @section('content')
 
 <div class="middle_content_wrapper">
@@ -63,7 +64,7 @@
                                         </div>
                                         @enderror
                                     </div>
-                                    
+
                                 </div>
                                 <div class="form-group row">
                                     <label for="example-url-input" class="col-sm-2 col-form-label text-right">Meta Description</label>

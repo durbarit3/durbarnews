@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'Notices')
 @section('content')
 <section class="page_content">
     <!-- panel -->
@@ -104,7 +105,7 @@
             <div class="modal-body">
                 <form class="form-horizontal" action="{{route('admin.notice.store')}}" method="POST">
                     @csrf
-                   
+
                     <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Notice:</label>
                         <div class="col-sm-8">
@@ -140,7 +141,7 @@
             <div class="modal-body">
             <form class="form-horizontal" action="{{route('admin.notice.update')}}" method="POST">
                     @csrf
-                   
+
                     <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-3 col-form-label text-right">Notice:</label>
                         <div class="col-sm-8">
@@ -172,7 +173,7 @@
     $(document).ready(function() {
         $('.editotion').on('click', function() {
             var id = $(this).data('id');
-            
+
 
             if (id) {
                 $.ajax({
@@ -183,8 +184,8 @@
                         console.log(data);
                         $("#id").val(data.id);
                         $("#editor2").val(data.notice);
-           
-                       
+
+
                     }
                 });
             } else {
@@ -203,7 +204,7 @@
     $(document).ready(function () {
 
         $('#check_all').on('click', function (e) {
-            
+
 
             if ($(this).is(':checked', true)) {
                 $(".checkbox").prop('checked', true);

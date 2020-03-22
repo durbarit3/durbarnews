@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'Sub Categories')
 @section('content')
 
 	<!--middle content wrapper-->

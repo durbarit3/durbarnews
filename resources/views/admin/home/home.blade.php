@@ -2,51 +2,51 @@
 @section('content')
 <!--middle content wrapper-->
 <div class="middle_content_wrapper">
-					<!-- counter_area -->
-					<section class="counter_area">
-						<div class="row">
-							<div class="col-lg-3 col-md-6">
-								<div class="counter">
-									<div class="counter_item">
-										 <span><i class="fa fa-code"></i></span>
-							    		  <h2 class="timer count-number" data-to="300" data-speed="1500"></h2>
-									</div>
-							     
-							       <p class="count-text ">SomeText GoesHere</p>
-							    </div>
-							</div>
-							<div class="col-lg-3 col-md-6">
-								<div class="counter">
-									<div class="counter_item">
-										<span><i class="fa fa-coffee"></i></span>
-							     		 <h2 class="timer count-number" data-to="1700" data-speed="1500"></h2>
-									</div>
-									<p class="count-text ">SomeText GoesHere</p>
-							    </div>
-							</div>
-							<div class="col-lg-3 col-md-6">
-								<div class="counter">
-									<div class="counter_item">
-										<span><i class="fas fa-user"></i></span>
-								     	 <h2 class="timer count-number" data-to="11900" data-speed="1500"></h2>
-									</div>
-									<p class="count-text ">SomeText GoesHere</p>
-								      
-							    </div>
-							</div>
-							<div class="col-lg-3 col-md-6">
-								<div class="counter">
-									<div class="counter_item">
-										<span><i class="fa fa-bug"></i></span>
-							     		 <h2 class="timer count-number" data-to="157" data-speed="1500"></h2>
-									</div>
-							     	 <p class="count-text ">SomeText GoesHere</p>
-							    </div>
-							</div>
-						</div>
-					</section>
-					<!--/ counter_area -->
-					<section class="counter_area">
+    <!-- counter_area -->
+    <section class="counter_area">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="counter">
+                    <div class="counter_item">
+                        <span><i class="fa fa-code"></i></span>
+                        <h2 class="timer count-number" data-to="{{ $totalNews }}" data-speed="1500"></h2>
+                    </div>
+
+                    <p class="count-text ">Total News</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="counter">
+                    <div class="counter_item">
+                        <span><i class="fa fa-coffee"></i></span>
+                        <h2 class="timer count-number" data-to="{{ $totalCategory }}" data-speed="1500"></h2>
+                    </div>
+                    <p class="count-text ">Total Category</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="counter">
+                    <div class="counter_item">
+                        <span><i class="fas fa-user"></i></span>
+                        <h2 class="timer count-number" data-to="{{ $totalUser }}" data-speed="1500"></h2>
+                    </div>
+                    <p class="count-text ">Total User</p>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="counter">
+                    <div class="counter_item">
+                        <span><i class="fa fa-bug"></i></span>
+                        <h2 class="timer count-number" data-to="0" data-speed="1500"></h2>
+                    </div>
+                    <p class="count-text ">Audience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ counter_area -->
+    {{-- <section class="counter_area">
 						<div class="row">
 							<div class="col-lg-6 col-xl-4 col-md-9">
 								<div class="panel">
@@ -59,7 +59,7 @@
 									<div class="panel_body">
 										<div id="chart" class="chart-container d-flex justify-content-center"></div>
 									</div>
-								</div> 
+								</div>
 							</div>
 							<div class="col-lg-6 col-xl-4 col-md-9">
 								<div class="panel">
@@ -202,7 +202,7 @@
 									        <canvas id="bar-canvas" ></canvas>
 									    </div>
 									</div>
-								</div> 
+								</div>
 							</div> -->
 							<div class="col-lg-8 col-xl-6">
 								<div class="panel">
@@ -215,14 +215,11 @@
 									<div class="panel_body">
 										<div id="piechart"></div>
 									</div>
-								</div> 
+								</div>
 							</div>
 						</div>
-					</section>
-
-
-
-					<!-- 
+					</section> --}}
+    <!--
 						<div class="panel">
 							<div class="panel_header">
 								<div class="panel_title">
@@ -231,11 +228,10 @@
 							</div>
 							</div>
 							<div class="panel_body">
-								
-							</div>
-						</div> 
-					-->
 
-					
-                </div><!--/middle content wrapper-->
-        @endsection
+							</div>
+						</div>
+					-->
+</div>
+<!--/middle content wrapper-->
+@endsection
