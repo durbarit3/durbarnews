@@ -7,35 +7,28 @@
             <div class="row">
                 <div class="col-sm-12">
                     <ol class="breadcrumb no-margin">
-                        <li class="breadcrumb-item"><a href="#">
+                        <li class="breadcrumb-item"><a href="{{url('/')}}">
                                 <i class="fas fa-home text-danger"></i>
                             </a></li>
                         <li class="breadcrumb-item text-default active" aria-current="page" style="font-size: 14px;">{{$dis->division->name_bn}}</li>
-                        <li class="breadcrumb-item text-default active" aria-current="page" style="font-size: 14px;">{{$dis->name_bn}}</li>
+
+                        <li class="breadcrumb-item text-default active" aria-current="page" style="font-size: 14px;">{{$dis->district->name_bn}}</li>
+                        <li class="breadcrumb-item text-default active" aria-current="page" style="font-size: 14px;">{{$dis->name}}</li>
                     </ol>
                 </div>
             </div>
           <div class="row">
               <div class="col-sm-12">
-                  <h1 class="map_icon"><i class="fas fa-map-marker-alt"></i> {{$dis->name_bn}}</h1>
+                  <h1 class="map_icon"><i class="fas fa-map-marker-alt"></i> {{$dis->name}} </h1>
               </div>
           </div>
           <div class="row">
               <div class="col-sm-12">
-                  <div class="content_tags">
-                    @php
-                        $subdis=App\SubDistrict::where('district_id',$dis->id)->get();
-                    @endphp
-                      <ul>
-                        @foreach($subdis as $sub)
-                          <li><a href="{{url('subdistrict/news/map/news/'.$sub->id)}}">{{$sub->name}}</a></li>
-                        @endforeach
-                      </ul>
-                  </div>
+             
               </div>
           </div>
            @php
-                   $news=App\NewsPost::where('district_id',$dis->id)->OrderBy('id','DESC')->first();
+                $news=App\NewsPost::where('subdistrict_id',$dis->id)->OrderBy('id','DESC')->first();
             @endphp
              
             <div class="row">
@@ -75,7 +68,7 @@
                     </div>
                     <div class="row paddingtop">
                         @php
-                            $relatedpost=App\NewsPost::where('district_id',$dis->id)->OrderBy('id','DESC')->Simplepaginate(10);
+                            $relatedpost=App\NewsPost::where('subdistrict_id',$dis->id)->OrderBy('id','DESC')->Simplepaginate(10);
                         @endphp
                         @foreach($relatedpost as $rpost)
                         <div class="col-sm-6">

@@ -1,5 +1,6 @@
 @extends('website.master')
 @section('content')
+
 <!-- ad section start -->
  <section id="ad" style="padding: 10px 0px;" <div class="container">
         <div class="row">
@@ -20,8 +21,8 @@
             <div class="row">
                 <div class="col-sm-12">
                     <ol class="breadcrumb no-margin">
-                        <li class="breadcrumb-item"><a href="#">
-                                <i class="fas fa-home text-danger" style="position: relative;bottom:11px;"></i>
+                        <li class="breadcrumb-item"><a href="{{url('/')}}">
+                                <i class="fas fa-home text-danger" style="position: relative;bottom:1px;"></i>
                             </a></li>
                         <li class="breadcrumb-item text-default active" aria-current="page" style="font-size: 14px;">
                             জেলার খবর</li>
@@ -176,8 +177,12 @@
                                 opacity: 0.8;
                             }
                         </style>
-                        <a href="https://www.jagonews24.com/bangladesh/chittagong/chittagong"
-                            xlink:href="https://www.jagonews24.com/bangladesh/chittagong/chittagong" id="chittagong">
+                        @php
+                            $district=App\District::where('id',55)->first();
+                        @endphp
+
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="" id="chittagong">
                             <g>
                                 <path class="st1"
                                     d="M320.5,175.7c-0.5,1.6-2.4,3.3-0.5,5.1c2,1.7,2.2,2.8,1.5,4.8s-0.5,0.5,0.6,2.5s0.5-1.7,0.9-5
@@ -372,8 +377,11 @@
                             <path class="st5" d="M147.1,99.9c0.2,1.5,1,3.2,2.7,3.7s1.5,0,4.2,1.2s2.2,1,3.7,1.2s3.7,1.7,4.4,0.2c0.7-1.5,1.2-2.4-2-2.4
                         s-1.5-1.2-3.4-1.5c-2-0.2-2.4-0.5-3.9-1C151.2,100.9,146.8,98.4,147.1,99.9z" />
                         </g>
-                        <a href="https://www.jagonews24.com/bangladesh/mymensingh/mymensingh"
-                            xlink:href="https://www.jagonews24.com/bangladesh/mymensingh/mymensingh" id="mymensingh">
+                         @php
+                            $district=App\District::where('id',31)->first();
+                        @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="" id="mymensingh">
                             <g>
                                 <g>
                                     <path class="st1" d="M118.7-143.7c1.6,0.2,6.5-0.1,7.7,0.5s4,2.2,5.4,3.2s3.1-0.2,4.2,0.7l3,1.2c0.4,2.2-1.2,2-2.5,2.4
@@ -467,8 +475,11 @@
                         c-3.3-1.6-2.8-1.2-4.4-0.4c-1.6,0.9-2,1.5-3.3,1.2c-0.8-0.1-1.6-0.1-2.4,0.4v-0.1c0,0-0.5-1.7-1.7-2.4
                         C116.2,197.3,115.1,197.6,115.1,197.6z" />
                         </g>
-                        <a href="https://www.jagonews24.com/bangladesh/mymensingh/netrokona"
-                            xlink:href="https://www.jagonews24.com/bangladesh/mymensingh/netrokona" id="netrokona">
+                        @php
+                            $district=App\District::where('id',32)->first();
+                        @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="netrokona">
                             <g>
                                 <g>
                                     <path class="st4"
@@ -614,8 +625,11 @@
                         l-2.4,3.1l-2.1,2.3h-1.8l-2.4,2.7l-1.4,2.1l-2.9,2.1c0,0-3.9,1.3-4.5,1.4c-0.7,0-4.4,0.4-4.4,0.4l-2,1.2c0,0-2.1,2.3-2.1,2.4
                         s0,2.6,0,2.6s-0.8,1.9-1,1.9s-5.6-0.7-6.1-0.7s-1.8-1.5-1.8-1.5s0.1-0.3,0.2-0.4C177.6,33.6,177.8,33.3,177.9,33z" />
                         </g>
-                        <a href="https://www.jagonews24.com/bangladesh/rangpur/gaibandha"
-                            xlink:href="https://www.jagonews24.com/bangladesh/rangpur/gaibandha" id="gaibandha">
+                        @php
+                            $district=App\District::where('id',63)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="gaibandha">
                             <g>
                                 <path class="st4" d="M55.6-154.6c-0.5-0.3-0.7-0.8-0.9-1.3c-0.5-1.3,0.2-2,0.2-3.3c0.1-1.3-0.5-1.1-1.8-2.1
                             c-1.3-1.1-0.3-1.4-1.1-2.4c-0.7-1.1-1.4,1-1.7,1.8s-1.1,0.4-1.5-0.4c-0.4-0.8-0.6-2-0.8-3.7c-0.2-1.8-1.1-2-1-5.1
@@ -669,8 +683,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/rangpur/rangpur"
-                            xlink:href="https://www.jagonews24.com/bangladesh/rangpur/rangpur" id="rangpur">
+                        @php
+                        $district=App\District::where('id',68)->first();
+                     @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="rangpur">
                             <g>
                                 <path class="st12"
                                     d="M-8.3-235.1c0.6-0.1,1.6-1.4,2.5-1c0.9,0.4,1.5,1.8,2.9,2.5c1.5,0.7,5.3,1.6,5.7,2.5c0.4,0.9,2.9,2.9,4.2,3.4
@@ -716,8 +733,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/rajshahi/jaipurhat"
-                            xlink:href="https://www.jagonews24.com/bangladesh/rajshahi/jaipurhat" id="jaipurhat">
+                        @php
+                        $district=App\District::where('id',13)->first();
+                     @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="jaipurhat">
                             <g>
                                 <path class="st1"
                                     d="M-28.7-96.6c0,0,1.8,0.5,3.5-1s2.2-0.5,4-0.4s2.8-0.9,4-2.2s0-2.8,0-4.9c0-2.1-0.1-3.8,1-5.4
@@ -780,8 +800,12 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/rajshahi/naogaon"
-                            xlink:href="https://www.jagonews24.com/bangladesh/rajshahi/naogaon" id="naogaon">
+
+                        @php
+                            $district=App\District::where('id',14)->first();
+                        @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="naogaon">
                             <g>
                                 <path class="st0"
                                     d="M-29.3-62.4c1,0.2,2.4,0.7,4.5,1.2s1.8,2.9,3.9,3.8c2.1,0.9,4,0.1,5-1.2c1-1.3,1.3-3.8,1-5.7
@@ -827,8 +851,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/rajshahi/bogra"
-                            xlink:href="https://www.jagonews24.com/bangladesh/rajshahi/bogra" id="bogra">
+                        @php
+                        $district=App\District::where('id',12)->first();
+                     @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="bogra">
                             <g>
                                 <path class="st7" d="M59.7-89.2c0,0-1.2-0.4-3.7,0.1c-2.4,0.5-4.5,1.6-4.6,3.3c-0.1,1.7,0.1,5.3-1.3,6.5c-1.5,1.2-3.3,4-5.9,2.6
                             c-2.6-1.5-5.3-2.1-6.1-0.7c-0.9,1.3-0.5,4,0.4,5.5s0.9,2.4,1,3.8c0.1,1.3,3.5,0.4,4.2,2.4c0.6,2.1,1.6,3.2,0.2,4.6
@@ -871,8 +898,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/rajshahi/rajshahi"
-                            xlink:href="https://www.jagonews24.com/bangladesh/rajshahi/rajshahi" id="rajshahi">
+                         @php
+                            $district=App\District::where('id',18)->first();
+                         @endphp
+                            <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="rajshahi">
                             <g>
                                 <path class="st4" d="M-38.2-9.3c0,0,0,2-2,2.7c-0.7,0.2-1.6,0.2-1.9,0.7c-0.4,0.5-0.8,0.6-1.5,0.6c-0.7,0.1-1.3-1.7-1.9-1.5
                             C-46.1-6.6-46.2-7.9-47-8s-2-2.7-2-2.7s-1.2-0.9-2-0.7c-0.8,0.3-2,0-2,0l-1.6-1c-0.2-2,0.1-3.4-0.6-5.3c-0.7-2.2,0.2-1.8,0.5-4.2
@@ -929,8 +959,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/rajshahi/chapainawabganj"
-                            xlink:href="https://www.jagonews24.com/bangladesh/rajshahi/chapainawabganj"
+                         @php
+                        $district=App\District::where('id',16)->first();
+                     @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}"
                             id="chapainawabganj">
                             <g>
                                 <path class="st7" d="M-83.8-74.4c-0.7,0.6-0.1,1.4-1.3,1.6c-1.7,0.2-2.4-0.4-4.6,0.2s-2.1,0.4-2.4,1.8c-0.4,1.5-2.1,3.3-3.5,4.3
@@ -1012,8 +1045,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/rajshahi/pabna"
-                            xlink:href="https://www.jagonews24.com/bangladesh/rajshahi/pabna" id="pabna">
+                         @php
+                            $district=App\District::where('id',17)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="pabna">
                             <g>
                                 <path class="st9"
                                     d="M61.5,29.5c0.1,0.4-0.7,0.5-1,0.9c-6.4,1-12.6,1-19,0.3c-4.1,0-8.1-1.4-11.2-3.7c-2.4-1.4-4.7-3.1-6.4-4.7
@@ -1049,8 +1085,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/mymensingh/sherpur"
-                            xlink:href="https://www.jagonews24.com/bangladesh/mymensingh/sherpur" id="sherpur">
+                         @php
+                            $district=App\District::where('id',33)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="sherpur">
                             <g>
                                 <path class="st10" d="M118.7-143.7c-1.6-0.2-6.8-1.3-7.5-2.3s-1.1-0.5-4.8-0.5c-3.7,0.1-6.3-1.5-7.3-2.6c-0.9-1.2-3.2-2.4-6.7-2.7
                             c-3.4-0.3-5-2.7-8.7-3.8l-1.6-0.3c0,0-0.5,2.9-1.1,3.7c-0.6,0.9-1.1,2.4-1.2,4.2c-0.1,1.9-1.4-0.1-1.9,1.2c-0.5,1.4,0,2.2-1,3.6
@@ -1096,8 +1135,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/mymensingh/jamalpur"
-                            xlink:href="https://www.jagonews24.com/bangladesh/mymensingh/jamalpur" id="jamalpur">
+                         @php
+                            $district=App\District::where('id',30)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="jamalpur">
                             <g>
                                 <path class="st0" d="M70.5-159.8c0,0-3.1,0-3.4,0.7c-0.3,0.7-2.4,1.4-3.8,1.7c-1.5,0.3-1.8,1.8-2.8,2.7s-1.5,0.3-3.3,0.4
                             c-0.4,0-0.7,0-0.9,0h-0.2c0,0-2.7,7.3-3.7,9.3s-2.7,4.1-3,7.7c-0.2,3.6,1.2,3.2,0.4,5.9c-0.9,2.6-0.6,4.2-0.1,6.5
@@ -1160,8 +1202,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/dhaka/gazipur"
-                            xlink:href="https://www.jagonews24.com/bangladesh/dhaka/gazipur" id="gazipur">
+                         @php
+                            $district=App\District::where('id',35)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="gazipur">
                             <g>
                                 <g>
                                     <path class="st10" d="M168.6-23.4c0,0-0.4-0.2-1.6-0.8c-1.1-0.6-2.6-1.7-2.4-3.3c0.2-1.6-0.8-2.4-0.8-2.4V-30c0,0-2,0-3.9-1.8
@@ -1224,8 +1269,13 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/dhaka/norsinghdi"
-                            xlink:href="https://www.jagonews24.com/bangladesh/dhaka/norsinghdi" id="norsinghdi">
+
+                     @php
+                        $district=App\District::where('id',42)->first();
+                     @endphp
+
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="norsinghdi">
                             <g>
                                 <path class="st0" d="M207.7,1.3c-1.1,1.5-5.4,5.9-5.7,7.6c-0.3,1.7-1.1,4.6-3.3,5c-2.2,0.3-4.9,5.1-5.9,6.2s-3.6,3.6-6.2,2.5
                             s-4.2,0.4-5.9,1.2c-1.7,0.8-2.5,0.2-3.9,1.2c-1.4,1.1,0.2,5.2,0.9,6.8c0.7,1.5-1.1,2.7-1.1,2.7s-1.7-0.5-2.7-2.1s-1.4-2-2.2-2.1
@@ -1271,8 +1321,12 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/dhaka/kishoregonj"
-                            xlink:href="https://www.jagonews24.com/bangladesh/dhaka/kishoregonj" id="kishoregonj">
+
+                         @php
+                            $district=App\District::where('id',37)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="kishoregonj">
                             <g>
                                 <g>
                                     <path class="st7" d="M233.3-66.7c0,0-2.9,2.8-3.1,4.1c-0.2,1.2-0.5,2-1.2,3.8c-0.7,1.9,0.8,1.6,1.3,2.6s0.4,1.3,1.7,2
@@ -1337,8 +1391,12 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/sylhet/sunamganj"
-                            xlink:href="https://www.jagonews24.com/bangladesh/sylhet/sunamganj" id="sunamganj">
+                         @php
+                            $district=App\District::where('id',72)->first();
+                         @endphp
+
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="sunamganj">
                             <g>
                                 <g>
                                     <path class="st0"
@@ -1399,8 +1457,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/sylhet/sylhet"
-                            xlink:href="https://www.jagonews24.com/bangladesh/sylhet/sylhet" id="sylhet">
+                         @php
+                            $district=App\District::where('id',73)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="sylhet">
                             <g>
                                 <g>
                                     <path class="st8" d="M351.2-104.1c-0.2-0.9-0.3-1.7-0.5-2.2c-1.1-4.5,0.8-3.1,3.5-3.5c4-0.6,10.4,5.7,11.4,6.2s8.4-1.6,9.5-1.8
@@ -1442,8 +1503,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/sylhet/maulvibazar"
-                            xlink:href="https://www.jagonews24.com/bangladesh/sylhet/maulvibazar" id="maulvibazar">
+                        @php
+                            $district=App\District::where('id',71)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="maulvibazar">
                             <g>
                                 <g>
                                     <path class="st6" d="M282.8-22.4c0.9-0.6,2,2.4,2.1,3.6c0.7,4.9,5.5,5,6.4,5.7c2.5,2.1,4.8,0.8,5,0.1c0.2-0.7-0.9-2.6-1-3.6
@@ -1513,8 +1577,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/sylhet/habiganj"
-                            xlink:href="https://www.jagonews24.com/bangladesh/sylhet/habiganj" id="habiganj">
+                        @php
+                         $district=App\District::where('id',70)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="habiganj">
                             <g>
                                 <path class="st10"
                                     d="M241.3,8.3c0.8-0.9,5.9-0.1,8.7-0.8c4.1-1,2-5.2,3-6c2-1.8,0.2-3.7-0.7-5.3c-1.9-3.4,0.6-3.3,2.1-2.9
@@ -1567,8 +1634,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/khulna/chuadanga"
-                            xlink:href="https://www.jagonews24.com/bangladesh/khulna/chuadanga" id="chuadanga">
+                        @php
+                        $district=App\District::where('id',21)->first();
+                     @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="chuadanga">
                             <g>
                                 <path class="st0" d="M-68.1,58.8c1,0.2,1.9,0.8,2.1,2.5c0.3,2.4,1.3,3.1,2.6,3.7c1.3,0.7,4.1,3,5.1,4.5s3.1,3.1,4.1,3.6
                             s1.6-0.1,2.5-0.9s2.3-1.3,2.8-0.6c0.5,0.7,0.1,1.8-0.2,2.8c-0.4,1,0,2.1-0.2,2.9c-0.2,0.7-1,0.9-1.9,0.6s-1.9,0.8-1.8,2.1
@@ -1623,8 +1693,12 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/khulna/jhenaidah"
-                            xlink:href="https://www.jagonews24.com/bangladesh/khulna/jhenaidah" id="jhenaidah">
+
+                         @php
+                            $district=App\District::where('id',24)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="jhenaidah">
                             <g>
                                 <path class="st7" d="M-23.5,45.1c-0.5,1.3-3.1,2.1-3.3,4.5s1,6.7,0.1,8.8c-0.9,2.1,0.4,4.2-1.8,5.4c-2.2,1.2-5.4,0.4-6,1.7
                             c-0.6,1.3-0.4,2.8,0.7,3.9c1.1,1.1,1.1,1.6,0.9,2.7c-0.2,1.1-0.4,4.6-0.1,6.8c0.2,2.2,0.7,3.1-1.5,3.5c-2.2,0.5-2.6,1-3.5,2
@@ -1674,8 +1748,12 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/khulna/magura"
-                            xlink:href="https://www.jagonews24.com/bangladesh/khulna/magura" id="magura">
+
+                     @php
+                        $district=App\District::where('id',26)->first();
+                     @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="magura">
                             <g>
                                 <path class="st10"
                                     d="M0.7,85.3c-0.8-2.3,0-5.2,0.5-6.4c0.5-1.1,3.3-1.7,4.6-2.7s1.5-2.2,1.1-3.9c-0.4-1.7-0.1-4.9,0-6.1
@@ -1717,8 +1795,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/khulna/jessore"
-                            xlink:href="https://www.jagonews24.com/bangladesh/khulna/jessore" id="jessore">
+                        @php
+                        $district=App\District::where('id',23)->first();
+                     @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="jessore">
                             <g>
                                 <path class="st4" d="M2.2,154.3c-2.8-1.9-5.9,1.4-6.9,2.6s-3.6,0.7-4-1.2c-0.3-1.9-2.8-2.6-3.6-4.8c-0.9-2.2,0.3-2.4,1-4.8
                             s-1.9-2.2-3.3-3.1c-1.4-0.9-4.1-0.2-6.2,0.5c-2.1,0.7-1.7,0-4.5-1.5s-2.8,0-3.8,0.9s-2.8,1.2-4,1.5s-3.7,0.1-3.7,0.1l-0.2-0.2
@@ -1762,8 +1843,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/khulna/narail"
-                            xlink:href="https://www.jagonews24.com/bangladesh/khulna/narail" id="narail">
+                        @php
+                            $district=App\District::where('id',28)->first();
+                        @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="narail">
                             <g>
                                 <path class="st1"
                                     d="M36,137.1c0,0,0.1-0.1-1.2-1.2s-1-1.5-1-3.1s-0.4-2.6-1.2-3.9c-0.9-1.3-2-2.3-2.4-3.5
@@ -1809,8 +1893,12 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/dhaka/gopalgonj"
-                            xlink:href="https://www.jagonews24.com/bangladesh/dhaka/gopalgonj" id="gopalgonj">
+
+                             @php
+                                $district=App\District::where('id',36)->first();
+                             @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="gopalgonj">
                             <g>
                                 <path class="st7"
                                     d="M103.8,130.7c1.2-0.9,5-2.9,3.3-5.5c-0.7-1-1.5-1.6-1.3-2.6c0.1-1,0.1-2.2-1-3.3c-1.1-1.1-2,0-2.4-1.2
@@ -1879,8 +1967,12 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/chittagong/chandpur"
-                            xlink:href="https://www.jagonews24.com/bangladesh/chittagong/chandpur" id="chandpur">
+
+                             @php
+                                $district=App\District::where('id',56)->first();
+                             @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}/www.jagonews24.com/bangladesh/chittagong/chandpur" id="chandpur">
                             <g>
                                 <g>
                                     <path class="st0" d="M165.9,67.9l-1.4,1.3l-0.9,1l-1.1,1c0,0-3.6,1.7-4.7,1.8c0,0-1.6,0.1-2.7,2.4s-0.8,4-0.8,4s0.2,1.2,1.1,1.9
@@ -1930,8 +2022,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/barisal/barisal"
-                            xlink:href="https://www.jagonews24.com/bangladesh/barisal/barisal" id="barisal">
+                         @php
+                            $district=App\District::where('id',47)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="barisal">
                             <g>
                                 <path class="st0" d="M171.9,142c-1.2-1.5-2.4-1.7-3.4-3.4c-1.1-1.7-3.1-3.7-3.1-3.7l-0.4-0.2c-0.2-0.3-0.5-0.9-0.9-1.7
                             c-0.7-1.7-1.5-2.9-2.5-3c-1.1-0.2-2.3-0.4-3-1.8s-2.6-1.6-2.6-1.6l0,0c0,0-4,1.6-6.5,1.8c-2.4,0.2-3.4,0.2-6.4,2
@@ -1980,8 +2075,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/khulna/khulna"
-                            xlink:href="https://www.jagonews24.com/bangladesh/khulna/khulna" id="khulna">
+                         @php
+                    $district=App\District::where('id',25)->first();
+                 @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="khulna">
                             <g>
                                 <path class="st8"
                                     d="M39.9,251.6c-2.4-2-3.9-4.7-4.4-7.7c-0.5-2.9-0.2-6.4-0.2-8.4s-1.8-4.7-3-7.4s-2-5.6-2-5.6s-0.5-1-1.2,1.7
@@ -2029,8 +2127,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/khulna/satkhira"
-                            xlink:href="https://www.jagonews24.com/bangladesh/khulna/satkhira" id="satkhira">
+                         @php
+                            $district=App\District::where('id',29)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="satkhira">
                             <g>
                                 <path class="st10" d="M-15.4,258.5c0.2-2.9-1-3-2.2-5.1c-1.2-2-1.8-4.9-1.7-7s1.6-4.3,3.1-4.9c1.5-0.5,2.1-1.5,1.7-2.7
                             c-0.4-1.2-1.2-0.7-3-2.7c-1.8-2.1-3.2-6.4-3.9-8.9s-2.4-4.3-3.4-6.7c-0.9-2.4-2.3-1.9-1.9-4.7c0.4-2.8,0.5-3.1-0.5-5.6
@@ -2089,8 +2190,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/khulna/bagerhat"
-                            xlink:href="https://www.jagonews24.com/bangladesh/khulna/bagerhat" id="bagerhat">
+                         @php
+                             $district=App\District::where('id',20)->first();
+                        @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="bagerhat">
                             <g>
                                 <path class="st13" d="M83.4,149c0.6,2,1.4,3.3,1.4,3.3c-1.1,0.5-1.7,0.1-1.8,1.3c-0.1,1.2,0.4,1-1.1,2.1s-0.8,2.5-0.2,3.3
                             c0.6,0.8,0.6,2.1-0.2,2.8c-0.8,0.7-3.7,5-3.3,6.8c0.3,1.7,1.2,4.3,1.8,6.1c0.6,1.8,3,4.2,2.8,6.4c-0.2,2.1-0.3,3.9,1.5,5.9
@@ -2150,8 +2254,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/chittagong/noakhali"
-                            xlink:href="https://www.jagonews24.com/bangladesh/chittagong/noakhali" id="noakhali">
+                        @php
+                             $district=App\District::where('id',61)->first();
+                        @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="noakhali">
                             <g>
                                 <path class="st8" d="M208.7,190.5c0,0,0.7-0.2,1.3-2c0.7-1.8,2.4-3.7,3.7-6.4c1.3-2.7,0.4-3.6,0.9-6.1c0.4-2.5-0.5-4-1.8-5.4
                             s-3.9,0.4-5.8,0.6c-1.9,0.2-4-1.2-5.9-2.8c-2-1.6-3.1-2-3.6-3.8s-1.1-2.3-1.3-3.7c-0.2-1.4-0.3-2.8,1-3.1c1.1-0.3,2.1-1,2.1-1.5
@@ -2209,8 +2316,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/barisal/jhalokathi"
-                            xlink:href="https://www.jagonews24.com/bangladesh/barisal/jhalokathi" id="jhalokathi">
+                         @php
+                        $district=App\District::where('id',49)->first();
+                     @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="jhalokathi">
                             <g>
                                 <path class="st10" d="M108.4,162.2c-1.7,1,0.2,3.2,0.3,5.2c0.1,2-1,3.4-2.2,6s-1.4,2.9-0.9,5.4c0.5,2.4-0.5,2.8-1.8,4.7
                             c-1.4,1.9-2.2,0.9-3.9,0.5c-1.7-0.4-3.1,1-3.7,2.8c-0.6,1.9-0.2,2.1,1.1,3.7c1.3,1.6,0.7,3,1.1,5c0.3,2,1.6,0.6,5.3,0.7
@@ -2255,8 +2365,12 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/barisal/bhola"
-                            xlink:href="https://www.jagonews24.com/bangladesh/barisal/bhola" id="bhola">
+                         @php
+                            $district=App\District::where('id',48)->first();
+                         @endphp
+
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="bhola">
                             <g>
                                 <path class="st10"
                                     d="M170,173.4c-2.1,0.5-6.8,2-7.1,3.7c-0.2,1.7-0.4,7.3-1.1,9.4c-0.7,2.1-2,2.7-0.5,5.9s3.3,3.1,5,5.6
@@ -2321,8 +2435,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/chittagong/khagrachari"
-                            xlink:href="https://www.jagonews24.com/bangladesh/chittagong/khagrachari" id="khagrachari">
+                         @php
+                            $district=App\District::where('id',59)->first();
+                         @endphp
+                            <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="khagrachari">
                             <g>
                                 <path class="st4" d="M289.7,131.9c2.9-1.5,6.4-3.2,7.1-4c0.9-1.2-1.5-3.3,0.6-3.7c0.8-0.2,2.1,2.4,3.1-0.4c0.5-1.3,4.2-3.5,1.6-5.9
                             c-1.3-1.2-0.5-6-2.4-11.4c-0.5-1.4-1-8.2-5.2-11.5c-1-0.8-2.4-3.9,2.7-5c2-0.4,1-4.5,1.5-6c0.4-1.5,1.5-0.5,1.5-4.5
@@ -2381,8 +2498,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/chittagong/rangamati"
-                            xlink:href="https://www.jagonews24.com/bangladesh/chittagong/rangamati" id="rangamati">
+                        @php
+                            $district=App\District::where('id',62)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="rangamati">
                             <g>
                                 <path class="st0" d="M332.2,46.4c0.2-0.2,0.3-0.3,0.5-0.5c1.6-1.7,3.4-4.2,5-7.5c0.5-1.1,3.1-1,3.4,1.5c0.1,0.8,1.8,1.7,2.3,2.3
                             c0.5,0.5,2.1,1.7,2.2,3.9c0,0.6,0.4,2.3,1.5,2s1.3-1.2,1.1-5.4c0-0.7,1.3-3.7,3.9-3.7c0.9,0,2.9,0.8,1.9,6.8
@@ -2449,8 +2569,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/chittagong/bandarban"
-                            xlink:href="https://www.jagonews24.com/bangladesh/chittagong/bandarban" id="bandarban">
+                        @php
+                            $district=App\District::where('id',52)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="bandarban">
                             <g>
                                 <path class="st8" d="M332.5,266.2c0,0-0.2,1.2,1,4.9s1.5,5.6,1.2,8.3c-0.2,2.7,1.2,3.4,2.4,3.4s1.5-2,3.4-0.5c2,1.5,4.2,2.2,3.4-1
                             c-0.7-3.2-2-4.4-0.7-6.4c1.2-2,2.2,2,3.2,3.7s0.7,2.7,2.7,3.4s3.2,2.2,0.7,2.9c-2.4,0.7-3.4,0.5-5.1,2c-1.7,1.5-1.2,2.7-4.6,3.2
@@ -2495,8 +2618,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/chittagong/cox-s-bazar"
-                            xlink:href="https://www.jagonews24.com/bangladesh/chittagong/cox-s-bazar" id="cox-s-bazar">
+                         @php
+                            $district=App\District::where('id',57)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="cox-s-bazar">
                             <g>
                                 <path class="st4"
                                     d="M322.1,298.5c-1.6,1.3-2.7,1.7-1.7,2.4s1.1,0.5,2.1-0.4C323.4,299.7,323.7,297.1,322.1,298.5z" />
@@ -2561,8 +2687,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/barisal/barguna"
-                            xlink:href="https://www.jagonews24.com/bangladesh/barisal/barguna" id="borguna">
+                         @php
+                                $district=App\District::where('id',46)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="borguna">
                             <g>
                                 <path class="st7" d="M98.7,215.3c-0.1,0.8-1.2,1.8-2.5,3.4c-2.1,2.5-3.7,4.2-4.1,8.1c-0.5,5.3-1.8,6.4-2.8,7.3
                             c-1,0.8-0.2-2.4-1.1-3.3c-0.8-0.9-1.8,0-1.8,2.4s-1.5,3.9-3.3,4.2c-0.3,0.1-0.7,0.2-1,0.3h-0.3c0,0-0.7,4.6,1,10.3
@@ -2606,8 +2735,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/barisal/pirojpur"
-                            xlink:href="https://www.jagonews24.com/bangladesh/barisal/pirojpur" id="pirojpur">
+                         @php
+                            $district=App\District::where('id',51)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="pirojpur">
                             <g>
                                 <g>
                                     <path class="st4" d="M108.4,162.2c-1.7-0.4-3-1.6-5.1-3.3c-2.1-1.7-2.3-1.5-3.7-1.5c-1.4,0.1-1.9-2.8-5.1-3.8
@@ -2670,8 +2802,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/dhaka/dhaka"
-                            xlink:href="https://www.jagonews24.com/bangladesh/dhaka/dhaka" id="dhaka">
+                         @php
+                            $district=App\District::where('id',22)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="dhaka">
                             <g>
                                 <path class="st14"
                                     d="M144.2,19.7c-1.1,0.2-1.6-0.2-1.6-0.2s-0.1-2.6-2.2-1.5s-3.7,1.5-3.9-0.3c-0.2-1.8-0.7-3.2-1.6-3.3
@@ -2704,8 +2839,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/chittagong/comilla"
-                            xlink:href="https://www.jagonews24.com/bangladesh/chittagong/comilla" id="comilla">
+                         @php
+                        $district=App\District::where('id',56)->first();
+                     @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="comilla">
                             <g>
                                 <g>
                                     <path class="st10"
@@ -2755,8 +2893,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/chittagong/feni"
-                            xlink:href="https://www.jagonews24.com/bangladesh/chittagong/feni" id="feni">
+                         @php
+                        $district=App\District::where('id',58)->first();
+                     @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="feni">
                             <g>
                                 <path class="st7"
                                     d="M259.7,166.6c-1-3.3-1.5-11.2-0.6-12.9c0.9-1.7,1.7-5.9,2.7-7.1s1.1-1.8,3.2-3.3s3.2-5.5,4.3-6.1
@@ -2789,8 +2930,12 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/chittagong/lakshmipur"
-                            xlink:href="https://www.jagonews24.com/bangladesh/chittagong/lakshmipur" id="lakshmipur">
+                         @php
+                            $district=App\District::where('id',60)->first();
+                         @endphp
+
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="lakshmipur">
                             <g>
                                 <path class="st15" d="M199,115.1c0,0,1.1,2.3-0.4,5c-1.5,2.8-2,2.5-3,3.8c-1.1,1.3,0.6,0.8-0.5,3.4s-0.6,4.4,1.3,4.7
                             c2,0.3,3.4,0.3,5.3,1.4s1.6,1.5,2.6,2s1.7,0.6,1.4,1.8c-0.3,1.2-1.7,3.4-1.3,4.7c0.4,1.3,0.6,2.9-0.5,4s-2.2,1-2.7,2.2
@@ -2847,8 +2992,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/dhaka/munsigonj"
-                            xlink:href="https://www.jagonews24.com/bangladesh/dhaka/munsigonj" id="munsigonj">
+                         @php
+                            $district=App\District::where('id',40)->first();
+                        @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="munsigonj">
                             <g>
                                 <g>
                                     <path class="st9" d="M109.5,68.2c1.8-2,3.1-6.4,4.2-10.1s2.8-2.8,3.7-6.5c0.5-2.2,1.1-4,2.9-4.3c2.3-0.4,3.9,0,6.3,1.8
@@ -2903,8 +3051,12 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/chittagong/brahmonbaria"
-                            xlink:href="https://www.jagonews24.com/bangladesh/chittagong/brahmonbaria"
+                        @php
+                            $district=App\District::where('id',53)->first();
+                         @endphp
+
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}"
                             id="brahmonbaria">
                             <g>
                                 <path class="st1" d="M224.3-28.8c0,0-3,3.1-5.1,3.9c-2,0.8-6.2,1.5-9.3,3.5c-3.1,2-2.2,5.6-0.7,7.6s0.9,5.5,0.5,8.4
@@ -2971,8 +3123,12 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/dhaka/faridpur"
-                            xlink:href="https://www.jagonews24.com/bangladesh/dhaka/faridpur" id="faridpur">
+                        @php
+                        $district=App\District::where('id',34)->first();
+                     @endphp
+
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="faridpur">
                             <g>
                                 <path class="st0" d="M64.6,44.2l-1.2,1.6c0,0-0.6,0.8-1.6,1.1c-0.1,0-1.1,0.4-1.4,1.2c0,0-0.2,0.5-1.1,0.3c-0.1,0-1.5-0.4-1.5-0.4
                             s-0.7-0.1-0.8,0.9c0,0-0.4,1.7,0.6,4.2s1.1,3.7,1.1,3.7s0.8,4-3,3.2c0,0-3.7-2-5.9-2.2c0,0-2.6-0.4-3.8-0.3c0,0-2.5,0.5-3.2,0.7
@@ -3026,8 +3182,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/dhaka/sirajganj"
-                            xlink:href="https://www.jagonews24.com/bangladesh/dhaka/sirajganj" id="sirajganj">
+                        @php
+                            $district=App\District::where('id',19)->first();
+                        @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="sirajganj">
                             <g>
                                 <path class="st1" d="M12.8-59.9l-1.2,1.4L11-57.3l-1,1.5l-0.7,0.9l-0.4,0.5l-0.8,0.8l-0.9,0.7l-0.3,0.7l-0.2,1.3l-0.2,1.4l-0.1,0.9
                             l-0.5,0.8l-0.7,0.9l-0.6,0.8L4-45.3l-0.5,0.7l-0.1,0.8l0.4,0.9l0.9,0.7l1.1,0.4l1,0.2l0.4,0.4l0.2,0.6l0.1,2.9l0.1,2.5l0.3,2.1
@@ -3095,8 +3254,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/dhaka/tangail"
-                            xlink:href="https://www.jagonews24.com/bangladesh/dhaka/tangail" id="tangail">
+                        @php
+                            $district=App\District::where('id',45)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="tangail">
                             <g>
                                 <g>
                                     <path class="st7" d="M67.3-61.1c-1.1,3.9,1.6,11.4,3.8,16.4s0.4,8.3,0.1,12C71-29,70.3-27.8,69.7-25c-0.6,2.8-2.1,11.2-2.2,16.2
@@ -3149,8 +3311,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/rangpur/kurigram"
-                            xlink:href="https://www.jagonews24.com/bangladesh/rangpur/kurigram" id="kurigram">
+                        @php
+                            $district=App\District::where('id',64)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="kurigram">
                             <g>
                                 <path class="st1"
                                     d="M24.6-215.6c0,0,0.3,1.9,1.4,2.4c1.1,0.6,2.4,2.8,3.5,4.7c1.1,2,0.8,3.5,2.3,4.8s3.5,1.1,3.6,2.8
@@ -3211,8 +3376,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/rajshahi/natore"
-                            xlink:href="https://www.jagonews24.com/bangladesh/rajshahi/natore" id="natore">
+                        @php
+                            $district=App\District::where('id',15)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="natore">
                             <g>
                                 <path class="st16" d="M-10.8-71.3c0,0-3.8-1-4.3,1.1s-0.2,3.9,0.1,5.9c0.4,2,0,4.4-1,5.7c-1,1.3-2.9,2.1-5,1.2s-1.8-3.3-3.9-3.8
                             c-2.1-0.5-3.5-1-4.5-1.2s-0.4,1.7-1,2.4c-0.6,0.7-1.5,1.6-2.9,2.1c-1.5,0.5-4.5,0-4.8,1c-0.2,1,2.1,1.1,3.5,1.7
@@ -3252,8 +3420,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/rangpur/thakurgaon"
-                            xlink:href="https://www.jagonews24.com/bangladesh/rangpur/thakurgaon" id="thakurgaong">
+                        @php
+                            $district=App\District::where('id',69)->first();
+                        @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="thakurgaong">
                             <g>
                                 <path class="st17" d="M-95.7-201.2c-2.3-0.5-2.4-1.6-3.5-3.6c-1.2-2.4-1.7-3.6-3.9-4c-2.2-0.4-3.8-1.1-4.7-2.9
                             c-0.9-1.8-2.4-1.3-3.8-3.4c-1.4-2.1-2.8-4.6-5.5-2.7c-2.7,1.8-3.1,0.9-5.6,0.9c-2.5-0.1-2.8,2.5-3.8,2s-1.7-1.4-3.5-2.5
@@ -3316,8 +3487,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/rangpur/panchagarh"
-                            xlink:href="https://www.jagonews24.com/bangladesh/rangpur/panchagarh" id="panchagarh">
+                        @php
+                            $district=App\District::where('id',67)->first();
+                        @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="panchagarh">
                             <g>
                                 <path class="st18" d="M-111-267.5c-0.8-0.6,3.1-1.5,5.5-2.8c2.9-1.7,1.5-3.1,1.7-7c0.2-3.9,3.3-6.1,4.9-7c1.6-0.9,4.1-2.6,5.9-4.2
                             s3.5-0.7,5.1,0.2c1.6,0.9,3.3,0.4,3.7-0.6c0.4-1,0-2.6-1.7-4.3c-1.7-1.7-2.7-4.6-2.9-6.3c-0.3-1.7-1.6-3.8-3.3-3
@@ -3365,8 +3539,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/rangpur/nilphamari"
-                            xlink:href="https://www.jagonews24.com/bangladesh/rangpur/nilphamari" id="nilphamari">
+                        @php
+                            $district=App\District::where('id',66)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="nilphamari">
                             <g>
                                 <path class="st19"
                                     d="M-30.2-274.7c-2.9-0.5-3.5-1.3-4.8-3.2c-1.6-2.3-3.9-0.9-6.3,0.4c-2.4,1.2-3.1-0.4-4.2-0.5
@@ -3429,8 +3606,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/rangpur/lalmonirhat"
-                            xlink:href="https://www.jagonews24.com/bangladesh/rangpur/lalmonirhat" id="lalmonirhat">
+                         @php
+                            $district=App\District::where('id',65)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="lalmonirhat">
                             <g>
                                 <path class="st7" d="M-8.3-235.4c0-1-1.2-1.8-2.6-2.3c-1.4-0.5-1.5-0.9-2.1-2.9c-0.6-2.1-1.7-2.1-2.8-3.1s-1.1-1.7-0.9-2.9
                             c0.2-1.2-0.9-1.7-1.6-3.8c-0.7-2.1,0.2-2.6,0.2-4.2s-1.4-1.5-2.1-3.6c-0.7-2.1,0.4-2.7-0.4-3.7c-0.7-1-2.6-1-3.3-1.7
@@ -3501,8 +3681,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/rangpur/dinajpur"
-                            xlink:href="https://www.jagonews24.com/bangladesh/rangpur/dinajpur" id="dinajpur">
+                         @php
+                            $district=App\District::where('id',11)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="dinajpur">
                             <g>
                                 <path class="st9" d="M-4.1-145.4c0,0-3.3-1.4-4.9-2.6c-1.6-1.2-4.7-0.5-6-0.2c-1.4,0.2-4.8-0.7-6.9-2.3c-1.4-1.1-3.7-1.3-5-1.4
                             l-0.1-0.4c1.3-1.3,0.2-2.8-1-3.3c-1.9-0.7-4.3-0.4-6.2,0s-2.9-1.6-3.9-2.7c-0.9-1.1-1-1.2-3.4-2.7s-3-1.7-2.8-3.1
@@ -3562,8 +3745,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/khulna/kushtia"
-                            xlink:href="https://www.jagonews24.com/bangladesh/khulna/kushtia" id="kushtia">
+                         @php
+                            $district=App\District::where('id',9)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="kushtia">
                             <g>
                                 <path class="st10" d="M-38.7-10.9l0.5,1.6c0,0,0,2-2,2.7c-0.7,0.2-1.6,0.2-1.9,0.7c-0.4,0.5-0.8,0.6-1.5,0.6
                             c-0.7,0.1-1.3-1.7-1.9-1.5C-46.1-6.6-46.2-7.9-47-8s-2-2.7-2-2.7s-1.2-0.9-2-0.7c-0.8,0.3-2,0-2,0l-1.6-1l0.2,1.2
@@ -3615,8 +3801,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/barisal/patuakhali"
-                            xlink:href="https://www.jagonews24.com/bangladesh/barisal/patuakhali" id="patuakhali">
+                         @php
+                            $district=App\District::where('id',50)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="patuakhali">
                             <g>
                                 <path class="st0" d="M149.6,189.6c1.2,0.7,0.7,2.3,2,0.6c1.2-1.7,1.5-2.7,2.7-2s3.1,0.1,3.5,3.8c0.5,3.7,1,8.7,2.1,11.2
                             c1.1,2.6,3.8,5.5,3.7,8.3c-0.1,2.8,0.5,7.9,1.6,11.5c1.1,3.5,2.8,8.9,1.6,11.6c-1.2,2.7-6.2,10.9-7.4,13.3
@@ -3688,8 +3877,13 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/dhaka/manikgonj"
-                            xlink:href="https://www.jagonews24.com/bangladesh/dhaka/manikgonj" id="manikgonj">
+
+
+                         @php
+                            $district=App\District::where('id',39)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="manikgonj">
                             <g>
                                 <path class="st4" d="M71.4,40.5c0,0-1-1.1-1.1-2.3c-0.1-1.2-3.8-2.9-5.6-4.5s-2.6-2.6-3.2-4.2c-0.6-1.6-0.4-2.1-0.1-4
                             c0.2-2-2.6-2.8-3.7-4.8c-1.1-2-1.6-1.6-2.4-3.4c-0.9-1.8,0.1-1,0.9-2.8c0.7-1.8-0.2-2,1.6-3.8s2.1-1.6,3.3-2.7s2-2.3,3.7-3.4
@@ -3798,8 +3992,12 @@
                                 c0.2,3.7,0,5.4-1.7,5.9s-3.9,0-6.4,1.2c-2.4,1.2-3.9-1.5-5.9,1.7s-2.2,5.9-3.9,6.4c-1.7,0.5-2-0.7-5.1,1.5c0,0,0.6,4.8,2.9,5.3
                                 s8.9-4.2,8.9-4.2s3.2-1.4,5.8-3.3c2.6-1.9,5.4-2.8,5.4-2.8L171.3,144.8z" />
                         </g>
-                        <a href="https://www.jagonews24.com/bangladesh/dhaka/shariatpur"
-                            xlink:href="https://www.jagonews24.com/bangladesh/dhaka/shariatpur" id="shariatpur">
+
+                             @php
+                                $district=App\District::where('id',44)->first();
+                             @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="shariatpur">
                             <g>
                                 <path class="st0"
                                     d="M133.2,125.1c0.1-0.1,0.2-0.2,0.2-0.3c0.7-1-0.2-3.3-1.1-4.3c-1-1.1-1.7-1.5-1.3-3.8c0.4-2.3-2.7-2-3.2-2.7
@@ -3983,8 +4181,11 @@
                                     C81.6-211.8,81.1-213.5,78.7-211.5z" />
                             </g>
                         </g>
-                        <a href="https://www.jagonews24.com/bangladesh/dhaka/madaripur"
-                            xlink:href="https://www.jagonews24.com/bangladesh/dhaka/madaripur" id="madaripur">
+                         @php
+                        $district=App\District::where('id',38)->first();
+                     @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="madaripur">
                             <g>
                                 <g>
                                     <path class="st4" d="M107.8,68.3c0,0-0.6,2.8-2.4,4.3s-3.3,2.4-3.7,5.4c-0.4,2.9-1.3,5-1.5,6.7c-0.1,1.7-0.1,3.3,0.4,6
@@ -4041,8 +4242,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/dhaka/narayangonj"
-                            xlink:href="https://www.jagonews24.com/bangladesh/dhaka/narayangonj" id="narayangonj">
+                         @php
+                            $district=App\District::where('id',41)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="narayangonj">
                             <g>
                                 <path class="st8" d="M166.9,53.8L166.9,53.8c0,0.1,0.1-2.1,1-4.1s0.2-2.9,0.4-4.8c0.2-1.9,2.4-2.3,3.3-4.2c0.9-2,1-3.9,2.3-5
                             s0.9-2.2,0.9-2.2l-0.8-1.1c-1-1.6-1.4-2-2.2-2.1c-0.8-0.1,0.1-2-1.7-2.2c-1.8-0.2-1,0.3-3,1c-2,0.6-2.5-0.9-2.2-2.7
@@ -4103,8 +4307,11 @@
                                 </g>
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/dhaka/rajbari"
-                            xlink:href="https://www.jagonews24.com/bangladesh/dhaka/rajbari" id="rajbari">
+                         @php
+                            $district=App\District::where('id',43)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="rajbari">
                             <g>
                                 <path class="st1" d="M35.3,62.4c0,0-2.9-0.5-3.6-3.3c-0.7-2.7-1.4-5.4-3.4-6.1s0-0.7-3.4-3.4c-3.4-2.7-2-2.7-4.7-2s-6.8,0-6.8,0
                         l0.2-0.7c-0.1-0.3-0.2-0.5-0.3-0.8c-0.5-1.2-1.7-2.7-2.4-4S9.6,39.7,8.5,40c0,0,1.6-4.7,2.2-6.7c0.7-2,4.1-6.8,4.1-6.8l-2-4.1
@@ -4150,8 +4357,11 @@
                             L56.5,43.8L56.5,43.8z" />
                             </g>
                         </a>
-                        <a href="https://www.jagonews24.com/bangladesh/khulna/meherpur"
-                            xlink:href="https://www.jagonews24.com/bangladesh/khulna/meherpur" id="meherpur">
+                         @php
+                            $district=App\District::where('id',27)->first();
+                         @endphp
+                        <a href="{{url('district/news/map/news/'.$district->id)}}"
+                            xlink:href="{{url('district/news/map/news/'.$district->id)}}" id="meherpur">
                             <g>
                                 <path class="st1"
                                     d="M-42.3,28l-0.3-0.8l-1.1-3.3c0,0,2-3.4,1.4-5.4c-0.7-2-1.4,0-3.4-1.4s-5.5-5.5-5.5-5.5l0.3-0.3l-0.9,0.7
@@ -4268,356 +4478,7 @@
                         <!-- tab option -->
                         <div class="row">
                             <div class="col-sm-12">
-                                <!-- tabs part -->
-                                <div class="row mt-4">
-                                    <div class="col-sm-12 news_list three">
-                                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
-                                                    role="tab" aria-controls="home" aria-selected="true">Sports</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
-                                                    role="tab" aria-controls="profile"
-                                                    aria-selected="false">Entertainment</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="life-tab" data-toggle="tab" href="#lifestyle"
-                                                    role="tab" aria-controls="profile"
-                                                    aria-selected="false">Lifestyle</a>
-                                            </li>
-
-                                        </ul>
-                                        <div class="tab-content nav-detail" id="myTabContent">
-                                            <div class="tab-pane fade show active" id="home" role="tabpanel"
-                                                aria-labelledby="home-tab">
-                                                <ul class="media-list">
-                                                    <li class="media">
-                                                        <div class="media-left">
-                                                            <span>1</span>
-                                                            <a href="#">
-                                                                <img src="images/ashraful-20200225104941.jpg"
-                                                                    alt="no-image">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="media-heading">
-                                                                <h4>
-                                                                    <a href="#"
-                                                                        style="font-size:16px;font-weight:600;color:#000">
-                                                                        Lorem ipsum dolor sit, amet consectetur
-                                                                        adipisicing.
-                                                                    </a>
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-                                                    <li class="media">
-                                                        <div class="media-left">
-                                                            <span>2</span>
-                                                            <a href="#">
-                                                                <img src="images/samira-01-20200226132030.webp"
-                                                                    alt="no-image">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="media-heading">
-                                                                <h4>
-                                                                    <a href="#"
-                                                                        style="font-size:16px;font-weight:600;color:#000">
-                                                                        Lorem ipsum dolor sit, amet consectetur
-                                                                        adipisicing.
-                                                                    </a>
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-                                                    <li class="media">
-                                                        <div class="media-left">
-                                                            <span>3</span>
-                                                            <a href="#">
-                                                                <img src="images/netflix-20200225162641.jpg"
-                                                                    alt="no-image">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="media-heading">
-                                                                <h4>
-                                                                    <a href="#"
-                                                                        style="font-size:16px;font-weight:600;color:#000">
-                                                                        Lorem ipsum dolor sit, amet consectetur
-                                                                        adipisicing.
-                                                                    </a>
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-                                                    <li class="media">
-                                                        <div class="media-left">
-                                                            <span>4</span>
-                                                            <a href="#">
-                                                                <img src="images/nayeem-20200225103539.jpg"
-                                                                    alt="no-image">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="media-heading">
-                                                                <h4>
-                                                                    <a href="#"
-                                                                        style="font-size:16px;font-weight:600;color:#000">
-                                                                        Lorem ipsum dolor sit, amet consectetur
-                                                                        adipisicing.
-                                                                    </a>
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-                                                    <li class="media">
-                                                        <div class="media-left">
-                                                            <span>5</span>
-                                                            <a href="#">
-                                                                <img src="images/iran-20200223220447.webp"
-                                                                    alt="no-image">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="media-heading">
-                                                                <h4>
-                                                                    <a href="#"
-                                                                        style="font-size:16px;font-weight:600;color:#000">
-                                                                        Lorem ipsum dolor sit, amet consectetur
-                                                                        adipisicing.
-                                                                    </a>
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-                                                    <li class="media">
-                                                        <div class="media-left">
-                                                            <span>7</span>
-                                                            <a href="#">
-                                                                <img src="images/afridi-20200225095919.webp"
-                                                                    alt="no-image">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="media-heading">
-                                                                <h4>
-                                                                    <a href="#"
-                                                                        style="font-size:16px;font-weight:600;color:#000">
-                                                                        Lorem ipsum dolor sit, amet consectetur
-                                                                        adipisicing.
-                                                                    </a>
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-
-
-
-                                            </div>
-                                            <!-- second tab -->
-                                            <div class="tab-pane fade" id="profile" role="tabpanel"
-                                                aria-labelledby="profile-tab">
-
-                                                <ul class="media-list">
-                                                    <li class="media">
-                                                        <div class="media-left">
-                                                            <span>1</span>
-                                                            <a href="#">
-                                                                <img src="images/jubo-20200225121652.webp"
-                                                                    alt="no-image">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="media-heading">
-                                                                <h4>
-                                                                    <a href="#"
-                                                                        style="font-size:16px;font-weight:600;color:#000">
-                                                                        Lorem ipsum dolor sit, amet consectetur
-                                                                        adipisicing.
-                                                                    </a>
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-                                                    <li class="media">
-                                                        <div class="media-left">
-                                                            <span>2</span>
-                                                            <a href="#">
-                                                                <img src="images/samira-01-20200226132030.webp"
-                                                                    alt="no-image">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="media-heading">
-                                                                <h4>
-                                                                    <a href="#"
-                                                                        style="font-size:16px;font-weight:600;color:#000">
-                                                                        Lorem ipsum dolor sit, amet consectetur
-                                                                        adipisicing.
-                                                                    </a>
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-                                                    <li class="media">
-                                                        <div class="media-left">
-                                                            <span>3</span>
-                                                            <a href="#">
-                                                                <img src="images/netflix-20200225162641.jpg"
-                                                                    alt="no-image">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="media-heading">
-                                                                <h4>
-                                                                    <a href="#"
-                                                                        style="font-size:16px;font-weight:600;color:#000">
-                                                                        Lorem ipsum dolor sit, amet consectetur
-                                                                        adipisicing.
-                                                                    </a>
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-
-                                                </ul>
-
-                                            </div>
-                                            <!-- third tab -->
-                                            <div class="tab-pane fade" id="lifestyle" role="tabpanel"
-                                                aria-labelledby="profile-tab">
-
-                                                <ul class="media-list">
-                                                    <li class="media">
-                                                        <div class="media-left">
-                                                            <span>1</span>
-                                                            <a href="#">
-                                                                <img src="images/iran-20200223220447.webp"
-                                                                    alt="no-image">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="media-heading">
-                                                                <h4>
-                                                                    <a href="#"
-                                                                        style="font-size:16px;font-weight:600;color:#000">
-                                                                        Lorem ipsum dolor sit, amet consectetur
-                                                                        adipisicing.
-                                                                    </a>
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-                                                    <li class="media">
-                                                        <div class="media-left">
-                                                            <span>2</span>
-                                                            <a href="#">
-                                                                <img src="images/samira-01-20200226132030.webp"
-                                                                    alt="no-image">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="media-heading">
-                                                                <h4>
-                                                                    <a href="#"
-                                                                        style="font-size:16px;font-weight:600;color:#000">
-                                                                        Lorem ipsum dolor sit, amet consectetur
-                                                                        adipisicing.
-                                                                    </a>
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-                                                    <li class="media">
-                                                        <div class="media-left">
-                                                            <span>3</span>
-                                                            <a href="#">
-                                                                <img src="images/netflix-20200225162641.jpg"
-                                                                    alt="no-image">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="media-heading">
-                                                                <h4>
-                                                                    <a href="#"
-                                                                        style="font-size:16px;font-weight:600;color:#000">
-                                                                        Lorem ipsum dolor sit, amet consectetur
-                                                                        adipisicing.
-                                                                    </a>
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="media">
-                                                        <div class="media-left">
-                                                            <span>4</span>
-                                                            <a href="#">
-                                                                <img src="images/kakrul-20200224092614.webp"
-                                                                    alt="no-image">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="media-heading">
-                                                                <h4>
-                                                                    <a href="#"
-                                                                        style="font-size:16px;font-weight:600;color:#000">
-                                                                        Lorem ipsum dolor sit, amet consectetur
-                                                                        adipisicing.
-                                                                    </a>
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="media">
-                                                        <div class="media-left">
-                                                            <span>5</span>
-                                                            <a href="#">
-                                                                <img src="images/samira-01-20200226132030.webp"
-                                                                    alt="no-image">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="media-heading">
-                                                                <h4>
-                                                                    <a href="#"
-                                                                        style="font-size:16px;font-weight:600;color:#000">
-                                                                        Lorem ipsum dolor sit, amet consectetur
-                                                                        adipisicing.
-                                                                    </a>
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-                                                </ul>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- today news -->
-                                <div class="row">
-                                    <div class="col-sm-12 p-0 text-center">
-                                        <div class="td_news">
-                                            <a href="#">
-                                                Today's News
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                              
 
                                 <!-- tab option2 -->
                                 <div class="row">
@@ -4883,49 +4744,4 @@
         </div>
     </section>
     <!-- ad part end -->
-
-    <!-- footer part -->
-    <section id="news_footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3 text-left">
-                    <div class="logo_foot">
-                        <img src="images/logo.webp" class="w-100" alt="">
-                    </div>
-                </div>
-                <div class="col-sm-9 text-right">
-                    <div class="an">
-                        <span>
-                            <a href="#">
-                                <img src="images/Android-app-jagonews.png" width="100"></a>
-                        </span>
-                        <span>
-                            <a href="#">
-                                <img src="images/Android-app-jagonews.png" width="100"></a>
-                        </span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <section id="footer-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-justify">
-                    <div class="news-about">
-                        <p>Jagonews24.com is one of the popular bangla news portals. It has begun with commitment of
-                            fearless, investigative, informative and independent journalism. This online portal has
-                            started to provide real time news updates with maximum use of modern technology from 2014.
-                            Latest & breaking news of home and abroad, entertainment, lifestyle, special reports,
-                            politics, economics, culture, education, information technology, health, sports, columns and
-                            features are included in it. A genius team of Jago News has been built with a group of
-                            country's energetic young journalists. We are trying to build a bridge with Bengalis around
-                            the world and adding a new dimension to online news portal. The home of materialistic news.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     @endsection

@@ -67,12 +67,23 @@
                                 <td>{{$team->designation}}</td>
                                 <td>{{$team->email}}</td>
                                 <td>{{$team->phone}}</td>
-                                <td>{{$team->image}}</td>
+                                <td>
+                                    <img src="{{asset('public/admins/images/team/'.$team->image)}}" height="25px">
+                                </td>
                                 
 
                                 
                                 <td>
                                     @if($team->status ==1)
+                                   <span class="bt btn-success btn-sm">Active</span>
+                                   @else
+                                   <span class="bt btn-danger btn-sm">Deactive</span>
+                                   @endif
+
+                                </td>
+
+                                <td>
+                                     @if($team->status ==1)
                                     <a href="{{route('admin.team.status',$team->id)}}" class="btn btn-success btn-sm ">
                                         <i class="fas fa-thumbs-up"></i></a>
                                     @else
@@ -80,10 +91,6 @@
                                         <i class="fas fa-thumbs-down"></i>
                                     </a>
                                     @endif
-
-                                </td>
-
-                                <td>
                                     | <a class="edit_route btn btn-sm btn-blue text-white" data-id="{{$team->id}}" title="edit" data-toggle="modal" data-target="#editModal"><i class="fas fa-pencil-alt"></i></a> |
                                     <a id="delete" href="{{route('admin.team.delete',$team->id)}}" class="btn btn-danger btn-sm text-white" title="Delete">
                                         <i class="far fa-trash-alt"></i>

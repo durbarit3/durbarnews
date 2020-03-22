@@ -7,7 +7,7 @@
     <title>
         @yield('title','Durbarnews-Home')
     </title>
-
+    @yield('meta')
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('public/website/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('public/website/css/owl.carousel.min.css')}}">
@@ -20,7 +20,9 @@
     <link rel="stylesheet" href="{{asset('public/website/css/marquee.css')}}">
     <link rel="stylesheet" href="{{asset('public/website/css/example.css')}}">
     <link rel="stylesheet" href="{{asset('public/website/css/video.css')}}">
+    <link rel="stylesheet" href="{{asset('public/website/css/detail.css')}}">
     <link rel="stylesheet" href="{{asset('public/website/css/style.css')}}">
+    
 
 @stack('css')
 
@@ -30,6 +32,42 @@
 </head>
 
 <body>
+    <style>
+        .navbar_header {
+            background: #800404;
+        }
+        .fas fa-home text-danger{
+            color: #fff;
+        }
+        .simple-marquee-container .marquee-sibling {
+ 
+            background: #b30f0f;
+          
+        }
+        .nav-tabs .nav-link.active {
+        
+        background-color: #b30f0f !important;
+    
+            }
+
+.live_heading {
+    background: #675d5d;
+
+}
+
+a.pull-right::before {
+
+    background: #b30f0f;
+    
+}
+.scroll_top span i {
+
+    border: 2px solid #b30f0f;
+ 
+    color: #b30f0f;
+  
+}
+    </style>
     <!-- news header start -->
     @include('website.include.header_top')
 
