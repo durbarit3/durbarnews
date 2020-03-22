@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'All Deleted News')
 @section('content')
 
 	<!--middle content wrapper-->
@@ -14,7 +15,7 @@
 								<span class="panel_icon"><i class="fas fa-border-all"></i></span><span>All Deleted News</span>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 				<form action="{{route('admin.news.multihearddelete')}}" method="post">
@@ -63,8 +64,8 @@
 										<td>
 											<img src="{{asset('public/uploads/newspost/'.$data->image)}}" height="25px">
 										</td>
-									
-										
+
+
 										<td>
 											<a href="{{url('admin/news/recycle/'.$data->id)}}" class="btn btn-sm btn-info"title="edit"><i class="fas fa-recycle"></i></a> |
 											 <a class="btn btn-sm btn-danger" href="{{url('admin/news/delete/'.$data->id)}}" id="delete"><i class="fa fa-trash"></i> </a> |

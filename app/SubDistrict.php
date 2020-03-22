@@ -4,6 +4,7 @@ namespace App;
 
 use App\District;
 use App\Division;
+use App\NewsPost;
 use Illuminate\Database\Eloquent\Model;
 
 class SubDistrict extends Model
@@ -20,9 +21,15 @@ class SubDistrict extends Model
     {
         return $this->belongsTo(Division::class);
     }
+
     public function district()
     {
         return $this->belongsTo(District::class);
+    }
+
+    public function news_posts()
+    {
+        return $this->hasMany(NewsPost::class, 'id','subdistrict_id');
     }
 
 }

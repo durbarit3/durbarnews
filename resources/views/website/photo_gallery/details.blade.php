@@ -2,6 +2,22 @@
 @push('css')
 <link rel="stylesheet" href="{{ asset('public/website/css/detail.css') }}">
 <link rel="stylesheet" href="{{ asset('public/website/css/video.css') }}">
+<style>
+    a.play-button-search i {
+        position: absolute;
+    left: 24%;
+    top: 48%;
+    transform: translate(-50%,-50%);
+    background-color: #000;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 50%;
+}
+</style>
 @endpush
 @section('content')
 
@@ -111,14 +127,20 @@
                                 @foreach ($latestNewsPosts as $newsPost)
                                 <div class="media">
                                     <div class="media_left">
-                                        <a href="#">
+                                        <a @if($newsPost->post_type==2) href="{{url('/videodetails/'.$newsPost->slug.'/'.$newsPost->id)}}" @else href="{{url('details/'.$newsPost->slug.'/'.$newsPost->id)}}" @endif>
                                             <img src="{{asset('public/website/')}}/images/lazy_loader.png"
                                                 data-src="{{asset('public/uploads/newspost/small/'.$newsPost->image)}}"
                                                 alt="" class="lazy img-fluid">
-                                        </a>
+
+                                                @if($newsPost->post_type == 2)
+                                                <a class="play-button-search" @if($newsPost->post_type == 2) href="{{url('/videodetails/'.$newsPost->slug.'/'.$newsPost->id)}}" @else href="{{url('details/'.$newsPost->slug.'/'.$newsPost->id)}}" @endif class="play-button">
+                                                    <i class="fas fa-play"></i>
+                                                </a>
+                                                @endif
+                                            </a>
                                     </div>
                                     <div class="media-body">
-                                        <a href="#" class="media-heading">
+                                        <a @if($newsPost->post_type==2) href="{{url('/videodetails/'.$newsPost->slug.'/'.$newsPost->id)}}" @else href="{{url('details/'.$newsPost->slug.'/'.$newsPost->id)}}" @endif class="media-heading">
                                             {{ $newsPost->title }} |
                                             {{ $newsPost->created_at->toFormattedDateString() }}
                                         </a>

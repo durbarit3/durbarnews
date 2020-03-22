@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'Footer Option')
 @section('content')
 
 <div class="middle_content_wrapper">
@@ -12,11 +13,11 @@
                     <div class="panel_body">
                         <div class="col-md-10 offset-md-1">
 
-                     
+
                             <form class="py-2" action="{{route('admin.contact.info.update')}}" method="post">
                                 @csrf
-                               
-    
+
+
 
                                 <div class="form-group row">
                                     <label for="example-search-input" class="col-sm-2 col-form-label text-right">Name</label>
@@ -31,7 +32,7 @@
                                     </div>
                                 </div>
 
-                                
+
                                 <div class="form-group row">
                                     <label for="example-email-input" class="col-sm-2 col-form-label text-right">Address</label>
                                     <div class="col-sm-9">
@@ -59,7 +60,7 @@
                                         </div>
                                         @enderror
                                     </div>
-                                    
+
                                 </div>
 
                                 <div class="form-group row">
@@ -73,7 +74,7 @@
                                         </div>
                                         @enderror
                                     </div>
-                                    
+
                                 </div>
 
                                 <div class="form-group row">
@@ -87,7 +88,7 @@
                                         </div>
                                         @enderror
                                     </div>
-                                    
+
                                 </div>
 
                                 <div class="form-group row">

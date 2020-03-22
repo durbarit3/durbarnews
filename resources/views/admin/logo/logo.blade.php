@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'Logo')
 @section('content')
 
 <div class="middle_content_wrapper">
@@ -12,7 +13,7 @@
                     <div class="panel_body">
                         <div class="col-md-10 offset-md-1">
 
-                        
+
 
                             <form class="py-2" action="{{route('admin.logo.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
@@ -94,7 +95,7 @@
 
 <script>
 $( document ).ready(function() {
-    $('.dropify').dropify();    
+    $('.dropify').dropify();
 });
 </script>
 @endpush

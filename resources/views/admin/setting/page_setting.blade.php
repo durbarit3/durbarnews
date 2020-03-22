@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'Page Settings')
 @section('content')
 
 <div class="middle_content_wrapper">

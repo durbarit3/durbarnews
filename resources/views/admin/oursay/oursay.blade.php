@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'Our say')
 @section('content')
 
 <div class="middle_content_wrapper">
@@ -11,10 +12,10 @@
                     </div>
                     <div class="panel_body">
                         <div class="col-md-10 offset-md-1">
-                        
+
                         <form class="py-2" action="{{route('admin.our.say.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
-                            
+
                                 <div class="form-group row">
                                     <label for="example-search-input" class="col-sm-2 col-form-label text-right">Title</label>
                                     <div class="col-sm-9">
@@ -54,14 +55,14 @@
                                     <div class="col-sm-5">
                                         <img src="{{asset('public/admins/images/oursay')}}/{{$oursay->image}}" alt="">
                                     </div>
-                                    
+
                                 </div>
-                                
+
                                 <button type="submit" class="btn btn-blue float-right form-control">Submit</button>
                             </form>
-                        
 
-                          
+
+
                         </div>
                         <!-- end panel -->
                     </div>
@@ -81,7 +82,7 @@
 
 <script>
 $( document ).ready(function() {
-    $('.dropify').dropify();    
+    $('.dropify').dropify();
 });
 </script>
 @endpush

@@ -10,7 +10,7 @@
 	                  </li>
 	                  <li class="single-nav-wrapper">
 	                      <a class="has-arrow menu-item" href="#" aria-expanded="false">
-	                        <span class="left-icon"><i class="fas fa-table"></i></span>
+	                        <span class="left-icon"><i class="fab fa-cuttlefish"></i></span>
 	                          <span class="menu-text">Category</span>
 	                      </a>
 	                        <ul class="dashboard-menu">
@@ -21,7 +21,7 @@
 					  </li>
 					   <li class="single-nav-wrapper">
 	                      <a class="has-arrow menu-item" href="#" aria-expanded="false">
-	                        <span class="left-icon"><i class="fas fa-table"></i></span>
+	                        <span class="left-icon"><i class="far fa-newspaper"></i></span>
 	                          <span class="menu-text">News</span>
 	                      </a>
 	                        <ul class="dashboard-menu">
@@ -31,7 +31,7 @@
 					  </li>
 					  <li class="single-nav-wrapper">
 	                      <a class="has-arrow menu-item" href="#" aria-expanded="false">
-	                        <span class="left-icon"><i class="fas fa-table"></i></span>
+	                        <span class="left-icon"><i class="fas fa-ad"></i></span>
 	                          <span class="menu-text">Advertisement</span>
 	                      </a>
 	                        <ul class="dashboard-menu">
@@ -43,7 +43,7 @@
 					  </li>
 					   <li class="single-nav-wrapper">
 	                      <a class="has-arrow menu-item" href="#" aria-expanded="false">
-	                        <span class="left-icon"><i class="fas fa-table"></i></span>
+	                        <span class="left-icon"><i class="fas fa-poll"></i></span>
 	                          <span class="menu-text">Poll</span>
 	                      </a>
 	                        <ul class="dashboard-menu">
@@ -51,10 +51,10 @@
 	                          <li><a href="{{route('admin.poll.result')}}">Poll Details</a></li>
 
 	                        </ul>
-					  </li> 
+					  </li>
 	                  <li class="single-nav-wrapper">
 	                      <a class="has-arrow menu-item" href="#" aria-expanded="false">
-	                        <span class="left-icon"><i class="fas fa-table"></i></span>
+	                        <span class="left-icon"><i class="fa fa-cogs"></i></span>
 	                          <span class="menu-text">Setting</span>
 	                      </a>
 	                        <ul class="dashboard-menu">
@@ -70,7 +70,7 @@
 
 	                  <li class="single-nav-wrapper">
 	                      <a class="has-arrow menu-item" href="#" aria-expanded="false">
-	                        <span class="left-icon"><i class="fas fa-table"></i></span>
+	                        <span class="left-icon"><i class="fa fa-th"></i></span>
 	                          <span class="menu-text">Division</span>
 	                      </a>
 	                        <ul class="dashboard-menu">
@@ -82,7 +82,7 @@
 
 					  <li class="single-nav-wrapper">
 	                      <a class="has-arrow menu-item" href="#" aria-expanded="false">
-	                        <span class="left-icon"><i class="fas fa-table"></i></span>
+	                        <span class="left-icon"><i class="fa fa-file"></i></span>
 	                          <span class="menu-text">Pages</span>
 	                      </a>
 	                        <ul class="dashboard-menu">
@@ -93,13 +93,12 @@
 
 					  <li class="single-nav-wrapper">
 	                      <a class="has-arrow menu-item" href="#" aria-expanded="false">
-	                        <span class="left-icon"><i class="fas fa-table"></i></span>
+	                        <span class="left-icon"><i class="fas fa-image"></i></span>
 	                          <span class="menu-text">Gallery</span>
 	                      </a>
 	                        <ul class="dashboard-menu">
                             <li><a href="{{ route('admin.gallery.index') }}">All gallery photo</a></li>
                             <li><a href="{{ route('admin.gallery.create') }}">Add gallery photo</a></li>
-                            <li><a href="{{ route('admin.gallery.trash.all') }}">Trash</a></li>
 	                        </ul>
 	                  </li>
 
@@ -119,19 +118,20 @@
 
 					  <li class="single-nav-wrapper">
 	                      <a class="has-arrow menu-item" href="#" aria-expanded="false">
-	                        <span class="left-icon"><i class="fas fa-table"></i></span>
+	                        <span class="left-icon"><i class="fas fa-trash-alt"></i></span>
 	                          <span class="menu-text">Trash</span>
 	                      </a>
 	                        <ul class="dashboard-menu">
 								<li><a href="{{route('admin.news.deletedpost')}}">Deleted News</a></li>
 								<li><a href="{{route('admin.advertisement.deletead')}}">Deleted Advertisement</a></li>
-						
+								<li><a href="{{ route('admin.gallery.trash.all') }}">Deleted Gallery</a></li>
 
-					  
-					  
+
+	                        </ul>
+                    </li>
 					  <li class="single-nav-wrapper">
 	                      <a class="has-arrow menu-item" href="#" aria-expanded="false">
-	                        <span class="left-icon"><i class="fas fa-table"></i></span>
+	                        <span class="left-icon"><i class="fas fa-user-friends"></i></span>
 	                          <span class="menu-text">User</span>
 	                      </a>
 	                        <ul class="dashboard-menu">
@@ -145,13 +145,13 @@
 
 					  <li class="single-nav-wrapper">
 	                    <a href="{{route('admin.notice.index')}}" class="menu-item">
-	                        <span class="left-icon"><i class="fas fa-home"></i></span>
+	                        <span class="left-icon"><i class="fas fa-exclamation-circle"></i></span>
 	                        <span class="menu-text">Notice</span>
 	                    </a>
 	                  </li>
 	                   <li class="single-nav-wrapper">
 	                    <a href="{{route('admin.sectionmanage.all')}}" class="menu-item">
-	                        <span class="left-icon"><i class="fas fa-home"></i></span>
+	                        <span class="left-icon"><i class="fas fa-directions"></i></span>
 	                        <span class="menu-text">Setion Manage</span>
 	                    </a>
 	                  </li>

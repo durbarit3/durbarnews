@@ -81,7 +81,7 @@
                                 <ul class="marquee-content-items">
                                     @foreach ($brakingNews as $news)
                                     <li>
-                                    <a href="#">{{ $news->title }}</a>
+                                    <a href="{{ url('details/'.$news->slug.'/'.$news->id) }}">{{ $news->title }}</a>
                                     </li>
                                     @endforeach
                                 </ul>

@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'Show Page')
 @section('content')
 
 <div class="middle_content_wrapper">
@@ -9,7 +10,7 @@
                     <div class="panel_header">
                         <div class="panel_title"><span>Page Information</span></div>
                     </div>
-                    
+
                     <div class="panel_body">
                         <div class="col-md-10 offset-md-1">
                                 <div class="form-group row">
@@ -44,7 +45,7 @@
                                         <input class="form-control" name="meta_description" disabled type="text" value="{{$page->meta_description}}" id="example-url-input">
                                     </div>
                                 </div>
-                           
+
                         </div>
                         <!-- end panel -->
                     </div>
