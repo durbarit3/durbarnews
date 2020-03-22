@@ -40,13 +40,21 @@
                                     </div>
                                 </div> -->
 
+
+                                
                                 
                                 <div class="img_box">
-                                    <a href="#">
+                                    <a href="@if($news->post_type==2) href="{{url('/videodetails/'.$news->slug.'/'.$news->id)}}" @else href="{{url('/details')}}/{{$news->slug}}/{{$news->id}} @endif">
                                         <img class="lazy w-100" data-src="{{asset('public/uploads/newspost/mediumthum/'.$news->image)}}" src="{{asset('public/website/')}}/images/lazy_loader.png" alt="">
+
+                                         @if($news->post_type==2)
+                                             <a href="{{url('/videodetails/'.$news->slug.'/'.$news->id)}}" class="play-button">
+                                                <i class="fas fa-play"></i>
+                                            </a>
+                                            @endif
                                     </a>
                                     <div class="img_cont_national">
-                                    <a href="{{url('/details')}}/{{$news->slug}}/{{$news->id}}"><h4>{{$news->title}}
+                                    <a @if($news->post_type==2) href="{{url('/videodetails/'.$news->slug.'/'.$news->id)}}" @else href="{{url('/details')}}/{{$news->slug}}/{{$news->id}} @endif"><h4>{{$news->title}}
                                             </h4></a>
                                         <p>{!! Str::limit($news->description,150) !!}</p>
                                     </div>
@@ -61,16 +69,19 @@
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="img-box">
-                                            <a href="#">
+                                        <a href="@if($news->post_type==2) href="{{url('/videodetails/'.$news->slug.'/'.$news->id)}}" @else href="{{url('/details')}}/{{$news->slug}}/{{$news->id}} @endif">
                                             <img class="lazy w-100" data-src="{{asset('public/uploads/newspost/mediumthum/'.$news->image)}}" src="{{asset('public/website/')}}/images/lazy_loader.png" alt="">
+                                            <a href="{{url('/videodetails/'.$news->slug.'/'.$news->id)}}" class="play-button">
+                                                <i class="fas fa-play"></i>
+                                            </a>
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-sm-8">
                                         <div class="img_cont_national_box">
                                             <h4>
-                                                <a href="{{url('/details')}}/{{$news->slug}}/{{$news->id}}"
-                                                    style="text-decoration: none;color: #000;font-size: 16px;font-weight: 600;">{{$news->title}}</a>
+                                            
+                                            <a href="@if($news->post_type==2) href="{{url('/videodetails/'.$news->slug.'/'.$news->id)}}" @else href="{{url('/details')}}/{{$news->slug}}/{{$news->id}} @endif"                                                   style="text-decoration: none;color: #000;font-size: 16px;font-weight: 600;">{{$news->title}}</a>
                                             </h4>
 
                                         </div>
@@ -132,12 +143,17 @@
                 
                             <div class="detail_thumb">
                                 <div class="thumb-first">
-                                    <a href="#">
+                                <a @if($news->post_type==2) href="{{url('/videodetails/'.$propolerpostsbig->slug.'/'.$propolerpostsbig->id)}}" @else href="{{url('/details')}}/{{$propolerpostsbig->slug}}/{{$propolerpostsbig->id}} @endif">
                                         
                                         <img class="lazy w-100" data-src="{{asset('public/uploads/newspost/mediumthum/'.$propolerpostsbig->image)}}" src="{{asset('public/website/')}}/images/lazy_loader.png" alt="">
+                                        @if($news->post_type==2)
+                                             <a href="{{url('/videodetails/'.$propolerpostsbig->slug.'/'.$propolerpostsbig->id)}}" class="play-button">
+                                                <i class="fas fa-play"></i>
+                                            </a>
+                                            @endif
                                     </a>
                                     <h4>
-                                        <a href="#">{{$propolerpostsbig->title}}</a>
+                                    <a @if($news->post_type==2) href="{{url('/videodetails/'.$propolerpostsbig->slug.'/'.$propolerpostsbig->id)}}" @else href="{{url('/details')}}/{{$propolerpostsbig->slug}}/{{$propolerpostsbig->id}} @endif">{{$propolerpostsbig->title}}</a>
                                     </h4>
                                 </div>
 
@@ -155,11 +171,16 @@
                                     @foreach($propolerpostssmall as $news)
                                     <div class="col-sm-6">
                                         <div class="small-thumb">
-                                            <a href="#">
+                                        <a @if($news->post_type==2) href="{{url('/videodetails/'.$news->slug.'/'.$news->id)}}" @else href="{{url('/details')}}/{{$news->slug}}/{{$news->id}} @endif">
                                             <img class="lazy w-100" data-src="{{asset('public/uploads/newspost/mediumthum/'.$news->image)}}" src="{{asset('public/website/')}}/images/lazy_loader.png" alt="">
+                                            @if($news->post_type==2)
+                                             <a href="{{url('/videodetails/'.$news->slug.'/'.$news->id)}}" class="play-button">
+                                                <i class="fas fa-play"></i>
+                                            </a>
+                                            @endif
                                             </a>
                                             <h4>
-                                                <a href="#">{{$news->title}}</a>
+                                                <a @if($news->post_type==2) href="{{url('/videodetails/'.$news->slug.'/'.$news->id)}}" @else href="{{url('/details')}}/{{$news->slug}}/{{$news->id}} @endif">{{$news->title}}</a>
                                             </h4>
                                         </div>
                                     </div>

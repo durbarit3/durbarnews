@@ -99,9 +99,15 @@ class FooterController extends Controller
     // social update
     public function socialSettingUpdate(Request $request)
     {
-        
+       
         $request->validate([
-            'facebook'=>'required',
+            'facebook'=>'required|url',
+            'twitter'=>'url',
+            'youtube'=>'url',
+            'instagram'=>'url',
+            'android'=>'url',
+            'apple'=>'url',
+            'feed'=>'url',
         ]);
 
         

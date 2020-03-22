@@ -47,6 +47,6 @@ class AdminController extends Controller
 
     public function getUrlName($id)
     {
-        return AppMenu::where('type',$id)->get();
+        return AppMenu::where('cate_type',$id)->get();
     }
 }

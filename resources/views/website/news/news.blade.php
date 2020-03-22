@@ -33,9 +33,12 @@
                                     </a>
 
                                     @if($news->subcategory_id)
+                                    @php
+                                $subcate = App\SubCategory::where('id',$news->subcategory_id)->first();
+                                @endphp
                                 <li class="breadcrumb-item text-default active" aria-current="page" style="font-size: 14px;">
                                     @if($cate)
-                                    <a href="{{url('/')}}/{{$cate->name}}">{{$cate->name}}
+                                    <a href="{{url('/')}}/{{$cate->name}}">{{$subcate->name}}
                                         @endif
                                     </a>
 
@@ -55,10 +58,12 @@
                                 <div class="row">
                                     <div class="col-sm-7">
                                         <div class="media">
-                                          <div class="media_left">
-                                                    <img src="images/jagonews-sm-logo_author_20170711032510.jpg" alt=""
-                                                        style="width:40px;height:auto;display:inline-block;">
-                                                </div>
+
+                                            <div class="media_left">
+
+                                                
+                                            </div>
+
                                             <div class="media-body">
                                                 <span class="small text-muted">
                                                     <i class="fas fa-pencil-alt"></i>
@@ -67,7 +72,12 @@
 
                                                     <i class="far fa-clock text-danger"></i>
 
-                                                    প্রকাশিত: ০২:২৮ পিএম, ০৮ মার্চ ২০২০
+                                                    @php
+                                                        $date =$news->created_at->diffForHumans();
+                                                    @endphp
+                                                    প্রকাশিত: {{Bengali::bn_date_time($date)}}
+                                                   
+                                                    
                                                 </span>
                                             </div>
                                         </div>
@@ -94,21 +104,16 @@
                             </blockquote>
                             <div class="padding_top">
                                 <div class="featured_image">
-                                   
-                                                <img class="lazy w-100" data-src="{{asset('public/uploads/newspost/detailsthum/'.$news->image)}}" src="{{asset('public/website/')}}/images/lazy_loader.png" alt="" style="width:40px;height:auto;display:inline-block;">
+
+                                <img class="lazy w-100" data-src="{{asset('public/uploads/newspost/bigthum/'.$news->image)}}" src="{{asset('public/website/')}}/images/lazy_loader.png" alt="" style="width:40px;height:auto;display:inline-block;">
+
                                 </div>
                                 <span class="caption"></span>
                             </div>
                             <div class="content_details">
                                 <P>{!! $news->description !!}</P>
 
-                                <p>
-                                    <span style="color: #999999;">
-                                        <em>
-                                            পিডি/জেএইচ/এমএস
-                                        </em>
-                                    </span>
-                                </p>
+                                
                             </div>
                             <div class="photo_tag">
                                 <ul>
@@ -412,6 +417,7 @@
                     <div class="col-sm-12 text-center">
                         <div class="durbartab_head">
                             <h4>
+                                {{Bengali::bn_date_time(5)}}
                                 আপনার জন্য নির্বাচিত</h4>
                         </div>
                     </div>
@@ -421,11 +427,11 @@
                     @foreach($selectednews as $row)
                     <div class="col-sm-6">
                         <div class="box_image_news">
-                            <a href="#">
+                            <a href="{{url('/details')}}/{{$row->slug}}/{{$row->id}}">
                                 <img data-src="{{asset('public/uploads/newspost/small/'.$row->image)}}"  src="{{asset('public/website/')}}/images/lazy_loader.png" class="w-100" alt="" style="border-radius: 3px;">
                             </a>
                             <div class="box_news_cont">
-                                <h5>{{$row->title}}</h5>
+                                <h5><a href="{{url('/details')}}/{{$row->slug}}/{{$row->id}}">{{Str::limit($row->title,40)}}</a></h5>
                             </div>
                         </div>
                     </div>

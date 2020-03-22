@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{asset('public/admins/images/logo')}}/{{$logo->favicon}}">
+    
+    
     <title>
         @yield('title','Durbarnews-Home')
     </title>
@@ -82,7 +85,7 @@ a.pull-right::before {
         <!-- footer part -->
 
     @include('website.include.footer')
-
+    
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

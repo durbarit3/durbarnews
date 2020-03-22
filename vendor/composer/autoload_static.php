@@ -27,6 +27,7 @@ class ComposerStaticInitb9e58890302a72d208883f5ca05e1a95
         'b6ec61354e97f32c0ae683041c78392a' => __DIR__ . '/..' . '/scrivo/highlight.php/HighlightUtilities/functions.php',
         '4a1f389d6ce373bda9e57857d3b61c84' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/helpers.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
+        '3d5a4d29ce3a373ff9fae05310ce663f' => __DIR__ . '/../..' . '/app/Http/helper.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -489,10 +490,9 @@ class ComposerStaticInitb9e58890302a72d208883f5ca05e1a95
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
-
         'App\\Http\\Controllers\\Website\\ArchiveController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/ArchiveController.php',
-
         'App\\Http\\Controllers\\Website\\FrontendController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/FrontendController.php',
+        'App\\Http\\Controllers\\Website\\PhotoGalleryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/PhotoGalleryController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',

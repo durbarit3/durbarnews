@@ -3,7 +3,9 @@
             <div class="row">
                 <div class="col-sm-3 text-left">
                     <div class="logo_foot">
-                        <img src="{{asset('public/website/')}}/images/logo.webp" class="w-100" alt="">
+                         @if($logo)
+                        <img src="{{asset('public/admins/images/logo')}}/{{$logo->frontlogo}}" class="w-100" alt="">
+                        @endif
                     </div>
                 </div>
                 <div class="col-sm-9 text-right">
@@ -28,14 +30,7 @@
             <div class="row">
                 <div class="col-sm-12 text-justify">
                     <div class="news-about">
-                        <p>Jagonews24.com is one of the popular bangla news portals. It has begun with commitment of
-                            fearless, investigative, informative and independent journalism. This online portal has
-                            started to provide real time news updates with maximum use of modern technology from 2014.
-                            Latest & breaking news of home and abroad, entertainment, lifestyle, special reports,
-                            politics, economics, culture, education, information technology, health, sports, columns and
-                            features are included in it. A genius team of Jago News has been built with a group of
-                            country's energetic young journalists. We are trying to build a bridge with Bengalis around
-                            the world and adding a new dimension to online news portal. The home of materialistic news.
+                        <p>{!! $oursay->description !!}
                         </p>
                     </div>
                 </div>
@@ -47,17 +42,17 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="bottom-address">
-                        <span>Acting Editor: Mohiuddin Sarker</span>
-                        <br>
+                        
+                        
                         <span>
-                            © 2017 All Rights Reserved | Jagonews24.com, A Sister concern of AKC Private LTD.</span>
+                            © {{date('Y')}} {{URL::to('/')}} | All Rights Reserved</span>
                     </div>
                 </div>
                 <div class="col-sm-6 text-right">
                     <div class="button">
-                        <span><a href="#">About Us</a></span>
-                        <span><a href="#">Contact</a></span>
-                        <span><a href="#">Privacy and Policy</a></span>
+                        @foreach($pages as $page)
+                            <span><a href="{{url('/site/pages')}}/{{$page->slug}}">{{$page->title}}</a></span>
+                        @endforeach
 
                     </div>
                 </div>

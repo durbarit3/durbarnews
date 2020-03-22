@@ -16,9 +16,11 @@ use Illuminate\Support\Facades\DB;
 
 use App\Division;
 use App\District;
+use App\Page;
 use App\SubDistrict;
 use App\Team;
 use Carbon\Carbon;
+
 
 use App\Http\Controllers\Controller;
 
@@ -147,6 +149,8 @@ class FrontendController extends Controller
     }
 
 
+    // single category start from here
+
     public function category($slug)
     {
 
@@ -166,6 +170,21 @@ class FrontendController extends Controller
 
     }
 
+    // subcategory start from here
+    public function subcategory($cat, $subcat)
+    {
+         
+        $subcates = SubCategory::where('slug',$subcat)->where('status',1)->where('is_deleted',0)->first();
+        $subcatid=$subcates->id;
+        $catid=$subcates->cate_id;
+
+        $newspostsfirst =NewsPost::where('cate_id',$catid)->where('subcategory_id',$subcatid)->where('is_deleted',0)->where('status',1)->orderBy('id','DESC')->limit(1)->first();
+
+        $newsposts =NewsPost::where('cate_id',$catid)->where('subcategory_id',$subcatid)->where('is_deleted',0)->where('status',1)->skip(1)->orderBy('id','DESC')->simplePaginate(10);
+
+        return view('website.category.subcategory',compact('newsposts','newspostsfirst','cat','subcat'));
+    }
+
     // details all news
 
     public function detailsNews($slug, $id)
@@ -179,8 +198,10 @@ class FrontendController extends Controller
         $selectednews = NewsPost::where('is_deleted', 0)->where('status', 1)->limit(4)->orderBy('id', 'DESC')->get();
 
 
+
         return view('website.news.news', compact('news', 'letestnews', 'propolerposts', 'letestnewsbig', 'selectednews'));
     }
+
     // get district
     public function getdistrict($division_id)
     {
@@ -215,4 +236,16 @@ class FrontendController extends Controller
         $allnews = NewsPost::where('is_deleted', 0)->where('status', 1)->OrderBy('id', 'DESC')->limit(10)->get();
         return view('website.pages.videodetails', compact('videopost', 'video', 'braking', 'allnews'));
     }
+
+
+    // pages details
+
+public function pageDetails ($slug)
+{
+    $sub_pages =Page::where('slug',$slug)->first();
+    return view('website.pages.sub_page',compact('sub_pages'));
 }
+
+
+}
+

@@ -46,6 +46,7 @@
 $(document).ready(function() {
     $('#menu_cat').click(function(params) {
         var cat_id = $(this).val();
+		
 
         $.ajaxSetup({
                 headers: {
