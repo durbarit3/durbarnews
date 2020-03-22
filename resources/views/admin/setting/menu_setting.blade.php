@@ -1,12 +1,10 @@
 @extends('admin.master')
+@section('title', 'Menu Settings')
 @section('content')
 <!--middle content wrapper-->
 <div class="middle_content_wrapper">
-    
 
 <!-- menu area start -->
-
-
     {!! Menu::render() !!}
 
 </div>
@@ -25,7 +23,7 @@
 		"menuFocus" : "%1$s. Element menu %2$d of %3$d.",
 		"subMenuFocus" : "%1$s. Menu of subelement %2$d of %3$s."
 	};
-	var arraydata = [];     
+	var arraydata = [];
 	var addcustommenur= '{{ route("haddcustommenu") }}';
 	var updateitemr= '{{ route("hupdateitem")}}';
 	var generatemenucontrolr= '{{ route("hgeneratemenucontrol") }}';
@@ -56,12 +54,12 @@ $(document).ready(function() {
             });
             $.ajax({
                 type: 'GET',
-                
+
                 url: "{{ url('/admin/get/url/name') }}/" +cat_id,
                 dataType:"json",
-                
+
                 success: function(data) {
-                    
+
                     $('#sitemenus').empty();
                     $('#sitemenus').append(' <option value="0">--Please Select Your Division--</option>');
                     $.each(data,function(index,divisionobj){
@@ -70,13 +68,13 @@ $(document).ready(function() {
                 }
             });
 	});
-	
+
 	$('#sitemenus').click(function(params){
 		var weburl = $('#sitemenus').val();
 		var webmenus = $('#sitemenus :selected').text();
 		document.getElementById('custom-menu-item-url').value = weburl;
 		document.getElementById('custom-menu-item-name').value = webmenus;
-									
+
 	});
 
 
@@ -93,4 +91,4 @@ $(document).ready(function() {
 
 
 
-	
+

@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'Section Manage')
 @section('content')
 
 	<!--middle content wrapper-->
@@ -15,13 +16,13 @@
 							</div>
 						</div>
 						<div class="col-md-6 text-right">
-						
+
 						</div>
 					</div>
 				</div>
 				<form action="{{route('admin.category.multiDelete')}}" method="post">
 					@csrf
-					
+
 					<div class="panel_body">
 						<div class="table-responsive">
 							<table id="dataTableExample1" class="table table-bordered table-striped table-hover mb-2">
@@ -57,7 +58,7 @@
 											<span class="btn btn-primary btn-sm">Deactive</span>
 											@endif
 										</td>
-										
+
 										<td>
 	                                      	@if($data->status==1)
 	                                      	<a class="btn btn-sm btn-success" href="{{url('admin/sectionmanage/deactive/'.$data->id)}}" id="TopbarActive"><i class="fas fa-thumbs-up"></i> </a>
@@ -123,10 +124,10 @@
 		                <div class="col-sm-8">
 		                   <div class="skin-flat">
 		                      <div class="row">
-		                      
+
 		                          <div class="col-sm-6">
 		                              <div class="i-check">
-		                                  <input tabindex="15" type="radio" id="flat-radio-1" name="is_top" value="1" checked> 
+		                                  <input tabindex="15" type="radio" id="flat-radio-1" name="is_top" value="1" checked>
 		                                  <label for="flat-radio-1">Yes</label>
 		                              </div>
 		                              <div class="i-check">
@@ -138,7 +139,7 @@
 		                  </div>
 		                </div>
                		</div>
-		
+
 
 					<div class="form-group text-right">
 						<button type="button" class="btn btn-default" data-dismiss="modal" aria-label=""> Close</button>
@@ -203,9 +204,9 @@
 		                <div class="col-sm-8">
 		                   <div class="skin-flat">
 		                      <div class="row">
-		                      
+
 		                          <div class="col-sm-6" id="is_top">
-		                             
+
 		                          </div>
 		                      </div>
 		                  </div>
@@ -267,7 +268,7 @@
 						$("#meta_description").val(data.meta_description);
 						$("#meta_keyword").val(data.meta_keyword);
 
-						
+
 
 					}
 				});

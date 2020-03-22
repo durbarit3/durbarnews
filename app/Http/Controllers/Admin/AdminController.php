@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Admin;
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Menu as AppMenu;
+use App\NewsPost;
 use Illuminate\Http\Request;
 use Harimayco\Menu\Models\Menus;
 use Harimayco\Menu\Models\MenuItems;
@@ -16,13 +19,16 @@ class AdminController extends Controller
     {
         $this->middleware('auth:admin');
     }
-    
+
 
     // show home page
-    
+
     public function index()
     {
-        return view('admin.home.home');
+        $totalCategory = Category::count();
+        $totalNews = NewsPost::count();
+        $totalUser = Admin::count();
+        return view('admin.home.home', compact('totalCategory', 'totalNews', 'totalUser'));
     }
 
     // admin menu setting

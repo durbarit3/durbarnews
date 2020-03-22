@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'Theme Colors')
 @section('content')
 
 <div class="middle_content_wrapper">

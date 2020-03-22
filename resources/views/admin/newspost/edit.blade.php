@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'Edit News')
 @section('content')
 
 <div class="middle_content_wrapper">
@@ -160,7 +161,7 @@
                               <input tabindex="9" name="braking_news" type="checkbox" id="square-checkbox-1" value="1" @if($data->braking_news==1) checked @else @endif>
                               <label for="square-checkbox-1">Braking News</label>
                             </div>
-                        
+
 						</div>
 						<div class="col-sm-3">
                           <div class="i-check">
@@ -176,9 +177,9 @@
                               <input tabindex="9" name="popular_news" type="checkbox" id="square-checkbox-1" value="1"  @if($data->popular_news==1) checked @else @endif>
                               <label for="square-checkbox-1">Popular News</label>
                             </div>
-                        
+
 						</div>
-				
+
 					</div>
 
 
@@ -189,7 +190,7 @@
 						</div>
 					</div>
 				</form>
-				</div>		
+				</div>
 			</div>
 		</section>
 	</div>
@@ -283,13 +284,13 @@
 
           $('select[name="post_type"]').on('change', function(){
              var id = $(this).val();
-             
+
              if(id==2){
              	$("#videosection").show();
              }else{
              	$("#videosection").hide();
              }
-           
+
 
          });
 

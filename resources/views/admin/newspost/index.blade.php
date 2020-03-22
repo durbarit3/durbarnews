@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'All News')
 @section('content')
 
 	<!--middle content wrapper-->
@@ -74,11 +75,11 @@
 											<span class="btn btn-danger btn-sm">Deactive</span>
 											@endif
 										</td>
-										
+
 										<td>
 											<a href="{{url('admin/news/edit/'.$data->id)}}" class="btn btn-sm btn-info"title="edit"><i class="fas fa-pencil-alt"></i></a> |
 	                                      	@if($data->status==1)
-	                                      	<a class="btn btn-sm btn-success" href="{{url('admin/news/deactive/'.$data->id)}}" id="TopbarActive"><i class="fas fa-thumbs-up"></i> </a> 
+	                                      	<a class="btn btn-sm btn-success" href="{{url('admin/news/deactive/'.$data->id)}}" id="TopbarActive"><i class="fas fa-thumbs-up"></i> </a>
 	                                      	@else
 	                                      	<a class="btn btn-sm btn-secondary" href="{{url('admin/news/active/'.$data->id)}}" id="TopbarActive"><i class="fas fa-thumbs-down"></i> </a>
 	                                      	@endif

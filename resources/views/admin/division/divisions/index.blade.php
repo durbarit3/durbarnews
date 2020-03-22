@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'Divisions')
 @section('content')
 <div class="middle_content_wrapper">
     <section class="page_content">

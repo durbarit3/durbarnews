@@ -67,7 +67,7 @@ class GalleryController extends Controller
                 'thumbnail_caption' => $request->thumbnail_caption,
                 'category_id' => $request->category,
                 'sub_category_id' => $request->sub_category,
-                'created_at' => Carbon::new(),
+                'created_at' => Carbon::now(),
                 'slug' => str_replace(" ", "-",$request->thumbnail_caption),
             ]);
             if (count($gallery_photos) > 0) {

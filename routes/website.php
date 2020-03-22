@@ -1,7 +1,6 @@
 <?php
 use Harimayco\Menu\Facades\Menu;
 
-
 Route::group(['prefix' => 'archive', 'namespace' => 'Website' ], function () {
     Route::get('/', 'ArchiveController@index')->name('website.archive.index');
     Route::get('archive/search', 'ArchiveController@archiveSearch')->name('website.archive.search');
@@ -16,13 +15,16 @@ Route::group(['prefix' => 'photo_gallery', 'namespace' => 'Website' ], function 
 });
 
 
+Route::group(['prefix' => 'search', 'namespace'=> 'Website'], function () {
+    Route::get('/keyword', 'SearchController@keyWordSearch')->name('website.keyword.search');
+    Route::get('/place/wise', 'SearchController@searchPlaceWise')->name('website.search.place.wise');
+});
 
 
 
 
-Route::namespace('Website')->group(function(){ 
+Route::namespace('Website')->group(function(){
     Route::get('/', 'FrontendController@index');
-
     Route::get('/categores', 'FrontendController@allCategory')->name('categores');
     Route::get('/{slug}', 'FrontendController@category');
     Route::get('/{cat}/{subcat}', 'FrontendController@subcategory');
@@ -36,9 +38,6 @@ View::composer(['*'],function($view){
 });
 
 
-
-
-
 Route::namespace('Website')->group(function(){
     
     Route::get('/news/getdistrict/{division_id}', 'FrontendController@getdistrict');
@@ -49,5 +48,13 @@ Route::namespace('Website')->group(function(){
     Route::get('/videodetails/{slug}/{id}', 'FrontendController@videodetails');
     Route::get('/newsportal/ourteam/team', 'FrontendController@ourteam');
     Route::get('newsportal/ourteam/teammember/{id}', 'FrontendController@ourteamprofice');
-    
+   
+
+    Route::get('/news/getdistrict/{division_id}', 'FrontendController@getdistrict');
+    Route::get('/news/getsubdistrict/{district_id}', 'FrontendController@getsubdistrict');
+    Route::get('/division', 'FrontendController@division');
+    Route::get('/division', 'FrontendController@division');
+    Route::get('/videodetails/{slug}/{id}', 'FrontendController@videodetails');
+
+
 });

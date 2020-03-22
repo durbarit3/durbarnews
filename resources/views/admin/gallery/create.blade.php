@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'Create Gallery')
 @push('css')
 <style>
     .gallery_photo {
