@@ -15,7 +15,7 @@
                     <i class="fa fa-trash"></i> Delete all</button>
 							<div class="panel_body">
 								<div class="table-responsive">
-                                <table id="dataTableExample1" class="table table-bordered table-striped table-hover mb-2">
+                                <table id="dataTableExample1" class="table table-bordered table-striped table-hover mb-2" style="width: 100%">
 		                                <thead>
 		                                    <tr>
                                             <td>

@@ -53,8 +53,8 @@ $currentUrl = url()->current();
 																		<label for="exampleFormControlSelect1">Select Menu Category </label>
 																		<select class="form-control" id="menu_cat">
 																			<option disabled selected>Select Menu Category</option>
-																			<option value="1">Page</option>
-																			<option value="2">Category</option>
+																			<option value="1">Category</option>
+																			<option value="2">SubCategory</option>
 																		</select>
 																	</div>
 																</p>
@@ -233,7 +233,7 @@ $currentUrl = url()->current();
 
 							@php
 
-							$public_menu = Harimayco\Menu\Facades\Menu::getByName('Public');
+							$public_menu = Harimayco\Menu\Facades\Menu::getByName('Main Menu');
 
 
 
@@ -245,13 +245,16 @@ $currentUrl = url()->current();
 							<!-- front page area start -->
 
 
+							
+
+
 
 							<div class="manage-menus">
 								<div class="row">
 
 									@if($public_menu)
 									<div class="col-lg-6">
-										<h6><u>Public Menus</u></h6>
+										<h6><u>Your Menu's</u></h6>
 										<ul class="menu ui-sortable" id="menu-to-edit">
 
 											@foreach($public_menu as $menu)
@@ -282,37 +285,7 @@ $currentUrl = url()->current();
 									@endif
 
 									
-									@if($public_menu)
-									<div class="col-lg-6">
-										<h6><u>Footer Menus</u></h6>
-										<ul class="menu ui-sortable" id="menu-to-edit">
-
-											@foreach($public_menu as $menu)
-											<li id="menu-item" class="menu-item menu-item-depth menu-item-page menu-item-edit-inactive pending" style="display: list-item;">
-												<dl class="menu-item-bar">
-													<dt class="menu-item-handle" style="width: 100%">
-														<span class="item-title"> <span class="menu-item-title"> <span id="menutitletemp_vfdssd">{{ $menu['label'] }}</span> <span style="color: transparent;"></span> </span> <span class="is-submenu">Main Menu</span> </span>
-														<span class="item-controls"> </span> <a class="item-edit" id="edit" title=" " href=""> </a> </span>
-													</dt>
-												</dl>
-
-												@if( $menu['child'] )
-												<dl class="menu-item-bar">
-													@foreach( $menu['child'] as $child )
-													<dt class="menu-item-handle" style="margin-left: 50px;width:80%;margin-top:5px">
-														<span class="item-title"> <span class="menu-item-title"> <span id="menutitletemp_vfdssd">{{ $child['label'] }}</span> <span style="color: transparent;"></span> </span> <span class="is-submenu">Sub Menu</span> </span>
-														<span class="item-controls"> </span> <a class="item-edit" id="edit" title=" " href=""> </a> </span>
-													</dt>
-													@endforeach
-												</dl>
-												@endif
-												<ul class="menu-item-transport"></ul>
-											</li>
-											@endforeach
-
-										</ul>
-									</div>
-									@endif
+								
 
 								</div>
 							</div>

@@ -24,14 +24,15 @@ class SubCategoryController extends Controller
 
     public function store(Request $request){
         
-        $subcat =Category::findOrFail($request->cate_id)->name;
+       $cat =Category::findOrFail($request->cate_id)->name;
         
 
-    	 $title=$request['name'];
-         $subcate_slug=$request['slug'];
+    	$title=$request['name'];
+        $subcate_slug=$request['slug'];
 
          $inputslug=str_replace(" ", "-", $subcate_slug);
-         $inputslug =$inputslug.'/'.$subcat;
+
+
          $slug = str_replace(" ", "-", $title);
 
          if($subcate_slug){
@@ -48,14 +49,19 @@ class SubCategoryController extends Controller
                    'cate_id'=>$request['cate_id'],
                    'created_at'=>Carbon::now()->toDateTimeString(),
                  ]);
+
+
+                 $inputmenuslug =$cat.'/'.$subcate_slug;
+
                  $menustable=Menu::insert([
                  	'name'=>$request['name'],
-                 	'url'=>$inputslug,
+                 	'url'=>$inputmenuslug,
                  	'type'=>'1',
                  	'non_id'=>$insert,
                  	'cate_type'=>'2',
                  	'created_at'=>Carbon::now()->toDateTimeString(),
                  ]);
+
 
                  if($insert){
                       $notification=array(
@@ -86,14 +92,19 @@ class SubCategoryController extends Controller
                'created_at'=>Carbon::now()->toDateTimeString(),
         
              ]);
+
+             $inputmenuslug =$cat.'/'.$slug;
+
               $menustable=Menu::insert([
                  	'name'=>$request['name'],
-                 	'url'=>$slug,
+                 	'url'=>$inputmenuslug,
                  	'type'=>'1',
                  	'non_id'=>$insert,
                  	'cate_type'=>'2',
                  	'created_at'=>Carbon::now()->toDateTimeString(),
                  ]);
+
+                 
 
              if($insert){
                   $notification=array(
@@ -206,13 +217,19 @@ class SubCategoryController extends Controller
     		return json_encode($data);
     	}
 
+
+
     	// update
     	public function update(Request $request){
+            $cat =Category::findOrFail($request->cate_id)->name;
     	  $id=$request->id;
     	  $title=$request['name'];
           $subcate_slug=$request['slug'];
 
          $inputslug=str_replace(" ", "-", $subcate_slug);
+
+         
+
          $slug = str_replace(" ", "-", $title);
 
          if($subcate_slug){
@@ -228,9 +245,12 @@ class SubCategoryController extends Controller
                    'cate_id'=>$request['cate_id'],
                    'updated_at'=>Carbon::now()->toDateTimeString(),
                  ]);
+
+                 $inputmenuslug =$cat.'/'.$subcate_slug;
+
                  $menustable=Menu::where('cate_type',2)->where('non_id',$id)->update([
                  	'name'=>$request['name'],
-                 	'url'=>$inputslug,
+                 	'url'=>$inputmenuslug,
                  	'updated_at'=>Carbon::now()->toDateTimeString(),
                  ]);
 
@@ -263,9 +283,12 @@ class SubCategoryController extends Controller
                'updated_at'=>Carbon::now()->toDateTimeString(),
         
              ]);
+
+             $inputmenuslug =$cat.'/'.$slug;
+
               $menustable=Menu::where('cate_type',2)->where('non_id',$id)->update([
                  	'name'=>$request['name'],
-                 	'url'=>$slug,
+                 	'url'=>$inputmenuslug,
                  	'updated_at'=>Carbon::now()->toDateTimeString(),
                  ]);
 

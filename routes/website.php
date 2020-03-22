@@ -1,4 +1,9 @@
 <?php
+
+use App\Logo;
+use App\OurSay;
+use App\Page;
+use App\Unique;
 use Harimayco\Menu\Facades\Menu;
 
 
@@ -27,23 +32,25 @@ Route::namespace('Website')->group(function(){
     Route::get('/{slug}', 'FrontendController@category');
     Route::get('/{cat}/{subcat}', 'FrontendController@subcategory');
     Route::get('/details/{slug}/{id}', 'FrontendController@detailsNews');
+    Route::get('/site/pages/{slug}', 'FrontendController@pageDetails');
 });
 
 View::composer(['*'],function($view){
-    $public_menu = Menu::getByName('Public');
-    $view->with('public_menu',$public_menu);
+    $public_menu = Menu::getByName('Main Menu');
+    $oursay =OurSay::first();
+    $logo = Logo::select('frontlogo')->first();
+    $socials = Unique::where('key','social')->first();
+    $pages = Page::where('deleted_at',NULL)->get();
+    // $view->with('public_menu',$public_menu)->with('oursay',$oursay);
+    $view->with([
+        'public_menu'=>$public_menu,
+        'oursay'=>$oursay,
+        'logo'=>$logo,
+        'social'=>$socials,
+        'pages'=>$pages,
+    ]);
 });
 
 
-    Route::get('/archive', 'FrontendController@archive');
-    Route::get('/news/getdistrict/{division_id}', 'FrontendController@getdistrict');
-    Route::get('/news/getsubdistrict/{district_id}', 'FrontendController@getsubdistrict');
-
-    Route::get('/division', 'FrontendController@division');
-
-    Route::get('/division', 'FrontendController@division');
-    Route::get('/videodetails/{slug}/{id}', 'FrontendController@videodetails');
-    
-});
 
 

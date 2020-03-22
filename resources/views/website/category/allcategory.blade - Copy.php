@@ -1,6 +1,7 @@
 @extends('website.master')
 @section('content')
-<!-- ad section start -->
+<!-- news navbar end-->
+    <!-- ad section start -->
     <section class="ad mt-2">
         <div class="container">
             <div class="row">
@@ -28,7 +29,7 @@
                                     <i class="fas fa-home text-danger"></i>
                                 </a></li>
                             <li class="breadcrumb-item text-default active" aria-current="page" style="font-size: 14px;">
-                                All Category</li>
+                                Bangladesh</li>
                           
                         </ol>
                     </div>
@@ -37,7 +38,11 @@
 
 
 
-                
+
+
+
+
+
                 @foreach($categores as $category)
 
                 @php
@@ -58,41 +63,58 @@
                        
                     </div>
                 </div>
-
-
-
+                
+                
                 <div class="row">
 
 
+               
+
                 @foreach($newslist as $news)
+
+                
                     <div class="col-sm-3">
                         <div class="single-block">
                             <div class="img_box">
-                                <a href="@if($news->post_type==2) href="{{url('/videodetails/'.$news->slug.'/'.$news->id)}}" @else href="{{url('/details')}}/{{$news->slug}}/{{$news->id}} @endif>
-                                    <img src="{{asset('public/uploads/newspost/mediumthum')}}/{{$news->image}}" class="w-100" alt="">
+                                <a href="#">
+                                    <img src="{{asset('public/uploads/newspost/')}}/{{$news->image}}" class="w-100" alt="">
                                 </a>
                                 <h4 class="photo_head">
-                                    <a href="#">
-                                    {{Str::limit($news->title,70)}}
+                                    <a href="{{url('')}}">
+                                        {{Str::limit($news->title,70)}}
                                     </a>
                                 </h4>
                             </div>
                         </div>
                     </div>
+
                     @endforeach
+                 
 
 
-                   
-                  
                 </div>
-            @endif
-        @endforeach
-
-
-
-              
+                @endif
+                
             </div>
-            
+
+            @endforeach
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
     </section>
 
@@ -113,6 +135,4 @@
         </div>
     </section>
     <!-- ad part end -->
-   
-
     @endsection

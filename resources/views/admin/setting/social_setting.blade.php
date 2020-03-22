@@ -27,6 +27,12 @@
                                       </div>
                                       <input type="hidden" name="id" class="form-control"value="1">
                                       <input type="text" name="facebook" class="form-control" placeholder="Facebook" value="{{$social->info->facebook}}">
+                                      <br>
+                                      @error('facebook')
+                                      <div class="text-danger">
+                                        <span>{{$message}}</span>
+                                      </div>
+                                      @enderror
                                     </div>
                                     
                                 </div>
@@ -39,7 +45,12 @@
                                       <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="fab fa-twitter"></i></span>
                                       </div>
-                                      <input type="text" name="twitter" class="form-control"  placeholder="Twitter" value="{{$social->info->twitter}}">
+                                      <input type="text" name="twitter" class="form-control"  placeholder="Twitter" value="{{$social->info->twitter}}"><br>
+                                      @error('twitter')
+                                      <div class="text-danger">
+                                        <span>{{$message}}</span>
+                                      </div>
+                                      @enderror
                                     </div>
                                     
                                 </div>
@@ -51,7 +62,12 @@
                                       <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="fab fa-youtube"></i></span>
                                       </div>
-                                      <input type="text" name="youtube" class="form-control" placeholder="Youtube" value="{{$social->info->youtube}}">
+                                      <input type="text" name="youtube" class="form-control" placeholder="Youtube" value="{{$social->info->youtube}}"><br>
+                                      @error('youtube')
+                                      <div class="text-danger">
+                                        <span>{{$message}}</span>
+                                      </div>
+                                      @enderror
                                     </div>
                                     
                                 </div>
@@ -63,7 +79,12 @@
                                       <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="fab fa-instagram"></i></span>
                                       </div>
-                                      <input type="text" name="instagram" class="form-control" placeholder="Instragram" value="{{$social->info->instagram}}">
+                                      <input type="text" name="instagram" class="form-control" placeholder="Instragram" value="{{$social->info->instagram}}"><br>
+                                      @error('instagram')
+                                      <div class="text-danger">
+                                        <span>{{$message}}</span>
+                                      </div>
+                                      @enderror
                                     </div>
                                     
                                 </div>
@@ -75,7 +96,12 @@
                                       <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="fab fa-android"></i></span>
                                       </div>
-                                      <input type="text" name="android" class="form-control" placeholder="Android" value="{{$social->info->android}}">
+                                      <input type="text" name="android" class="form-control" placeholder="Android" value="{{$social->info->android}}"><br>
+                                      @error('android')
+                                      <div class="text-danger">
+                                        <span>{{$message}}</span>
+                                      </div>
+                                      @enderror
                                     </div>
                                     
                                 </div>
@@ -87,7 +113,12 @@
                                       <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="fab fa-apple"></i></span>
                                       </div>
-                                      <input type="text" name="apple" class="form-control" placeholder="Apple" value="{{$social->info->apple}}">
+                                      <input type="text" name="apple" class="form-control" placeholder="Apple" value="{{$social->info->apple}}"><br>
+                                      @error('apple')
+                                      <div class="text-danger">
+                                        <span>{{$message}}</span>
+                                      </div>
+                                      @enderror
                                     </div>
                                     
                                 </div>
@@ -99,7 +130,10 @@
                                       <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-rss-square"></i></span>
                                       </div>
-                                      <input type="text" name="feed" class="form-control" placeholder="Feed" value="{{$social->info->feed}}">
+                                      <input type="text" name="feed" class="form-control" placeholder="Feed" value="{{$social->info->feed}}"><br>
+                                      @error('feed')
+                                        <span class="text-danger">{{$message}}</span>
+                                      @enderror
                                     </div>
                                     
                                 </div>
