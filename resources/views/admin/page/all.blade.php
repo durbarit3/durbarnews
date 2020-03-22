@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'All Pages')
 @section('content')
 <div class="middle_content_wrapper">
 					<section class="page_content">
@@ -23,7 +24,7 @@
 														<input type="checkbox" id="selectall">
                                                         <span class="checkmark"></span>
                                                         <small>Select All</small>
-                                                        
+
 													</label>
 		                                        </td>
 		                                        <th>Title</th>
@@ -31,12 +32,12 @@
 		                                        <th>Description </th>
 		                                        <th>Meta Tag</th>
 		                                        <th>Meta Description </th>
-		                                        <th>Action</th> 
+		                                        <th>Action</th>
 		                                    </tr>
 		                                </thead>
 		                                <tbody>
                                             @foreach($pages as $page)
-                                            
+
 		                                    <tr>
 		                                        <td>
 													<label class="chech_container mb-4">
@@ -49,17 +50,17 @@
 		                                        <td>{!!substr($page->description,0,60)!!}..</td>
 		                                        <td>{{$page->meta_tag}}</td>
 		                                        <td>{{$page->meta_description}}</td>
-		                                     
+
 		                                        <td>
-		                                            
+
 		                                            <a href="{{route('admin.page.show',$page->id)}}" class="btn btn-primary btn-sm my-2" data-toggle="tooltip" data-placement="left" title="" data-original-title="Update"><i class="far fa-eye"></i></a>
 		                                            <a href="{{route('admin.page.edit',$page->id)}}" class="btn btn-warning btn-sm my-2" data-toggle="tooltip" data-placement="left" title="" data-original-title="Update"><i class="far fa-edit"></i></a>
 		                                            <a href="{{route('admin.page.delete',$page->id)}}" id="delete" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="right" title="" data-original-title="Delete "><i class="far fa-trash-alt"></i></a>
 		                                        </td>
                                             </tr>
-                                           
+
                                             @endforeach
-		                                
+
 		                                </tbody>
 		                            </table>
 		                          </div>
@@ -67,7 +68,7 @@
                             </form>
 						</div><!--/ panel -->
 
-			
+
 
 
 
@@ -76,6 +77,6 @@
 
 				<!-- start code here... -->
 
-					
+
                 </div><!--/middle content wrapper-->
                 @endsection

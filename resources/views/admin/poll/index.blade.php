@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'Polls')
 @section('content')
 
 	<!--middle content wrapper-->
@@ -59,11 +60,11 @@
 											<span class="btn btn-danger btn-sm">Deactive</span>
 											@endif
 										</td>
-										
+
 										<td>
 												<a class="editcat btn btn-sm btn-info" data-id="{{$data->id}}" title="edit"  data-toggle="modal" data-target="#editModal"><i class="fas fa-pencil-alt"></i></a> |
 		                                      	@if($data->status==1)
-		                                      	<a class="btn btn-sm btn-success" href="{{url('admin/poll/deactive/'.$data->id)}}" id="TopbarActive"><i class="fas fa-thumbs-up"></i> </a> 
+		                                      	<a class="btn btn-sm btn-success" href="{{url('admin/poll/deactive/'.$data->id)}}" id="TopbarActive"><i class="fas fa-thumbs-up"></i> </a>
 		                                      	@else
 		                                      	<a class="btn btn-sm btn-secondary" href="{{url('admin/poll/active/'.$data->id)}}" id="TopbarActive"><i class="fas fa-thumbs-down"></i> </a>
 		                                      	@endif
@@ -71,7 +72,7 @@
 										</td>
 									</tr>
 									@endforeach
-									
+
 								</tbody>
 							</table>
 						</div>
@@ -168,9 +169,9 @@
 		                <div class="col-sm-8">
 		                   <div class="skin-flat">
 		                      <div class="row">
-		                      
+
 		                          <div class="col-sm-6" id="is_top">
-		                             
+
 		                          </div>
 		                      </div>
 		                  </div>
@@ -232,7 +233,7 @@
 						$("#meta_description").val(data.meta_description);
 						$("#meta_keyword").val(data.meta_keyword);
 
-						
+
 
 					}
 				});

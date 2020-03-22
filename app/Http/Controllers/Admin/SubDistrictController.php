@@ -104,12 +104,23 @@ class SubDistrictController extends Controller
 
     public function delete($subDistrictId)
     {
-        SubDistrict::where('id', $subDistrictId)->delete();
-        $notification = array(
-            'messege' => 'Sub-District is deleted permanently',
-            'alert-type' => 'success'
-        );
-        return Redirect()->back()->with($notification);
+
+        $subDistrict = SubDistrict::with('news_posts')->where('id', $subDistrictId)->first();
+        if ($subDistrict->news_posts) {
+            $notification = array(
+                'messege' => 'You can not deleted this district, cause there are some post under this sub-district',
+                'alert-type' => 'error'
+            );
+            return Redirect()->back()->with($notification);
+        }else{
+            $subDistrict->delete();
+            $notification = array(
+                'messege' => 'Sub-District is deleted permanently',
+                'alert-type' => 'success'
+            );
+            return Redirect()->back()->with($notification);
+        }
+
     }
 
     public function multipleDelete(Request $request)

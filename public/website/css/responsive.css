@@ -1,7 +1,12 @@
 
 @media (max-width: 575.98px) {
     
-  
+   .probile_tbl{
+    display: none;
+}
+.probile_tbl_mb{
+    display: block !important;
+}
    header.navbar{
         padding: 10px 0px;
     }

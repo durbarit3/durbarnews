@@ -97,6 +97,7 @@ class NewsPostController extends Controller
 		            Image::make($image)->resize(580, 390)->save('public/uploads/newspost/bigthum/' . $ImageName);
                     Image::make($image)->resize(270, 180)->save('public/uploads/newspost/mediumthum/' . $ImageName);
                     Image::make($image)->resize(125, 65)->save('public/uploads/newspost/small/' . $ImageName);
+                    Image::make($image)->resize(750, 390)->save('public/uploads/newspost/detailsthum/' . $ImageName);
 		            $data->image = $ImageName;
 		        }
 		        if($data->save()){
@@ -268,6 +269,7 @@ class NewsPostController extends Controller
 		             Image::make($image)->resize(580, 390)->save('public/uploads/newspost/bigthum/' . $ImageName);
                     Image::make($image)->resize(270, 180)->save('public/uploads/newspost/mediumthum/' . $ImageName);
                     Image::make($image)->resize(125, 65)->save('public/uploads/newspost/small/' . $ImageName);
+                    Image::make($image)->resize(750, 390)->save('public/uploads/newspost/detailsthum/' . $ImageName);
 		            $data->image = $ImageName;
 		        }
 		        if($data->save()){

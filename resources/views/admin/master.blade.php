@@ -8,9 +8,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="{{asset('public/admins/images/favicon.png')}}">
+    <link rel="icon" href="{{asset('public/admins/images/logo/'.$logos->favicon)}}">
     <!--Page title-->
-    <title>Durbar School - Admin</title>
+    <title>@yield('title', $infornation = $companyInfo->info->name)</title>
     <!--bootstrap-->
     <link rel="stylesheet" href="{{asset('public/admins/css/bootstrap.min.css')}}">
     <!--font awesome-->

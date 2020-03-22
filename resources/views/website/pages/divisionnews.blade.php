@@ -10,554 +10,101 @@
                         <li class="breadcrumb-item"><a href="#">
                                 <i class="fas fa-home text-danger"></i>
                             </a></li>
-                        <li class="breadcrumb-item text-default active" aria-current="page" style="font-size: 14px;">
-                            Entertainment</li>
-                        <li class="breadcrumb-item text-default active" aria-current="page" style="font-size: 14px;">
-                            Bollywood</li>
+                        <li class="breadcrumb-item text-default active" aria-current="page" style="font-size: 14px;">{{$dis->division->name_bn}}</li>
+                        <li class="breadcrumb-item text-default active" aria-current="page" style="font-size: 14px;">{{$dis->name_bn}}</li>
                     </ol>
                 </div>
             </div>
           <div class="row">
               <div class="col-sm-12">
-                  <h1 class="map_icon"><i class="fas fa-map-marker-alt"></i> নীলফামারী</h1>
+                  <h1 class="map_icon"><i class="fas fa-map-marker-alt"></i> {{$dis->name_bn}}</h1>
               </div>
           </div>
           <div class="row">
               <div class="col-sm-12">
                   <div class="content_tags">
+                    @php
+                        $subdis=App\SubDistrict::where('district_id',$dis->id)->get();
+                    @endphp
                       <ul>
-                          <li><a href="#">ডোমার</a></li>
-                          <li><a href="#">ডিমলা</a></li>
-                          <li><a href="#">জলঢাকা</a></li>
-                          <li><a href="#">কিশোরগঞ্জ</a></li>
-                          <li><a href="#">নীলফামারী সদর</a></li>
-                       
+                        @foreach($subdis as $sub)
+                          <li><a href="{{url('subdistrict/news/map/news/'.$sub->id)}}">{{$sub->name}}</a></li>
+                        @endforeach
                       </ul>
                   </div>
               </div>
           </div>
+           @php
+                   $news=App\NewsPost::where('district_id',$dis->id)->OrderBy('id','DESC')->first();
+            @endphp
+             
             <div class="row">
                 <div class="col-sm-8 main-content">
+                     @if($news)
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="single-block-national">
                                 <div class="row">
+                                   
+                                  
                                     <div class="col-sm-8">
+                                        
                                         <div class="img_box">
                                             <a href="#">
-                                                <img src="images/liverpool-20200225090743.webp" class="w-100" alt="">
+                                                <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/bigthum/'.$news->image)}}" alt=""class="lazy w-100">
+                                                @if($news->post_type==2)
+                                                         <a @if($news->post_type==2) href="{{url('/videodetails/'.$news->slug.'/'.$news->id)}}" @else href="{{url('details/'.$news->slug.'/'.$news->id)}}" @endif class="play-button">
+                                                            <i class="fas fa-play"></i>
+                                                        </a>
+                                                @endif
+
                                             </a>
                                         </div>
+
                                     </div>
                                     <div class="col-sm-4 p-0 text-left">
                                         <div class="img_cont_national">
-                                            <h4><a href="#" style="text-decoration: none;color: #000;">Lorem ipsum dolor sit amet consectetur.</a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum at
-                                                dicta totam cumque natus quas itaque reiciendis quasi enim saepe!</p>
+                                            <h4><a @if($news->post_type==2) href="{{url('/videodetails/'.$news->slug.'/'.$news->id)}}" @else href="{{url('details/'.$news->slug.'/'.$news->id)}}" @endif style="text-decoration: none;color: #000;">{{Str::limit($news->title,40)}}</a></h4>
+                                            <p>{!! Str::limit($news->description,100) !!}</p>
                                         </div>
                                     </div>
+                                        
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row paddingtop">
+                        @php
+                            $relatedpost=App\NewsPost::where('district_id',$dis->id)->OrderBy('id','DESC')->Simplepaginate(10);
+                        @endphp
+                        @foreach($relatedpost as $rpost)
                         <div class="col-sm-6">
                             <div class="single-block-n">
                                 <div class="row">
                                     <div class="col-sm-5">
                                         <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/liverpool-20200225090743.webp" class="w-100" alt="">
+                                            <a @if($rpost->post_type==2) href="{{url('/videodetails/'.$rpost->slug.'/'.$rpost->id)}}" @else href="{{url('details/'.$rpost->slug.'/'.$rpost->id)}}" @endif>
+                                               <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/bigthum/'.$news->image)}}" alt=""class="lazy w-100">
+                                                @if($rpost->post_type==2)
+                                                         <a @if($rpost->post_type==2) href="{{url('/videodetails/'.$rpost->slug.'/'.$rpost->id)}}" @else href="{{url('details/'.$rpost->slug.'/'.$rpost->id)}}" @endif class="play-button">
+                                                            <i class="fas fa-play"></i>
+                                                        </a>
+                                                @endif
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-sm-7">
                                         <div class="image_cont_n">
                                             <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
+                                             <a href="#">{{Str::limit($rpost->title,40)}}</a>   
                                         </p>
                                         </div>
 
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/netflix-20200225162641.jpg" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-                    <div class="row paddingtop">
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/taijul-20200225100641.webp" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/netflix-20200225162641.jpg" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-                    <div class="row paddingtop">
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/trump-20200225164257.webp" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/sui-cover-20200226093202.webp" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-                    <div class="row paddingtop">
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/samira-01-20200226132030.webp" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/nayeem-20200225103539.jpg" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-                    <div class="row paddingtop">
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/mal-01-20200224205835.webp" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/jubo-20200225121652.webp" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-
-                    <div class="row paddingtop">
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/mal-01-20200224205835.webp" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/jubo-20200225121652.webp" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-                    <div class="row paddingtop">
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/mal-01-20200224205835.webp" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/jubo-20200225121652.webp" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-                    <div class="row paddingtop">
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/mal-01-20200224205835.webp" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/jubo-20200225121652.webp" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-                    <div class="row paddingtop">
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/mal-01-20200224205835.webp" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7 p-0">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/jubo-20200225121652.webp" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-                    <div class="row paddingtop">
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/mal-01-20200224205835.webp" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-block-n">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="img_box_n">
-                                            <a href="#">
-                                                <img src="images/jubo-20200225121652.webp" class="w-100" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="image_cont_n">
-                                            <p>
-                                             <a href="#">Lorem ipsum dolor sit amet.Lorem ipsum dolor.</a>   
-                                        </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
+                        @endforeach
 
 
                     </div>
@@ -565,13 +112,15 @@
                     <div class="row mt-3">
                         <div class="col-sm-12 text-center">
                             <div class="read">
-                                <a href="#">Read More</a>
+                               {{$relatedpost->links()}}
                             </div>
                         </div>
                     </div>
-
+                    @else
+                        <p style="color: red"> No Data Found</p>
+                    @endif
                 </div>
-
+               
                 <div class="col-sm-4 aside">
 
 
@@ -579,329 +128,11 @@
                         <div class="col-sm-12">
                             <!-- tabs part -->
                             <div class="row mt-4">
-                                <div class="col-sm-12 news_list three">
-                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
-                                                role="tab" aria-controls="home" aria-selected="true">Sports</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link three" id="profile-tab" data-toggle="tab" href="#profile"
-                                                role="tab" aria-controls="profile"
-                                                aria-selected="false">Entertainment</a>
-                                        </li>
-                                        <li class="nav-item three">
-                                            <a class="nav-link" id="life-tab" data-toggle="tab" href="#lifestyle"
-                                                role="tab" aria-controls="profile" aria-selected="false">Lifestyle</a>
-                                        </li>
-
-                                    </ul>
-                                    <div class="tab-content nav-detail" id="myTabContent">
-                                        <div class="tab-pane fade show active" id="home" role="tabpanel"
-                                            aria-labelledby="home-tab">
-                                            <ul class="media-list">
-                                                <li class="media">
-                                                    <div class="media-left">
-                                                        <span>1</span>
-                                                        <a href="#">
-                                                            <img src="images/ashraful-20200225104941.jpg"
-                                                                alt="no-image">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="media-heading">
-                                                            <h4>
-                                                                <a href="#"
-                                                                    style="font-size:16px;font-weight:600;color:#000">
-                                                                    Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <li class="media">
-                                                    <div class="media-left">
-                                                        <span>2</span>
-                                                        <a href="#">
-                                                            <img src="images/samira-01-20200226132030.webp"
-                                                                alt="no-image">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="media-heading">
-                                                            <h4>
-                                                                <a href="#"
-                                                                    style="font-size:16px;font-weight:600;color:#000">
-                                                                    Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <li class="media">
-                                                    <div class="media-left">
-                                                        <span>3</span>
-                                                        <a href="#">
-                                                            <img src="images/netflix-20200225162641.jpg" alt="no-image">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="media-heading">
-                                                            <h4>
-                                                                <a href="#"
-                                                                    style="font-size:16px;font-weight:600;color:#000">
-                                                                    Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <li class="media">
-                                                    <div class="media-left">
-                                                        <span>4</span>
-                                                        <a href="#">
-                                                            <img src="images/nayeem-20200225103539.jpg" alt="no-image">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="media-heading">
-                                                            <h4>
-                                                                <a href="#"
-                                                                    style="font-size:16px;font-weight:600;color:#000">
-                                                                    Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <li class="media">
-                                                    <div class="media-left">
-                                                        <span>5</span>
-                                                        <a href="#">
-                                                            <img src="images/iran-20200223220447.webp" alt="no-image">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="media-heading">
-                                                            <h4>
-                                                                <a href="#"
-                                                                    style="font-size:16px;font-weight:600;color:#000">
-                                                                    Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <li class="media">
-                                                    <div class="media-left">
-                                                        <span>7</span>
-                                                        <a href="#">
-                                                            <img src="images/afridi-20200225095919.webp" alt="no-image">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="media-heading">
-                                                            <h4>
-                                                                <a href="#"
-                                                                    style="font-size:16px;font-weight:600;color:#000">
-                                                                    Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-
-
-
-                                        </div>
-                                        <!-- second tab -->
-                                        <div class="tab-pane fade" id="profile" role="tabpanel"
-                                            aria-labelledby="profile-tab">
-
-                                            <ul class="media-list">
-                                                <li class="media">
-                                                    <div class="media-left">
-                                                        <span>1</span>
-                                                        <a href="#">
-                                                            <img src="images/jubo-20200225121652.webp" alt="no-image">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="media-heading">
-                                                            <h4>
-                                                                <a href="#"
-                                                                    style="font-size:16px;font-weight:600;color:#000">
-                                                                    Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <li class="media">
-                                                    <div class="media-left">
-                                                        <span>2</span>
-                                                        <a href="#">
-                                                            <img src="images/samira-01-20200226132030.webp"
-                                                                alt="no-image">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="media-heading">
-                                                            <h4>
-                                                                <a href="#"
-                                                                    style="font-size:16px;font-weight:600;color:#000">
-                                                                    Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <li class="media">
-                                                    <div class="media-left">
-                                                        <span>3</span>
-                                                        <a href="#">
-                                                            <img src="images/netflix-20200225162641.jpg" alt="no-image">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="media-heading">
-                                                            <h4>
-                                                                <a href="#"
-                                                                    style="font-size:16px;font-weight:600;color:#000">
-                                                                    Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-
-                                            </ul>
-
-                                        </div>
-                                        <!-- third tab -->
-                                        <div class="tab-pane fade" id="lifestyle" role="tabpanel"
-                                            aria-labelledby="profile-tab">
-
-                                            <ul class="media-list">
-                                                <li class="media">
-                                                    <div class="media-left">
-                                                        <span>1</span>
-                                                        <a href="#">
-                                                            <img src="images/iran-20200223220447.webp" alt="no-image">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="media-heading">
-                                                            <h4>
-                                                                <a href="#"
-                                                                    style="font-size:16px;font-weight:600;color:#000">
-                                                                    Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <li class="media">
-                                                    <div class="media-left">
-                                                        <span>2</span>
-                                                        <a href="#">
-                                                            <img src="images/samira-01-20200226132030.webp"
-                                                                alt="no-image">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="media-heading">
-                                                            <h4>
-                                                                <a href="#"
-                                                                    style="font-size:16px;font-weight:600;color:#000">
-                                                                    Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <li class="media">
-                                                    <div class="media-left">
-                                                        <span>3</span>
-                                                        <a href="#">
-                                                            <img src="images/netflix-20200225162641.jpg" alt="no-image">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="media-heading">
-                                                            <h4>
-                                                                <a href="#"
-                                                                    style="font-size:16px;font-weight:600;color:#000">
-                                                                    Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="media">
-                                                    <div class="media-left">
-                                                        <span>4</span>
-                                                        <a href="#">
-                                                            <img src="images/kakrul-20200224092614.webp" alt="no-image">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="media-heading">
-                                                            <h4>
-                                                                <a href="#"
-                                                                    style="font-size:16px;font-weight:600;color:#000">
-                                                                    Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="media">
-                                                    <div class="media-left">
-                                                        <span>5</span>
-                                                        <a href="#">
-                                                            <img src="images/samira-01-20200226132030.webp"
-                                                                alt="no-image">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div class="media-heading">
-                                                            <h4>
-                                                                <a href="#"
-                                                                    style="font-size:16px;font-weight:600;color:#000">
-                                                                    Lorem ipsum dolor sit, amet consectetur adipisicing.
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                            </ul>
-
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                             <!-- today news -->
                             <div class="row">
-                                <div class="col-sm-12 p-0 text-center">
-                                    <div class="td_news">
-                                        <a href="#">
-                                            Today's News
-                                        </a>
-                                    </div>
-                                </div>
+                               
                             </div>
 
                             <div class="row mt-4">

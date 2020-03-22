@@ -41,7 +41,7 @@ class TeamController extends Controller
             
             $image = $request->file('image');
             $imagename = time().'team'. '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(160, 80)->save(base_path('public/admins/images/team/' . $imagename), 100);
+            Image::make($image)->resize(244,163)->save(base_path('public/admins/images/team/' . $imagename), 100);
             $team->image = $imagename;
             $team->save();
         }
@@ -87,7 +87,7 @@ class TeamController extends Controller
 
             $image = $request->file('image');
             $imagename = time().'team'. '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(160, 80)->save(base_path('public/admins/images/team/' . $imagename), 100);
+            Image::make($image)->resize(244,163)->save(base_path('public/admins/images/team/' . $imagename), 100);
             $team->image = $imagename;
             $team->save();
         }

@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'Social Media Settings')
 @section('content')
 
 <div class="middle_content_wrapper">
@@ -17,7 +18,7 @@
 
                             <form class="py-2" action="{{route('admin.social.update')}}" method="post">
                                 @csrf
-                         
+
                             <div class="form-group row">
                               <div class="col-sm-2"></div>
                               <div class="col-sm-12">
@@ -34,7 +35,7 @@
                                       </div>
                                       @enderror
                                     </div>
-                                    
+
                                 </div>
                             </div>
 
@@ -52,7 +53,7 @@
                                       </div>
                                       @enderror
                                     </div>
-                                    
+
                                 </div>
                             </div>
                              <div class="form-group row">
@@ -69,7 +70,7 @@
                                       </div>
                                       @enderror
                                     </div>
-                                    
+
                                 </div>
                             </div>
                              <div class="form-group row">
@@ -86,7 +87,7 @@
                                       </div>
                                       @enderror
                                     </div>
-                                    
+
                                 </div>
                             </div>
                              <div class="form-group row">
@@ -103,7 +104,7 @@
                                       </div>
                                       @enderror
                                     </div>
-                                    
+
                                 </div>
                             </div>
                              <div class="form-group row">
@@ -120,7 +121,7 @@
                                       </div>
                                       @enderror
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <div class="form-group row ">
@@ -135,14 +136,14 @@
                                         <span class="text-danger">{{$message}}</span>
                                       @enderror
                                     </div>
-                                    
+
                                 </div>
                             </div>
 
 
-                       
-                          
-                            
+
+
+
                           <div class="form-group row text-center">
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-12">
