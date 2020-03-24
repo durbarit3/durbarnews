@@ -15,7 +15,7 @@
                 <div class="col-sm-12 text-center">
                     <div class="ad_main">
                         <a href="#">
-                            <img src="images/15798962006367364458.gif" class="w-100" alt="">
+                            <img src="{{asset('public/website')}}/images/15798962006367364458.gif" class="w-100" alt="">
 
                         </a>
                     </div>
@@ -150,7 +150,7 @@
                 <div class="col-sm-8 offset-2">
                     <div class="ad-part">
                         <a href="#">
-                            <img src="images/3325802211444676497.jpg" class="w-100" alt="no-image">
+                            <img src="{{asset('public/website')}}/images/3325802211444676497.jpg" class="w-100" alt="no-image">
                         </a>
                     </div>
                 </div>
@@ -203,7 +203,7 @@
                 <div class="col-sm-8 offset-2">
                     <div class="ad-part">
                         <a href="#">
-                            <img src="images/BG.jpg" class="w-100" alt="no-image">
+                            <img src="{{asset('public/website')}}/images/BG.jpg" class="w-100" alt="no-image">
                         </a>
                     </div>
                 </div>

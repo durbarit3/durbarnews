@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-sm-12 text-justify">
                     <div class="news-about">
-                        <p>{!! $oursay->description !!}
+                        <p>
                         </p>
                     </div>
                 </div>

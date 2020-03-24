@@ -212,7 +212,7 @@
                                     <img src="{{asset('public/website/')}}/images/lazy_loader.png" data-src="{{asset('public/uploads/newspost/mediumthum/'.$videopostlatest->image)}}" alt=""class="lazy w-100">
 
                                     @if($videopostlatest->post_type==2)
-                                             <a href="#" class="play-button">
+                                             <a href="{{url('/videodetails/'.$videopostlatest->slug.'/'.$videopostlatest->id)}}" class="play-button">
                                                 <i class="fas fa-play"></i>
                                             </a>
                                     @endif
@@ -532,7 +532,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                         <form action="{{url('/news/division/search')}}" method="post">
+                         <form action="{{route('website.search.place.wise')}}" method="get">
                             @csrf
                             <div class="link_part">
                                 <h2 class="heading-link text-center">
