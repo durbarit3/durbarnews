@@ -2,7 +2,7 @@
 @section('content')
 
 <!-- ad section start -->
- <section id="ad" style="padding: 10px 0px;" <div class="container">
+ <section id="ad" style="padding: 10px 0px;"> <div class="container">
         <div class="row">
             <div class="col-sm-12 text-center">
                 <div class="ad_main">
@@ -4426,40 +4426,35 @@
                                 <div class="single-block">
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <form action="" method="">
+                                            <form action="{{route('website.search.place.wise')}}" method="get">
+                                                @csrf
                                                 <div class="row form-group">
                                                     <div class="col-sm-12">
                                                         <label for="division" class="sr-only">বিভাগ</label>
-                                                        <select class="form-control" id="division" name="division">
+                                                        <select class="form-control" id="division_id" name="division_id">
                                                             <option>--বিভাগ--</option>
-                                                            <option data-id="2" value="Barishal">বরিশাল</option>
-                                                            <option data-id="3" value="Dhaka">ঢাকা</option>
-                                                            <option data-id="4" value="Rajshahi">রাজশাহী</option>
-                                                            <option data-id="5" value="Chottagram">চট্টগ্রাম</option>
+                                                            @foreach($divi as $div)
+                                                            <option value="{{$div->id}}">{{$div->name_bn}}</option>
+                                                            @endforeach
+                                                        
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col-sm-12">
                                                         <label for="district" class="sr-only">জেলা</label>
-                                                        <select class="form-control" id="district" name="district">
+                                                        <select class="form-control" id="district_id" name="district_id">
                                                             <option>--জেলা--</option>
-                                                            <option data-id="2" value="Barishal">বরিশাল</option>
-                                                            <option data-id="3" value="Dhaka">ঢাকা</option>
-                                                            <option data-id="4" value="Rajshahi">রাজশাহী</option>
-                                                            <option data-id="5" value="Chottagram">চট্টগ্রাম</option>
+                                                         
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col-sm-12">
                                                         <label for="upazila" class="sr-only">উপজেলা</label>
-                                                        <select class="form-control" id="upazila" name="upazila">
+                                                        <select class="form-control" id="subdistrict_id" name="subdistrict_id">
                                                             <option>--উপজেলা--</option>
-                                                            <option data-id="2" value="Barishal">বরিশাল</option>
-                                                            <option data-id="3" value="Dhaka">ঢাকা</option>
-                                                            <option data-id="4" value="Rajshahi">রাজশাহী</option>
-                                                            <option data-id="5" value="Chottagram">চট্টগ্রাম</option>
+                                                           
                                                         </select>
                                                     </div>
                                                 </div>
@@ -4723,6 +4718,7 @@
 
 
                                     </div>
+                            </div> 
                 </aside>
             </div>
         </div>
@@ -4744,4 +4740,55 @@
         </div>
     </section>
     <!-- ad part end -->
+    <script>
+$(document).ready(function() {
+// district
+   $('select[name="division_id"]').on('change', function(){
+             var division_id = $(this).val();
+             //alert(division_id);
+             if(division_id) {
+                 $.ajax({
+                     url: "{{  url('/news/getdistrict/') }}/"+division_id,
+                     type:"GET",
+                     dataType:"json",
+                     success:function(data) {
+
+                            $('#district_id').empty();
+                            $('#district_id').append(' <option disabled selected>জেলা</option>');
+                            $.each(data,function(index,districtObj){
+                            $('#district_id').append('<option value="' + districtObj.id + '">'+districtObj.name_bn+'</option>');
+                          });
+                         }
+                 });
+             } else {
+                 //alert('danger');
+             }
+
+         });
+
+// subdistrict
+
+   $('select[name="district_id"]').on('change', function(){
+             var district_id = $(this).val();
+             //alert("success");
+             if(district_id) {
+                 $.ajax({
+                     url: "{{  url('/news/getsubdistrict/') }}/"+district_id,
+                     type:"GET",
+                     dataType:"json",
+                     success:function(data) {
+                            $('#subdistrict_id').empty();
+                            $('#subdistrict_id').append(' <option disabled selected>উপজেলা</option>');
+                            $.each(data,function(index,districtObj){
+                            $('#subdistrict_id').append('<option value="' + districtObj.id + '">'+districtObj.name+'</option>');
+                          });
+                         }
+                 });
+             } else {
+                 //alert('danger');
+             }
+
+         });
+     });
+</script>
     @endsection

@@ -38,7 +38,8 @@ class FrontendController extends Controller
     }
 
     public function map(){
-        return view('website.pages.deshnews');
+        $divi=Division::get();
+        return view('website.pages.deshnews',compact('divi'));
     }
 
      public function mapnews($id){

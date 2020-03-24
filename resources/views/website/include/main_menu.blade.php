@@ -44,10 +44,11 @@
                                         <div class="col-sm-3">
                                             <div class="mega_list">
                                                 <ul>
-                                                    <li><a href="{{route('categores')}}">Category</a></li>
+                                                    <li><a href="{{route('categores')}}">ক্যাটাগরি </a></li>
                                                     <li><a href="{{ route('website.archive.index') }}">আর্কাইভ</a></li>
                                                     <li><a href="{{ route('website.photo.gallery.index') }}">ফটো গ্যালারি</a></li>
-                                                    <li><a href="#">Item1</a></li>
+                                                    <li><a href="{{url('/district/news/map')}}">জেলার  খবর</a></li>
+                                                    
                                                 </ul>
                                             </div>
                                         </div>
@@ -55,13 +56,13 @@
                                         <div class="col-sm-3">
                                             <div class="other_list">
                                                 <ul>
-                                                    <li><a href="#"><i class="fab fa-accessible-icon"></i> Item1</a>
+                                                    <li><a href="{{url('/newsportal/ourteam/team')}}"><i class="fab fa-accessible-icon"></i> আমাদের টীম</a>
+                                                    </li>
+                                                   <!--  <li><a href="#"><i class="fab fa-accessible-icon"></i> Item1</a>
                                                     </li>
                                                     <li><a href="#"><i class="fab fa-accessible-icon"></i> Item1</a>
-                                                    </li>
-                                                    <li><a href="#"><i class="fab fa-accessible-icon"></i> Item1</a>
-                                                    </li>
-                                                    <li><a href="#"><i class="fab fa-accessible-icon"></i>Item1</a></li>
+                                                    </li> -->
+                                        
                                                 </ul>
                                             </div>
                                         </div>
